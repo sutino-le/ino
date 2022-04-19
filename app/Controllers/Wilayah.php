@@ -3,11 +3,18 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\ModelWilayah;
 use App\Models\ModelWilayahPagination;
 use Config\Services;
 
 class Wilayah extends BaseController
 {
+    public function __construct()
+    {
+        $this->wilayah = new ModelWilayah();
+    }
+
+
     public function index()
     {
         $data = [
@@ -52,7 +59,7 @@ class Wilayah extends BaseController
         }
     }
 
-    
+
     public function formtambah()
     {
         $json = [
@@ -62,5 +69,198 @@ class Wilayah extends BaseController
         echo json_encode($json);
     }
 
+    public function simpan()
+    {
+        if ($this->request->isAJAX()) {
+            $kelurahan      = $this->request->getPost('kelurahan');
+            $kecamatan      = $this->request->getPost('kecamatan');
+            $kota_kabupaten = $this->request->getPost('kota_kabupaten');
+            $propinsi       = $this->request->getPost('propinsi');
+            $kodepos        = $this->request->getPost('kodepos');
 
+            $validation = \Config\Services::validation();
+            $valid = $this->validate([
+                'kelurahan' => [
+                    'rules'     => 'required',
+                    'label'     => 'Kelurahan',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'kecamatan' => [
+                    'rules'     => 'required',
+                    'label'     => 'Kecamatan',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'kota_kabupaten' => [
+                    'rules'     => 'required',
+                    'label'     => 'Kota / Kabupaten',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'propinsi' => [
+                    'rules'     => 'required',
+                    'label'     => 'Propinsi',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'kodepos' => [
+                    'rules'     => 'required|numeric',
+                    'label'     => 'Kodepos',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong',
+                        'numeric'   => '{field} hanya dalam bentuk angka'
+                    ]
+                ],
+            ]);
+
+            if (!$valid) {
+                $json = [
+                    'error' => [
+                        'errKelurahan'      => $validation->getError('kelurahan'),
+                        'errKecamatan'      => $validation->getError('kecamatan'),
+                        'errKotaKabupaten'  => $validation->getError('kota_kabupaten'),
+                        'errPropinsi'       => $validation->getError('propinsi'),
+                        'errKodepos'        => $validation->getError('kodepos'),
+                    ]
+                ];
+            } else {
+                $modelWilayah = new ModelWilayah();
+
+                $modelWilayah->insert([
+                    'kelurahan'         => $kelurahan,
+                    'kecamatan'         => $kecamatan,
+                    'kota_kabupaten'    => $kota_kabupaten,
+                    'propinsi'          => $propinsi,
+                    'kodepos'           => $kodepos,
+                ]);
+
+                $json = [
+                    'sukses'        => 'Data berhasil disimpan'
+                ];
+            }
+
+
+            echo json_encode($json);
+        }
+    }
+
+
+    public function formedit($id_wilayah)
+    {
+
+        $cekData        = $this->wilayah->find($id_wilayah);
+        if ($cekData) {
+            $data = [
+                'id_wilayah'        => $cekData['id_wilayah'],
+                'kelurahan'         => $cekData['kelurahan'],
+                'kecamatan'         => $cekData['kecamatan'],
+                'kota_kabupaten'    => $cekData['kota_kabupaten'],
+                'propinsi'          => $cekData['propinsi'],
+                'kodepos'           => $cekData['kodepos'],
+            ];
+
+            $json = [
+                'data' => view('wilayah/modaledit', $data)
+            ];
+        }
+        echo json_encode($json);
+    }
+
+
+    public function updatedata()
+    {
+        if ($this->request->isAJAX()) {
+            $id_wilayah     = $this->request->getPost('id_wilayah');
+            $kelurahan      = $this->request->getPost('kelurahan');
+            $kecamatan      = $this->request->getPost('kecamatan');
+            $kota_kabupaten = $this->request->getPost('kota_kabupaten');
+            $propinsi       = $this->request->getPost('propinsi');
+            $kodepos        = $this->request->getPost('kodepos');
+
+            $validation = \Config\Services::validation();
+            $valid = $this->validate([
+                'kelurahan' => [
+                    'rules'     => 'required',
+                    'label'     => 'Kelurahan',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'kecamatan' => [
+                    'rules'     => 'required',
+                    'label'     => 'Kecamatan',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'kota_kabupaten' => [
+                    'rules'     => 'required',
+                    'label'     => 'Kota / Kabupaten',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'propinsi' => [
+                    'rules'     => 'required',
+                    'label'     => 'Propinsi',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'kodepos' => [
+                    'rules'     => 'required|numeric',
+                    'label'     => 'Kodepos',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong',
+                        'numeric'   => '{field} hanya dalam bentuk angka'
+                    ]
+                ],
+            ]);
+
+            if (!$valid) {
+                $json = [
+                    'error' => [
+                        'errKelurahan'      => $validation->getError('kelurahan'),
+                        'errKecamatan'      => $validation->getError('kecamatan'),
+                        'errKotaKabupaten'  => $validation->getError('kota_kabupaten'),
+                        'errPropinsi'       => $validation->getError('propinsi'),
+                        'errKodepos'        => $validation->getError('kodepos'),
+                    ]
+                ];
+            } else {
+
+                $this->wilayah->update($id_wilayah, [
+                    'kelurahan'         => $kelurahan,
+                    'kecamatan'         => $kecamatan,
+                    'kota_kabupaten'    => $kota_kabupaten,
+                    'propinsi'          => $propinsi,
+                    'kodepos'           => $kodepos,
+                ]);
+
+                $json = [
+                    'sukses'        => 'Data berhasil dirubah'
+                ];
+            }
+
+
+            echo json_encode($json);
+        }
+    }
+
+    public function hapus($id_wilayah)
+    {
+        $this->wilayah->delete($id_wilayah);
+
+        $json = [
+            'sukses' => 'Data berhasil dihapus'
+        ];
+
+
+        echo json_encode($json);
+    }
 }

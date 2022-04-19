@@ -1,10 +1,10 @@
 <!-- Modal -->
-<div class="modal fade" id="modalTambah" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="modalEdit" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
 
 
-            <form action="<?= base_url('wilayah/simpan') ?>" class="formsimpan">
+            <form action="<?= base_url('wilayah/updatedata') ?>" class="formsimpan">
 
                 <div class="modal-header bg-info text-white">
                     <h5 class="modal-title" id="staticBackdropLabel">Input Wilayah</h5>
@@ -13,33 +13,36 @@
                 </div>
                 <div class="modal-body">
 
+
+                    <input type="hidden" name="id_wilayah" id="id_wilayah" value="<?= $id_wilayah ?>">
+
                     <div class="form-group">
                         <label for="">Kelurahan</label>
-                        <input type="text" name="kelurahan" id="kelurahan" class="form-control" placeholder="Masukan Kelurahan...">
+                        <input type="text" name="kelurahan" id="kelurahan" value="<?= $kelurahan ?>" class="form-control" placeholder="Masukan Kelurahan...">
                         <div class="invalid-feedback errorKelurahan"></div>
                     </div>
 
                     <div class="form-group">
                         <label for="">Kecamatan</label>
-                        <input type="text" name="kecamatan" id="kecamatan" class="form-control" placeholder="Masukan Kecamatan...">
+                        <input type="text" name="kecamatan" id="kecamatan" value="<?= $kecamatan ?>" class="form-control" placeholder="Masukan Kecamatan...">
                         <div class="invalid-feedback errorKecamatan"></div>
                     </div>
 
                     <div class="form-group">
                         <label for="">Kota / Kabupaten</label>
-                        <input type="text" name="kota_kabupaten" id="kota_kabupaten" class="form-control" placeholder="Masukan Kota / Kabupaten...">
+                        <input type="text" name="kota_kabupaten" id="kota_kabupaten" value="<?= $kota_kabupaten ?>" class="form-control" placeholder="Masukan Kota / Kabupaten...">
                         <div class="invalid-feedback errorKabupaten"></div>
                     </div>
 
                     <div class="form-group">
                         <label for="">Propinsi</label>
-                        <input type="text" name="propinsi" id="propinsi" class="form-control" placeholder="Masukan Propinsi...">
+                        <input type="text" name="propinsi" id="propinsi" value="<?= $propinsi ?>" class="form-control" placeholder="Masukan Propinsi...">
                         <div class="invalid-feedback errorPropinsi"></div>
                     </div>
 
                     <div class="form-group">
                         <label for="">Kodepos</label>
-                        <input type="text" name="kodepos" id="kodepos" class="form-control" placeholder="MasukanKodepos...">
+                        <input type="text" name="kodepos" id="kodepos" value="<?= $kodepos ?>" class="form-control" placeholder="MasukanKodepos...">
                         <div class="invalid-feedback errorKodepos"></div>
                     </div>
 
@@ -107,24 +110,16 @@
                     }
 
                     if (response.sukses) {
-                        Swal.fire({
-                            title: 'Berhasil',
-                            text: response.sukses +
-                                ", Apakah ingin menambah Wilayah ?",
-                            icon: 'success',
-                            showCancelButton: true,
-                            confirmButtonColor: '#3085d6',
-                            cancelButtonColor: '#d33',
-                            confirmButtonText: 'Ya!'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                $('#modalTambah').modal('show');
-                                kosong();
-                            } else {
-                                window.location.reload();
-                            }
+                        $('#modalEdit').modal('hide');
+                        swal.fire(
+                            'Berhasil',
+                            response.sukses,
+                            'success'
+                        ).then((result) => {
+                            window.location.reload();
                         })
                     }
+
                 },
                 error: function(xhr, ajaxOptions, thrownError) {
                     alert(xhr.status + '\n' + thrownError);

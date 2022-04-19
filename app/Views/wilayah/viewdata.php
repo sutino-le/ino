@@ -29,8 +29,7 @@
         <div class="card-body mt-1">
             <div class="table-responsive">
 
-                <table style="width: 100%;" id="dataWilayah"
-                    class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
+                <table style="width: 100%;" id="dataWilayah" class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -55,52 +54,87 @@
 <div class="viewmodal" style="display: none;"></div>
 
 <script>
-function listDataWilayah() {
-    var table = $('#dataWilayah').dataTable({
-        destroy: true,
-        "processing": true,
-        "serverSide": true,
-        "order": [],
-        "ajax": {
-            "url": "/wilayah/listData",
-            "type": "POST",
-        },
-        "colomnDefs": [{
-            "targets": [0, 6],
-            "orderable": false,
-        }, ],
+    function listDataWilayah() {
+        var table = $('#dataWilayah').dataTable({
+            destroy: true,
+            "processing": true,
+            "serverSide": true,
+            "order": [],
+            "ajax": {
+                "url": "/wilayah/listData",
+                "type": "POST",
+            },
+            "colomnDefs": [{
+                "targets": [0, 6],
+                "orderable": false,
+            }, ],
+        });
+    }
+
+    $(document).ready(function() {
+        listDataWilayah();
     });
-}
-
-$(document).ready(function() {
-    listDataWilayah();
-});
 
 
-$(document).ready(function() {
+    $(document).ready(function() {
 
-$('#tambahKategori').click(function(e) {
-    e.preventDefault();
-    $.ajax({
-        type: "post",
-        url: "/wilayah/formtambah",
-        dataType: "json",
-        success: function(response) {
-            if (response.data) {
-                $('.viewmodal').html(response.data).show();
-                $('#modalTambah').modal('show');
+        $('#tambahKategori').click(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "post",
+                url: "/wilayah/formtambah",
+                dataType: "json",
+                success: function(response) {
+                    if (response.data) {
+                        $('.viewmodal').html(response.data).show();
+                        $('#modalTambah').modal('show');
+                    }
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status + '\n' + thrownError);
+                }
+            });
+        });
+
+    });
+
+    function edit(id_wilayah) {
+        $.ajax({
+            type: "post",
+            url: "/wilayah/formedit/" + id_wilayah,
+            dataType: "json",
+            success: function(response) {
+                if (response.data) {
+                    $('.viewmodal').html(response.data).show();
+                    $('#modalEdit').modal('show');
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + '\n' + thrownError);
             }
-        },
-        error: function(xhr, ajaxOptions, thrownError) {
-            alert(xhr.status + '\n' + thrownError);
-        }
-    });
-});
+        });
+    }
 
-});
-
-
-
+    function hapus(id_wilayah) {
+        $.ajax({
+            url: "/wilayah/hapus/" + id_wilayah,
+            dataType: "json",
+            success: function(response) {
+                if (response.sukses) {
+                    swal.fire(
+                        'Berhasil',
+                        response.sukses,
+                        'success'
+                    ).then((result) => {
+                        window.location.reload();
+                    })
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + '\n' + thrownError);
+            }
+        });
+    }
 </script>
 
 <?= $this->endSection('isi') ?>

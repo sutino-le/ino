@@ -84,14 +84,51 @@
                         <?php
                         // if (session()->idlevel == 1) :
                         if (session()->idlevel == 1) {
+                            $setting = "show";
+                            $levels = "show";
+                            $users = "show";
+
                             $master = "show";
                             $wilayah = "show";
                         } else {
+                            $setting = "none";
+                            $levels = "none";
+                            $users = "none";
+                            
                             $master = "none";
                             $wilayah = "none";
                         }
 
                         ?>
+
+
+                        <li class="nav-item" style="display: <?= $setting ?>;">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-cog text-info"></i>
+                                <p>
+                                    Setting
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview ml-2">
+                                <li class="nav-item" style="display: <?= $levels ?>;">
+                                    <a href="<?= site_url('levels/index') ?>" class="nav-link">
+                                        <i class="fas fa-user-tie nav-icon text-warning"></i>
+                                        <p>Levels</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                            <ul class="nav nav-treeview ml-2">
+                                <li class="nav-item" style="display: <?= $users ?>;">
+                                    <a href="<?= site_url('users/index') ?>" class="nav-link">
+                                        <i class="fas fa-user-tie nav-icon text-warning"></i>
+                                        <p>Users</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
 
 
                         <li class="nav-item" style="display: <?= $master ?>;">

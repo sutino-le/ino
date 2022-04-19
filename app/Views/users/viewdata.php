@@ -23,21 +23,21 @@
 <div class="col-md-12">
     <div class="card">
         <div class="card-header">
-            <button type="button" class="btn btn-sm btn-primary" id="tambahWilayah"><i class="fas fa-plus-circle"></i>
-                Tambah Wilayah</button>
+            <button type="button" class="btn btn-sm btn-primary" id="tambahUsers"><i class="fas fa-plus-circle"></i>
+                Tambah User</button>
         </div>
         <div class="card-body mt-1">
             <div class="table-responsive">
 
-                <table style="width: 100%;" id="dataWilayah" class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
+                <table style="width: 100%;" id="dataUsers" class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Kelurahan</th>
-                            <th>Kecamatan</th>
-                            <th>Kota/Kabupaten</th>
-                            <th>Propinsi</th>
-                            <th>Kodepos</th>
+                            <th>User ID</th>
+                            <th>User Nama</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Level</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -54,14 +54,14 @@
 <div class="viewmodal" style="display: none;"></div>
 
 <script>
-    function listDataWilayah() {
-        var table = $('#dataWilayah').dataTable({
+    function listDataUsers() {
+        var table = $('#dataUsers').dataTable({
             destroy: true,
             "processing": true,
             "serverSide": true,
             "order": [],
             "ajax": {
-                "url": "/wilayah/listData",
+                "url": "/users/listData",
                 "type": "POST",
             },
             "colomnDefs": [{
@@ -72,17 +72,17 @@
     }
 
     $(document).ready(function() {
-        listDataWilayah();
+        listDataUsers();
     });
 
 
     $(document).ready(function() {
 
-        $('#tambahWilayah').click(function(e) {
+        $('#tambahUsers').click(function(e) {
             e.preventDefault();
             $.ajax({
                 type: "post",
-                url: "/wilayah/formtambah",
+                url: "/users/formtambah",
                 dataType: "json",
                 success: function(response) {
                     if (response.data) {
@@ -98,10 +98,10 @@
 
     });
 
-    function edit(id_wilayah) {
+    function edit(userid) {
         $.ajax({
             type: "post",
-            url: "/wilayah/formedit/" + id_wilayah,
+            url: "/users/formedit/" + userid,
             dataType: "json",
             success: function(response) {
                 if (response.data) {
@@ -115,9 +115,9 @@
         });
     }
 
-    function hapus(id_wilayah) {
+    function hapus(userid) {
         $.ajax({
-            url: "/wilayah/hapus/" + id_wilayah,
+            url: "/users/hapus/" + userid,
             dataType: "json",
             success: function(response) {
                 if (response.sukses) {

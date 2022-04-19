@@ -9,6 +9,6 @@ class ModelLevels extends Model
     protected $table            = 'levels';
     protected $primaryKey       = 'levelid';
     protected $allowedFields    = [
-        'levelnama'
+        'levelid', 'levelnama'
     ];
 }

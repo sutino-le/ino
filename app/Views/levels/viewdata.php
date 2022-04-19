@@ -23,21 +23,18 @@
 <div class="col-md-12">
     <div class="card">
         <div class="card-header">
-            <button type="button" class="btn btn-sm btn-primary" id="tambahWilayah"><i class="fas fa-plus-circle"></i>
-                Tambah Wilayah</button>
+            <button type="button" class="btn btn-sm btn-primary" id="tambahLevels"><i class="fas fa-plus-circle"></i>
+                Tambah Levels</button>
         </div>
         <div class="card-body mt-1">
             <div class="table-responsive">
 
-                <table style="width: 100%;" id="dataWilayah" class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
+                <table style="width: 100%;" id="dataLevels" class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Kelurahan</th>
-                            <th>Kecamatan</th>
-                            <th>Kota/Kabupaten</th>
-                            <th>Propinsi</th>
-                            <th>Kodepos</th>
+                            <th>Levels ID</th>
+                            <th>Levels Nama</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -54,35 +51,35 @@
 <div class="viewmodal" style="display: none;"></div>
 
 <script>
-    function listDataWilayah() {
-        var table = $('#dataWilayah').dataTable({
+    function listDataLevels() {
+        var table = $('#dataLevels').dataTable({
             destroy: true,
             "processing": true,
             "serverSide": true,
             "order": [],
             "ajax": {
-                "url": "/wilayah/listData",
+                "url": "/levels/listData",
                 "type": "POST",
             },
             "colomnDefs": [{
-                "targets": [0, 6],
+                "targets": [0, 3],
                 "orderable": false,
             }, ],
         });
     }
 
     $(document).ready(function() {
-        listDataWilayah();
+        listDataLevels();
     });
 
 
     $(document).ready(function() {
 
-        $('#tambahWilayah').click(function(e) {
+        $('#tambahLevels').click(function(e) {
             e.preventDefault();
             $.ajax({
                 type: "post",
-                url: "/wilayah/formtambah",
+                url: "/levels/formtambah",
                 dataType: "json",
                 success: function(response) {
                     if (response.data) {
@@ -98,10 +95,10 @@
 
     });
 
-    function edit(id_wilayah) {
+    function edit(levelid) {
         $.ajax({
             type: "post",
-            url: "/wilayah/formedit/" + id_wilayah,
+            url: "/levels/formedit/" + levelid,
             dataType: "json",
             success: function(response) {
                 if (response.data) {
@@ -115,9 +112,9 @@
         });
     }
 
-    function hapus(id_wilayah) {
+    function hapus(levelid) {
         $.ajax({
-            url: "/wilayah/hapus/" + id_wilayah,
+            url: "/levels/hapus/" + levelid,
             dataType: "json",
             success: function(response) {
                 if (response.sukses) {

@@ -20,8 +20,8 @@ class ModelLevelsPagination extends Model
         parent::__construct();
         $this->db = db_connect();
         $this->request = $request;
-
-        $this->dt = $this->db->table($this->table);
+        
+        $this->dt = $this->db->table($this->table)->join('users', 'levelid=userlevelid', 'left');
     }
     private function _get_datatables_query()
     {

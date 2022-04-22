@@ -2,85 +2,100 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="<?= base_url() ?>/plugins/fontawesome-free/css/all.min.css">
-    <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="<?= base_url() ?>/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="<?= base_url() ?>/dist/css/adminlte.min.css">
+    <link href="<?= base_url() ?>/upload/logo.png" rel="icon">
+    <link href="<?= base_url() ?>/upload/logo.png" rel="apple-touch-icon">
+
+    <link rel="stylesheet" href="<?= base_url() ?>/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 
-<body class="hold-transition login-page">
-    <div class="login-box">
-        <div class="login-logo">
-            <a href="<?= base_url() ?>/index2.html"><b>Silahkan Login</a>
-        </div>
-        <!-- /.login-logo -->
-        <div class="card">
-            <div class="card-body login-card-body">
+<body>
 
-                <?= form_open('login/cekUser'); ?>
-                <?= csrf_field(); ?>
-                <div class="input-group mb-3">
-                    <?php
-                    // if (session()->getFlashdata('errIdUser')) {
-                    //     $isInvalidUser = 'is-invalid';
-                    // } else {
-                    //     $isInvalidUser = '';
-                    // }
-                    $isInvalidUser = (session()->getFlashdata('errIdUser')) ? 'is-invalid' : '';
-                    $isInvalidPassword = (session()->getFlashdata('errPassword')) ? 'is-invalid' : '';
-                    ?>
-                    <input type="text" name="iduser" class="form-control <?= $isInvalidUser ?>" placeholder="Masukan ID User" autofocus>
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-user"></span>
-                        </div>
+    <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+        <div class="card card0 border-0">
+            <div class="row d-flex">
+                <div class="col-lg-6">
+                    <div class="card1 pb-5">
+                        <div class="row"> <img src="<?= base_url() ?>/upload/apple-touch-icon.png" class="logo"> </div>
+                        <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://i.imgur.com/uNGdWHi.png" class="image"> </div>
                     </div>
-                    <?php
-                    if (session()->getFlashdata('errIdUser')) {
-                        echo '<div id="validationServer03Feedback" class="invalid-feedback">' . session()->getFlashdata('errIdUser') . '</div>';
-                    }
-                    ?>
                 </div>
-                <div class="input-group mb-3">
-                    <input type="password" name="pass" class="form-control <?= $isInvalidPassword ?>" placeholder="Password">
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-lock"></span>
+                <div class="col-lg-6">
+                    <div class="card2 card border-0 px-4 py-5">
+                        <div class="row mb-4 px-3">
+                            <h2 class="mb-0 mr-4 mt-2">Selamat datang...!!!</h2>
                         </div>
+                        <div class="row px-3 mb-4">
+                            <div class="line"></div> <small class="or text-center">Login</small>
+                            <div class="line"></div>
+                        </div>
+                        <?= form_open('login/cekUser'); ?>
+                        <?= csrf_field(); ?>
+
+                        <?php
+                        // if (session()->getFlashdata('errIdUser')) {
+                        //     $isInvalidUser = 'is-invalid';
+                        // } else {
+                        //     $isInvalidUser = '';
+                        // }
+                        $isInvalidUser = (session()->getFlashdata('errIdUser')) ? 'is-invalid' : '';
+                        $isInvalidPassword = (session()->getFlashdata('errPassword')) ? 'is-invalid' : '';
+                        ?>
+
+                        <div class="row px-3">
+                            <label class="mb-1">
+                                <h6 class="mb-0 text-sm">Username</h6>
+                            </label>
+                            <input type="text" name="iduser" class="form-control <?= $isInvalidUser ?>" placeholder="Masukan ID User" autofocus>
+                            <?php
+                            if (session()->getFlashdata('errIdUser')) {
+                                echo '<div id="validationServer03Feedback" class="invalid-feedback">' . session()->getFlashdata('errIdUser') . '</div>';
+                            }
+                            ?>
+                        </div>
+                        <div class="row px-3">
+                            <label class="mb-1">
+                                <h6 class="mb-0 text-sm">Password</h6>
+                            </label>
+                            <input type="password" name="pass" class="form-control <?= $isInvalidPassword ?>" placeholder="Password">
+                            <?php
+                            if (session()->getFlashdata('errPassword')) {
+                                echo '<div id="validationServer03Feedback" class="invalid-feedback">' . session()->getFlashdata('errPassword') . '</div>';
+                            }
+                            ?>
+                        </div>
+                        <div class="row px-3 mb-4">
+                            <div class="custom-control custom-checkbox custom-control-inline">
+
+                            </div>
+                            <a href="#" class="ml-auto mb-0 text-sm">Lupa Password?</a>
+                        </div>
+
+
+
+                        <div class="row mb-3 px-3"> <button type="submit" class="btn btn-primary btn-block text-center">Login</button> </div>
+
+
+                        <?= form_close() ?>
+
+                        <div class="row mb-4 px-3"> <small class="font-weight-bold">Belum punya akun ? <a class="text-danger ">Daftar</a></small> </div>
                     </div>
-                    <?php
-                    if (session()->getFlashdata('errPassword')) {
-                        echo '<div id="validationServer03Feedback" class="invalid-feedback">' . session()->getFlashdata('errPassword') . '</div>';
-                    }
-                    ?>
                 </div>
-
-                <div class="input-group mb-3">
-                    <button type="submit" class="btn btn-success btn-block">Login</button>
-                </div>
-
-                <?= form_close() ?>
-
             </div>
-            <!-- /.login-card-body -->
+
+
         </div>
     </div>
-    <!-- /.login-box -->
 
-    <!-- jQuery -->
-    <script src="<?= base_url() ?>/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="<?= base_url() ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="<?= base_url() ?>/dist/js/adminlte.min.js"></script>
 </body>
 
 </html>

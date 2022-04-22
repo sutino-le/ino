@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\ModelLevels;
 use App\Models\ModelLevelsPagination;
+use App\Models\ModelUsers;
 use Config\Services;
 
 class Levels extends BaseController
@@ -12,6 +13,7 @@ class Levels extends BaseController
     public function __construct()
     {
         $this->levels = new ModelLevels();
+        $this->users = new ModelUsers();
     }
 
 
@@ -27,6 +29,8 @@ class Levels extends BaseController
 
     public function listData()
     {
+
+
         $request = Services::request();
         $datamodel = new ModelLevelsPagination($request);
         if ($request->getMethod(true) == 'POST') {
@@ -40,10 +44,18 @@ class Levels extends BaseController
                 $tombolEdit = "<button type=\"button\" class=\"btn btn-sm btn-info\" onclick=\"edit('" . $list->levelid . "')\" title=\"Edit\"><i class='fas fa-edit'></i></button>";
                 $tombolHapus = "<button type=\"button\" class=\"btn btn-sm btn-danger\" onclick=\"hapus('" . $list->levelid . "')\" title=\"Hapus\"><i class='fas fa-trash-alt'></i></button>";
 
+                if($list->userlevelid == ""){
+                    $tomboleditlevel = $tombolEdit;
+                    $tombolhapuslevel = $tombolHapus;
+                } else {
+                    $tomboleditlevel = "";
+                    $tombolhapuslevel = "";
+                }
+
                 $row[] = $no;
                 $row[] = $list->levelid;
                 $row[] = $list->levelnama;
-                $row[] = $tombolEdit . ' ' . $tombolHapus;
+                $row[] = $tomboleditlevel . ' ' . $tombolhapuslevel;
                 $data[] = $row;
             }
             $output = [

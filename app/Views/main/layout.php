@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Project</title>
-    
+
     <link href="<?= base_url() ?>/upload/logo.png" rel="icon">
     <link href="<?= base_url() ?>/upload/logo.png" rel="apple-touch-icon">
 
@@ -88,15 +88,21 @@
                             $levels = "show";
                             $users = "show";
 
-                            $master = "show";
+                            $biodata = "show";
                             $wilayah = "show";
+
+                            $master = "show";
+                            $biodata_ktp = "show";
                         } else {
                             $setting = "none";
                             $levels = "none";
                             $users = "none";
-                            
+
                             $master = "none";
                             $wilayah = "none";
+
+                            $biodata = "none";
+                            $biodata_ktp = "none";
                         }
 
                         ?>
@@ -113,7 +119,7 @@
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $levels ?>;">
                                     <a href="<?= site_url('levels/index') ?>" class="nav-link">
-                                        <i class="fas fa-user-tie nav-icon text-warning"></i>
+                                        <i class="fas fa-network-wired nav-icon text-info"></i>
                                         <p>Levels</p>
                                     </a>
                                 </li>
@@ -122,7 +128,7 @@
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $users ?>;">
                                     <a href="<?= site_url('users/index') ?>" class="nav-link">
-                                        <i class="fas fa-user-tie nav-icon text-warning"></i>
+                                        <i class="fas fa-user nav-icon text-info"></i>
                                         <p>Users</p>
                                     </a>
                                 </li>
@@ -142,8 +148,28 @@
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $wilayah ?>;">
                                     <a href="<?= site_url('wilayah/index') ?>" class="nav-link">
-                                        <i class="fas fa-map-marked-alt nav-icon text-success"></i>
+                                        <i class="fas fa-map-marked-alt nav-icon text-primary"></i>
                                         <p>Wilayah</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item" style="display: <?= $biodata ?>;">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-users text-success"></i>
+                                <p>
+                                    Biodata
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview ml-2">
+                                <li class="nav-item" style="display: <?= $biodata_ktp ?>;">
+                                    <a href="<?= site_url('biodataktp/index') ?>" class="nav-link">
+                                        <i class="fas fa-id-card nav-icon text-success"></i>
+                                        <p>KTP</p>
                                     </a>
                                 </li>
 

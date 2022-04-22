@@ -1,0 +1,278 @@
+ERROR - 2022-04-20 07:55:20 --> Error connecting to the database: No connection could be made because the target machine actively refused it.
+
+CRITICAL - 2022-04-20 07:55:20 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+#0 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\ino\system\Model.php(142): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\ino\system\BaseModel.php(523): CodeIgniter\Model->doFind(true, 'admin')
+#4 C:\xampp\htdocs\ino\app\Controllers\Login.php(54): CodeIgniter\BaseModel->find('admin')
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Login->cekUser()
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2022-04-20 08:53:49 --> Undefined variable: datalevel
+#0 C:\xampp\htdocs\ino\app\Views\users\modaledit.php(49): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 49, Array)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('users/modaledit', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Users.php(176): view('users/modaledit', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Users->formedit('admin')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2022-04-20 08:57:10 --> Call to undefined method App\Models\ModelUsers::tampil
+#0 C:\xampp\htdocs\ino\app\Controllers\Users.php(162): CodeIgniter\Model->__call('tampil', Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Users->formedit('admin')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2022-04-20 08:57:23 --> Call to undefined method App\Models\ModelUsers::tampil
+#0 C:\xampp\htdocs\ino\app\Controllers\Users.php(162): CodeIgniter\Model->__call('tampil', Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Users->formedit('admin')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2022-04-20 08:57:34 --> Call to undefined method App\Models\ModelUsers::tampil
+#0 C:\xampp\htdocs\ino\app\Controllers\Users.php(162): CodeIgniter\Model->__call('tampil', Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Users->formedit('admin')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2022-04-20 08:58:23 --> Trying to access array offset on value of type null
+#0 C:\xampp\htdocs\ino\app\Controllers\Users.php(171): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\xampp\\htdocs...', 171, Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Users->formedit('admin')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2022-04-20 08:58:59 --> Trying to access array offset on value of type null
+#0 C:\xampp\htdocs\ino\app\Controllers\Users.php(171): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\xampp\\htdocs...', 171, Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Users->formedit('admin')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2022-04-20 09:00:02 --> Undefined variable: levelnama
+#0 C:\xampp\htdocs\ino\app\Views\users\modaledit.php(46): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 46, Array)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('users/modaledit', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Users.php(175): view('users/modaledit', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Users->formedit('admin')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2022-04-20 09:01:00 --> Undefined variable: levelnama
+#0 C:\xampp\htdocs\ino\app\Views\users\modaledit.php(46): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 46, Array)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('users/modaledit', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Users.php(173): view('users/modaledit', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Users->formedit('admin')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2022-04-20 09:01:52 --> Trying to access array offset on value of type null
+#0 C:\xampp\htdocs\ino\app\Controllers\Users.php(171): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\xampp\\htdocs...', 171, Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Users->formedit('admin')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2022-04-20 09:05:58 --> Trying to access array offset on value of type null
+#0 C:\xampp\htdocs\ino\app\Views\users\modaledit.php(46): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\xampp\\htdocs...', 46, Array)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('users/modaledit', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Users.php(179): view('users/modaledit', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Users->formedit('admin')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2022-04-20 09:06:24 --> Trying to get property 'levelnama' of non-object
+#0 C:\xampp\htdocs\ino\app\Views\users\modaledit.php(46): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\xampp\\htdocs...', 46, Array)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('users/modaledit', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Users.php(179): view('users/modaledit', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Users->formedit('admin')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2022-04-20 09:08:32 --> Invalid argument supplied for foreach()
+#0 C:\xampp\htdocs\ino\app\Views\users\modaledit.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\xampp\\htdocs...', 47, Array)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('users/modaledit', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Users.php(179): view('users/modaledit', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Users->formedit('admin')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2022-04-20 09:08:54 --> Invalid argument supplied for foreach()
+#0 C:\xampp\htdocs\ino\app\Views\users\modaledit.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\xampp\\htdocs...', 47, Array)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('users/modaledit', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Users.php(179): view('users/modaledit', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Users->formedit('admin')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2022-04-20 09:10:21 --> Illegal string offset 'levelnama'
+#0 C:\xampp\htdocs\ino\app\Views\users\modaledit.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Illegal string ...', 'C:\\xampp\\htdocs...', 48, Array)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('users/modaledit', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Users.php(179): view('users/modaledit', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Users->formedit('admin')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2022-04-20 09:45:46 --> syntax error, unexpected 'new' (T_NEW)
+#0 C:\xampp\htdocs\ino\system\Router\Router.php(175): CodeIgniter\Router\Router->autoRoute('users/index')
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(726): CodeIgniter\Router\Router->handle('users/index')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2022-04-20 09:46:01 --> Cannot use object of type App\Models\ModelUsers as array
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Users->formedit('admin')
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2022-04-20 09:46:15 --> Cannot use object of type App\Models\ModelUsers as array
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Users->formedit('admin')
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2022-04-20 09:48:33 --> Cannot use object of type App\Models\ModelUsers as array
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Users->formedit('admin')
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2022-04-20 09:50:20 --> Cannot use object of type App\Models\ModelUsers as array
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Users->formedit('admin')
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2022-04-20 09:51:16 --> Cannot use object of type CodeIgniter\Database\MySQLi\Result as array
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Users->formedit('admin')
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2022-04-20 10:21:37 --> Undefined property: App\Controllers\Levels::$modeluser
+#0 C:\xampp\htdocs\ino\app\Controllers\Levels.php(49): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 49, Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Levels->listData()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Levels))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2022-04-20 10:28:16 --> Cannot use object of type App\Models\ModelUsers as array
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Levels->listData()
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Levels))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2022-04-20 10:34:45 --> Undefined property: App\Controllers\Levels::$db
+#0 C:\xampp\htdocs\ino\app\Controllers\Levels.php(48): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 48, Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Levels->listData()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Levels))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2022-04-20 10:35:27 --> Undefined property: App\Controllers\Levels::$db
+#0 C:\xampp\htdocs\ino\app\Controllers\Levels.php(48): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 48, Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Levels->listData()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Levels))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2022-04-20 10:35:45 --> Undefined property: App\Controllers\Levels::$db
+#0 C:\xampp\htdocs\ino\app\Controllers\Levels.php(48): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 48, Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Levels->listData()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Levels))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2022-04-20 10:37:42 --> Trying to access array offset on value of type null
+#0 C:\xampp\htdocs\ino\app\Controllers\Levels.php(59): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\xampp\\htdocs...', 59, Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Levels->listData()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Levels))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2022-04-20 10:37:58 --> Trying to get property 'userlevelid' of non-object
+#0 C:\xampp\htdocs\ino\app\Controllers\Levels.php(59): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\xampp\\htdocs...', 59, Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Levels->listData()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Levels))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2022-04-20 10:39:03 --> Invalid argument supplied for foreach()
+#0 C:\xampp\htdocs\ino\app\Controllers\Levels.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\xampp\\htdocs...', 50, Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Levels->listData()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Levels))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2022-04-20 15:15:28 --> Undefined variable: biodata_ktp
+#0 C:\xampp\htdocs\ino\app\Views\main\layout.php(163): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 163, Array)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('main/layout', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Main.php(15): view('main/layout', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Main->index()
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Main))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}

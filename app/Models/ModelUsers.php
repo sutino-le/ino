@@ -11,4 +11,9 @@ class ModelUsers extends Model
     protected $allowedFields    = [
         'userid', 'usernama', 'useremail', 'userpassword', 'userlevelid'
     ];
+
+    public function cariUser($idlevel)
+    {
+        return $this->table('users')->like('userlevelid', $idlevel);
+    }
 }

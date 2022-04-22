@@ -8,8 +8,8 @@ use CodeIgniter\Model;
 class ModelUsersPagination extends Model
 {
     protected $table = "users";
-    protected $column_order = array(null, 'userid', 'usernama', 'email', 'userpassword', 'userlevelid', null);
-    protected $column_search = array('userid', 'usernama', 'email', 'userpassword', 'userlevelid');
+    protected $column_order = array(null, 'userid', 'usernama', 'email', 'userpassword', 'levelnama', null);
+    protected $column_search = array('userid', 'usernama', 'email', 'userpassword', 'levelnama');
     protected $order = array('usernama' => 'ASC');
     protected $request;
     protected $db;
@@ -21,7 +21,7 @@ class ModelUsersPagination extends Model
         $this->db = db_connect();
         $this->request = $request;
 
-        $this->dt = $this->db->table($this->table);
+        $this->dt = $this->db->table($this->table)->join('levels', 'userlevelid=levelid', 'left');
     }
     private function _get_datatables_query()
     {

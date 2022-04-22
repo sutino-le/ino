@@ -4,28 +4,67 @@
         <div class="modal-content">
 
 
-            <form action="<?= base_url('levels/updatedata') ?>" class="formsimpan">
+            <form action="<?= base_url('users/updatedata') ?>" class="formsimpan">
 
                 <div class="modal-header bg-info text-white">
-                    <h5 class="modal-title" id="staticBackdropLabel">Edit Level</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Edit User</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     </button>
                 </div>
                 <div class="modal-body">
 
 
-                    <input type="hidden" name="levelidlama" id="levelidlama" value="<?= $levelid ?>">
+                    <input type="hidden" name="useridlama" id="useridlama" value="<?= $userid ?>">
 
                     <div class="form-group">
-                        <label for="">Level ID</label>
-                        <input type="text" name="levelid" id="levelid" value="<?= $levelid ?>" class="form-control" placeholder="Masukan Level ID...">
-                        <div class="invalid-feedback errorLevelID"></div>
+                        <label for="">User ID</label>
+                        <input type="text" name="userid" id="userid" value="<?= $userid ?>" class="form-control" placeholder="Masukan User ID...">
+                        <div class="invalid-feedback errorUserID"></div>
                     </div>
 
                     <div class="form-group">
-                        <label for="">Level Nama</label>
-                        <input type="text" name="levelnama" id="levelnama" value="<?= $levelnama ?>" class="form-control" placeholder="Masukan Level Nama...">
-                        <div class="invalid-feedback errorLevelNama"></div>
+                        <label for="">User Nama</label>
+                        <input type="text" name="usernama" id="usernama" value="<?= $usernama ?>" class="form-control" placeholder="Masukan User Nama...">
+                        <div class="invalid-feedback errorUserNama"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">User Email</label>
+                        <input type="email" name="useremail" id="useremail" value="<?= $useremail ?>" class="form-control" placeholder="Masukan User Email...">
+                        <div class="invalid-feedback errorUserEmail"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">User Password</label>
+                        <input type="password" name="userpassword" id="userpassword" value="<?= $userpassword ?>" class="form-control" placeholder="Masukan User Password...">
+                        <div class="invalid-feedback errorUserPassword"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">User Level</label>
+                        <select name="userlevelid" id="userlevelid" class="form-control">
+                            <option value="">Pilih Level</option>
+                            <option value=""></option>
+                            <?php foreach ($datalevel as $rowlevel) : ?>
+
+                                <?php if ($rowlevel['levelid'] == $userlevelid) : ?>
+
+                                    <option value="<?= $rowlevel['levelid'] ?>" selected><?= $rowlevel['levelnama'] ?></option>
+
+                                <?php else : ?>
+
+                                    <option value="<?= $rowlevel['levelid'] ?>"><?= $rowlevel['levelnama'] ?></option>
+
+                                <?php endif; ?>
+
+                            <?php endforeach; ?>
+
+
+
+
+
+                        </select>
+                        <div class="invalid-feedback errorUserLevelId"></div>
                     </div>
 
 
@@ -44,8 +83,11 @@
 
 <script>
     function kosong() {
-        $('#levelid').val('');
-        $('#levelnama').val('');
+        $('#userid').val('');
+        $('#usernama').val('');
+        $('#useremail').val('');
+        $('#userpassword').val('');
+        $('#userlevelid').val('');
     }
 
     $(document).ready(function() {
@@ -61,14 +103,29 @@
                     if (response.error) {
                         let err = response.error;
 
-                        if (err.errLevelID) {
-                            $('#levelid').addClass('is-invalid');
-                            $('.errorLevelID').html(err.errLevelID);
+                        if (err.errUserID) {
+                            $('#userid').addClass('is-invalid');
+                            $('.errorUserID').html(err.errUserID);
                         }
 
-                        if (err.errLevelNama) {
-                            $('#levelnama').addClass('is-invalid');
-                            $('.errorLevelNama').html(err.errLevelNama);
+                        if (err.errUserNama) {
+                            $('#usernama').addClass('is-invalid');
+                            $('.errorUserNama').html(err.errUserNama);
+                        }
+
+                        if (err.errUserEmail) {
+                            $('#useremail').addClass('is-invalid');
+                            $('.errorUserEmail').html(err.errUserEmail);
+                        }
+
+                        if (err.errUserPassword) {
+                            $('#userpassword').addClass('is-invalid');
+                            $('.errorUserPassword').html(err.errUserPassword);
+                        }
+
+                        if (err.errUserLevelId) {
+                            $('#userlevelid').addClass('is-invalid');
+                            $('.errorUserLevelId').html(err.errUserLevelId);
                         }
 
                     }

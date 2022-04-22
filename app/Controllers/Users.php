@@ -47,7 +47,7 @@ class Users extends BaseController
                 $row[] = $list->usernama;
                 $row[] = $list->useremail;
                 $row[] = $list->userpassword;
-                $row[] = $list->userlevelid;
+                $row[] = $list->levelnama;
                 $row[] = $tombolEdit . ' ' . $tombolHapus;
                 $data[] = $row;
             }
@@ -141,7 +141,7 @@ class Users extends BaseController
                     'userid'         => $userid,
                     'usernama'       => $usernama,
                     'useremail'      => $useremail,
-                    'userpassword'   => $userpassword,
+                    'userpassword'   => password_hash($userpassword, PASSWORD_BCRYPT),
                     'userlevelid'    => $userlevelid
                 ]);
 
@@ -161,12 +161,16 @@ class Users extends BaseController
 
         $cekData        = $this->users->find($userid);
         if ($cekData) {
+
+            $modellevel = new ModelLevels();
+
             $data = [
                 'userid'        => $cekData['userid'],
                 'usernama'      => $cekData['usernama'],
                 'useremail'     => $cekData['useremail'],
                 'userpassword'  => $cekData['userpassword'],
-                'userlevelid'   => $cekData['userlevelid']
+                'userlevelid'   => $cekData['userlevelid'],
+                'datalevel'     => $modellevel->findAll(),
             ];
 
             $json = [
@@ -242,7 +246,7 @@ class Users extends BaseController
                     'userid'           => $userid,
                     'usernama'         => $usernama,
                     'useremail'        => $useremail,
-                    'userpassword'     => $userpassword,
+                    'userpassword'     => password_hash($userpassword, PASSWORD_BCRYPT),
                     'userlevelid'      => $userlevelid,
                 ]);
 

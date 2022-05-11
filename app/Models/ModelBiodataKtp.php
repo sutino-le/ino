@@ -6,37 +6,9 @@ use CodeIgniter\Model;
 
 class ModelBiodataKtp extends Model
 {
-    protected $DBGroup          = 'default';
-    protected $table            = 'modelbiodataktps';
-    protected $primaryKey       = 'id';
-    protected $useAutoIncrement = true;
-    protected $insertID         = 0;
-    protected $returnType       = 'array';
-    protected $useSoftDeletes   = false;
-    protected $protectFields    = true;
-    protected $allowedFields    = [];
-
-    // Dates
-    protected $useTimestamps = false;
-    protected $dateFormat    = 'datetime';
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
-
-    // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
-    protected $skipValidation       = false;
-    protected $cleanValidationRules = true;
-
-    // Callbacks
-    protected $allowCallbacks = true;
-    protected $beforeInsert   = [];
-    protected $afterInsert    = [];
-    protected $beforeUpdate   = [];
-    protected $afterUpdate    = [];
-    protected $beforeFind     = [];
-    protected $afterFind      = [];
-    protected $beforeDelete   = [];
-    protected $afterDelete    = [];
+    protected $table            = 'biodata_ktp';
+    protected $primaryKey       = 'ktp_nomor';
+    protected $allowedFields    = [
+        'ktp_nomor', 'ktp_nama', 'ktp_tempat_lahir', 'ktp_tanggal_lahir', 'ktp_kelamin', 'ktp_alamat', 'ktp_rt', 'ktp_rw', 'ktp_alamatid', 'ktp_hp', 'ktp_email', 'ktp_foto'
+    ];
 }

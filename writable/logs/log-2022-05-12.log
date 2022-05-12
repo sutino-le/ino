@@ -1,0 +1,94 @@
+ERROR - 2022-05-12 08:10:53 --> Error connecting to the database: No connection could be made because the target machine actively refused it.
+
+CRITICAL - 2022-05-12 08:10:53 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+#0 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\ino\system\Model.php(142): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\ino\system\BaseModel.php(523): CodeIgniter\Model->doFind(true, 'admin')
+#4 C:\xampp\htdocs\ino\app\Controllers\Login.php(54): CodeIgniter\BaseModel->find('admin')
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Login->cekUser()
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2022-05-12 08:23:27 --> Call to a member function getNumRows() on array
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\BiodataKtp->formedit('180805120192000...')
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BiodataKtp))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2022-05-12 08:24:45 --> Call to a member function getNumRows() on array
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\BiodataKtp->formedit('180805120192000...')
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BiodataKtp))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2022-05-12 08:24:48 --> Call to a member function getNumRows() on array
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\BiodataKtp->formedit('180805120192000...')
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BiodataKtp))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2022-05-12 09:33:42 --> Call to a member function getNumRows() on array
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\BiodataKtp->formedit('180805120192000...')
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BiodataKtp))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2022-05-12 10:33:10 --> Undefined variable: id_wilayah
+#0 C:\xampp\htdocs\ino\app\Views\biodataktp\formedit.php(162): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 162, Array)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('biodataktp/form...', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\BiodataKtp.php(246): view('biodataktp/form...', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\BiodataKtp->edit('180805120192000...')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BiodataKtp))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2022-05-12 11:13:48 --> Undefined variable: id_wilayah
+#0 C:\xampp\htdocs\ino\app\Views\biodataktp\formedit.php(167): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 167, Array)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('biodataktp/form...', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\BiodataKtp.php(246): view('biodataktp/form...', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\BiodataKtp->edit('180805120192000...')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BiodataKtp))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+ERROR - 2022-05-12 11:19:49 --> Duplicate entry '1808051201920006' for key 'PRIMARY'
+CRITICAL - 2022-05-12 11:19:49 --> Duplicate entry '1808051201920006' for key 'PRIMARY'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `bi...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `bi...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `bi...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `bi...', Array, false)
+#4 C:\xampp\htdocs\ino\system\Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\ino\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\ino\system\Model.php(625): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\ino\app\Controllers\BiodataKtp.php(204): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\BiodataKtp->simpan()
+#9 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BiodataKtp))
+#10 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#13 {main}
+CRITICAL - 2022-05-12 16:01:28 --> Deletes are not allowed unless they contain a "where" or "like" clause.
+#0 C:\xampp\htdocs\ino\system\Model.php(359): CodeIgniter\Database\BaseBuilder->delete()
+#1 C:\xampp\htdocs\ino\system\BaseModel.php(963): CodeIgniter\Model->doDelete(NULL, false)
+#2 C:\xampp\htdocs\ino\app\Controllers\BiodataKtp.php(400): CodeIgniter\BaseModel->delete(NULL)
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\BiodataKtp->hapus()
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BiodataKtp))
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\ino\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}

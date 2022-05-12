@@ -30,7 +30,7 @@
     </div>
 
 
-    <?= form_open_multipart('biodataktp/simpan', 'class="formsimpan"'); ?>
+    <?= form_open_multipart('biodataktp/update', 'class="formupdate"'); ?>
 
     <div class="body">
 
@@ -42,15 +42,16 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="">Nomor KTP</label>
-                            <input type="text" name="ktp_nomor" id="ktp_nomor" class="form-control" placeholder="Masukan Nomor KTP...">
+                            <input type="text" name="ktp_nomor" id="ktp_nomor" class="form-control" value="<?= $ktp_nomor ?>" placeholder="Masukan Nomor KTP...">
                             <div class="invalid-feedback errorKtpNomor"></div>
+                            <input type="hidden" name="ktp_nomor_lama" id="ktp_nomor_lama" value="<?= $ktp_nomor ?>">
                         </div>
                     </div>
 
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="">Nama Lengkap</label>
-                            <input type="text" name="ktp_nama" id="ktp_nama" class="form-control" placeholder="Masukan Nama Lengkap...">
+                            <input type="text" name="ktp_nama" id="ktp_nama" class="form-control" value="<?= $ktp_nama ?>" placeholder="Masukan Nama Lengkap...">
                             <div class="invalid-feedback errorKtpNama"></div>
                         </div>
                     </div>
@@ -62,7 +63,7 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="">Tempat Lahir</label>
-                            <input type="text" name="ktp_tempat_lahir" id="ktp_tempat_lahir" class="form-control" placeholder="Masukan Tempat Lahir...">
+                            <input type="text" name="ktp_tempat_lahir" id="ktp_tempat_lahir" class="form-control" value="<?= $ktp_tempat_lahir ?>" placeholder="Masukan Tempat Lahir...">
                             <div class="invalid-feedback errorKtpTempatLahir"></div>
                         </div>
                     </div>
@@ -70,7 +71,7 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label for="">Tanggal Lahir</label>
-                            <input type="date" name="ktp_tanggal_lahir" id="ktp_tanggal_lahir" class="form-control">
+                            <input type="date" name="ktp_tanggal_lahir" id="ktp_tanggal_lahir" class="form-control" value="<?= $ktp_tanggal_lahir ?>">
                             <div class="invalid-feedback errorKtpTanggalLahir"></div>
                         </div>
                     </div>
@@ -79,6 +80,7 @@
                         <div class="form-group">
                             <label for="">Jenis Kelamin</label>
                             <select name="ktp_kelamin" id="ktp_kelamin" class="form-control">
+                                <option value="<?= $ktp_kelamin ?>" selected><?= $ktp_kelamin ?></option>
                                 <option value="">Pilih Jenis Kelamin</option>
                                 <option value=""></option>
                                 <option value="Pria">Pria</option>
@@ -95,7 +97,7 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="">Alamat</label>
-                            <input type="text" name="ktp_alamat" id="ktp_alamat" class="form-control" placeholder="Masukan Alamat...">
+                            <input type="text" name="ktp_alamat" id="ktp_alamat" class="form-control" value="<?= $ktp_alamat ?>" placeholder="Masukan Alamat...">
                             <div class="invalid-feedback errorKtpAlamat"></div>
                         </div>
                     </div>
@@ -103,7 +105,7 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label for="">RT</label>
-                            <input type="text" name="ktp_rt" id="ktp_rt" class="form-control" placeholder="Masukan RT...">
+                            <input type="text" name="ktp_rt" id="ktp_rt" class="form-control" value="<?= $ktp_rt ?>" placeholder="Masukan RT...">
                             <div class="invalid-feedback errorKtpRt"></div>
                         </div>
                     </div>
@@ -111,7 +113,7 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label for="">RW</label>
-                            <input type="text" name="ktp_rw" id="ktp_rw" class="form-control" placeholder="Masukan RW...">
+                            <input type="text" name="ktp_rw" id="ktp_rw" class="form-control" value="<?= $ktp_rw ?>" placeholder="Masukan RW...">
                             <div class="invalid-feedback errorKtpRw"></div>
                         </div>
                     </div>
@@ -123,28 +125,28 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label for="">Kelurahan</label>
-                            <input type="text" name="kelurahan" id="kelurahan" class="form-control" placeholder="Masukan Kelurahan..." readonly>
+                            <input type="text" name="kelurahan" id="kelurahan" class="form-control" value="<?= $kelurahan ?>" placeholder="Masukan Kelurahan..." readonly>
                         </div>
                     </div>
 
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label for="">Kecamatan</label>
-                            <input type="text" name="kecamatan" id="kecamatan" class="form-control" placeholder="Masukan Kecamatan..." readonly>
+                            <input type="text" name="kecamatan" id="kecamatan" class="form-control" value="<?= $kecamatan ?>" placeholder="Masukan Kecamatan..." readonly>
                         </div>
                     </div>
 
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label for="">Kota / Kabupaten</label>
-                            <input type="text" name="kota_kabupaten" id="kota_kabupaten" class="form-control" placeholder="Masukan Kota / Kabupaten..." readonly>
+                            <input type="text" name="kota_kabupaten" id="kota_kabupaten" class="form-control" value="<?= $kota_kabupaten ?>" placeholder="Masukan Kota / Kabupaten..." readonly>
                         </div>
                     </div>
 
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label for="">Propinsi</label>
-                            <input type="text" name="propinsi" id="propinsi" class="form-control" placeholder="Masukan Propinsi..." readonly>
+                            <input type="text" name="propinsi" id="propinsi" class="form-control" value="<?= $propinsi ?>" placeholder="Masukan Propinsi..." readonly>
                         </div>
                     </div>
 
@@ -157,12 +159,12 @@
                         <div class="form-group">
                             <label for="">Pilih Daerah</label>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Kode Wilayah" name="kelurahanpilih" id="kelurahanpilih" readonly>
+                                <input type="text" class="form-control" placeholder="Kode Wilayah" name="kelurahanpilih" id="kelurahanpilih" value="<?= $ktp_alamatid ?>" readonly>
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-success" type="button" id="tombolCariWilayah" title="Cari Wilayah"><i class="fas fa-search"></i></button>
                                 </div>
                                 <div class="invalid-feedback errorKtpAlamatId"></div>
-                                <input type="hidden" name="ktp_alamatid" id="ktp_alamatid">
+                                <input type="hidden" name="ktp_alamatid" id="ktp_alamatid" value="<?= $ktp_alamatid ?>">
                             </div>
                         </div>
                     </div>
@@ -174,7 +176,7 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="">Nomor Hp</label>
-                            <input type="text" name="ktp_hp" id="ktp_hp" class="form-control" placeholder="Masukan Nomor HP...">
+                            <input type="text" name="ktp_hp" id="ktp_hp" class="form-control" value="<?= $ktp_hp ?>" placeholder="Masukan Nomor HP...">
                             <div class="invalid-feedback errorKtpHp"></div>
                         </div>
                     </div>
@@ -182,7 +184,7 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="">Email</label>
-                            <input type="email" name="ktp_email" id="ktp_email" class="form-control" placeholder="Masukan Email...">
+                            <input type="email" name="ktp_email" id="ktp_email" class="form-control" value="<?= $ktp_email ?>" placeholder="Masukan Email...">
                             <div class="invalid-feedback errorKtpEmail"></div>
                         </div>
                     </div>
@@ -229,7 +231,7 @@
         });
 
 
-        $('.formsimpan').submit(function(e) {
+        $('.formupdate').submit(function(e) {
             e.preventDefault();
 
             $.ajax({
@@ -308,7 +310,7 @@
                             response.success,
                             'success'
                         ).then((result) => {
-                            window.location.reload();
+                            window.location.href = ('/biodataktp/index');
                         })
                     }
                 },

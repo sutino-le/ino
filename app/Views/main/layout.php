@@ -88,10 +88,10 @@
                             $levels = "show";
                             $users = "show";
 
-                            $biodata = "show";
+                            $master = "show";
                             $wilayah = "show";
 
-                            $master = "show";
+                            $biodata = "show";
                             $biodata_ktp = "show";
                         } else {
                             $setting = "none";

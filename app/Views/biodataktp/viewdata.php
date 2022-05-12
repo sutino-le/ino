@@ -86,41 +86,39 @@
     });
 
     function edit(ktp_nomor) {
-        $.ajax({
-            type: "post",
-            url: "/biodataktp/formedit/" + ktp_nomor,
-            dataType: "json",
-            success: function(response) {
-                if (response.data) {
-                    $('.viewmodal').html(response.data).show();
-                    $('#modalEdit').modal('show');
-                }
-            },
-            error: function(xhr, ajaxOptions, thrownError) {
-                alert(xhr.status + '\n' + thrownError);
-            }
-        });
+        window.location.href = ('/biodataktp/edit/') + ktp_nomor;
     }
 
     function hapus(ktp_nomor) {
-        $.ajax({
-            url: "/biodataktp/hapus/" + ktp_nomor,
-            dataType: "json",
-            success: function(response) {
-                if (response.sukses) {
-                    swal.fire(
-                        'Berhasil',
-                        response.sukses,
-                        'success'
-                    ).then((result) => {
-                        window.location.reload();
-                    })
-                }
-            },
-            error: function(xhr, ajaxOptions, thrownError) {
-                alert(xhr.status + '\n' + thrownError);
+        Swal.fire({
+            title: 'Hapus Biodata?',
+            text: "Apakah ingin menghapus data!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Hapus!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "post",
+                    url: "/biodataktp/hapusBiodata",
+                    data: {
+                        ktp_nomor: ktp_nomor
+                    },
+                    dataType: "json",
+                    success: function(response) {
+                        if (response.sukses) {
+                            swal.fire('Berhasil', response.sukes, 'success');
+                            window.location.href = ('/biodataktp/index');
+                        }
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(xhr.status + '\n' + thrownError);
+                    }
+                });
             }
-        });
+        })
     }
 </script>
 

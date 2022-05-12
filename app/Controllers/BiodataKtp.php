@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\ModelBiodataKtp;
 use App\Models\ModelBiodataKtpPagination;
+use App\Models\ModelWilayah;
 use Config\Services;
 
 class BiodataKtp extends BaseController
@@ -213,34 +214,196 @@ class BiodataKtp extends BaseController
         }
     }
 
-    function edit($ktp_nomor)
+    public function edit($ktp_nomor)
     {
+        $modelBiodata = new ModelBiodataKtp();
+        $rowData = $modelBiodata->find($ktp_nomor);
 
-        $cekData        = $this->biodataktp->find($ktp_nomor);
+
+        $modelWilayah = new ModelWilayah();
+        $rowWilayah = $modelWilayah->find($rowData['ktp_alamatid']);
+
+        $data = [
+            'judul'                 => 'Home',
+            'subjudul'              => 'Edit Biodata KTP',
+            'ktp_nomor'             => $ktp_nomor,
+            'ktp_nama'              => $rowData['ktp_nama'],
+            'ktp_tempat_lahir'      => $rowData['ktp_tempat_lahir'],
+            'ktp_tanggal_lahir'     => $rowData['ktp_tanggal_lahir'],
+            'ktp_kelamin'           => $rowData['ktp_kelamin'],
+            'ktp_alamat'            => $rowData['ktp_alamat'],
+            'ktp_rt'                => $rowData['ktp_rt'],
+            'ktp_rw'                => $rowData['ktp_rw'],
+            'ktp_alamatid'          => $rowData['ktp_alamatid'],
+            'ktp_hp'                => $rowData['ktp_hp'],
+            'ktp_email'             => $rowData['ktp_email'],
+            'kelurahan'             => $rowWilayah['kelurahan'],
+            'kecamatan'             => $rowWilayah['kecamatan'],
+            'kota_kabupaten'        => $rowWilayah['kota_kabupaten'],
+            'propinsi'              => $rowWilayah['propinsi']
+        ];
+
+        return view('biodataktp/formedit', $data);
+    }
 
 
-        if ($cekData->getNumRows() > 0) {
-            $row = $cekData->getRowArray();
 
-            $data = [
-                'judul'             => 'Home',
-                'subjudul'          => 'Edit Biodata',
-                'ktp_nomor'         => $row['ktp_nomor'],
-                'ktp_nama'          => $row['ktp_nama'],
-                'ktp_tempat_lahir'  => $row['ktp_tempat_lahir'],
-                'ktp_tanggal_lahir' => $row['ktp_tanggal_lahir'],
-                'ktp_kelamin'       => $row['ktp_kelamin'],
-                'ktp_alamat'        => $row['ktp_alamat'],
-                'ktp_rt'            => $row['ktp_rt'],
-                'ktp_rw'            => $row['ktp_rw'],
-                'ktp_alamatid'      => $row['ktp_alamatid'],
-                'ktp_hp'            => $row['ktp_hp'],
-                'ktp_email'         => $row['ktp_email']
+    public function update()
+    {
+        if ($this->request->isAJAX()) {
+            $ktp_nomor_lama          = $this->request->getPost('ktp_nomor_lama');
+            $ktp_nomor          = $this->request->getPost('ktp_nomor');
+            $ktp_nama           = $this->request->getPost('ktp_nama');
+            $ktp_tempat_lahir   = $this->request->getPost('ktp_tempat_lahir');
+            $ktp_tanggal_lahir  = $this->request->getPost('ktp_tanggal_lahir');
+            $ktp_kelamin        = $this->request->getPost('ktp_kelamin');
+            $ktp_alamat         = $this->request->getPost('ktp_alamat');
+            $ktp_rt             = $this->request->getPost('ktp_rt');
+            $ktp_rw             = $this->request->getPost('ktp_rw');
+            $ktp_alamatid       = $this->request->getPost('ktp_alamatid');
+            $ktp_hp             = $this->request->getPost('ktp_hp');
+            $ktp_email          = $this->request->getPost('ktp_email');
+
+            $validation = \Config\Services::validation();
+
+            $valid = $this->validate([
+                'ktp_nomor' => [
+                    'rules'     => 'required',
+                    'label'     => 'Nomor KTP',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'ktp_nama' => [
+                    'rules'     => 'required',
+                    'label'     => 'Nama Lengkap',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'ktp_tempat_lahir' => [
+                    'rules'     => 'required',
+                    'label'     => 'Tempat Lahir',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'ktp_tanggal_lahir' => [
+                    'rules'     => 'required',
+                    'label'     => 'Tanggal Lahir',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'ktp_kelamin' => [
+                    'rules'     => 'required',
+                    'label'     => 'Jenis Kelamin',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'ktp_alamat' => [
+                    'rules'     => 'required',
+                    'label'     => 'Alamat',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'ktp_rt' => [
+                    'rules'     => 'required',
+                    'label'     => 'RT',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'ktp_rw' => [
+                    'rules'     => 'required',
+                    'label'     => 'RW',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'ktp_alamatid' => [
+                    'rules'     => 'required',
+                    'label'     => 'Daerah',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'ktp_hp' => [
+                    'rules'     => 'required',
+                    'label'     => 'Nomor HP',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'ktp_email' => [
+                    'rules'     => 'required',
+                    'label'     => 'Email',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ]
+            ]);
+
+            if (!$valid) {
+                $json = [
+                    'error' => [
+                        'errKtpNomor'           => $validation->getError('ktp_nomor'),
+                        'errKtpNama'            => $validation->getError('ktp_nama'),
+                        'errKtpTempatLahir'     => $validation->getError('ktp_tempat_lahir'),
+                        'errKtpTanggalLahir'    => $validation->getError('ktp_tanggal_lahir'),
+                        'errKtpKelamin'         => $validation->getError('ktp_kelamin'),
+                        'errKtpAlamat'          => $validation->getError('ktp_alamat'),
+                        'errKtpRt'              => $validation->getError('ktp_rt'),
+                        'errKtpRw'              => $validation->getError('ktp_rw'),
+                        'errKtpAlamatId'        => $validation->getError('ktp_alamatid'),
+                        'errKtpHp'              => $validation->getError('ktp_hp'),
+                        'errKtpEmail'           => $validation->getError('ktp_email'),
+                    ]
+                ];
+            } else {
+
+                $modelBiodata = new Modelbiodataktp();
+
+                $modelBiodata->update($ktp_nomor_lama, [
+                    'ktp_nomor'         => $ktp_nomor,
+                    'ktp_nama'          => $ktp_nama,
+                    'ktp_tempat_lahir'  => $ktp_tempat_lahir,
+                    'ktp_tanggal_lahir' => $ktp_tanggal_lahir,
+                    'ktp_kelamin'       => $ktp_kelamin,
+                    'ktp_alamat'        => $ktp_alamat,
+                    'ktp_rt'            => $ktp_rt,
+                    'ktp_rw'            => $ktp_rw,
+                    'ktp_alamatid'      => $ktp_alamatid,
+                    'ktp_hp'            => $ktp_hp,
+                    'ktp_email'         => $ktp_email,
+                ]);
+
+                $json = [
+                    'sukses'        => 'Data berhasil disimpan'
+                ];
+            }
+
+
+            echo json_encode($json);
+        }
+    }
+
+    function hapusBiodata()
+    {
+        if ($this->request->isAJAX()) {
+            $ktp_nomor = $this->request->getPost('ktp_nomor');
+
+            $modelBiodata = new ModelBiodataKtp();
+
+            $modelBiodata->delete($ktp_nomor);
+
+            $json = [
+                'sukses' => 'Barang keluar berhasil dihapus'
             ];
 
-            return view('biodataktp/formedit', $data);
-        } else {
-            exit('Data tidak ditemukan');
+            echo json_encode($json);
         }
     }
 }

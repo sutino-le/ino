@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\ModelBiodataKtp;
 use App\Models\ModelBiodataKtpPagination;
+use App\Models\ModelUsers;
+use App\Models\ModelUsersUpdate;
 use App\Models\ModelWilayah;
 use Config\Services;
 
@@ -217,31 +219,53 @@ class BiodataKtp extends BaseController
     public function edit($ktp_nomor)
     {
         $modelBiodata = new ModelBiodataKtp();
-        $rowData = $modelBiodata->find($ktp_nomor);
-
+        $cekData        = $modelBiodata->find($ktp_nomor);
 
         $modelWilayah = new ModelWilayah();
-        $rowWilayah = $modelWilayah->find($rowData['ktp_alamatid']);
+        $rowWilayah = $modelWilayah->find($cekData['ktp_alamatid']);
 
-        $data = [
-            'judul'                 => 'Home',
-            'subjudul'              => 'Edit Biodata KTP',
-            'ktp_nomor'             => $ktp_nomor,
-            'ktp_nama'              => $rowData['ktp_nama'],
-            'ktp_tempat_lahir'      => $rowData['ktp_tempat_lahir'],
-            'ktp_tanggal_lahir'     => $rowData['ktp_tanggal_lahir'],
-            'ktp_kelamin'           => $rowData['ktp_kelamin'],
-            'ktp_alamat'            => $rowData['ktp_alamat'],
-            'ktp_rt'                => $rowData['ktp_rt'],
-            'ktp_rw'                => $rowData['ktp_rw'],
-            'ktp_alamatid'          => $rowData['ktp_alamatid'],
-            'ktp_hp'                => $rowData['ktp_hp'],
-            'ktp_email'             => $rowData['ktp_email'],
-            'kelurahan'             => $rowWilayah['kelurahan'],
-            'kecamatan'             => $rowWilayah['kecamatan'],
-            'kota_kabupaten'        => $rowWilayah['kota_kabupaten'],
-            'propinsi'              => $rowWilayah['propinsi']
-        ];
+        if ($rowWilayah > 0) {
+
+            $data = [
+                'judul'                 => 'Home',
+                'subjudul'              => 'Edit Biodata KTP',
+                'ktp_nomor'             => $cekData['ktp_nomor'],
+                'ktp_nama'              => $cekData['ktp_nama'],
+                'ktp_tempat_lahir'      => $cekData['ktp_tempat_lahir'],
+                'ktp_tanggal_lahir'     => $cekData['ktp_tanggal_lahir'],
+                'ktp_kelamin'           => $cekData['ktp_kelamin'],
+                'ktp_alamat'            => $cekData['ktp_alamat'],
+                'ktp_rt'                => $cekData['ktp_rt'],
+                'ktp_rw'                => $cekData['ktp_rw'],
+                'ktp_alamatid'          => $cekData['ktp_alamatid'],
+                'ktp_hp'                => $cekData['ktp_hp'],
+                'ktp_email'             => $cekData['ktp_email'],
+                'kelurahan'             => $rowWilayah['kelurahan'],
+                'kecamatan'             => $rowWilayah['kecamatan'],
+                'kota_kabupaten'        => $rowWilayah['kota_kabupaten'],
+                'propinsi'              => $rowWilayah['propinsi']
+            ];
+        } else {
+            $data = [
+                'judul'                 => 'Home',
+                'subjudul'              => 'Edit Biodata KTP',
+                'ktp_nomor'             => $cekData['ktp_nomor'],
+                'ktp_nama'              => $cekData['ktp_nama'],
+                'ktp_tempat_lahir'      => $cekData['ktp_tempat_lahir'],
+                'ktp_tanggal_lahir'     => $cekData['ktp_tanggal_lahir'],
+                'ktp_kelamin'           => $cekData['ktp_kelamin'],
+                'ktp_alamat'            => $cekData['ktp_alamat'],
+                'ktp_rt'                => $cekData['ktp_rt'],
+                'ktp_rw'                => $cekData['ktp_rw'],
+                'ktp_alamatid'          => $cekData['ktp_alamatid'],
+                'ktp_hp'                => $cekData['ktp_hp'],
+                'ktp_email'             => $cekData['ktp_email'],
+                'kelurahan'             => '',
+                'kecamatan'             => '',
+                'kota_kabupaten'        => '',
+                'propinsi'              => ''
+            ];
+        }
 
         return view('biodataktp/formedit', $data);
     }
@@ -251,7 +275,7 @@ class BiodataKtp extends BaseController
     public function update()
     {
         if ($this->request->isAJAX()) {
-            $ktp_nomor_lama          = $this->request->getPost('ktp_nomor_lama');
+            $ktp_nomor_lama     = $this->request->getPost('ktp_nomor_lama');
             $ktp_nomor          = $this->request->getPost('ktp_nomor');
             $ktp_nama           = $this->request->getPost('ktp_nama');
             $ktp_tempat_lahir   = $this->request->getPost('ktp_tempat_lahir');
@@ -380,9 +404,28 @@ class BiodataKtp extends BaseController
                     'ktp_email'         => $ktp_email,
                 ]);
 
-                $json = [
-                    'sukses'        => 'Data berhasil disimpan'
-                ];
+                if ($modelBiodata) {
+                    $modelUser = new ModelUsersUpdate();
+                    // $rowUser = $modelUser->find($ktp_nomor_lama);
+
+                    // $userid   = $rowUser['propinsi'];
+
+                    // if ($rowUser > 0) {
+                    $modelUser->update($ktp_nomor_lama, [
+                        'userktp'   => $ktp_nomor
+                    ]);
+                    // }
+
+                    // $modelUser->where(['userktp' => $ktp_nomor_lama]);
+                    // $modelUser->update([
+                    //     'userktp'   => $ktp_nomor
+                    // ]);
+
+
+                    $json = [
+                        'sukses'        => 'Data berhasil disimpan'
+                    ];
+                }
             }
 
 
@@ -398,6 +441,13 @@ class BiodataKtp extends BaseController
             $modelBiodata = new ModelBiodataKtp();
 
             $modelBiodata->delete($ktp_nomor);
+
+            if ($modelBiodata) {
+                $modelUser = new ModelUsers();
+
+                $modelUser->where(['userktp' => $ktp_nomor]);
+                $modelUser->delete();
+            }
 
             $json = [
                 'sukses' => 'Barang keluar berhasil dihapus'

@@ -32,6 +32,9 @@
 
     <?= form_open_multipart('biodataktp/update', 'class="formupdate"'); ?>
 
+
+
+
     <div class="body">
 
         <ul class='list-group list-group-flush'>

@@ -87,7 +87,7 @@
 
                         <?= form_close() ?>
 
-                        <div class="row mb-4 px-3"> <small class="font-weight-bold">Belum punya akun ? <a class="text-danger ">Daftar</a></small> </div>
+                        <div class="row mb-4 px-3"> <small class="font-weight-bold">Belum punya akun ? <a href="<?= site_url('login/daftar') ?>" class="text-danger ">Daftar</a></small> </div>
                     </div>
                 </div>
             </div>

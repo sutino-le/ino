@@ -20,6 +20,12 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="">User KTP</label>
+                        <input type="text" name="userktp" id="userktp" class="form-control" placeholder="Masukan Nomor KTP...">
+                        <div class="invalid-feedback errorUserKtp"></div>
+                    </div>
+
+                    <div class="form-group">
                         <label for="">User Nama</label>
                         <input type="text" name="usernama" id="usernama" class="form-control" placeholder="Masukan User Nama...">
                         <div class="invalid-feedback errorUserNama"></div>
@@ -42,8 +48,8 @@
                         <select name="userlevelid" id="userlevelid" class="form-control">
                             <option value="">Pilih Level</option>
                             <option value=""></option>
-                            <?php foreach($datalevel as $rowlevel) : ?>
-                            <option value="<?= $rowlevel['levelid'] ?>"><?= $rowlevel['levelnama'] ?></option>
+                            <?php foreach ($datalevel as $rowlevel) : ?>
+                                <option value="<?= $rowlevel['levelid'] ?>"><?= $rowlevel['levelnama'] ?></option>
                             <?php endforeach; ?>
                         </select>
                         <div class="invalid-feedback errorUserLevelId"></div>
@@ -66,6 +72,7 @@
 <script>
     function kosong() {
         $('#userid').val('');
+        $('#usernktp').val('');
         $('#usernama').val('');
         $('#useremail').val('');
         $('#userpassword').val('');
@@ -88,6 +95,11 @@
                         if (err.errUserID) {
                             $('#userid').addClass('is-invalid');
                             $('.errorUserID').html(err.errUserID);
+                        }
+
+                        if (err.errUserKtp) {
+                            $('#usernktp').addClass('is-invalid');
+                            $('.errorUserKtp').html(err.errUserKtp);
                         }
 
                         if (err.errUserNama) {

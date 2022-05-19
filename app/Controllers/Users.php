@@ -80,6 +80,7 @@ class Users extends BaseController
     {
         if ($this->request->isAJAX()) {
             $userid      = $this->request->getPost('userid');
+            $userktp      = $this->request->getPost('userktp');
             $usernama      = $this->request->getPost('usernama');
             $useremail      = $this->request->getPost('useremail');
             $userpassword      = $this->request->getPost('userpassword');
@@ -90,6 +91,13 @@ class Users extends BaseController
                 'userid' => [
                     'rules'     => 'required',
                     'label'     => 'User ID',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'userktp' => [
+                    'rules'     => 'required',
+                    'label'     => 'Nomor KTP',
                     'errors'    => [
                         'required'  => '{field} tidak boleh kosong'
                     ]
@@ -128,6 +136,7 @@ class Users extends BaseController
                 $json = [
                     'error' => [
                         'errUserID'         => $validation->getError('userid'),
+                        'errUserKtp'       => $validation->getError('userktp'),
                         'errUserNama'       => $validation->getError('usernama'),
                         'errUserEmail'      => $validation->getError('useremail'),
                         'errUserPassword'   => $validation->getError('userpassword'),
@@ -138,11 +147,12 @@ class Users extends BaseController
                 $modelLevel = new Modelusers();
 
                 $modelLevel->insert([
-                    'userid'         => $userid,
-                    'usernama'       => $usernama,
-                    'useremail'      => $useremail,
-                    'userpassword'   => password_hash($userpassword, PASSWORD_BCRYPT),
-                    'userlevelid'    => $userlevelid
+                    'userid'            => $userid,
+                    'usernama'          => $usernama,
+                    'userktp'           => $userktp,
+                    'useremail'         => $useremail,
+                    'userpassword'      => password_hash($userpassword, PASSWORD_BCRYPT),
+                    'userlevelid'       => $userlevelid
                 ]);
 
                 $json = [

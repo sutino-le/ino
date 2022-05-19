@@ -21,7 +21,7 @@ class ModelBiodataKtpPagination extends Model
         $this->db = db_connect();
         $this->request = $request;
 
-        $this->dt = $this->db->table($this->table)->join('wilayah', 'ktp_alamatid=id_wilayah')->join('users', 'ktp_email=useremail', 'left');
+        $this->dt = $this->db->table($this->table)->join('wilayah', 'ktp_alamatid=id_wilayah', 'left')->join('users', 'ktp_nomor=userktp', 'left');
     }
     private function _get_datatables_query()
     {

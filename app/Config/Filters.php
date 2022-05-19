@@ -24,9 +24,7 @@ class Filters extends BaseConfig
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
         'filterAdmin'   => \App\Filters\FilterAdmin::class,
-        'filterKasir'   => \App\Filters\FilterKasir::class,
-        'filterGudang'   => \App\Filters\FilterGudang::class,
-        'filterPimpinan'   => \App\Filters\FilterPimpinan::class,
+        'filterUser'    => \App\Filters\FilterUser::class,
     ];
 
     /**
@@ -43,34 +41,18 @@ class Filters extends BaseConfig
             'filterAdmin' => [
                 'except' => ['login/*', 'login', '/']
             ],
-            'filterKasir' => [
+            'filterUser' => [
                 'except' => ['login/*', 'login', '/']
-            ],
-            'filterGudang' => [
-                'except' => [
-                    'login/*', 'login', '/'
-                ]
-            ],
-            'filterPimpinan' => [
-                'except' => [
-                    'login/*', 'login', '/'
-                ]
             ]
         ],
         'after' => [
             // 'honeypot',
             // 'secureheaders',
             'filterAdmin' => [
-                'except' => ['main/*', 'wilayah/*', 'levels/*', 'users/*', 'biodataktp/*']
+                'except' => ['main/*', 'profil/*', 'wilayah/*', 'levels/*', 'users/*', 'biodataktp/*']
             ],
-            'filterKasir' => [
-                'except' => ['main/*']
-            ],
-            'filterGudang' => [
-                'except' => ['main/*']
-            ],
-            'filterPimpinan' => [
-                'except' => ['main/*']
+            'filterUser' => [
+                'except' => ['main/*', 'profil/*',]
             ],
             'toolbar',
         ],

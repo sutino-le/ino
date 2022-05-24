@@ -21,12 +21,16 @@
                 <div class="card card-primary card-outline">
                     <div class="card-body box-profile">
                         <div class="text-center">
-                            <img class="profile-user-img img-fluid img-circle" src="../../dist/img/user4-128x128.jpg" alt="User profile picture">
+                            <button type="button" class="close" onclick="editfoto('<?= $userid ?>')" title="Ubah Foto">
+                                <i class='fas fa-camera text-primary'></i>
+                            </button>
+
+                            <img class=" profile-user-img img-fluid img-circle" src="../../dist/img/user4-128x128.jpg" alt="User profile picture">
                         </div>
 
-                        <h3 class="profile-username text-center"><?= $usernama ?></h3>
+                        <h3 class="profile-username text-center"><?= $ktp_nama ?></h3>
 
-                        <p class="text-muted text-center">Software Engineer</p>
+                        <p class="text-muted text-center"><?= $ktp_nomor ?></p>
 
                         <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item">
@@ -66,7 +70,43 @@
                             <div class="active tab-pane" id="biodata_ktp">
                                 <!-- Post -->
                                 <div class="post">
-
+                                    <table class="table">
+                                        <tr>
+                                            <td>Tempat/Tgl. Lahir</td>
+                                            <td>:&nbsp;</td>
+                                            <td><?= $ktp_tempat_lahir . ' / ' . date('d-M-Y', strtotime($ktp_tanggal_lahir)) ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jenis Kelamin</td>
+                                            <td>:&nbsp;</td>
+                                            <td><?= $ktp_kelamin ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Alamat</td>
+                                            <td>:&nbsp;</td>
+                                            <td><?= $propinsi ?>, RT/RW <?= $ktp_rt ?>/<?= $ktp_rw ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kelurahan</td>
+                                            <td>:&nbsp;</td>
+                                            <td><?= $kelurahan ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kecamatan</td>
+                                            <td>:&nbsp;</td>
+                                            <td><?= $kecamatan ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kota/Kabupaten</td>
+                                            <td>:&nbsp;</td>
+                                            <td><?= $kota_kabupaten ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Propinsi</td>
+                                            <td>:&nbsp;</td>
+                                            <td><?= $propinsi ?></td>
+                                        </tr>
+                                    </table>
                                 </div>
                                 <!-- /.post -->
                             </div>
@@ -143,5 +183,25 @@
 
 
 
+<div class="viewmodal" style="display: none;"></div>
+
+<script>
+    function editfoto(userid) {
+        $.ajax({
+            type: "post",
+            url: "/profil/formeditfoto/" + userid,
+            dataType: "json",
+            success: function(response) {
+                if (response.data) {
+                    $('.viewmodal').html(response.data).show();
+                    $('#modalEditFoto').modal('show');
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + '\n' + thrownError);
+            }
+        });
+    }
+</script>
 
 <?= $this->endSection('isi') ?>

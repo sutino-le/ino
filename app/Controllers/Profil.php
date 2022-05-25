@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\ModelBiodataDomisili;
 use App\Models\ModelBiodataKtp;
 use App\Models\ModelLevels;
 use App\Models\ModelUsers;
@@ -47,57 +48,113 @@ class Profil extends BaseController
                 'kelurahan'         => '',
                 'kecamatan'         => '',
                 'kota_kabupaten'    => '',
-                'propinsi'    => '',
+                'propinsi'          => '',
+            ];
+        }
+
+        //ambil tabel domisili
+        $modelBiodataDomisili = new ModelBiodataDomisili();
+        $rowKtpDomisili = $modelBiodataDomisili->find($rowUser['userktp']);
+        if ($rowKtpDomisili > 0) {
+            $data_domisili = [
+                'domisili_alamat'           => $rowKtpDomisili['domisili_alamat'],
+                'domisili_rt'               => $rowKtpDomisili['domisili_rt'],
+                'domisili_rw'               => $rowKtpDomisili['domisili_rw'],
+                'domisili_wilayah_id'       => $rowKtpDomisili['domisili_wilayah_id'],
+            ];
+        } else {
+            $data_domisili = [
+                'domisili_alamat'           => '',
+                'domisili_rt'               => '',
+                'domisili_rw'               => '',
+                'domisili_wilayah_id'       => '',
+            ];
+        }
+
+        //ambil tabel domisili wilayah
+        $modelWilayahDomisili = new ModelWilayah();
+        $rowWilDomisili = $modelWilayahDomisili->find($rowKtpDomisili['domisili_wilayah_id']);
+        if ($rowWilDomisili > 0) {
+
+
+            $data_domisili_wilayah = [
+                'domisili_kelurahan'        => $rowWilDomisili['kelurahan'],
+                'domisili_kecamatan'        => $rowWilDomisili['kecamatan'],
+                'domisili_kota_kabupaten'   => $rowWilDomisili['kota_kabupaten'],
+                'domisili_propinsi'         => $rowWilDomisili['propinsi'],
+            ];
+        } else {
+            $data_domisili_wilayah = [
+                'domisili_kelurahan'        => '',
+                'domisili_kecamatan'        => '',
+                'domisili_kota_kabupaten'   => '',
+                'domisili_propinsi'         => '',
             ];
         }
 
         if ($rowKtp > 0) {
             $data = [
-                'judul'             => 'Home',
-                'subjudul'          => 'Profil',
-                'validation'        => \Config\Services::validation(),
-                'userid'            => $rowUser['userid'],
-                'usernama'          => $rowUser['usernama'],
-                'ktp_nomor'         => $rowKtp['ktp_nomor'],
-                'ktp_nama'          => $rowKtp['ktp_nama'],
-                'ktp_tempat_lahir'  => $rowKtp['ktp_tempat_lahir'],
-                'ktp_tanggal_lahir' => $rowKtp['ktp_tanggal_lahir'],
-                'ktp_kelamin'       => $rowKtp['ktp_kelamin'],
-                'ktp_alamat'        => $rowKtp['ktp_alamat'],
-                'ktp_rt'            => $rowKtp['ktp_rt'],
-                'ktp_rw'            => $rowKtp['ktp_rw'],
-                'ktp_alamatid'      => $rowKtp['ktp_alamatid'],
-                'ktp_hp'            => $rowKtp['ktp_hp'],
-                'ktp_email'         => $rowKtp['ktp_email'],
-                'ktp_foto'          => $rowKtp['ktp_foto'],
-                'kelurahan'         => $data_wilayah['kelurahan'],
-                'kecamatan'         => $data_wilayah['kecamatan'],
-                'kota_kabupaten'    => $data_wilayah['kota_kabupaten'],
-                'propinsi'          => $data_wilayah['propinsi'],
+                'judul'                 => 'Home',
+                'subjudul'              => 'Profil',
+                'validation'            => \Config\Services::validation(),
+                'userid'                => $rowUser['userid'],
+                'usernama'              => $rowUser['usernama'],
+                'ktp_nomor'             => $rowKtp['ktp_nomor'],
+                'ktp_nama'              => $rowKtp['ktp_nama'],
+                'ktp_tempat_lahir'      => $rowKtp['ktp_tempat_lahir'],
+                'ktp_tanggal_lahir'     => $rowKtp['ktp_tanggal_lahir'],
+                'ktp_kelamin'           => $rowKtp['ktp_kelamin'],
+                'ktp_alamat'            => $rowKtp['ktp_alamat'],
+                'ktp_rt'                => $rowKtp['ktp_rt'],
+                'ktp_rw'                => $rowKtp['ktp_rw'],
+                'ktp_alamatid'          => $rowKtp['ktp_alamatid'],
+                'ktp_hp'                => $rowKtp['ktp_hp'],
+                'ktp_email'             => $rowKtp['ktp_email'],
+                'ktp_foto'              => $rowKtp['ktp_foto'],
+                'kelurahan'             => $data_wilayah['kelurahan'],
+                'kecamatan'             => $data_wilayah['kecamatan'],
+                'kota_kabupaten'        => $data_wilayah['kota_kabupaten'],
+                'propinsi'              => $data_wilayah['propinsi'],
+                'domisili_alamat'       => $data_domisili['domisili_alamat'],
+                'domisili_rt'           => $data_domisili['domisili_rt'],
+                'domisili_rw'           => $data_domisili['domisili_rw'],
+                'domisili_wilayah_id'   => $data_domisili['domisili_wilayah_id'],
+                'domisili_kelurahan'             => $data_domisili_wilayah['domisili_kelurahan'],
+                'domisili_kecamatan'             => $data_domisili_wilayah['domisili_kecamatan'],
+                'domisili_kota_kabupaten'        => $data_domisili_wilayah['domisili_kota_kabupaten'],
+                'domisili_propinsi'              => $data_domisili_wilayah['domisili_propinsi'],
             ];
         } else {
             $data = [
-                'judul'             => 'Home',
-                'subjudul'          => 'Profil',
-                'validation'        => \Config\Services::validation(),
-                'userid'            => $rowUser['userid'],
-                'usernama'          => $rowUser['usernama'],
-                'ktp_nomor'         => '',
-                'ktp_nama'          => '',
-                'ktp_tempat_lahir'  => '',
-                'ktp_tanggal_lahir' => '',
-                'ktp_kelamin'       => '',
-                'ktp_alamat'        => '',
-                'ktp_rt'            => '',
-                'ktp_rw'            => '',
-                'ktp_alamatid'      => '',
-                'ktp_hp'            => '',
-                'ktp_email'         => '',
-                'ktp_foto'          => '',
-                'kelurahan'         => $data_wilayah['kelurahan'],
-                'kecamatan'         => $data_wilayah['kecamatan'],
-                'kota_kabupaten'    => $data_wilayah['kota_kabupaten'],
-                'propinsi'          => $data_wilayah['propinsi'],
+                'judul'                 => 'Home',
+                'subjudul'              => 'Profil',
+                'validation'            => \Config\Services::validation(),
+                'userid'                => $rowUser['userid'],
+                'usernama'              => $rowUser['usernama'],
+                'ktp_nomor'             => '',
+                'ktp_nama'              => '',
+                'ktp_tempat_lahir'      => '',
+                'ktp_tanggal_lahir'     => '',
+                'ktp_kelamin'           => '',
+                'ktp_alamat'            => '',
+                'ktp_rt'                => '',
+                'ktp_rw'                => '',
+                'ktp_alamatid'          => '',
+                'ktp_hp'                => '',
+                'ktp_email'             => '',
+                'ktp_foto'              => '',
+                'kelurahan'             => $data_wilayah['kelurahan'],
+                'kecamatan'             => $data_wilayah['kecamatan'],
+                'kota_kabupaten'        => $data_wilayah['kota_kabupaten'],
+                'propinsi'              => $data_wilayah['propinsi'],
+                'domisili_alamat'       => $data_domisili['domisili_alamat'],
+                'domisili_rt'           => $data_domisili['domisili_rt'],
+                'domisili_rw'           => $data_domisili['domisili_rw'],
+                'domisili_wilayah_id'   => $data_domisili['domisili_wilayah_id'],
+                'domisili_kelurahan'             => $data_domisili_wilayah['domisili_kelurahan'],
+                'domisili_kecamatan'             => $data_domisili_wilayah['domisili_kecamatan'],
+                'domisili_kota_kabupaten'        => $data_domisili_wilayah['domisili_kota_kabupaten'],
+                'domisili_propinsi'              => $data_domisili_wilayah['domisili_propinsi'],
             ];
         }
         return view('profil/viewdata', $data);

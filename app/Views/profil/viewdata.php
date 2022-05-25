@@ -70,6 +70,11 @@
                             <div class="active tab-pane" id="biodata_ktp">
                                 <!-- Post -->
                                 <div class="post">
+
+                                    <button type="button" class="close" onclick="editktp('<?= $userid ?>')" title="Ubah Data KTP">
+                                        <i class='fas fa-user-edit text-primary mb-3'></i>
+                                    </button>
+
                                     <table class="table">
                                         <tr>
                                             <td>Tempat/Tgl. Lahir</td>
@@ -84,7 +89,7 @@
                                         <tr>
                                             <td>Alamat</td>
                                             <td>:&nbsp;</td>
-                                            <td><?= $propinsi ?>, RT/RW <?= $ktp_rt ?>/<?= $ktp_rw ?></td>
+                                            <td><?= $ktp_alamat ?>, RT/RW <?= $ktp_rt ?>/<?= $ktp_rw ?></td>
                                         </tr>
                                         <tr>
                                             <td>Kelurahan</td>
@@ -115,31 +120,37 @@
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="biodata_domisili">
                                 <!-- The timeline -->
+
+                                <button type="button" class="close" onclick="editktp('<?= $userid ?>')" title="Ubah Data KTP">
+                                    <i class='fas fa-user-edit text-primary mb-3'></i>
+                                </button>
+
+
                                 <table class="table">
                                     <tr>
                                         <td>Alamat</td>
                                         <td>:&nbsp;</td>
-                                        <td><?= $propinsi ?>, RT/RW <?= $ktp_rt ?>/<?= $ktp_rw ?></td>
+                                        <td><?= $domisili_alamat ?>, RT/RW <?= $domisili_rt ?>/<?= $domisili_rw ?></td>
                                     </tr>
                                     <tr>
                                         <td>Kelurahan</td>
                                         <td>:&nbsp;</td>
-                                        <td><?= $kelurahan ?></td>
+                                        <td><?= $domisili_kelurahan ?></td>
                                     </tr>
                                     <tr>
                                         <td>Kecamatan</td>
                                         <td>:&nbsp;</td>
-                                        <td><?= $kecamatan ?></td>
+                                        <td><?= $domisili_kecamatan ?></td>
                                     </tr>
                                     <tr>
                                         <td>Kota/Kabupaten</td>
                                         <td>:&nbsp;</td>
-                                        <td><?= $kota_kabupaten ?></td>
+                                        <td><?= $domisili_kota_kabupaten ?></td>
                                     </tr>
                                     <tr>
                                         <td>Propinsi</td>
                                         <td>:&nbsp;</td>
-                                        <td><?= $propinsi ?></td>
+                                        <td><?= $domisili_propinsi ?></td>
                                     </tr>
                                 </table>
 

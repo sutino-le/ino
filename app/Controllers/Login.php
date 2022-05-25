@@ -71,11 +71,15 @@ class Login extends BaseController
                     $modelLevel = new ModelLevels();
                     $cekLevel = $modelLevel->find($idlevel);
 
+                    $modelFotoKtp = new ModelBiodataKtp();
+                    $cekKtpFoto = $modelFotoKtp->find($cekUserLogin['userktp']);
+
                     $simpan_session = [
                         'iduser'    => $iduser,
                         'namauser'  => $cekUserLogin['usernama'],
                         'levelnama'  => $cekLevel['levelnama'],
-                        'idlevel'   => $idlevel
+                        'idlevel'   => $idlevel,
+                        'ktp_foto'  => $cekKtpFoto['ktp_foto']
                     ];
                     session()->set($simpan_session);
 

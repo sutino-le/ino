@@ -17,6 +17,7 @@ class Profil extends BaseController
         $this->users    = new ModelUsers();
         $this->biodataKtp   = new ModelBiodataKtp();
         $this->wilayah    = new ModelWilayah();
+        helper('form');
     }
 
 
@@ -159,6 +160,7 @@ class Profil extends BaseController
             'ktp_foto'           => $pathGambar,
         ]);
 
-        return view('profil/viewdata/', $userid);
+
+        return redirect()->to('profil/index/' . $userid);
     }
 }

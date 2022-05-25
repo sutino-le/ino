@@ -25,7 +25,7 @@
                                 <i class='fas fa-camera text-primary'></i>
                             </button>
 
-                            <img class=" profile-user-img img-fluid img-circle" src="../../dist/img/user4-128x128.jpg" alt="User profile picture">
+                            <img class=" profile-user-img img-fluid img-circle" src="/upload/<?= $ktp_foto ?>" alt="User profile picture">
                         </div>
 
                         <h3 class="profile-username text-center"><?= $ktp_nama ?></h3>
@@ -57,7 +57,7 @@
                     <div class="card-header p-2">
                         <ul class="nav nav-pills">
                             <li class="nav-item"><a class="nav-link active" href="#biodata_ktp" data-toggle="tab">KTP</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#biodata_domisili" data-toggle="tab">Domisili</a></li>
                             <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
                         </ul>
                     </div><!-- /.card-header -->
@@ -113,8 +113,35 @@
 
 
                             <!-- /.tab-pane -->
-                            <div class="tab-pane" id="timeline">
+                            <div class="tab-pane" id="biodata_domisili">
                                 <!-- The timeline -->
+                                <table class="table">
+                                    <tr>
+                                        <td>Alamat</td>
+                                        <td>:&nbsp;</td>
+                                        <td><?= $propinsi ?>, RT/RW <?= $ktp_rt ?>/<?= $ktp_rw ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kelurahan</td>
+                                        <td>:&nbsp;</td>
+                                        <td><?= $kelurahan ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kecamatan</td>
+                                        <td>:&nbsp;</td>
+                                        <td><?= $kecamatan ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kota/Kabupaten</td>
+                                        <td>:&nbsp;</td>
+                                        <td><?= $kota_kabupaten ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Propinsi</td>
+                                        <td>:&nbsp;</td>
+                                        <td><?= $propinsi ?></td>
+                                    </tr>
+                                </table>
 
                             </div>
                             <!-- /.tab-pane -->

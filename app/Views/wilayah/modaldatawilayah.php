@@ -48,7 +48,7 @@
             "serverSide": true,
             "order": [],
             "ajax": {
-                "url": "/wilayah/listDataModal",
+                "url": "<?= base_url() ?>/wilayah/listDataModal",
                 "type": "POST",
             },
             "colomnDefs": [{

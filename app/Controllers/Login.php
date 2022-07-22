@@ -83,7 +83,7 @@ class Login extends BaseController
                     ];
                     session()->set($simpan_session);
 
-                    return redirect()->to('/main/index');
+                    return redirect()->to('/main/index')->withInput()->with('validation', $validation);
                 } else {
                     $sessError = [
                         'errPassword'     => 'Maaf password anda salah !!',

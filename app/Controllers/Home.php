@@ -2,10 +2,18 @@
 
 namespace App\Controllers;
 
+use App\Models\ModelLowongan;
+
 class Home extends BaseController
 {
     public function index()
     {
-        return view('welcome_message');
+        $modelLowongan = new ModelLowongan();
+
+        $data = [
+            'tampildata' => $modelLowongan->findAll()
+        ];
+
+        return view('home/viewdata', $data);
     }
 }

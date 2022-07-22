@@ -58,7 +58,7 @@
             "serverSide": true,
             "order": [],
             "ajax": {
-                "url": "/levels/listData",
+                "url": "<?= base_url() ?>/levels/listData",
                 "type": "POST",
             },
             "colomnDefs": [{
@@ -79,7 +79,7 @@
             e.preventDefault();
             $.ajax({
                 type: "post",
-                url: "/levels/formtambah",
+                url: "<?= base_url() ?>/levels/formtambah",
                 dataType: "json",
                 success: function(response) {
                     if (response.data) {
@@ -98,7 +98,7 @@
     function edit(levelid) {
         $.ajax({
             type: "post",
-            url: "/levels/formedit/" + levelid,
+            url: "<?= base_url() ?>/levels/formedit/" + levelid,
             dataType: "json",
             success: function(response) {
                 if (response.data) {
@@ -114,7 +114,7 @@
 
     function hapus(levelid) {
         $.ajax({
-            url: "/levels/hapus/" + levelid,
+            url: "<?= base_url() ?>/levels/hapus/" + levelid,
             dataType: "json",
             success: function(response) {
                 if (response.sukses) {

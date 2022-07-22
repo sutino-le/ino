@@ -61,7 +61,7 @@
             "serverSide": true,
             "order": [],
             "ajax": {
-                "url": "/users/listData",
+                "url": "<?= base_url() ?>/users/listData",
                 "type": "POST",
             },
             "colomnDefs": [{
@@ -82,7 +82,7 @@
             e.preventDefault();
             $.ajax({
                 type: "post",
-                url: "/users/formtambah",
+                url: "<?= base_url() ?>/users/formtambah",
                 dataType: "json",
                 success: function(response) {
                     if (response.data) {
@@ -101,7 +101,7 @@
     function edit(userid) {
         $.ajax({
             type: "post",
-            url: "/users/formedit/" + userid,
+            url: "<?= base_url() ?>/users/formedit/" + userid,
             dataType: "json",
             success: function(response) {
                 if (response.data) {
@@ -117,7 +117,7 @@
 
     function hapus(userid) {
         $.ajax({
-            url: "/users/hapus/" + userid,
+            url: "<?= base_url() ?>/users/hapus/" + userid,
             dataType: "json",
             success: function(response) {
                 if (response.sukses) {

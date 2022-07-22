@@ -148,6 +148,34 @@ class BiodataKtp extends BaseController
                         'required'  => '{field} tidak boleh kosong'
                     ]
                 ],
+                'kelurahan' => [
+                    'rules'     => 'required',
+                    'label'     => 'Kelurahan',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'kecamatan' => [
+                    'rules'     => 'required',
+                    'label'     => 'Daerah',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'kota_kabupaten' => [
+                    'rules'     => 'required',
+                    'label'     => 'Kota / Kabupaten',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'propinsi' => [
+                    'rules'     => 'required',
+                    'label'     => 'Propinsi',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
                 'ktp_alamatid' => [
                     'rules'     => 'required',
                     'label'     => 'Daerah',
@@ -182,6 +210,10 @@ class BiodataKtp extends BaseController
                         'errKtpAlamat'          => $validation->getError('ktp_alamat'),
                         'errKtpRt'              => $validation->getError('ktp_rt'),
                         'errKtpRw'              => $validation->getError('ktp_rw'),
+                        'errKelurahan'        => $validation->getError('kelurahan'),
+                        'errKecamatan'        => $validation->getError('kecamatan'),
+                        'errKotaKabupaten'        => $validation->getError('kota_kabupaten'),
+                        'errPropinsi'        => $validation->getError('propinsi'),
                         'errKtpAlamatId'        => $validation->getError('ktp_alamatid'),
                         'errKtpHp'              => $validation->getError('ktp_hp'),
                         'errKtpEmail'           => $validation->getError('ktp_email'),
@@ -347,6 +379,34 @@ class BiodataKtp extends BaseController
                         'required'  => '{field} tidak boleh kosong'
                     ]
                 ],
+                'kelurahan' => [
+                    'rules'     => 'required',
+                    'label'     => 'Kelurahan',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'kecamatan' => [
+                    'rules'     => 'required',
+                    'label'     => 'Daerah',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'kota_kabupaten' => [
+                    'rules'     => 'required',
+                    'label'     => 'Kota / Kabupaten',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'propinsi' => [
+                    'rules'     => 'required',
+                    'label'     => 'Propinsi',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
                 'ktp_alamatid' => [
                     'rules'     => 'required',
                     'label'     => 'Daerah',
@@ -381,6 +441,10 @@ class BiodataKtp extends BaseController
                         'errKtpAlamat'          => $validation->getError('ktp_alamat'),
                         'errKtpRt'              => $validation->getError('ktp_rt'),
                         'errKtpRw'              => $validation->getError('ktp_rw'),
+                        'errKelurahan'        => $validation->getError('kelurahan'),
+                        'errKecamatan'        => $validation->getError('kecamatan'),
+                        'errKotaKabupaten'        => $validation->getError('kota_kabupaten'),
+                        'errPropinsi'        => $validation->getError('propinsi'),
                         'errKtpAlamatId'        => $validation->getError('ktp_alamatid'),
                         'errKtpHp'              => $validation->getError('ktp_hp'),
                         'errKtpEmail'           => $validation->getError('ktp_email'),

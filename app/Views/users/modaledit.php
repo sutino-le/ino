@@ -5,6 +5,7 @@
 
 
             <form action="<?= base_url('users/updatedata') ?>" class="formsimpan">
+                <?= csrf_field(); ?>
 
                 <div class="modal-header bg-info text-white">
                     <h5 class="modal-title" id="staticBackdropLabel">Edit User</h5>

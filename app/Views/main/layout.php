@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Project</title>
+    <title>RSP</title>
 
     <link href="<?= base_url() ?>/upload/logo.png" rel="icon">
     <link href="<?= base_url() ?>/upload/logo.png" rel="apple-touch-icon">
@@ -20,6 +20,36 @@
 
     <link rel="stylesheet" href="<?= base_url() ?>/plugins/sweetalert2/sweetalert2.min.css">
     <script src="<?= base_url() ?>/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="<?= base_url() ?>/plugins/daterangepicker/daterangepicker.css">
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="<?= base_url() ?>/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Bootstrap Color Picker -->
+    <link rel="stylesheet" href="<?= base_url() ?>/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="<?= base_url() ?>/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="<?= base_url() ?>/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- Bootstrap4 Duallistbox -->
+    <link rel="stylesheet" href="<?= base_url() ?>/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+    <!-- BS Stepper -->
+    <link rel="stylesheet" href="<?= base_url() ?>/plugins/bs-stepper/css/bs-stepper.min.css">
+    <!-- dropzonejs -->
+    <link rel="stylesheet" href="<?= base_url() ?>/plugins/dropzone/min/dropzone.min.css">
+
+
+
+    <link rel="stylesheet" href="<?= base_url() ?>/plugins/summernote/summernote-bs4.min.css">
+    <!-- CodeMirror -->
+    <link rel="stylesheet" href="<?= base_url() ?>/plugins/codemirror/codemirror.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/plugins/codemirror/theme/monokai.css">
+    <!-- SimpleMDE -->
+    <link rel="stylesheet" href="<?= base_url() ?>/plugins/simplemde/simplemde.min.css">
+
+
+
 </head>
 
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -61,8 +91,9 @@
             <!-- Brand Logo -->
             <a href="<?= base_url() ?>" class="brand-link">
                 <img src="<?= base_url() ?>/upload/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Project</span>
+                <span class="brand-text font-weight-light">RSP</span>
             </a>
+
 
             <!-- Sidebar -->
             <div class="sidebar">
@@ -89,8 +120,20 @@
                             $levels = "show";
                             $users = "show";
 
-                            $master = "show";
+                            $master_hr = "show";
                             $wilayah = "show";
+                            $lowongan = "show";
+
+
+                            $master_barang = "show";
+                            $kategori = "show";
+                            $subkategori = "show";
+                            $satuan = "show";
+                            $barang = "show";
+
+
+                            $master_po = "show";
+                            $pembelian = "show";
 
                             $biodata = "show";
                             $biodata_ktp = "show";
@@ -99,8 +142,20 @@
                             $levels = "none";
                             $users = "none";
 
-                            $master = "none";
+                            $master_hr = "none";
                             $wilayah = "none";
+                            $lowongan = "none";
+
+
+                            $master_barang = "none";
+                            $kategori = "none";
+                            $subkategori = "none";
+                            $satuan = "none";
+                            $barang = "none";
+
+
+                            $master_po = "none";
+                            $pembelian = "none";
 
                             $biodata = "none";
                             $biodata_ktp = "none";
@@ -138,11 +193,11 @@
                         </li>
 
 
-                        <li class="nav-item" style="display: <?= $master ?>;">
+                        <li class="nav-item" style="display: <?= $master_hr ?>;">
                             <a href="#" class="nav-link">
                                 <i class="fas fa-database text-primary"></i>
                                 <p>
-                                    Master
+                                    Master HR
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
@@ -151,6 +206,70 @@
                                     <a href="<?= site_url('wilayah/index') ?>" class="nav-link">
                                         <i class="fas fa-map-marked-alt nav-icon text-primary"></i>
                                         <p>Wilayah</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" style="display: <?= $lowongan ?>;">
+                                    <a href="<?= site_url('lowongan/index') ?>" class="nav-link">
+                                        <i class="fas fa-business-time nav-icon text-primary"></i>
+                                        <p>Lowongan</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item" style="display: <?= $master_barang ?>;">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-coins text-warning"></i>
+                                <p>
+                                    Master Barang
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview ml-2">
+                                <li class="nav-item" style="display: <?= $kategori ?>;">
+                                    <a href="<?= site_url('kategori/index') ?>" class="nav-link">
+                                        <i class="fas fa-cube nav-icon text-warning"></i>
+                                        <p>Kategori</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" style="display: <?= $subkategori ?>;">
+                                    <a href="<?= site_url('subkategori/index') ?>" class="nav-link">
+                                        <i class="fas fa-cubes nav-icon text-warning"></i>
+                                        <p>Sub Kategori</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" style="display: <?= $satuan ?>;">
+                                    <a href="<?= site_url('satuan/index') ?>" class="nav-link">
+                                        <i class="fas fa-tag nav-icon text-warning"></i>
+                                        <p>Satuan</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" style="display: <?= $barang ?>;">
+                                    <a href="<?= site_url('barang/index') ?>" class="nav-link">
+                                        <i class="fas fa-box-open nav-icon text-warning"></i>
+                                        <p>Barang</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item" style="display: <?= $master_po ?>;">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-dolly-flatbed text-maroon"></i>
+                                <p>
+                                    Pesanan Pembelian
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview ml-2">
+                                <li class="nav-item" style="display: <?= $pembelian ?>;">
+                                    <a href="<?= site_url('pembelian/index') ?>" class="nav-link">
+                                        <i class="fas fa-cart-arrow-down nav-icon text-maroon"></i>
+                                        <p>Pembelian</p>
                                     </a>
                                 </li>
 
@@ -261,6 +380,48 @@
     <script src="<?= base_url() ?>/plugins/pdfmake/pdfmake.min.js"></script>
     <script src="<?= base_url() ?>/plugins/pdfmake/vfs_fonts.js"></script>
 
+
+
+    <!-- Summernote -->
+    <script src="<?= base_url() ?>/plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- CodeMirror -->
+    <script src="<?= base_url() ?>/plugins/codemirror/codemirror.js"></script>
+    <script src="<?= base_url() ?>/plugins/codemirror/mode/css/css.js"></script>
+    <script src="<?= base_url() ?>/plugins/codemirror/mode/xml/xml.js"></script>
+    <script src="<?= base_url() ?>/plugins/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+
+    <script src="<?= base_url() ?>/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
+
+    <script>
+        $(function() {
+            bsCustomFileInput.init();
+        });
+
+
+        $(function() {
+            // Summernote
+            $('#summernotedesk').summernote()
+
+            // CodeMirror
+            CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+                mode: "htmlmixed",
+                theme: "monokai"
+            });
+        })
+
+
+        $(function() {
+            // Summernote
+            $('#summernotepers').summernote()
+
+            // CodeMirror
+            CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+                mode: "htmlmixed",
+                theme: "monokai"
+            });
+        })
+    </script>
 
 </body>
 

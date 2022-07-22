@@ -61,7 +61,7 @@
             "serverSide": true,
             "order": [],
             "ajax": {
-                "url": "/wilayah/listData",
+                "url": "<?= base_url() ?>/wilayah/listData",
                 "type": "POST",
             },
             "colomnDefs": [{
@@ -82,7 +82,7 @@
             e.preventDefault();
             $.ajax({
                 type: "post",
-                url: "/wilayah/formtambah",
+                url: "<?= base_url() ?>/wilayah/formtambah",
                 dataType: "json",
                 success: function(response) {
                     if (response.data) {
@@ -101,7 +101,7 @@
     function edit(id_wilayah) {
         $.ajax({
             type: "post",
-            url: "/wilayah/formedit/" + id_wilayah,
+            url: "<?= base_url() ?>/wilayah/formedit/" + id_wilayah,
             dataType: "json",
             success: function(response) {
                 if (response.data) {
@@ -117,7 +117,7 @@
 
     function hapus(id_wilayah) {
         $.ajax({
-            url: "/wilayah/hapus/" + id_wilayah,
+            url: "<?= base_url() ?>/wilayah/hapus/" + id_wilayah,
             dataType: "json",
             success: function(response) {
                 if (response.sukses) {

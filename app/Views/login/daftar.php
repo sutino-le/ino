@@ -32,8 +32,10 @@
             <div class="row d-flex">
                 <div class="col-lg-6">
                     <div class="card1 pb-5">
-                        <div class="row"> <img src="<?= base_url() ?>/upload/apple-touch-icon.png" class="logo"> </div>
-                        <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://i.imgur.com/uNGdWHi.png" class="image"> </div>
+                        <div class="row mt-3 text-center">
+                            <a href="<?= site_url() ?>"><img src="<?= base_url() ?>/upload/LOGO RSP NEW.png" width="80%" height="40px"></a>
+                        </div>
+                        <div class=" row px-3 justify-content-center mt-5 mb-5 border-line"> <img src="<?= base_url() ?>/upload/pngwing (1).png" width="100%" height="100%"> </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -150,7 +152,7 @@
                                 response.success,
                                 'success'
                             ).then((result) => {
-                                window.location.href = ('/login/index');
+                                window.location.href = ('<?= base_url() ?>/login/index');
                             })
                         }
                     }

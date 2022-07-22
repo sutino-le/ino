@@ -30,7 +30,8 @@
     </div>
 
 
-    <?= form_open_multipart('biodataktp/update', 'class="formupdate"'); ?>
+    <?= form_open_multipart(base_url() . '/biodataktp/update', 'class="formupdate"'); ?>
+    <?= csrf_field(); ?>
 
 
 
@@ -45,7 +46,7 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="">Nomor KTP</label>
-                            <input type="text" name="ktp_nomor" id="ktp_nomor" class="form-control" value="<?= $ktp_nomor ?>" placeholder="Masukan Nomor KTP...">
+                            <input type="text" name="ktp_nomor" id="ktp_nomor" maxlength="16" minlength="16" class="form-control" value="<?= $ktp_nomor ?>" placeholder="Masukan Nomor KTP...">
                             <div class="invalid-feedback errorKtpNomor"></div>
                             <input type="hidden" name="ktp_nomor_lama" id="ktp_nomor_lama" value="<?= $ktp_nomor ?>">
                         </div>
@@ -219,7 +220,7 @@
         $('#tombolCariWilayah').click(function(e) {
             e.preventDefault();
             $.ajax({
-                url: "/wilayah/modalData",
+                url: "<?= base_url() ?>/wilayah/modalData",
                 dataType: "json",
                 success: function(response) {
                     if (response.data) {
@@ -249,60 +250,121 @@
                         if (err.errKtpNomor) {
                             $('#ktp_nomor').addClass('is-invalid');
                             $('.errorKtpNomor').html(err.errKtpNomor);
+                        } else {
+                            $('#ktp_nomor').removeClass('is-invalid');
+                            $('#ktp_nomor').addClass('is-valid');
                         }
 
                         if (err.errKtpNama) {
                             $('#ktp_nama').addClass('is-invalid');
                             $('.errorKtpNama').html(err.errKtpNama);
+                        } else {
+                            $('#ktp_nama').removeClass('is-invalid');
+                            $('#ktp_nama').addClass('is-valid');
                         }
 
                         if (err.errKtpTempatLahir) {
                             $('#ktp_tempat_lahir').addClass('is-invalid');
                             $('.errorKtpTempatLahir').html(err.errKtpTempatLahir);
+                        } else {
+                            $('#ktp_tempat_lahir').removeClass('is-invalid');
+                            $('#ktp_tempat_lahir').addClass('is-valid');
                         }
 
                         if (err.errKtpTanggalLahir) {
                             $('#ktp_tanggal_lahir').addClass('is-invalid');
                             $('.errorKtpTanggalLahir').html(err.errKtpTanggalLahir);
+                        } else {
+                            $('#ktp_tanggal_lahir').removeClass('is-invalid');
+                            $('#ktp_tanggal_lahir').addClass('is-valid');
                         }
 
                         if (err.errKtpKelamin) {
                             $('#ktp_kelamin').addClass('is-invalid');
                             $('.errorKtpKelamin').html(err.errKtpKelamin);
+                        } else {
+                            $('#ktp_kelamin').removeClass('is-invalid');
+                            $('#ktp_kelamin').addClass('is-valid');
                         }
 
                         if (err.errKtpAlamat) {
                             $('#ktp_alamat').addClass('is-invalid');
                             $('.errorKtpAlamat').html(err.errKtpAlamat);
+                        } else {
+                            $('#ktp_alamat').removeClass('is-invalid');
+                            $('#ktp_alamat').addClass('is-valid');
                         }
 
                         if (err.errKtpRt) {
                             $('#ktp_rt').addClass('is-invalid');
                             $('.errorKtpRt').html(err.errKtpRt);
+                        } else {
+                            $('#ktp_rt').removeClass('is-invalid');
+                            $('#ktp_rt').addClass('is-valid');
                         }
 
                         if (err.errKtpRw) {
                             $('#ktp_rw').addClass('is-invalid');
                             $('.errorKtpRw').html(err.errKtpRw);
+                        } else {
+                            $('#ktp_rw').removeClass('is-invalid');
+                            $('#ktp_rw').addClass('is-valid');
+                        }
+
+                        if (err.errKelurahan) {
+                            $('#kelurahan').addClass('is-invalid');
+                            $('.errorKelurahan').html(err.errKelurahan);
+                        } else {
+                            $('#kelurahan').removeClass('is-invalid');
+                            $('#kelurahan').addClass('is-valid');
+                        }
+
+                        if (err.errKecamatan) {
+                            $('#kecamatan').addClass('is-invalid');
+                            $('.errorKecamatan').html(err.errKecamatan);
+                        } else {
+                            $('#kecamatan').removeClass('is-invalid');
+                            $('#kecamatan').addClass('is-valid');
+                        }
+
+                        if (err.errKotaKabupaten) {
+                            $('#kota_kabupaten').addClass('is-invalid');
+                            $('.errorKotaKabupaten').html(err.errKotaKabupaten);
+                        } else {
+                            $('#kota_kabupaten').removeClass('is-invalid');
+                            $('#kota_kabupaten').addClass('is-valid');
+                        }
+
+                        if (err.errPropinsi) {
+                            $('#propinsi').addClass('is-invalid');
+                            $('.errorPropinsi').html(err.errPropinsi);
+                        } else {
+                            $('#propinsi').removeClass('is-invalid');
+                            $('#propinsi').addClass('is-valid');
                         }
 
                         if (err.errKtpAlamatId) {
-                            $('#kelurahan').addClass('is-invalid');
-                            $('#kecamatan').addClass('is-invalid');
-                            $('#kota_kabupaten').addClass('is-invalid');
-                            $('#propinsi').addClass('is-invalid');
                             $('#kelurahanpilih').addClass('is-invalid');
                             $('.errorKtpAlamatId').html(err.errKtpAlamatId);
+                        } else {
+                            $('#kelurahanpilih').removeClass('is-invalid');
+                            $('#kelurahanpilih').addClass('is-valid');
                         }
 
                         if (err.errKtpHp) {
                             $('#ktp_hp').addClass('is-invalid');
                             $('.errorKtpHp').html(err.errKtpHp);
+                        } else {
+                            $('#ktp_hp').removeClass('is-invalid');
+                            $('#ktp_hp').addClass('is-valid');
                         }
 
                         if (err.errKtpEmail) {
                             $('#ktp_email').addClass('is-invalid');
                             $('.errorKtpEmail').html(err.errKtpEmail);
+                        } else {
+                            $('#ktp_email').removeClass('is-invalid');
+                            $('#ktp_email').addClass('is-valid');
                         }
 
                     }
@@ -313,7 +375,7 @@
                             response.success,
                             'success'
                         ).then((result) => {
-                            window.location.href = ('/biodataktp/index');
+                            window.location.href = ('<?= base_url() ?>/biodataktp/index');
                         })
                     }
                 },

@@ -61,7 +61,7 @@
             "serverSide": true,
             "order": [],
             "ajax": {
-                "url": "/biodataktp/listData",
+                "url": "<?= base_url() ?>/biodataktp/listData",
                 "type": "POST",
             },
             "colomnDefs": [{
@@ -80,13 +80,13 @@
 
         $('#tambahBiodataKtp').click(function(e) {
             e.preventDefault();
-            window.location.href = ('/biodataktp/formtambah');
+            window.location.href = ('<?= base_url() ?>/biodataktp/formtambah');
         });
 
     });
 
     function edit(ktp_nomor) {
-        window.location.href = ('/biodataktp/edit/') + ktp_nomor;
+        window.location.href = ('<?= base_url() ?>/biodataktp/edit/') + ktp_nomor;
     }
 
     function hapus(ktp_nomor) {
@@ -102,7 +102,7 @@
             if (result.isConfirmed) {
                 $.ajax({
                     type: "post",
-                    url: "/biodataktp/hapusBiodata",
+                    url: "<?= base_url() ?>/biodataktp/hapusBiodata",
                     data: {
                         ktp_nomor: ktp_nomor
                     },
@@ -110,7 +110,7 @@
                     success: function(response) {
                         if (response.sukses) {
                             swal.fire('Berhasil', response.sukes, 'success');
-                            window.location.href = ('/biodataktp/index');
+                            window.location.href = ('<?= base_url() ?>/biodataktp/index');
                         }
                     },
                     error: function(xhr, ajaxOptions, thrownError) {

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>RSP</title>
 
     <link href="<?= base_url() ?>/upload/logo.png" rel="icon">
     <link href="<?= base_url() ?>/upload/logo.png" rel="apple-touch-icon">
@@ -25,20 +25,22 @@
             <div class="row d-flex">
                 <div class="col-lg-6">
                     <div class="card1 pb-5">
-                        <div class="row"> <img src="<?= base_url() ?>/upload/apple-touch-icon.png" class="logo"> </div>
-                        <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://i.imgur.com/uNGdWHi.png" class="image"> </div>
+                        <div class="row mt-3 text-center">
+                            <a href="<?= site_url() ?>"><img src="<?= base_url() ?>/upload/LOGO RSP NEW.png" width="80%" height="40px"></a>
+                        </div>
+                        <div class=" row px-3 justify-content-center mt-5 mb-5 border-line"> <img src="<?= base_url() ?>/upload/pngwing (1).png" width="100%" height="100%"> </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="card2 card border-0 px-4 py-5">
                         <div class="row mb-4 px-3">
-                            <h2 class="mb-0 mr-4 mt-2">Selamat datang...!!!</h2>
+                            <h2 class="mb-0 mr-4 mt-2">Welcome...!!!</h2>
                         </div>
                         <div class="row px-3 mb-4">
                             <div class="line"></div> <small class="or text-center">Login</small>
                             <div class="line"></div>
                         </div>
-                        <?= form_open('login/cekUser'); ?>
+                        <?= form_open(base_url('login/cekUser')); ?>
                         <?= csrf_field(); ?>
 
                         <?php
@@ -77,7 +79,7 @@
                             <div class="custom-control custom-checkbox custom-control-inline">
 
                             </div>
-                            <a href="#" class="ml-auto mb-0 text-sm">Lupa Password?</a>
+                            <a href="#" class="ml-auto mb-0 text-sm">Forgot Password?</a>
                         </div>
 
 
@@ -87,7 +89,7 @@
 
                         <?= form_close() ?>
 
-                        <div class="row mb-4 px-3"> <small class="font-weight-bold">Belum punya akun ? <a href="<?= site_url('login/daftar') ?>" class="text-danger ">Daftar</a></small> </div>
+                        <div class="row mb-4 px-3"> <small class="font-weight-bold">Not a member ? <a href="<?= site_url('login/daftar') ?>" class="text-danger ">Sign Up</a></small> </div>
                     </div>
                 </div>
             </div>

@@ -104,11 +104,11 @@
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label for="">Harga Beli (Rp)</label>
-                            <input type="text" class="form-control" name="hargabeli" id="hargabeli">
+                            <input type="text" class="form-control" name="hargabeli" id="hargabeli" autocomplete="off">
                         </div>
                     </div>
 
-                    <div class="col-lg-2">
+                    <div class=" col-lg-2">
                         <div class="form-group">
                             <label for="">#</label>
                             <div class="input-group">
@@ -145,6 +145,9 @@
 </div>
 
 <div class="viewmodal" style="display: none;"></div>
+
+
+<script src="<?= base_url('dist/js/autoNumeric.js') ?>"></script>
 
 <script>
     function kosong() {
@@ -199,6 +202,7 @@
 
 
     function ambilDataBarang() {
+
         let kodebarang = $('#kodebarang').val();
         if (kodebarang.length == 0) {
             swal.fire('Error', 'Kode barang harus diinput', 'error');

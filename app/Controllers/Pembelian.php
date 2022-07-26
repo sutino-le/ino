@@ -4,9 +4,12 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\ModelBarang;
+use App\Models\Modelbarangmasuk;
 use App\Models\ModelBarangPagination;
+use App\Models\ModelDetailPembelian;
 use App\Models\ModelPembelian;
 use App\Models\ModelPembelianPagination;
+use App\Models\ModelSuplier;
 use App\Models\ModelTempPembelian;
 use Config\Services;
 
@@ -195,10 +198,11 @@ class Pembelian extends BaseController
         }
     }
 
+
     public function hapusItem()
     {
         if ($this->request->isAJAX()) {
-            $id = $this->request->getPost('id');
+            $id = $this->request->getPost('iddetail');
             $ModelTempPembelian = new ModelTempPembelian();
             $ModelTempPembelian->delete($id);
 
@@ -252,5 +256,167 @@ class Pembelian extends BaseController
             ];
             echo json_encode($output);
         }
+    }
+
+
+    function modalPembayaran()
+    {
+        if ($this->request->isAJAX()) {
+            $nofaktur = $this->request->getPost('nofaktur');
+            $tglfaktur = $this->request->getPost('tglfaktur');
+            $idsuplier = $this->request->getPost('idsuplier');
+            $totalharga = $this->request->getPost('totalharga');
+
+            $modelTemp = new ModelTempPembelian();
+
+            $cekdata = $modelTemp->tampilDataTemp($nofaktur);
+
+            if ($cekdata->getNumRows() > 0) {
+                $data = [
+                    'nofaktur'      => $nofaktur,
+                    'tglfaktur'     => $tglfaktur,
+                    'idsuplier'     => $idsuplier,
+                    'totalharga'    => $totalharga
+                ];
+
+                $json = [
+                    'data'  => view('pembelian/modalpembayaran', $data)
+                ];
+            } else {
+                $json = [
+                    'error'  => 'Maaf, item belum ada'
+                ];
+            }
+
+            echo json_encode($json);
+        }
+    }
+
+    function simpanPembayaran()
+    {
+        if ($this->request->isAJAX()) {
+            $nofaktur = $this->request->getPost('nofaktur');
+            $tglfaktur = $this->request->getPost('tglfaktur');
+            $idsuplier = $this->request->getPost('idsuplier');
+            $totalbayar = str_replace(".", "", $this->request->getPost('totalbayar'));
+            $jumlahuang = str_replace(".", "", $this->request->getPost('jumlahuang'));
+            $sisauang = str_replace(".", "", $this->request->getPost('sisauang'));
+
+            $ModelPembelian = new ModelPembelian();
+
+            //simpan ke table barang keluar
+            $ModelPembelian->insert([
+                'faktur'        => $nofaktur,
+                'tglfaktur'     => $tglfaktur,
+                'idsup'         => $idsuplier,
+                'totalharga'    => $totalbayar,
+                'jumlahuang'    => $jumlahuang,
+                'sisauang'      => $sisauang
+            ]);
+
+            $modelTemp      = new ModelTempPembelian();
+            $dataTemp       = $modelTemp->getWhere(['detfaktur' => $nofaktur]);
+
+            $fieldDetail = [];
+            foreach ($dataTemp->getResultArray() as $row) {
+                $fieldDetail[] = [
+                    'detfaktur'     => $row['detfaktur'],
+                    'detbrgkode'    => $row['detbrgkode'],
+                    'dethargamasuk' => $row['dethargamasuk'],
+                    'dethargajual'  => $row['dethargajual'],
+                    'detjml'        => $row['detjml'],
+                    'detsubtotal'   => $row['detsubtotal']
+                ];
+            }
+
+            $modelDetail = new ModelDetailPembelian();
+            $modelDetail->insertBatch($fieldDetail);
+
+
+            // hapus temp barang masuk berdasarkan faktur
+            $modelTemp->where(['detfaktur' => $nofaktur]);
+            $modelTemp->delete();
+
+            $json = [
+                'sukses'        => 'Transaksi berhasil disimpan',
+                'cetakfaktur'   => site_url('pembelian/cetakfaktur/' . $nofaktur)
+            ];
+
+            echo json_encode($json);
+        }
+    }
+
+    public function cetakFaktur($faktur)
+    {
+        $ModelPembelian = new ModelPembelian();
+        $modelDetail = new ModelDetailPembelian();
+        $ModelSuplier = new ModelSuplier();
+
+        $cekData = $ModelPembelian->find($faktur);
+        $dataSuplier = $ModelSuplier->find($cekData['idsup']);
+
+        $namaSuplier = ($dataSuplier != null) ? $dataSuplier['supnama'] : '-';
+        if ($cekData != null) {
+            $data = [
+                'faktur'            => $faktur,
+                'tanggal'           => $cekData['tglfaktur'],
+                'namasuplier'       => $namaSuplier,
+                'jumlahuang'        => $cekData['jumlahuang'],
+                'sisauang'          => $cekData['sisauang'],
+                'detailbarang'      => $modelDetail->tampilDataDetail($faktur)
+            ];
+
+            return view('pembelian/cetakfaktur', $data);
+        } else {
+            return redirect()->to(site_url('pembelian/input'));
+        }
+    }
+
+
+    function hapusTransaksi()
+    {
+        if ($this->request->isAJAX()) {
+            $faktur = $this->request->getPost('faktur');
+
+            $modelDetail = new ModelDetailPembelian();
+            $ModelPembelian = new ModelPembelian();
+
+            // hapus detail
+            $modelDetail->where(['detfaktur' => $faktur]);
+            $modelDetail->delete();
+            $ModelPembelian->delete($faktur);
+
+            $json = [
+                'sukses' => 'Barang keluar berhasil dihapus'
+            ];
+
+            echo json_encode($json);
+        }
+    }
+
+    public function edit($faktur)
+    {
+        $ModelPembelian = new ModelPembelian();
+        $rowData = $ModelPembelian->find($faktur);
+
+
+        $modelSuplier = new ModelSuplier();
+        $rowSuplier = $modelSuplier->find($rowData['idsup']);
+
+        if ($rowData['idsup'] == 0) {
+            $suplier = '';
+        } else {
+            $suplier = $rowSuplier['supnama'];
+        }
+
+        $data = [
+            'judul'                 => 'Home',
+            'subjudul'              => 'Edit Faktur Pembelian',
+            'nofaktur'              => $faktur,
+            'tanggal'               => $rowData['tglfaktur'],
+            'namasuplier'           => $suplier
+        ];
+
+        return view('pembelian/formedit', $data);
     }
 }

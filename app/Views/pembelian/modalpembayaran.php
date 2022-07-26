@@ -9,7 +9,7 @@
                 </button>
             </div>
 
-            <?= form_open('barangkeluar/simpanPembayaran', ['class' => 'frmpembayaran']) ?>
+            <?= form_open('pembelian/simpanPembayaran', ['class' => 'frmpembayaran']) ?>
 
             <div class="modal-body">
 
@@ -18,7 +18,7 @@
                     <label for="">No. Faktur</label>
                     <input type="text" name="nofaktur" id="nofaktur" class="form-control" value="<?= $nofaktur ?>" readonly>
                     <input type="hidden" name="tglfaktur" value="<?= $tglfaktur ?>">
-                    <input type="hidden" name="idpelanggan" value="<?= $idpelanggan ?>">
+                    <input type="hidden" name="idsuplier" value="<?= $idsuplier ?>">
                 </div>
 
                 <div class="form-group">
@@ -114,7 +114,7 @@
                             confirmButtonText: 'Ya, cetak!'
                         }).then((result) => {
                             if (result.isConfirmed) {
-                                let windowCetak = window.open(response.cetakfaktur, "Cetak Faktur Penjualan", "width=400, height=600");
+                                let windowCetak = window.open(response.cetakfaktur, "Cetak Faktur Pembelian", "width=400, height=600");
 
                                 windowCetak.focus();
                                 window.location.reload();

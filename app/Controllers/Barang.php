@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\ModelBarang;
 use App\Models\ModelBarangPagination;
 use App\Models\ModelKategori;
+use App\Models\ModelPembelian;
 use App\Models\ModelSatuan;
 use App\Models\ModelSubKategori;
 use Config\Services;
@@ -46,6 +47,7 @@ class Barang extends BaseController
 
                 $tombolEdit = "<button type=\"button\" class=\"btn btn-sm btn-info\" onclick=\"edit('" . $list->brgkode . "')\" title=\"Edit\"><i class='fas fa-edit'></i></button>";
                 $tombolHapus = "<button type=\"button\" class=\"btn btn-sm btn-danger\" onclick=\"hapus('" . $list->brgkode . "')\" title=\"Hapus\"><i class='fas fa-trash-alt'></i></button>";
+
 
                 // if ($list->brgsatid == "") {
                 //     $tomboleditsatuan = $tombolEdit;

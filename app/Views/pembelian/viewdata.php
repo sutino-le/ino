@@ -93,7 +93,7 @@
     });
 
     function cetak(faktur) {
-        let windowCetak = window.open('/pembelian/cetakfaktur/' + faktur, "Cetak Faktur Penjualan", "width=400, height=600");
+        let windowCetak = window.open('<?= base_url() ?>/pembelian/cetakfaktur/' + faktur, "Cetak Faktur Penjualan", "width=400, height=600");
 
         windowCetak.focus();
     }
@@ -111,7 +111,7 @@
             if (result.isConfirmed) {
                 $.ajax({
                     type: "post",
-                    url: "/pembelian/hapusTransaksi",
+                    url: "<?= base_url() ?>/pembelian/hapusTransaksi",
                     data: {
                         faktur: faktur
                     },
@@ -131,7 +131,7 @@
     }
 
     function edit(faktur) {
-        window.location.href = ('/pembelian/edit/') + faktur;
+        window.location.href = ('<?= base_url() ?>/pembelian/edit/') + faktur;
     }
 </script>
 

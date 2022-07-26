@@ -9,7 +9,7 @@ class ModelPembelian extends Model
     protected $table            = 'barangmasuk';
     protected $primaryKey       = 'faktur';
     protected $allowedFields    = [
-        'faktur', 'tglfaktur', 'idsup', 'totalharga'
+        'faktur', 'tglfaktur', 'idsup', 'totalharga', 'jumlahuang', 'sisauang'
     ];
 
 

@@ -41,10 +41,8 @@
                 <td align="right"><?= number_format($row['dethargajual'], 0, ",", "."); ?></td>
                 <td align="right"><?= number_format($row['detjml'], 0, ",", "."); ?></td>
                 <td align="right"><?= number_format($row['detsubtotal'], 0, ",", "."); ?></td>
-                <td align="right">
-                    <button type="button" class="btn btn-sm btn-danger" onclick="hapusItem('<?= $row['iddetail'] ?>')">
-                        <i class="fa fa-trash-alt"></i>
-                    </button>
+                <td>
+                    <button type="button" class="btn btn-sm btn-danger" onclick="hapusItem('<?= $row['iddetail'] ?>')"><i class="fa fa-trash-alt"></i></button>
                 </td>
             </tr>
         <?php endforeach; ?>

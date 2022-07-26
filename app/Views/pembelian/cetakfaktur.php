@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cetak Struk Barang Keluar</title>
+    <title>Cetak Faktur Pembelian</title>
 </head>
 
 <body onload="window.print();">
@@ -26,8 +26,8 @@
             <td colspan="3">: <?= date("d/m/Y", strtotime($tanggal)) ?></td>
         </tr>
         <tr style="text-align: left;">
-            <td>Pelanggan</td>
-            <td colspan="3">: <?= $namapelanggan ?></td>
+            <td>Suplier</td>
+            <td colspan="3">: <?= $namasuplier ?></td>
         </tr>
         <tr style="text-align: center;">
             <td colspan="4">

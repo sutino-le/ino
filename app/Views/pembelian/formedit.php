@@ -23,7 +23,7 @@
             <div class='col'>
                 <?= form_button('', '<i class="fas fa-arrow-alt-circle-left"></i> Kembali', [
                     'class'     => 'btn btn-sm btn-warning',
-                    'onclick'   => "location.href=('" . site_url('barangkeluar/data') . "')"
+                    'onclick'   => "location.href=('" . site_url('pembelian/data') . "')"
                 ]) ?>
             </div>
         </div>

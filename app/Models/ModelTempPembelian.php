@@ -16,4 +16,9 @@ class ModelTempPembelian extends Model
     {
         return $this->table('temp_barangmasuk')->join('barang', 'detbrgkode=brgkode')->where('detfaktur', $nofaktur)->get();
     }
+
+    public function ambilDetailBerdasarkanID($iddetail)
+    {
+        return $this->table('temp_barangmasuk')->join('barang', 'detbrgkode=brgkode')->where('iddetail', $iddetail)->get();
+    }
 }

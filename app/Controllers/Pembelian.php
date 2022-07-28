@@ -419,4 +419,70 @@ class Pembelian extends BaseController
 
         return view('pembelian/formedit', $data);
     }
+
+    function ambilTotalHarga()
+    {
+        if ($this->request->isAJAX()) {
+            $nofaktur = $this->request->getPost('nofaktur');
+
+            $modelDetail = new ModelDetailPembelian();
+
+            $totalHarga = $modelDetail->ambilTotalHarga($nofaktur);
+
+            $json = [
+                'totalharga' => "Rp. " . number_format($totalHarga, 0, ",", ".")
+            ];
+
+            echo json_encode($json);
+        }
+    }
+
+    public function tampilDataDetail()
+    {
+        if ($this->request->isAJAX()) {
+            $nofaktur = $this->request->getPost('nofaktur');
+
+            $modelDetailPembelian = new ModelDetailPembelian();
+            $dataDetail = $modelDetailPembelian->tampilDataDetail($nofaktur);
+
+            $data = [
+                'tampildata' => $dataDetail
+            ];
+
+            $json = [
+                'data' => view('pembelian/datadetail', $data)
+            ];
+
+            echo json_encode($json);
+        } else {
+            exit('Maaf, gagal menampilkan data');
+        }
+    }
+
+    function hapusItemDetail()
+    {
+        if ($this->request->isAJAX()) {
+            $id = $this->request->getPost('iddetail');
+            $ModelDetailPembelian = new ModelDetailPembelian();
+            $ModelPembelian = new ModelPembelian();
+
+            $rowData = $ModelDetailPembelian->find($id);
+            $noFaktur = $rowData['detfaktur'];
+
+            $ModelDetailPembelian->delete($id);
+
+            $totalHarga = $ModelDetailPembelian->ambilTotalHarga($noFaktur);
+
+            //Lakukan update total di tabel pembelian
+            $ModelPembelian->update($noFaktur, [
+                'totalharga' => $totalHarga
+            ]);
+
+            $json = [
+                'sukses' => 'Item berhasil dihapus'
+            ];
+
+            echo json_encode($json);
+        }
+    }
 }

@@ -44,16 +44,14 @@ class Satuan extends BaseController
                 $tombolHapus = "<button type=\"button\" class=\"btn btn-sm btn-danger\" onclick=\"hapus('" . $list->satid . "')\" title=\"Hapus\"><i class='fas fa-trash-alt'></i></button>";
 
                 if ($list->brgsatid == "") {
-                    $tomboleditsatuan = $tombolEdit;
                     $tombolhapussatuan = $tombolHapus;
                 } else {
-                    $tomboleditsatuan = "";
                     $tombolhapussatuan = "";
                 }
 
                 $row[] = $no;
                 $row[] = $list->satnama;
-                $row[] = $tomboleditsatuan . ' ' . $tombolhapussatuan;
+                $row[] = $tombolEdit . ' ' . $tombolhapussatuan;
                 $data[] = $row;
             }
             $output = [

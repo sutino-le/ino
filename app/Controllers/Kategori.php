@@ -44,16 +44,14 @@ class Kategori extends BaseController
                 $tombolHapus = "<button type=\"button\" class=\"btn btn-sm btn-danger\" onclick=\"hapus('" . $list->katid . "')\" title=\"Hapus\"><i class='fas fa-trash-alt'></i></button>";
 
                 if ($list->brgkatid == "") {
-                    $tomboleditkategori = $tombolEdit;
                     $tombolhapuskategori = $tombolHapus;
                 } else {
-                    $tomboleditkategori = "";
                     $tombolhapuskategori = "";
                 }
 
                 $row[] = $no;
                 $row[] = $list->katnama;
-                $row[] = $tomboleditkategori . ' ' . $tombolhapuskategori;
+                $row[] = $tombolEdit . ' ' . $tombolhapuskategori;
                 $data[] = $row;
             }
             $output = [

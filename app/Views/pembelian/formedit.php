@@ -140,6 +140,43 @@
 <div class="viewmodal" style="display: none;"></div>
 
 <script>
+    function ambilDataBarang() {
+
+        let kodebarang = $('#kodebarang').val();
+        if (kodebarang.length == 0) {
+            swal.fire('Error', 'Kode barang harus diinput', 'error');
+            kosong();
+        } else {
+            $.ajax({
+                type: "post",
+                url: "<?= base_url() ?>/pembelian/ambilDataBarang",
+                data: {
+                    kodebarang: kodebarang
+                },
+                dataType: "json",
+                success: function(response) {
+                    if (response.error) {
+                        swal.fire('Error', response.error, 'error');
+                        kosong();
+                    }
+
+                    if (response.sukses) {
+                        let data = response.sukses;
+
+                        $('#namabarang').val(data.namabarang);
+                        $('#hargajual').val(data.hargajual);
+
+                        $('#jml').focus();
+                    }
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status + '\n' + thrownError);
+                }
+            });
+        }
+
+    }
+
     function ambilTotalHarga() {
         let nofaktur = $('#nofaktur').val();
         $.ajax({
@@ -191,9 +228,20 @@
         });
     }
 
+
     $(document).ready(function() {
         ambilTotalHarga();
         tampilDataDetail();
+    });
+
+    $.ajax({
+        type: "method",
+        url: "url",
+        data: "data",
+        dataType: "dataType",
+        success: function(response) {
+
+        }
     });
 </script>
 

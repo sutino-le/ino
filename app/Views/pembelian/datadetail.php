@@ -85,5 +85,6 @@
         let kodebarang = row.find('td:eq(1)').text();
 
         $('#kodebarang').val(kodebarang);
+        ambilDataBarang();
     });
 </script>

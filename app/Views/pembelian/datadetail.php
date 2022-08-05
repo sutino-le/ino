@@ -34,7 +34,10 @@
         foreach ($tampildata->getResultArray() as $row) :
         ?>
             <tr>
-                <td><?= $no++; ?></td>
+                <td>
+                    <?= $no++; ?>
+                    <input type="hidden" value="<?= $row['iddetail'] ?>" id="id">
+                </td>
                 <td><?= $row['detbrgkode']; ?></td>
                 <td><?= $row['brgnama']; ?></td>
                 <td align="right"><?= number_format($row['dethargamasuk'], 0, ",", "."); ?></td>
@@ -83,8 +86,27 @@
         let row = $(this).closest('tr');
 
         let kodebarang = row.find('td:eq(1)').text();
+        let id = row.find('td input').val();
 
+        $('#iddetail').val(id);
         $('#kodebarang').val(kodebarang);
+
+        $('#tombolBatal').fadeIn();
+        $('#tombolEditItem').fadeIn();
+        $('#kodebarang').prop('readonly', true);
+        $('#tombolCari').prop('disabled', true);
+        $('#tombolSimpanItem').fadeOut();
         ambilDataBarang();
+    });
+
+    $(document).on('click', '#tombolBatal', function(e) {
+        e.preventDefault();
+        kosong();
+        tampilDataDetail();
+        $('#tombolBatal').fadeOut();
+        $('#tombolEditItem').fadeOut();
+        $('#kodebarang').prop('readonly', false);
+        $('#tombolCari').prop('disabled', false);
+        $('#tombolSimpanItem').fadeIn();
     });
 </script>

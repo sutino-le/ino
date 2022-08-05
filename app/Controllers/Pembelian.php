@@ -179,20 +179,50 @@ class Pembelian extends BaseController
             $hargajual = $this->request->getPost('hargajual');
             $jml = $this->request->getPost('jml');
 
-            $modalTempPembelian = new ModelTempPembelian();
+            $validation = \Config\Services::validation();
 
-            $modalTempPembelian->insert([
-                'detfaktur'     => $nofaktur,
-                'detbrgkode'    => $kodebarang,
-                'dethargamasuk' => $hargabeli,
-                'dethargajual'  => $hargajual,
-                'detjml'        => $jml,
-                'detsubtotal'   => intval($jml) * intval($hargabeli)
+            $valid = $this->validate([
+                'kodebarang'    => [
+                    'label'     => 'Kode Barang',
+                    'rules'     => 'required',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'hargabeli'    => [
+                    'label'     => 'Harga Beli',
+                    'rules'     => 'required',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ]
             ]);
 
-            $json = [
-                'sukses' => 'Item berhasil ditambahkan'
-            ];
+            if (!$valid) {
+                $json = [
+                    'error' => [
+                        'errKodeBarang'      => $validation->getError('kodebarang'),
+                        'errHargaBeli'      => $validation->getError('hargabeli'),
+                    ]
+                ];
+            } else {
+
+
+                $modalTempPembelian = new ModelTempPembelian();
+
+                $modalTempPembelian->insert([
+                    'detfaktur'     => $nofaktur,
+                    'detbrgkode'    => $kodebarang,
+                    'dethargamasuk' => $hargabeli,
+                    'dethargajual'  => $hargajual,
+                    'detjml'        => $jml,
+                    'detsubtotal'   => intval($jml) * intval($hargabeli)
+                ]);
+
+                $json = [
+                    'sukses' => 'Item berhasil ditambahkan'
+                ];
+            }
 
             echo json_encode($json);
         }
@@ -481,6 +511,136 @@ class Pembelian extends BaseController
             $json = [
                 'sukses' => 'Item berhasil dihapus'
             ];
+
+            echo json_encode($json);
+        }
+    }
+
+    function editItem()
+    {
+        if ($this->request->isAJAX()) {
+            $iddetail = $this->request->getPost('iddetail');
+            $jml = $this->request->getPost('jml');
+            $hargabeli = $this->request->getPost('hargabeli');
+
+            $validation = \Config\Services::validation();
+
+            $valid = $this->validate([
+                'iddetail'    => [
+                    'label'     => 'Kode Barang',
+                    'rules'     => 'required',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'hargabeli'    => [
+                    'label'     => 'Harga Beli',
+                    'rules'     => 'required',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ]
+            ]);
+
+            if (!$valid) {
+                $json = [
+                    'error' => [
+                        'errIdDetail'      => $validation->getError('iddetail'),
+                        'errHargaBeli'      => $validation->getError('hargabeli'),
+                    ]
+                ];
+            } else {
+
+                $modelDetail = new ModelDetailPembelian();
+                $modelPembelian = new ModelPembelian();
+
+                $rowData = $modelDetail->find($iddetail);
+                $noFaktur = $rowData['detfaktur'];
+
+                //lakukan update pada detail
+                $modelDetail->update($iddetail, [
+                    'dethargamasuk' => $hargabeli,
+                    'detjml' => $jml,
+                    'detsubtotal' => $hargabeli * $jml
+                ]);
+
+                //ambil total harga
+                $totalHarga = $modelDetail->ambilTotalHarga($noFaktur);
+                //update pembelian
+                $modelPembelian->update($noFaktur, [
+                    'totalharga' => $totalHarga
+                ]);
+
+                $json = [
+                    'sukses' => 'Item berhasil di update'
+                ];
+            }
+
+            echo json_encode($json);
+        }
+    }
+
+    function simpanDetail()
+    {
+        if ($this->request->isAJAX()) {
+            $nofaktur = $this->request->getPost('nofaktur');
+            $kodebarang = $this->request->getPost('kodebarang');
+            $namabarang = $this->request->getPost('namabarang');
+            $hargabeli = $this->request->getPost('hargabeli');
+            $hargajual = $this->request->getPost('hargajual');
+            $jml = $this->request->getPost('jml');
+
+            $validation = \Config\Services::validation();
+
+            $valid = $this->validate([
+                'kodebarang'    => [
+                    'label'     => 'Kode Barang',
+                    'rules'     => 'required',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'hargabeli'    => [
+                    'label'     => 'Harga Beli',
+                    'rules'     => 'required',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ]
+            ]);
+
+            if (!$valid) {
+                $json = [
+                    'error' => [
+                        'errKodeBarang'      => $validation->getError('kodebarang'),
+                        'errHargaBeli'      => $validation->getError('hargabeli'),
+                    ]
+                ];
+            } else {
+
+                $modelPembelian = new ModelPembelian();
+                $modalDetailPembelian = new ModelDetailPembelian();
+
+                $modalDetailPembelian->insert([
+                    'detfaktur'     => $nofaktur,
+                    'detbrgkode'    => $kodebarang,
+                    'dethargamasuk' => $hargabeli,
+                    'dethargajual'  => $hargajual,
+                    'detjml'        => $jml,
+                    'detsubtotal'   => $jml * $hargabeli
+                ]);
+
+                //ambil total harga
+                $totalHarga = $modalDetailPembelian->ambilTotalHarga($nofaktur);
+                //update pembelian
+                $modelPembelian->update($nofaktur, [
+                    'totalharga' => $totalHarga
+                ]);
+
+                $json = [
+                    'sukses' => 'Item berhasil ditambahkan'
+                ];
+            }
 
             echo json_encode($json);
         }

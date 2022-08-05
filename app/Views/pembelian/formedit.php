@@ -12,7 +12,7 @@
 
 <style>
     .list-group-flush {
-        height: 400px;
+        height: 550px;
         overflow-y: auto;
     }
 
@@ -43,10 +43,10 @@
                 <table class="table table-striped table-sm">
                     <tr>
                         <input type="hidden" id="nofaktur" value="<?= $nofaktur ?>">
-                        <td style="wwidth:20%;">No. Faktur</td>
-                        <td style="wwidth:20%;">:</td>
-                        <td style="wwidth:20%;"><?= $nofaktur ?></td>
-                        <td rowspan="3" style="wwidth:20%; font-weight:bold; color:red; font-size:20pt; text-align:center; vertical-align:middle;" id="lbTotalHarga"></td>
+                        <td style="width:20%;">No. Faktur</td>
+                        <td style="width:10%;">:</td>
+                        <td style="width:20%;"><?= $nofaktur ?></td>
+                        <td rowspan="3" style="width:50%; font-weight:bold; color:red; font-size:20pt; text-align:center; vertical-align:middle;" id="lbTotalHarga"></td>
                     </tr>
                     <tr>
                         <td>Tanggal</td>
@@ -54,9 +54,9 @@
                         <td><?= $tanggal ?></td>
                     </tr>
                     <tr>
-                        <td>Tanggal</td>
-                        <td>:</td>
-                        <td><?= $tanggal ?></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </table>
 
@@ -67,9 +67,11 @@
                             <label for="">Kode Barang</label>
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" placeholder="Kode Barang" name="kodebarang" id="kodebarang">
+                                <input type="hidden" id="iddetail">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-primary" type="button" id="tombolCariBarang"><i class="fas fa-search"></i></button>
                                 </div>
+                                <div class="invalid-feedback errorIdDetail"></div>
                             </div>
                         </div>
                     </div>
@@ -99,6 +101,7 @@
                         <div class="form-group">
                             <label for="">Harga Beli (Rp)</label>
                             <input type="text" class="form-control" name="hargabeli" id="hargabeli" autocomplete="off">
+                            <div class="invalid-feedback errorHargaBeli"></div>
                         </div>
                     </div>
 
@@ -109,6 +112,9 @@
                                 <button type="button" class="btn btn-success" title="Simpan Item" id="tombolSimpanItem">
                                     <i class="fas fa-plus-square"></i>
                                 </button>
+                                <button type="button" class="btn btn-sm btn-primary" style="display: none;" title="Edit Item" id="tombolEditItem"><i class="fa fa-edit"></i></button>
+                                &nbsp;
+                                <button type="button" class="btn btn-sm btn-default" style="display: none;" title="Batalkan" id="tombolBatal"><i class="fa fa-sync-alt"></i></button>
                             </div>
                         </div>
                     </div>
@@ -130,7 +136,7 @@
         <div class='row'>
             <div class='col text-right'>
                 <button type="submit" class="btn btn-sm btn-success" id="tombolSelesaiTransaksi"><i class="fa fa-save"></i>
-                    Selesaikan Faktur</button>
+                    Selesaikan Edit</button>
             </div>
         </div>
     </div>
@@ -140,6 +146,32 @@
 <div class="viewmodal" style="display: none;"></div>
 
 <script>
+    function kosong() {
+        $('#kodebarang').val('');
+        $('#namabarang').val('');
+        $('#hargajual').val('');
+        $('#hargabeli').val('');
+        $('#jml').val('1');
+        $('#kodebarang').focus();
+    }
+
+    $('#tombolCariBarang').click(function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: "<?= base_url() ?>/pembelian/modalCariBarang",
+            dataType: "json",
+            success: function(response) {
+                if (response.data) {
+                    $('.viewmodal').html(response.data).show();
+                    $('#modalcaribarang').modal('show');
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + '\n' + thrownError);
+            }
+        });
+    });
+
     function ambilDataBarang() {
 
         let kodebarang = $('#kodebarang').val();
@@ -195,15 +227,6 @@
         });
     }
 
-    function kosong() {
-        $('#kodebarang').val('');
-        $('#namabarang').val('');
-        $('#hargajual').val('');
-        $('#hargabeli').val('');
-        $('#jml').val('1');
-        $('#kodebarang').focus();
-    }
-
 
     function tampilDataDetail() {
         let faktur = $('#nofaktur').val();
@@ -228,20 +251,142 @@
         });
     }
 
+    function simpanItem() {
+        let nofaktur = $('#nofaktur').val();
+        let kodebarang = $('#kodebarang').val();
+        let namabarang = $('#namabarang').val();
+        let hargabeli = $('#hargabeli').val();
+        let hargajual = $('#hargajual').val();
+        let jml = $('#jml').val();
+
+
+        $.ajax({
+            type: "post",
+            url: "<?= base_url() ?>/pembelian/simpanDetail",
+            data: {
+                nofaktur: nofaktur,
+                kodebarang: kodebarang,
+                namabarang: namabarang,
+                hargabeli: hargabeli,
+                hargajual: hargajual,
+                jml: jml
+            },
+            dataType: "json",
+            success: function(response) {
+
+                if (response.error) {
+                    let err = response.error;
+
+                    if (err.errKodeBarang) {
+                        $('#kodebarang').addClass('is-invalid');
+                        $('.errorKodeBarang').html(err.errKodeBarang);
+                    } else {
+                        $('#kodebarang').removeClass('is-invalid');
+                        $('#kodebarang').addClass('is-valid');
+                    }
+
+                    if (err.errHargaBeli) {
+                        $('#hargabeli').addClass('is-invalid');
+                        $('.errorHargaBeli').html(err.errHargaBeli);
+                    } else {
+                        $('#hargabeli').removeClass('is-invalid');
+                        $('#hargabeli').addClass('is-valid');
+                    }
+                }
+
+                if (response.sukses) {
+                    tampilDataDetail();
+                    kosong();
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + '\n' + thrownError);
+            }
+        });
+    }
+
 
     $(document).ready(function() {
         ambilTotalHarga();
         tampilDataDetail();
-    });
 
-    $.ajax({
-        type: "method",
-        url: "url",
-        data: "data",
-        dataType: "dataType",
-        success: function(response) {
+        $('#tombolEditItem').click(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "post",
+                url: "<?= base_url() ?>/pembelian/editItem",
+                data: {
+                    iddetail: $('#iddetail').val(),
+                    jml: $('#jml').val(),
+                    hargabeli: $('#hargabeli').val(),
+                },
+                dataType: "json",
+                success: function(response) {
+                    if (response.error) {
+                        let err = response.error;
 
-        }
+                        if (err.errIdDetail) {
+                            $('#iddetail').addClass('is-invalid');
+                            $('.errorIdDetail').html(err.errIdDetail);
+                        } else {
+                            $('#iddetail').removeClass('is-invalid');
+                            $('#iddetail').addClass('is-valid');
+                        }
+
+                        if (err.errHargaBeli) {
+                            $('#hargabeli').addClass('is-invalid');
+                            $('.errorHargaBeli').html(err.errHargaBeli);
+                        } else {
+                            $('#hargabeli').removeClass('is-invalid');
+                            $('#hargabeli').addClass('is-valid');
+                        }
+                    }
+
+
+                    if (response.sukses) {
+                        swal.fire({
+                            'icon': 'success',
+                            'title': 'Berhasil',
+                            'text': response.sukses
+                        });
+                        tampilDataDetail();
+                        ambilTotalHarga();
+                        kosong();
+                        $('#tombolBatal').fadeOut();
+                        $('#tombolEditItem').fadeOut();
+                        $('#kodebarang').prop('readonly', false);
+                        $('#tombolCari').prop('disabled', false);
+                        $('#tombolSimpanItem').fadeIn();
+                    }
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status + '\n' + thrownError);
+                }
+            });
+        });
+
+        $('#tombolSimpanItem').click(function(e) {
+            e.preventDefault();
+            simpanItem();
+        });
+
+        $('#tombolSelesaiTransaksi').click(function(e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Selesaikan Edit?',
+                text: "Apakah ingin selesaikan transaksi !",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Selesai!',
+                cancelButtonText: 'Batal!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.href = ('<?= base_url() ?>/pembelian/index');
+                }
+            })
+        });
     });
 </script>
 

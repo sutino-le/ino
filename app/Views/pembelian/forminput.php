@@ -12,7 +12,7 @@
 
 <style>
     .list-group-flush {
-        height: 400px;
+        height: 550px;
         overflow-y: auto;
     }
 </style>
@@ -76,6 +76,7 @@
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-primary" type="button" id="tombolCariBarang"><i class="fas fa-search"></i></button>
                                 </div>
+                                <div class="invalid-feedback errorKodeBarang"></div>
                             </div>
                         </div>
                     </div>
@@ -105,6 +106,7 @@
                         <div class="form-group">
                             <label for="">Harga Beli (Rp)</label>
                             <input type="text" class="form-control" name="hargabeli" id="hargabeli" autocomplete="off">
+                            <div class="invalid-feedback errorHargaBeli"></div>
                         </div>
                     </div>
 
@@ -167,37 +169,50 @@
         let hargajual = $('#hargajual').val();
         let jml = $('#jml').val();
 
-        if (kodebarang.length == 0) {
-            swal.fire('Gagal', 'Kode barang harus diinput', 'error');
-            kosong();
-        } else {
-            $.ajax({
-                type: "post",
-                url: "<?= base_url() ?>/pembelian/simpanItem",
-                data: {
-                    nofaktur: nofaktur,
-                    kodebarang: kodebarang,
-                    namabarang: namabarang,
-                    hargabeli: hargabeli,
-                    hargajual: hargajual,
-                    jml: jml
-                },
-                dataType: "json",
-                success: function(response) {
-                    if (response.error) {
-                        swal.fire('Error', response.error, 'error');
-                        kosong();
+
+        $.ajax({
+            type: "post",
+            url: "<?= base_url() ?>/pembelian/simpanItem",
+            data: {
+                nofaktur: nofaktur,
+                kodebarang: kodebarang,
+                namabarang: namabarang,
+                hargabeli: hargabeli,
+                hargajual: hargajual,
+                jml: jml
+            },
+            dataType: "json",
+            success: function(response) {
+
+                if (response.error) {
+                    let err = response.error;
+
+                    if (err.errKodeBarang) {
+                        $('#kodebarang').addClass('is-invalid');
+                        $('.errorKodeBarang').html(err.errKodeBarang);
+                    } else {
+                        $('#kodebarang').removeClass('is-invalid');
+                        $('#kodebarang').addClass('is-valid');
                     }
-                    if (response.sukses) {
-                        tampilDataTemp();
-                        kosong();
+
+                    if (err.errHargaBeli) {
+                        $('#hargabeli').addClass('is-invalid');
+                        $('.errorHargaBeli').html(err.errHargaBeli);
+                    } else {
+                        $('#hargabeli').removeClass('is-invalid');
+                        $('#hargabeli').addClass('is-valid');
                     }
-                },
-                error: function(xhr, ajaxOptions, thrownError) {
-                    alert(xhr.status + '\n' + thrownError);
                 }
-            });
-        }
+
+                if (response.sukses) {
+                    tampilDataTemp();
+                    kosong();
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + '\n' + thrownError);
+            }
+        });
     }
 
 

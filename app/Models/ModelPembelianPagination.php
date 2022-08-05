@@ -8,8 +8,8 @@ use CodeIgniter\Model;
 class ModelPembelianPagination extends Model
 {
     protected $table = "barangmasuk";
-    protected $column_order = array(null, 'faktur', 'tglfaktur', 'subnama', 'totalharga', null);
-    protected $column_search = array('faktur', 'tglfaktur', 'subnama');
+    protected $column_order = array(null, 'faktur', 'tglfaktur', 'supnama', 'totalharga', null);
+    protected $column_search = array('faktur', 'tglfaktur', 'supnama');
     protected $order = array('faktur' => 'ASC');
     protected $request;
     protected $db;

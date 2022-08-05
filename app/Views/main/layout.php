@@ -123,6 +123,7 @@
                             $master_hr = "show";
                             $wilayah = "show";
                             $lowongan = "show";
+                            $verbal = "show";
 
 
                             $master_barang = "show";
@@ -134,6 +135,7 @@
 
                             $master_po = "show";
                             $pembelian = "show";
+                            $penerimaan = "show";
 
                             $biodata = "show";
                             $biodata_ktp = "show";
@@ -145,6 +147,7 @@
                             $master_hr = "none";
                             $wilayah = "none";
                             $lowongan = "none";
+                            $verbal = "none";
 
 
                             $master_barang = "none";
@@ -156,6 +159,7 @@
 
                             $master_po = "none";
                             $pembelian = "none";
+                            $penerimaan = "none";
 
                             $biodata = "none";
                             $biodata_ktp = "none";
@@ -214,6 +218,12 @@
                                         <p>Lowongan</p>
                                     </a>
                                 </li>
+                                <li class="nav-item" style="display: <?= $verbal ?>;">
+                                    <a href="<?= site_url('verbal/index') ?>" class="nav-link">
+                                        <i class="fas fa-business-time nav-icon text-primary"></i>
+                                        <p>Soal Verbal</p>
+                                    </a>
+                                </li>
 
                             </ul>
                         </li>
@@ -270,6 +280,12 @@
                                     <a href="<?= site_url('pembelian/index') ?>" class="nav-link">
                                         <i class="fas fa-cart-arrow-down nav-icon text-maroon"></i>
                                         <p>Pembelian</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" style="display: <?= $penerimaan ?>;">
+                                    <a href="<?= site_url('penerimaan/index') ?>" class="nav-link">
+                                        <i class="fas fa-hand-holding nav-icon text-maroon"></i>
+                                        <p>Penerimaan</p>
                                     </a>
                                 </li>
 

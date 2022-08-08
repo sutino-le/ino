@@ -36,35 +36,53 @@
 
                 <div class="row">
 
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <div class="form-group">
                             <label for="">No. TTB</label>
                             <input type="text" name="nottb" id="nottb" value="<?= $nottb ?>" class="form-control" readonly>
                         </div>
                     </div>
 
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <div class="form-group">
                             <label for="">Tgl. TTB</label>
                             <input type="date" name="tglttb" id="tglttb" class="form-control" value="<?= date("Y-m-d") ?>">
                         </div>
                     </div>
 
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <div class="form-group">
-                            <label for="">Cari Suplier</label>
+                            <label for="">Pilih Faktur</label>
+                            <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger" name="ttbfaktur" id="ttbfaktur">
+                                <option value="">Pilih Faktur</option>
+                                <option value="">------------</option>
+                                <?php foreach ($tampilfaktur as $rowFaktur) : ?>
+                                    <option value="<?= $rowFaktur['faktur'] ?>"><?= $rowFaktur['faktur'] ?></option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label for="">Penerima</label>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Nama Suplier" name="namasuplier" id="namasuplier" readonly>
-                                <input type="hidden" name="idsuplier" id="idsuplier">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-primary" type="button" id="tombolCariSuplier" title="Cari Suplier"><i class="fas fa-search"></i></button>
-                                    <button class="btn btn-outline-success" type="button" id="tombolTambahSuplier" title="Tambah Suplier"><i class="fas fa-plus-square"></i></button>
-                                </div>
+                                <input type="text" class="form-control" placeholder="Nama Penerima" name="penerima" id="penerima" autofocus>
                             </div>
                         </div>
                     </div>
 
                 </div>
+
+                <hr style="height:2px;border-width:0;color:white;background-color:gray">
+
+                <div class="row">
+                    <div class="col-lg-12 tampilDataPembelian">
+
+                    </div>
+                </div>
+
+                <hr style="height:2px;border-width:0;color:white;background-color:gray">
 
                 <div class="row">
 
@@ -90,23 +108,15 @@
 
                     <div class="col-lg-2">
                         <div class="form-group">
-                            <label for="">Harga Jual (Rp)</label>
+                            <label for="">Total Order</label>
                             <input type="text" class="form-control" name="hargajual" id="hargajual" readonly>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-1">
-                        <div class="form-group">
-                            <label for="">Qty</label>
-                            <input type="number" class="form-control" name="jml" id="jml" value="1">
                         </div>
                     </div>
 
                     <div class="col-lg-2">
                         <div class="form-group">
-                            <label for="">Harga Beli (Rp)</label>
-                            <input type="text" class="form-control" name="hargabeli" id="hargabeli" autocomplete="off">
-                            <div class="invalid-feedback errorHargaBeli"></div>
+                            <label for="">Jumlah Terima</label>
+                            <input type="number" class="form-control" name="jml" id="jml" value="">
                         </div>
                     </div>
 
@@ -125,7 +135,7 @@
 
 
                 <div class="row">
-                    <div class="col-lg-12 tampilDataTemp">
+                    <div class="col-lg-12 tampilTerimaBarang">
 
                     </div>
                 </div>
@@ -152,6 +162,16 @@
 <script src="<?= base_url('dist/js/autoNumeric.js') ?>"></script>
 
 <script>
+    function kosong() {
+        $('#kodebarang').val('');
+        $('#namabarang').val('');
+        $('#hargajual').val('');
+        $('#hargabeli').val('');
+        $('#jml').val('1');
+        $('#kodebarang').focus();
+    }
+
+
     function buatNoTtb() {
         let tanggal = $('#tglttb').val();
 
@@ -172,11 +192,83 @@
 
     }
 
+
+    function tampilDataPembelian() {
+        let faktur = $('#ttbfaktur').val();
+        $.ajax({
+            type: "post",
+            url: "<?= base_url() ?>/penerimaan/tampilDataPembelian",
+            data: {
+                nofaktur: faktur
+            },
+            dataType: "json",
+            beforeSend: function() {
+                $('.tampilDataPembelian').html("<i class='fas fa-spin fa-spinner'></i>");
+            },
+            success: function(response) {
+                if (response.data) {
+                    $('.tampilDataPembelian').html(response.data);
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + '\n' + thrownError);
+            }
+        });
+    }
+
+
+    function tampilTtb() {
+        let faktur = $('#ttbfaktur').val();
+        $.ajax({
+            type: "post",
+            url: "<?= base_url() ?>/penerimaan/tampilTtb",
+            data: {
+                nofaktur: faktur
+            },
+            dataType: "json",
+            beforeSend: function() {
+                $('.tampilTerimaBarang').html("<i class='fas fa-spin fa-spinner'></i>");
+            },
+            success: function(response) {
+                if (response.data) {
+                    $('.tampilTerimaBarang').html(response.data);
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + '\n' + thrownError);
+            }
+        });
+    }
+
     $(document).ready(function() {
         $('#tglttb').change(function(e) {
             buatNoTtb();
         });
+
+        $('#ttbfaktur').change(function(e) {
+            tampilDataPembelian();
+            tampilTtb();
+        });
     });
+</script>
+
+
+
+<link rel="stylesheet" href="<?= base_url() ?>/dist/css/adminlte.min.css">
+<script src="<?= base_url() ?>/plugins/select2/js/select2.full.min.js"></script>
+<!-- Bootstrap4 Duallistbox -->
+
+<script>
+    $(function() {
+        //Initialize Select2 Elements
+        $('.select2').select2()
+
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        })
+
+    })
 </script>
 
 <?= $this->endsection('isi') ?>

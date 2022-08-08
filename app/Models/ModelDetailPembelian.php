@@ -31,4 +31,11 @@ class ModelDetailPembelian extends Model
         endforeach;
         return $totalHarga;
     }
+
+    public function tampilDataDetailPembelian($nofaktur)
+    {
+        return $this->table('detail_barangmasuk')->join('barang', 'detbrgkode=brgkode')->join('tanda_terimabarang', 'detbrgkode=ttbbrgkode', 'left')
+            ->join('satuan', 'brgsatid=satid')
+            ->where('detfaktur', $nofaktur)->get();
+    }
 }

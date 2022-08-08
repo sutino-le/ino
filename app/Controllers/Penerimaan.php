@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\ModelDetailPembelian;
 use App\Models\ModelPembelian;
 use App\Models\ModelPenerimaan;
 use App\Models\ModelPenerimaanPagination;
@@ -102,11 +103,58 @@ class Penerimaan extends BaseController
 
     public function input()
     {
+        $modelPembelian = new ModelPembelian();
         $data   = [
             'judul'     => 'Home',
             'subjudul'  => 'Input Penerimaan',
+            'tampilfaktur'  => $modelPembelian->findAll(),
             'nottb'  => $this->buatTtb()
         ];
         return view('penerimaan/forminput', $data);
+    }
+
+    public function tampilDataPembelian()
+    {
+        if ($this->request->isAJAX()) {
+            $nofaktur = $this->request->getPost('nofaktur');
+
+            $modelDetailPembelian = new ModelDetailPembelian();
+            $dataDetailPembelian = $modelDetailPembelian->tampilDataDetail($nofaktur);
+
+
+            $data = [
+                'tampilpembelian' => $dataDetailPembelian
+            ];
+
+            $json = [
+                'data' => view('penerimaan/datapembelian', $data)
+            ];
+
+            echo json_encode($json);
+        } else {
+            exit('Maaf, gagal menampilkan data');
+        }
+    }
+
+
+    public function tampilTtb()
+    {
+        if ($this->request->isAJAX()) {
+            $nofaktur = $this->request->getPost('nofaktur');
+
+            $modelPenerimaan = new ModelPenerimaan();
+
+            $data = [
+                'tampilpenerimaan' => $modelPenerimaan->tampilDataPenerimaan($nofaktur),
+            ];
+
+            $json = [
+                'data' => view('penerimaan/datattb', $data)
+            ];
+
+            echo json_encode($json);
+        } else {
+            exit('Maaf, gagal menampilkan data');
+        }
     }
 }

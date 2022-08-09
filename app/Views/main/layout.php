@@ -45,8 +45,6 @@
     <!-- CodeMirror -->
     <link rel="stylesheet" href="<?= base_url() ?>/plugins/codemirror/codemirror.css">
     <link rel="stylesheet" href="<?= base_url() ?>/plugins/codemirror/theme/monokai.css">
-    <!-- SimpleMDE -->
-    <link rel="stylesheet" href="<?= base_url() ?>/plugins/simplemde/simplemde.min.css">
 
 
 

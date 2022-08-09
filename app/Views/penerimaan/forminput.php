@@ -12,7 +12,7 @@
 
 <style>
     .list-group-flush {
-        height: 550px;
+        height: 600px;
         overflow-y: auto;
     }
 </style>
@@ -60,6 +60,7 @@
                                     <option value="<?= $rowFaktur['faktur'] ?>"><?= $rowFaktur['faktur'] ?></option>
                                 <?php endforeach ?>
                             </select>
+                            <div class="invalid-feedback errorTtbFaktur"></div>
                         </div>
                     </div>
 
@@ -68,6 +69,7 @@
                             <label for="">Penerima</label>
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" placeholder="Nama Penerima" name="penerima" id="penerima" autofocus>
+                                <div class="invalid-feedback errorPenerima"></div>
                             </div>
                         </div>
                     </div>
@@ -88,16 +90,18 @@
 
                     <div class="col-lg-2">
                         <div class="form-group">
-                            <label for="">Kode Barang</label>
+                            <label for="">ID Pembelian</label>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Kode Barang" name="kodebarang" id="kodebarang">
+                                <input type="text" class="form-control" placeholder="Kode Pembelian" name="kodebeli" id="kodebeli">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-primary" type="button" id="tombolCariBarang"><i class="fas fa-search"></i></button>
                                 </div>
-                                <div class="invalid-feedback errorKodeBarang"></div>
+                                <div class="invalid-feedback errorKodeBeli"></div>
                             </div>
                         </div>
                     </div>
+
+                    <input type="hidden" class="form-control" placeholder="Kode Barang" name="kodebarang" id="kodebarang">
 
                     <div class="col-lg-3">
                         <div class="form-group">
@@ -109,7 +113,7 @@
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label for="">Total Order</label>
-                            <input type="text" class="form-control" name="hargajual" id="hargajual" readonly>
+                            <input type="text" class="form-control" name="detjml" id="detjml" readonly>
                         </div>
                     </div>
 
@@ -117,6 +121,7 @@
                         <div class="form-group">
                             <label for="">Jumlah Terima</label>
                             <input type="number" class="form-control" name="jml" id="jml" value="">
+                            <div class="invalid-feedback errorJumlah"></div>
                         </div>
                     </div>
 
@@ -124,7 +129,7 @@
                         <div class="form-group">
                             <label for="">#</label>
                             <div class="input-group">
-                                <button type="button" class="btn btn-success" title="Simpan Item" id="tombolSimpanItem">
+                                <button type="button" class="btn btn-success" title="Simpan Item" id="tombolSimpanTtb">
                                     <i class="fas fa-plus-square"></i>
                                 </button>
                             </div>
@@ -149,7 +154,7 @@
         <div class='row'>
             <div class='col text-right'>
                 <button type="submit" class="btn btn-sm btn-success" id="tombolSelesaiTransaksi"><i class="fa fa-save"></i>
-                    Selesaikan Faktur</button>
+                    Selesaikan TTB</button>
             </div>
         </div>
     </div>
@@ -163,12 +168,92 @@
 
 <script>
     function kosong() {
+        $('#kodebeli').val('');
         $('#kodebarang').val('');
         $('#namabarang').val('');
-        $('#hargajual').val('');
-        $('#hargabeli').val('');
-        $('#jml').val('1');
-        $('#kodebarang').focus();
+        $('#detjml').val('');
+        $('#jml').val('');
+        $('#kodebeli').focus();
+    }
+
+
+    function simpanItem() {
+        let faktur = $('#ttbfaktur').val();
+        let nottb = $('#nottb').val();
+        let tglttb = $('#tglttb').val();
+        let ttbfaktur = $('#ttbfaktur').val();
+        let penerima = $('#penerima').val();
+        let kodebeli = $('#kodebeli').val();
+        let kodebarang = $('#kodebarang').val();
+        let namabarang = $('#namabarang').val();
+        let detjml = $('#detjml').val();
+        let jml = $('#jml').val();
+
+
+        $.ajax({
+            type: "post",
+            url: "<?= base_url() ?>/penerimaan/simpanItemTtb",
+            data: {
+                nottb: nottb,
+                tglttb: tglttb,
+                ttbfaktur: ttbfaktur,
+                penerima: penerima,
+                kodebeli: kodebeli,
+                kodebarang: kodebarang,
+                namabarang: namabarang,
+                detjml: detjml,
+                jml: jml
+            },
+            dataType: "json",
+            success: function(response) {
+
+                if (response.error) {
+                    let err = response.error;
+
+                    if (err.errTtbFaktur) {
+                        $('#ttbfaktur').addClass('is-invalid');
+                        $('.errorTtbFaktur').html(err.errTtbFaktur);
+                    } else {
+                        $('#ttbfaktur').removeClass('is-invalid');
+                        $('#ttbfaktur').addClass('is-valid');
+                    }
+
+                    if (err.errPenerima) {
+                        $('#penerima').addClass('is-invalid');
+                        $('.errorPenerima').html(err.errPenerima);
+                    } else {
+                        $('#penerima').removeClass('is-invalid');
+                        $('#penerima').addClass('is-valid');
+                    }
+
+                    if (err.errKodeBeli) {
+                        $('#kodebeli').addClass('is-invalid');
+                        $('.errorKodeBeli').html(err.errKodeBeli);
+                    } else {
+                        $('#kodebeli').removeClass('is-invalid');
+                        $('#kodebeli').addClass('is-valid');
+                    }
+
+                    if (err.errJumlah) {
+                        $('#jml').addClass('is-invalid');
+                        $('.errorJumlah').html(err.errJumlah);
+                    } else {
+                        $('#jml').removeClass('is-invalid');
+                        $('#jml').addClass('is-valid');
+                    }
+                }
+
+                if (response.sukses) {
+                    swal.fire('Berhasil', response.sukses, 'success');
+                    tampilDataPembelian();
+                    tampilTtb();
+                    kosong();
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + '\n' + thrownError);
+            }
+        });
     }
 
 
@@ -240,6 +325,46 @@
         });
     }
 
+
+
+    function ambilDataBarangBeli() {
+
+        let kodebeli = $('#kodebeli').val();
+        if (kodebeli.length == 0) {
+            swal.fire('Error', 'Kode barang harus diinput', 'error');
+            kosong();
+        } else {
+            $.ajax({
+                type: "post",
+                url: "<?= base_url() ?>/penerimaan/ambilDataBarangBeli",
+                data: {
+                    kodebeli: kodebeli
+                },
+                dataType: "json",
+                success: function(response) {
+                    if (response.error) {
+                        swal.fire('Error', response.error, 'error');
+                        kosong();
+                    }
+
+                    if (response.sukses) {
+                        let data = response.sukses;
+
+                        $('#kodebarang').val(data.kodebarang);
+                        $('#namabarang').val(data.namabarang);
+                        $('#detjml').val(data.detjml);
+
+                        $('#jml').focus();
+                    }
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status + '\n' + thrownError);
+                }
+            });
+        }
+
+    }
+
     $(document).ready(function() {
         $('#tglttb').change(function(e) {
             buatNoTtb();
@@ -249,6 +374,39 @@
             tampilDataPembelian();
             tampilTtb();
         });
+
+        $('#tombolSimpanTtb').click(function(e) {
+            e.preventDefault();
+            simpanItem();
+        });
+
+
+
+        $('#tombolCariBarang').click(function(e) {
+            e.preventDefault();
+
+            let faktur = $('#ttbfaktur').val();
+            $.ajax({
+                type: "post",
+                url: "<?= base_url() ?>/penerimaan/modalCariBarangBeli",
+                data: {
+                    faktur: faktur
+                },
+                dataType: "json",
+                success: function(response) {
+                    if (response.data) {
+                        $('.viewmodal').html(response.data).show();
+                        $('#modalcaribarangbeli').modal('show');
+                    }
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status + '\n' + thrownError);
+                }
+            });
+        });
+
+
+
     });
 </script>
 

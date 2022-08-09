@@ -1,0 +1,488 @@
+CRITICAL - 2022-08-09 10:11:17 --> Undefined index: detbrgkode
+#0 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(136): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 136, Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2022-08-09 10:20:15 --> Unknown column 'tanda_terimabarang' in 'where clause'
+CRITICAL - 2022-08-09 10:20:15 --> Unknown column 'tanda_terimabarang' in 'where clause'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ino\system\Model.php(728): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ino\app\Models\ModelDetailPembelian.php(43): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(130): App\Models\ModelDetailPembelian->tampilDataDetailPembelian('2807220001')
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#9 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-08-09 10:25:05 --> Undefined index: brgnama
+#0 C:\xampp\htdocs\ino\app\Views\penerimaan\datapembelian.php(14): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 14, Array)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('penerimaan/data...', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(140): view('penerimaan/data...', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-08-09 10:26:23 --> Call to undefined method App\Models\ModelDetailPembelian::select_sum
+#0 C:\xampp\htdocs\ino\app\Models\ModelDetailPembelian.php(37): CodeIgniter\Model->__call('select_sum', Array)
+#1 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(130): App\Models\ModelDetailPembelian->tampilDataDetailPembelian('2807220001')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-08-09 10:32:05 --> Undefined index: brgnama
+#0 C:\xampp\htdocs\ino\app\Views\penerimaan\datapembelian.php(14): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 14, Array)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('penerimaan/data...', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(140): view('penerimaan/data...', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-08-09 10:33:06 --> Undefined index: brgnama
+#0 C:\xampp\htdocs\ino\app\Views\penerimaan\datapembelian.php(14): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 14, Array)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('penerimaan/data...', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(140): view('penerimaan/data...', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-08-09 10:37:35 --> Call to undefined method App\Models\ModelDetailPembelian::select_sum
+#0 C:\xampp\htdocs\ino\app\Models\ModelDetailPembelian.php(40): CodeIgniter\Model->__call('select_sum', Array)
+#1 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(130): App\Models\ModelDetailPembelian->tampilDataDetailPembelian('2807220001')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-08-09 10:45:03 --> Call to undefined method App\Models\ModelDetailPembelian::select_sum
+#0 C:\xampp\htdocs\ino\app\Models\ModelDetailPembelian.php(38): CodeIgniter\Model->__call('select_sum', Array)
+#1 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(130): App\Models\ModelDetailPembelian->tampilDataDetailPembelian('2807220001')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-08-09 10:45:42 --> Undefined index: brgnama
+#0 C:\xampp\htdocs\ino\app\Views\penerimaan\datapembelian.php(14): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 14, Array)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('penerimaan/data...', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(140): view('penerimaan/data...', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-08-09 10:55:34 --> Undefined index: totalterima
+#0 C:\xampp\htdocs\ino\app\Views\penerimaan\datapembelian.php(16): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 16, Array)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('penerimaan/data...', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(140): view('penerimaan/data...', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-08-09 10:55:44 --> Undefined index: totalterima
+#0 C:\xampp\htdocs\ino\app\Views\penerimaan\datapembelian.php(16): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 16, Array)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('penerimaan/data...', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(140): view('penerimaan/data...', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-08-09 11:00:32 --> Undefined index: brgnama
+#0 C:\xampp\htdocs\ino\app\Views\penerimaan\datapembelian.php(14): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 14, Array)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('penerimaan/data...', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(140): view('penerimaan/data...', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-08-09 11:00:59 --> Call to undefined method App\Models\ModelDetailPembelian::select_sum
+#0 C:\xampp\htdocs\ino\app\Models\ModelDetailPembelian.php(42): CodeIgniter\Model->__call('select_sum', Array)
+#1 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(130): App\Models\ModelDetailPembelian->tampilDataDetailPembelian('2807220001')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-08-09 11:01:29 --> Call to undefined method App\Models\ModelDetailPembelian::select_sum
+#0 C:\xampp\htdocs\ino\app\Models\ModelDetailPembelian.php(42): CodeIgniter\Model->__call('select_sum', Array)
+#1 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(130): App\Models\ModelDetailPembelian->tampilDataDetailPembelian('2807220001')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-08-09 11:01:40 --> Call to undefined method App\Models\ModelDetailPembelian::select_sum
+#0 C:\xampp\htdocs\ino\app\Models\ModelDetailPembelian.php(42): CodeIgniter\Model->__call('select_sum', Array)
+#1 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(130): App\Models\ModelDetailPembelian->tampilDataDetailPembelian('2807220001')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-08-09 11:04:43 --> Call to undefined method App\Models\ModelDetailPembelian::select_sum
+#0 C:\xampp\htdocs\ino\app\Models\ModelDetailPembelian.php(42): CodeIgniter\Model->__call('select_sum', Array)
+#1 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(130): App\Models\ModelDetailPembelian->tampilDataDetailPembelian('2807220001')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+ERROR - 2022-08-09 11:08:27 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as `totalterima`) AS `ttbjml as totalterima`
+FROM `detail_barangmasuk`
+JOIN `...' at line 1
+CRITICAL - 2022-08-09 11:08:27 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as `totalterima`) AS `ttbjml as totalterima`
+FROM `detail_barangmasuk`
+JOIN `...' at line 1
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT SUM(`tan...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SUM(`tan...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SUM(`tan...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT SUM(`tan...', Array, false)
+#4 C:\xampp\htdocs\ino\system\Model.php(728): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ino\app\Models\ModelDetailPembelian.php(42): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(130): App\Models\ModelDetailPembelian->tampilDataDetailPembelian('2807220001')
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#9 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-08-09 11:10:16 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as `totalterima`) AS `ttbjml as totalterima`
+FROM `detail_barangmasuk`
+JOIN `...' at line 1
+CRITICAL - 2022-08-09 11:10:16 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'as `totalterima`) AS `ttbjml as totalterima`
+FROM `detail_barangmasuk`
+JOIN `...' at line 1
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT SUM(`tan...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SUM(`tan...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SUM(`tan...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT SUM(`tan...', Array, false)
+#4 C:\xampp\htdocs\ino\system\Model.php(728): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ino\app\Models\ModelDetailPembelian.php(42): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(130): App\Models\ModelDetailPembelian->tampilDataDetailPembelian('2807220001')
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#9 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-08-09 11:12:20 --> Undefined index: brgnama
+#0 C:\xampp\htdocs\ino\app\Views\penerimaan\datapembelian.php(14): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 14, Array)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('penerimaan/data...', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(140): view('penerimaan/data...', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-08-09 11:14:06 --> Undefined index: detjml
+#0 C:\xampp\htdocs\ino\app\Views\penerimaan\datapembelian.php(15): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 15, Array)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('penerimaan/data...', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(140): view('penerimaan/data...', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-08-09 11:50:04 --> Undefined index: ttbjml
+#0 C:\xampp\htdocs\ino\app\Views\penerimaan\datapembelian.php(17): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 17, Array)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('penerimaan/data...', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(140): view('penerimaan/data...', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-08-09 11:52:36 --> Not unique table/alias: 'tanda_terimabarang'
+CRITICAL - 2022-08-09 11:52:36 --> Not unique table/alias: 'tanda_terimabarang'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `barang`...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `barang`...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `barang`...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `barang`...', Array, false)
+#4 C:\xampp\htdocs\ino\system\Model.php(728): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ino\app\Models\ModelDetailPembelian.php(45): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(130): App\Models\ModelDetailPembelian->tampilDataDetailPembelian('2807220001')
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#9 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-08-09 11:53:34 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 7
+CRITICAL - 2022-08-09 11:53:34 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 7
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `barang`...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `barang`...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `barang`...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `barang`...', Array, false)
+#4 C:\xampp\htdocs\ino\system\Model.php(728): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ino\app\Models\ModelDetailPembelian.php(45): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(130): App\Models\ModelDetailPembelian->tampilDataDetailPembelian('2807220001')
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#9 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-08-09 11:56:20 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':0:
+AND 1 = :1:
+GROUP BY .`ttbbrgkode`' at line 5
+CRITICAL - 2022-08-09 11:56:20 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':0:
+AND 1 = :1:
+GROUP BY .`ttbbrgkode`' at line 5
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `barang`...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `barang`...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `barang`...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `barang`...', Array, false)
+#4 C:\xampp\htdocs\ino\system\Model.php(728): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ino\app\Models\ModelDetailPembelian.php(44): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(130): App\Models\ModelDetailPembelian->tampilDataDetailPembelian('2807220001')
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#9 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-08-09 11:56:42 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 2807220001' at line 7
+CRITICAL - 2022-08-09 11:56:42 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 2807220001' at line 7
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1588): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ino\system\Model.php(728): CodeIgniter\Database\BaseBuilder->getWhere('detail_barangma...', 2807220001)
+#5 C:\xampp\htdocs\ino\app\Models\ModelDetailPembelian.php(41): CodeIgniter\Model->__call('getwhere', Array)
+#6 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(130): App\Models\ModelDetailPembelian->tampilDataDetailPembelian('2807220001')
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#9 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-08-09 11:56:57 --> Call to undefined method App\Models\ModelDetailPembelian::and
+#0 C:\xampp\htdocs\ino\app\Models\ModelDetailPembelian.php(42): CodeIgniter\Model->__call('and', Array)
+#1 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(130): App\Models\ModelDetailPembelian->tampilDataDetailPembelian('2807220001')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-08-09 11:57:16 --> Call to undefined method App\Models\ModelDetailPembelian::and
+#0 C:\xampp\htdocs\ino\app\Models\ModelDetailPembelian.php(42): CodeIgniter\Model->__call('and', Array)
+#1 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(130): App\Models\ModelDetailPembelian->tampilDataDetailPembelian('2807220001')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+ERROR - 2022-08-09 11:59:45 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 7
+CRITICAL - 2022-08-09 11:59:45 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 7
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `barang`...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `barang`...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `barang`...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `barang`...', Array, false)
+#4 C:\xampp\htdocs\ino\system\Model.php(728): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ino\app\Models\ModelDetailPembelian.php(45): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(130): App\Models\ModelDetailPembelian->tampilDataDetailPembelian('2807220001')
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#9 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-08-09 13:20:20 --> syntax error, unexpected '}', expecting ';'
+#0 C:\xampp\htdocs\ino\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\ino\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\Mode...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\Mode...')
+#3 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(129): spl_autoload_call('App\\Models\\Mode...')
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->tampilDataPembelian()
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-08-09 14:27:32 --> Cannot use object of type CodeIgniter\Database\MySQLi\Result as array
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->ambilDataBarangBeli()
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-08-09 14:29:28 --> Cannot use object of type CodeIgniter\Database\MySQLi\Result as array
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->ambilDataBarangBeli()
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-08-09 14:32:56 --> Undefined index: detjml
+#0 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(233): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 233, Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->ambilDataBarangBeli()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-08-09 14:33:13 --> Cannot use object of type CodeIgniter\Database\MySQLi\Result as array
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->ambilDataBarangBeli()
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-08-09 14:35:01 --> Cannot use object of type CodeIgniter\Database\MySQLi\Result as array
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->ambilDataBarangBeli()
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-08-09 14:35:26 --> Cannot use object of type CodeIgniter\Database\MySQLi\Result as array
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->ambilDataBarangBeli()
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-08-09 14:37:51 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::getResul()
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->ambilDataBarangBeli()
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-08-09 14:38:26 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::getResulArray()
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->ambilDataBarangBeli()
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-08-09 14:41:10 --> Call to undefined method App\Models\ModelDetailPembelian::getResult
+#0 C:\xampp\htdocs\ino\app\Models\ModelDetailPembelian.php(53): CodeIgniter\Model->__call('getResult', Array)
+#1 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(224): App\Models\ModelDetailPembelian->ambilData('6')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->ambilDataBarangBeli()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-08-09 14:44:04 --> Undefined index: brgnama
+#0 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(232): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 232, Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->ambilDataBarangBeli()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-08-09 14:44:35 --> Undefined index: brgnama
+#0 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(232): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 232, Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->ambilDataBarangBeli()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-08-09 14:47:04 --> Cannot use object of type CodeIgniter\Database\MySQLi\Result as array
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->ambilDataBarangBeli()
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-08-09 14:47:14 --> Cannot use object of type CodeIgniter\Database\MySQLi\Result as array
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->ambilDataBarangBeli()
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-08-09 14:47:42 --> Cannot use object of type App\Models\ModelDetailPembelian as array
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->ambilDataBarangBeli()
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-08-09 14:48:03 --> Undefined index: brgnama
+#0 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(232): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 232, Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->ambilDataBarangBeli()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-08-09 14:51:01 --> Call to a member function find() on array
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->ambilDataBarangBeli()
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-08-09 14:51:22 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::find()
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->ambilDataBarangBeli()
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-08-09 14:52:40 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::getResulArray()
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->ambilDataBarangBeli()
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-08-09 15:02:48 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::getResulArray()
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->ambilDataBarangBeli()
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-08-09 17:33:37 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IS NULL
+ORDER BY `detfaktur` ASC
+ LIMIT 10' at line 5
+CRITICAL - 2022-08-09 17:33:37 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IS NULL
+ORDER BY `detfaktur` ASC
+ LIMIT 10' at line 5
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPembelianBarangPagination.php(55): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(210): App\Models\ModelPembelianBarangPagination->get_datatables(NULL)
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listDataBarangBeli()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-08-09 17:39:53 --> Undefined variable: faktur
+#0 C:\xampp\htdocs\ino\app\Models\ModelPembelianBarangPagination.php(52): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 52, Array)
+#1 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(210): App\Models\ModelPembelianBarangPagination->get_datatables(NULL)
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listDataBarangBeli()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-08-09 17:41:37 --> Too few arguments to function App\Controllers\Penerimaan::listDataBarangBeli(), 0 passed in C:\xampp\htdocs\ino\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listDataBarangBeli()
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-08-09 17:42:07 --> Too few arguments to function App\Controllers\Penerimaan::listDataBarangBeli(), 0 passed in C:\xampp\htdocs\ino\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listDataBarangBeli()
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-08-09 17:44:18 --> Undefined variable: faktur
+#0 C:\xampp\htdocs\ino\app\Models\ModelPembelianBarangPagination.php(52): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 52, Array)
+#1 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(207): App\Models\ModelPembelianBarangPagination->get_datatables()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listDataBarangBeli()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}

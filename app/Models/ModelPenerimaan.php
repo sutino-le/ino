@@ -9,7 +9,7 @@ class ModelPenerimaan extends Model
     protected $table            = 'tanda_terimabarang';
     protected $primaryKey       = 'ttbid';
     protected $allowedFields    = [
-        'ttbfaktur', 'ttbtanggal', 'ttbbrgkode', 'ttbjml', 'ttbpenerima', 'ttbnomor'
+        'ttbfaktur', 'ttbpembelianid', 'ttbtanggal', 'ttbbrgkode', 'ttbjml', 'ttbpenerima', 'ttbnomor'
     ];
 
 

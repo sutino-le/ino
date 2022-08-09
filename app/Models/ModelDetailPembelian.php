@@ -34,8 +34,22 @@ class ModelDetailPembelian extends Model
 
     public function tampilDataDetailPembelian($nofaktur)
     {
-        return $this->table('detail_barangmasuk')->join('barang', 'detbrgkode=brgkode')->join('tanda_terimabarang', 'detbrgkode=ttbbrgkode', 'left')
-            ->join('satuan', 'brgsatid=satid')
-            ->where('detfaktur', $nofaktur)->get();
+        return $this->table('detail_barangmasuk')
+            ->join('barang', 'detbrgkode=brgkode')
+            ->join('tanda_terimabarang', 'iddetail=ttbpembelianid', 'left')
+            ->groupby('detail_barangmasuk.detbrgkode')
+            ->where('detail_barangmasuk.detfaktur', $nofaktur)
+            ->select('barang.brgnama')
+            ->select('detail_barangmasuk.detjml')
+            ->selectSum('tanda_terimabarang.ttbjml')
+            ->get();
+    }
+
+
+
+    public function ambilData($kodebarang)
+    {
+        return $this->table('detail_barangmasuk')->join('barang', 'detbrgkode=brgkode')
+            ->where('detbrgkode', $kodebarang)->get();
     }
 }

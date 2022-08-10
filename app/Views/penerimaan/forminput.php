@@ -15,6 +15,19 @@
         height: 600px;
         overflow-y: auto;
     }
+
+
+
+    .list-group-flush {
+        height: 550px;
+        overflow-y: auto;
+    }
+
+    table#datattb tbody tr:hover {
+        cursor: pointer;
+        background-color: #00e6e6;
+        color: black;
+    }
 </style>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
 <div class='card'>
@@ -68,7 +81,7 @@
                         <div class="form-group">
                             <label for="">Penerima</label>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Nama Penerima" name="penerima" id="penerima" autofocus>
+                                <input type="text" class="form-control" value="<?= $penerima ?>" placeholder="Nama Penerima" name="penerima" id="penerima">
                                 <div class="invalid-feedback errorPenerima"></div>
                             </div>
                         </div>
@@ -102,6 +115,7 @@
                     </div>
 
                     <input type="hidden" class="form-control" placeholder="Kode Barang" name="kodebarang" id="kodebarang">
+                    <input type="hidden" class="form-control" placeholder="Kode TTB" name="ttbid" id="ttbid">
 
                     <div class="col-lg-3">
                         <div class="form-group">
@@ -129,9 +143,11 @@
                         <div class="form-group">
                             <label for="">#</label>
                             <div class="input-group">
-                                <button type="button" class="btn btn-success" title="Simpan Item" id="tombolSimpanTtb">
-                                    <i class="fas fa-plus-square"></i>
-                                </button>
+                                <button type="button" class="btn btn-success" title="Simpan Item" id="tombolSimpanTtb"><i class="fas fa-plus-square"></i></button>
+
+                                <button type="button" class="btn btn-sm btn-primary" style="display: none;" title="Edit Item" id="tombolEditItem"><i class="fa fa-edit"></i></button>
+                                &nbsp;
+                                <button type="button" class="btn btn-sm btn-default" style="display: none;" title="Batalkan" id="tombolBatal"><i class="fa fa-sync-alt"></i></button>
                             </div>
                         </div>
                     </div>
@@ -405,7 +421,51 @@
             });
         });
 
+        $('#tombolEditItem').click(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "post",
+                url: "<?= base_url() ?>/penerimaan/editItemTtb",
+                data: {
+                    ttbid: $('#ttbid').val(),
+                    jml: $('#jml').val(),
+                },
+                dataType: "json",
+                success: function(response) {
+                    if (response.error) {
+                        let err = response.error;
 
+                        if (err.errJumlah) {
+                            $('#jml').addClass('is-invalid');
+                            $('.errorJumlah').html(err.errJumlah);
+                        } else {
+                            $('#jml').removeClass('is-invalid');
+                            $('#jml').addClass('is-valid');
+                        }
+                    }
+
+
+                    if (response.sukses) {
+                        swal.fire({
+                            'icon': 'success',
+                            'title': 'Berhasil',
+                            'text': response.sukses
+                        });
+                        kosong();
+                        tampilDataPembelian();
+                        tampilTtb();
+                        $('#tombolBatal').fadeOut();
+                        $('#tombolEditItem').fadeOut();
+                        $('#kodebarang').prop('readonly', false);
+                        $('#tombolCari').prop('disabled', false);
+                        $('#tombolSimpanTtb').fadeIn();
+                    }
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status + '\n' + thrownError);
+                }
+            });
+        });
 
     });
 </script>

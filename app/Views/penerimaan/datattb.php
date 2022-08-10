@@ -1,11 +1,11 @@
-<table class="table table-sm table-hover table-bordered" style="width: 100%;">
+<table class="table table-sm table-hover table-bordered" style="width: 100%;" id="datattb">
     <thead>
         <tr style="background-color: gray;" align="center">
             <th colspan="7">Terima Barang</th>
         </tr>
         <tr align="center">
             <th>No.</th>
-            <th>ID</th>
+            <th>ID Pembelian</th>
             <th>Nama Barang</th>
             <th>Tanggal</th>
             <th>Penerima</th>
@@ -19,8 +19,11 @@
         foreach ($tampilpenerimaan->getResultArray() as $rowpenerimaan) :
         ?>
             <tr>
-                <td><?= $no++; ?></td>
-                <td><?= $rowpenerimaan['ttbid']; ?></td>
+                <td>
+                    <?= $no++; ?>
+                    <input type="hidden" value="<?= $rowpenerimaan['ttbid'] ?>" id="ttbid">
+                </td>
+                <td><?= $rowpenerimaan['ttbpembelianid']; ?></td>
                 <td><?= $rowpenerimaan['brgnama']; ?></td>
                 <td align="center"><?= date('d F Y', strtotime($rowpenerimaan['ttbtanggal'])); ?></td>
                 <td><?= $rowpenerimaan['ttbpenerima']; ?></td>
@@ -63,4 +66,33 @@
             }
         })
     }
+
+    $('#datattb tbody').on('click', 'tr', function() {
+        let row = $(this).closest('tr');
+
+        let id = row.find('td:eq(1)').text();
+        let ttbid = row.find('td input').val();
+
+        $('#kodebeli').val(id);
+        $('#ttbid').val(ttbid);
+
+        $('#tombolBatal').fadeIn();
+        $('#tombolEditItem').fadeIn();
+        $('#kodebarang').prop('readonly', true);
+        $('#tombolCari').prop('disabled', true);
+        $('#tombolSimpanTtb').fadeOut();
+        ambilDataBarangBeli();
+    });
+
+    $(document).on('click', '#tombolBatal', function(e) {
+        e.preventDefault();
+        kosong();
+        tampilDataPembelian();
+        tampilTtb();
+        $('#tombolBatal').fadeOut();
+        $('#tombolEditItem').fadeOut();
+        $('#kodebarang').prop('readonly', false);
+        $('#tombolCari').prop('disabled', false);
+        $('#tombolSimpanTtb').fadeIn();
+    });
 </script>

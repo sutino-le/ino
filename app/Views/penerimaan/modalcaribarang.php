@@ -18,19 +18,29 @@
              </div>
              <div class="modal-body">
 
-                 <table style="width: 100%;" id="databarang" class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
+                 <table style="width: 100%;" id="datapembelian" class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
                      <thead>
                          <tr>
                              <th>No</th>
                              <th>Faktur</th>
-                             <th>Kode Barang</th>
                              <th>Nama Barang</th>
                              <th>Jumlah</th>
                              <th>Aksi</th>
                          </tr>
                      </thead>
                      <tbody>
-
+                         <?php
+                            $nomor = 1;
+                            foreach ($tampilpembelian->getResultArray() as $rowbeli) :
+                            ?>
+                             <tr>
+                                 <td><?= $nomor++ ?></td>
+                                 <td><?= $rowbeli['detfaktur'] ?></td>
+                                 <td><?= $rowbeli['brgnama'] ?></td>
+                                 <td><?= $rowbeli['detjml'] ?></td>
+                                 <td><button type="button" class="btn btn-sm btn-info" onclick="pilih('<?= $rowbeli['iddetail'] ?>')" title="Pilih"><i class='fas fa-hand-point-up'></i></button></td>
+                             </tr>
+                         <?php endforeach ?>
                      </tbody>
                  </table>
 
@@ -43,23 +53,6 @@
  </div>
 
  <script>
-     function listDataBarangBeli() {
-         var table = $('#databarang').dataTable({
-             destroy: true,
-             "processing": true,
-             "serverSide": true,
-             "order": [],
-             "ajax": {
-                 "url": "<?= base_url() ?>/penerimaan/listDataBarangBeli",
-                 "type": "POST",
-             },
-             "colomnDefs": [{
-                 "targets": [0, 4],
-                 "orderable": false,
-             }, ],
-         });
-     }
-
      function pilih(id) {
          $('#kodebeli').val(id);
          $('#modalcaribarangbeli').on('hidden.bs.modal', function(event) {

@@ -11,4 +11,10 @@ class ModelBarang extends Model
     protected $allowedFields    = [
         'brgnama', 'brgkatid', 'brgsubkatid', 'brgsatid', 'brgharga', 'brggambar', 'brgstok'
     ];
+
+
+    public function dataBarang()
+    {
+        return $this->table('barang')->join('kategori', 'katid=brgkatid')->groupby('barang.brgkatid')->get();
+    }
 }

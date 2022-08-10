@@ -20,7 +20,7 @@
 
 <div class="card">
     <div class="card-header">
-        <?= form_button('', '<i class="fa fa-plus-circle"></i> Input TTB', [
+        <?= form_button('', '<i class="fa fa-plus-circle"></i> Transaksi TTB', [
             'class'     => 'btn btn-sm btn-primary',
             'onclick'   => "location.href=('" . site_url('penerimaan/input') . "')"
         ]) ?>
@@ -62,7 +62,6 @@
                     <th>Nama Barang</th>
                     <th>Jumlah</th>
                     <th>Penerima</th>
-                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>

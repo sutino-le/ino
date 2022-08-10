@@ -6,12 +6,9 @@ use App\Controllers\BaseController;
 use App\Models\ModelBarang;
 use App\Models\ModelDetailPembelian;
 use App\Models\ModelPembelian;
-use App\Models\ModelPembelianBarangPagination;
-use App\Models\ModelPembelianPagination;
 use App\Models\ModelPenerimaan;
 use App\Models\ModelPenerimaanPagination;
 use Config\Services;
-use CodeIgniter\Database\BaseBuilder;
 
 class Penerimaan extends BaseController
 {
@@ -51,9 +48,6 @@ class Penerimaan extends BaseController
                 $no++;
                 $row = [];
 
-                $tombolHapus = "<button type=\"button\" class=\"btn btn-sm btn-danger\" onclick=\"hapus('" . $list->ttbid . "')\" title=\"Hapus\"><i class='fas fa-trash-alt'></i></button>";
-                $tombolEdit = "<button type=\"button\" class=\"btn btn-sm btn-primary\" onclick=\"edit('" . $list->ttbid . "')\" title=\"Edit\"><i class='fas fa-edit'></i></button>";
-
                 $row[] = $no;
                 $row[] = $list->ttbnomor;
                 $row[] = $list->ttbfaktur;
@@ -61,7 +55,6 @@ class Penerimaan extends BaseController
                 $row[] = $list->brgnama;
                 $row[] = $list->ttbjml;
                 $row[] = $list->ttbpenerima;
-                $row[] = $tombolHapus . ' ' . $tombolEdit;
                 $data[] = $row;
             }
             $output = [
@@ -116,10 +109,11 @@ class Penerimaan extends BaseController
     {
         $modelPembelian = new ModelPembelian();
         $data   = [
-            'judul'     => 'Home',
-            'subjudul'  => 'Input Penerimaan',
+            'judul'         => 'Home',
+            'subjudul'      => 'Input Penerimaan',
+            'penerima'      => session()->namauser,
             'tampilfaktur'  => $modelPembelian->findAll(),
-            'nottb'  => $this->buatTtb()
+            'nottb'         => $this->buatTtb()
         ];
         return view('penerimaan/forminput', $data);
     }
@@ -190,51 +184,26 @@ class Penerimaan extends BaseController
     public function modalCariBarangBeli()
     {
         if ($this->request->isAJAX()) {
+            $nofaktur = $this->request->getPost('faktur');
+
+
+            $modelDetailPembelian = new ModelDetailPembelian();
+
+            $data = [
+                'tampilpembelian' => $modelDetailPembelian->tampilDataDetail($nofaktur),
+            ];
+
+
             $json = [
-                'data'  => view('penerimaan/modalcaribarang')
+                'data'  => view('penerimaan/modalcaribarang', $data)
             ];
 
             echo json_encode($json);
+        } else {
+            exit('Maaf, gagal menampilkan data');
         }
     }
 
-
-    public function listDataBarangBeli()
-    {
-        $nofaktur = $this->request->getPost('faktur');
-
-        $modelDetailPembelian = new ModelDetailPembelian();
-        $cekData = $modelDetailPembelian->tampilDataDetail($nofaktur);
-
-        // $request = Services::request();
-        // $datamodel = new ModelPembelianBarangPagination($request);
-        // if ($request->getMethod(true) == 'POST') {
-        //     $lists = $datamodel->get_datatables();
-        //     $data = [];
-        //     $no = $request->getPost("start");
-        //     foreach ($lists as $list) {
-        //         $no++;
-        //         $row = [];
-
-        //         $tombolPilih = "<button type=\"button\" class=\"btn btn-sm btn-info\" onclick=\"pilih('" . $list->iddetail . "')\" title=\"Pilih\"><i class='fas fa-hand-point-up'></i></button>";
-
-        //         $row[] = $no;
-        //         $row[] = $list->detfaktur;
-        //         $row[] = $list->brgkode;
-        //         $row[] = $list->brgnama;
-        //         $row[] = $list->detjml;
-        //         $row[] = $tombolPilih;
-        //         $data[] = $row;
-        //     }
-        //     $output = [
-        //         "draw" => $request->getPost('draw'),
-        //         "recordsTotal" => $datamodel->count_all(),
-        //         "recordsFiltered" => $datamodel->count_filtered(),
-        //         "data" => $data
-        //     ];
-        //     echo json_encode($output);
-        }
-    }
 
     function ambilDataBarangBeli()
     {
@@ -342,6 +311,49 @@ class Penerimaan extends BaseController
 
                 $json = [
                     'sukses' => 'Item berhasil ditambahkan'
+                ];
+            }
+
+            echo json_encode($json);
+        }
+    }
+
+
+    function editItemTtb()
+    {
+        if ($this->request->isAJAX()) {
+            $ttbid = $this->request->getPost('ttbid');
+            $jml = $this->request->getPost('jml');
+
+            $validation = \Config\Services::validation();
+
+            $valid = $this->validate([
+                'jml'    => [
+                    'label'     => 'Jumlah',
+                    'rules'     => 'required',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ]
+            ]);
+
+            if (!$valid) {
+                $json = [
+                    'error' => [
+                        'errJumlah'     => $validation->getError('jml'),
+                    ]
+                ];
+            } else {
+
+
+                $modelPenerimaan = new ModelPenerimaan();
+
+                $modelPenerimaan->update($ttbid, [
+                    'ttbjml'            => $jml,
+                ]);
+
+                $json = [
+                    'sukses' => 'Item berhasil dirubah'
                 ];
             }
 

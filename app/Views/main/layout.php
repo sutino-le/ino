@@ -124,17 +124,18 @@
                             $lowongan = "show";
                             $verbal = "show";
 
-
                             $master_barang = "show";
                             $kategori = "show";
                             $subkategori = "show";
                             $satuan = "show";
                             $barang = "show";
 
-
                             $master_po = "show";
                             $pembelian = "show";
                             $penerimaan = "show";
+
+                            $master_pm = "show";
+                            $pemakaian = "show";
 
                             $biodata = "show";
                             $biodata_ktp = "show";
@@ -148,17 +149,18 @@
                             $lowongan = "none";
                             $verbal = "none";
 
-
                             $master_barang = "none";
                             $kategori = "none";
                             $subkategori = "none";
                             $satuan = "none";
                             $barang = "none";
 
-
                             $master_po = "none";
                             $pembelian = "none";
                             $penerimaan = "none";
+
+                            $master_pm = "none";
+                            $pemakaian = "none";
 
                             $biodata = "none";
                             $biodata_ktp = "none";
@@ -219,7 +221,7 @@
                                 </li>
                                 <li class="nav-item" style="display: <?= $verbal ?>;">
                                     <a href="<?= site_url('verbal/index') ?>" class="nav-link">
-                                        <i class="fas fa-business-time nav-icon text-primary"></i>
+                                        <i class="fas fa-file-alt nav-icon text-primary"></i>
                                         <p>Soal Verbal</p>
                                     </a>
                                 </li>
@@ -285,6 +287,26 @@
                                     <a href="<?= site_url('penerimaan/index') ?>" class="nav-link">
                                         <i class="fas fa-hand-holding nav-icon text-maroon"></i>
                                         <p>Penerimaan</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item" style="display: <?= $master_pm ?>;">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-retweet text-danger"></i>
+                                <p>
+                                    Pemakaian Barang
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview ml-2">
+                                <li class="nav-item" style="display: <?= $pemakaian ?>;">
+                                    <a href="<?= site_url('pemakaian/index') ?>" class="nav-link">
+                                        <i class="fas fa-dolly nav-icon text-danger"></i>
+                                        <p>Pemakaian Barang</p>
                                     </a>
                                 </li>
 

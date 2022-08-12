@@ -79,7 +79,8 @@ class Login extends BaseController
                         'namauser'  => $cekUserLogin['usernama'],
                         'levelnama'  => $cekLevel['levelnama'],
                         'idlevel'   => $idlevel,
-                        'ktp_foto'  => $cekKtpFoto['ktp_foto']
+                        'ktp_foto'  => $cekKtpFoto['ktp_foto'],
+                        'userktp'  => $cekUserLogin['userktp']
                     ];
                     session()->set($simpan_session);
 

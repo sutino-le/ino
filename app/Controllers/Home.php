@@ -8,10 +8,11 @@ class Home extends BaseController
 {
     public function index()
     {
+
         $modelLowongan = new ModelLowongan();
 
         $data = [
-            'tampildata' => $modelLowongan->findAll()
+            'tampildata'    => $modelLowongan->findAll(),
         ];
 
         return view('home/viewdata', $data);

@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\ModelLowongan;
+use App\Models\ModelLowonganApply;
 use App\Models\ModelLowonganPagination;
 use Config\Services;
 
@@ -196,6 +197,45 @@ class Lowongan extends BaseController
 
         $json = [
             'sukses' => 'Data berhasil dirubah'
+        ];
+
+
+        echo json_encode($json);
+    }
+
+    public function lowongandaftar()
+    {
+        $status = "Aktif";
+        $modelLowongan  = new ModelLowongan();
+        $cekDataLoker = $modelLowongan->cariData($status);
+
+        $data = [
+            'judul'         => 'Home',
+            'subjudul'      => 'Daftar Lowongan',
+            'tampildata'    => $cekDataLoker,
+        ];
+
+        return view('lowongan/lowongandaftar', $data);
+    }
+
+    public function lowonganapply()
+    {
+        $lowonganid = $this->request->getPost('lowonganid');
+        $applytanggal = date('Y-m-d');
+        $modelApply = new ModelLowonganApply();
+
+
+        $modelApply->insert([
+            'applyktp'      => session()->userktp,
+            'applylowid'    => $lowonganid,
+            'applytanggal'  => $applytanggal,
+            'applystatus'   => 'Submit'
+
+
+        ]);
+
+        $json = [
+            'sukses' => 'Anda berhasil submit'
         ];
 
 

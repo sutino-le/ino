@@ -11,4 +11,9 @@ class ModelLowongan extends Model
     protected $allowedFields    = [
         'lowonganid', 'lowonganjob', 'lowongandeskripsi', 'lowonganpersyaratan', 'lowongantanggal', 'lowonganstatus'
     ];
+
+    public function cariData($status)
+    {
+        return $this->table('lowongan')->like('lowonganstatus', $status)->get();
+    }
 }

@@ -68,7 +68,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="<?= base_url() ?>/index3.html" class="nav-link">Home</a>
+                    <a href="<?= base_url() ?>/home/index" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -122,7 +122,11 @@
                             $master_hr = "show";
                             $wilayah = "show";
                             $lowongan = "show";
-                            $verbal = "show";
+                            $soal = "show";
+
+                            $master_test = "show";
+                            $lowongandaftar = "show";
+                            $psikotest = "show";
 
                             $master_barang = "show";
                             $kategori = "show";
@@ -147,7 +151,11 @@
                             $master_hr = "none";
                             $wilayah = "none";
                             $lowongan = "none";
-                            $verbal = "none";
+                            $soal = "none";
+
+                            $master_test = "show";
+                            $lowongandaftar = "show";
+                            $psikotest = "show";
 
                             $master_barang = "none";
                             $kategori = "none";
@@ -219,13 +227,38 @@
                                         <p>Lowongan</p>
                                     </a>
                                 </li>
-                                <li class="nav-item" style="display: <?= $verbal ?>;">
-                                    <a href="<?= site_url('verbal/index') ?>" class="nav-link">
+                                <li class="nav-item" style="display: <?= $soal ?>;">
+                                    <a href="<?= site_url('soal/index') ?>" class="nav-link">
                                         <i class="fas fa-file-alt nav-icon text-primary"></i>
-                                        <p>Soal Verbal</p>
+                                        <p>Soal</p>
                                     </a>
                                 </li>
 
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item" style="display: <?= $master_test ?>;">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-align-justify text-primary"></i>
+                                <p>
+                                    Menu
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview ml-2">
+                                <li class="nav-item" style="display: <?= $lowongandaftar ?>;">
+                                    <a href="<?= site_url('lowongan/lowongandaftar') ?>" class="nav-link">
+                                        <i class="fas fa-bars nav-icon text-primary"></i>
+                                        <p>Lowongan Kerja</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" style="display: <?= $psikotest ?>;">
+                                    <a href="<?= site_url('psikotest/index') ?>" class="nav-link">
+                                        <i class="fas fa-file-signature nav-icon text-primary"></i>
+                                        <p>Psikotest</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 

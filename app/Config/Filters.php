@@ -39,20 +39,20 @@ class Filters extends BaseConfig
             // 'csrf',
             // 'invalidchars',
             'filterAdmin' => [
-                'except' => ['login/*', 'login', '/']
+                'except' => ['home/*', 'login/*', 'login', '/']
             ],
             'filterUser' => [
-                'except' => ['login/*', 'login', '/']
+                'except' => ['home/*', 'login/*', 'login', '/']
             ]
         ],
         'after' => [
             // 'honeypot',
             // 'secureheaders',
             'filterAdmin' => [
-                'except' => ['home/*', 'main/*', 'profil/*', 'levels/*', 'users/*', 'wilayah/*', 'lowongan/*', 'verbal/*', 'kategori/*', 'subkategori/*', 'satuan/*', 'barang/*', 'pembelian/*', 'penerimaan/*', 'pemakaian/*', 'suplier/*', 'biodataktp/*']
+                'except' => ['home/*', 'main/*', 'profil/*', 'levels/*', 'users/*', 'wilayah/*', 'lowongan/*', 'soal/*', 'psikotest/*', 'kategori/*', 'subkategori/*', 'satuan/*', 'barang/*', 'pembelian/*', 'penerimaan/*', 'pemakaian/*', 'suplier/*', 'biodataktp/*']
             ],
             'filterUser' => [
-                'except' => ['home/*', 'main/*', 'profil/*', 'wilayah/*',]
+                'except' => ['home/*', 'main/*', 'profil/*', 'wilayah/*', 'lowongan/*',  'psikotest/*',]
             ],
             'toolbar',
         ],

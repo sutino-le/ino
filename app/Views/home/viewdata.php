@@ -58,7 +58,17 @@
                     <li class="nav-item"><a class="nav-link" href="#proses">Business Process</a></li>
                     <li class="nav-item"><a class="nav-link" href="#career">Career</a></li>
                     <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?= site_url('login/index') ?>">Login</a></li>
+                    <?php
+                    if (session()->namauser) {
+                    ?>
+                        <li class="nav-item"><a class="nav-link" href="<?= site_url('profil/index/' . session()->iduser) ?>"><?= session()->namauser ?></a></li>
+                    <?php
+                    } else {
+                    ?>
+                        <li class="nav-item"><a class="nav-link" href="<?= site_url('login/index') ?>">Login</a></li>
+                    <?php
+                    }
+                    ?>
                 </ul>
             </div>
         </div>
@@ -271,7 +281,17 @@
                                     <?= $rowloker['lowongandeskripsi'] ?>
                                 </p>
                             </div>
-                            <button type="button" class="btn btn-info btn-block">Apply Now</button>
+                            <?php
+                            if (session()->namauser) {
+                            ?>
+                                <a href="<?= site_url('psikotest/index') ?>" style="text-decoration: none"><button type="button" class="btn btn-info btn-block">Apply Now</button></a>
+                            <?php
+                            } else {
+                            ?>
+                                <a href="<?= site_url('login/index') ?>" style="text-decoration: none"><button type="button" class="btn btn-info btn-block">Apply Now</button></a>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
 
@@ -396,6 +416,11 @@
     <footer class="footer bg-black small text-center text-white-50">
         <div class="container px-4 px-lg-5">Copyright &copy; 2022 PT Rackindo Setara Perkasa</div>
     </footer>
+
+
+    <div class="viewmodal" style="display: none;"></div>
+
+
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
@@ -405,6 +430,11 @@
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+
+
+
+
 </body>
 
 </html>

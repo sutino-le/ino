@@ -11,11 +11,28 @@ use App\Models\ModelUsers;
 
 class Psikotest extends BaseController
 {
+
     public function index()
     {
         $modelApply = new ModelLowonganApply();
 
         $statusapply = $modelApply->cariData(session()->userktp);
+
+        $modelPsikotest = new ModelPsikotest();
+        $cekTest = $modelPsikotest->dataTest(session()->userktp);
+
+        foreach ($cekTest->getResultArray() as $rowTest) :
+            $idtest = $rowTest['testid'];
+            if ($rowTest['testkuncijawaban'] == $rowTest['testjawab']) {
+                $modelPsikotest->update($idtest, [
+                    'teststatus' => 'Benar'
+                ]);
+            } else {
+                $modelPsikotest->update($idtest, [
+                    'teststatus' => 'Salah'
+                ]);
+            }
+        endforeach;
 
         $data = [
             'judul'         => 'Home',
@@ -46,32 +63,29 @@ class Psikotest extends BaseController
     public function simpan()
     {
         if ($this->request->isAJAX()) {
-            $modelSoal = new ModelSoal();
-            $cekSoal = $modelSoal->findAll();
+            $nomorktp       = $this->request->getVar('nomorktp');
+            $tanggal        = $this->request->getVar('tanggal');
+            $soal           = $this->request->getVar('soal');
+            $kuncijawaban   = $this->request->getVar('kuncijawaban');
+            $jawab          = $this->request->getVar('jawab');
+
+            $jmldata = count($nomorktp);
 
             $modelPsikotest = new ModelPsikotest();
-
-            foreach ($cekSoal as $rowSoal) :
-                $pertanyaan = "pertanyaan" . $rowSoal['testpertid'];
-                $jawaban = "jawab" . $rowSoal['testpertid'];
-                if ($rowSoal['testpertid'] == $this->request->getPost($pertanyaan) and $rowSoal['soaljaw'] == $this->request->getPost($jawaban)) {
-                    $status = "Benar";
-                }
-
-                $this->$modelPsikotest->insert([
-                    'testktp'               => $this->request->getPost('nomorktp'),
-                    'testtanggal'              => $this->request->getPost('tanggal'),
-                    'testpertid'           => $this->request->getPost($pertanyaan),
-                    'testjawab'              => $this->request->getPost($jawaban),
-                    'teststatus'              => $this->request->getPost($status)
+            for ($i = 0; $i < $jmldata; $i++) {
+                $modelPsikotest->insert([
+                    'testktp'           => $nomorktp[$i],
+                    'testtanggal'       => $tanggal[$i],
+                    'testpertid'        => $soal[$i],
+                    'testkuncijawaban'  => $kuncijawaban[$i],
+                    'testjawab'         => $jawab[$i],
+                    'teststatus'        => ''
                 ]);
-
-            endforeach;
+            }
 
             $json = [
                 'sukses' => 'Data berhasil disimpan'
             ];
-
 
             echo json_encode($json);
         }

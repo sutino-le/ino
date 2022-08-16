@@ -34,10 +34,16 @@ class Psikotest extends BaseController
             }
         endforeach;
 
+        $dataTest = $modelPsikotest->cekPsikotest(session()->userktp);
+
+        $hasilTest = $modelPsikotest->hasilPsikotest(session()->userktp);
+
         $data = [
             'judul'         => 'Home',
             'subjudul'      => 'Psikotest',
-            'statusapply'   => $statusapply
+            'statusapply'   => $statusapply,
+            'dataktp'       => $dataTest,
+            'hasilTest'     => $hasilTest
         ];
 
         return view('psikotest/viewdata', $data);
@@ -45,6 +51,9 @@ class Psikotest extends BaseController
 
     public function mulaitest($id)
     {
+        $modelPsikotest = new ModelPsikotest();
+        $dataTest = $modelPsikotest->cekPsikotest(session()->userktp);
+
         $modelSoal  = new ModelSoal();
         $cekDataSoal = $modelSoal->findAll();
 
@@ -52,7 +61,8 @@ class Psikotest extends BaseController
             'judul'         => 'Home',
             'subjudul'      => 'Daftar Lowongan',
             'tampildata'    => $cekDataSoal,
-            'waktu'         => $id
+            'waktu'         => $id,
+            'dataktp'       => $dataTest
         ];
 
         return view('psikotest/mulaitest', $data);
@@ -89,5 +99,22 @@ class Psikotest extends BaseController
 
             echo json_encode($json);
         }
+    }
+
+
+    public function lihathasil()
+    {
+
+        $modelPsikotest = new ModelPsikotest();
+        $cekHasilTest = $modelPsikotest->detailPsikotes(session()->userktp);
+
+
+        $data = [
+            'judul'         => 'Home',
+            'subjudul'      => 'Psikotest',
+            'tampilhasiltest'   => $cekHasilTest,
+        ];
+
+        return view('psikotest/hasiltest', $data);
     }
 }

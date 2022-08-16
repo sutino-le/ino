@@ -15,9 +15,40 @@
         height: 600px;
         overflow-y: auto;
     }
+
+    .preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background-color: #fff;
+    }
+
+    .preloader .loading {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font: 14px arial;
+    }
 </style>
 
-<script src="https://cdn.jsdelivr.net/gh/jquery/jquery@1.11.3/dist/jquery.min.js"></script>
+
+<script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+
+<?php
+if ($dataktp > 0) {
+?>
+    <script>
+
+    </script>
+<?php
+}
+?>
+
+
 
 <div class='card'>
     <div class='card-header bg-info'>
@@ -31,6 +62,13 @@
     <form action="<?= base_url('psikotest/simpan') ?>" class="formsimpanbanyak">
         <?= csrf_field(); ?>
         <div class="body">
+
+            <div class="preloader">
+                <div class="loading">
+                    <img src="<?= base_url() ?>/upload/poi.gif" width="80">
+                    <p>Harap Tunggu</p>
+                </div>
+            </div>
 
             <ul class='list-group list-group-flush'>
                 <li class='list-group-item'>
@@ -71,8 +109,8 @@
                                                         </div>
                                                         <div class="form-check">
                                                             <div class="form-group row">
-                                                                <label for="" class="col-sm-2 col-form-label">Jawaban :</label>
-                                                                <div class="col-sm-2">
+                                                                <label for="" class="col-sm-4 col-form-label">Jawaban :</label>
+                                                                <div class="col-sm-4">
                                                                     <input class="form-control" type="text" name="jawab[]" id="jawab" maxlength="1" autocapitalize="on" autocomplete="off" onkeyup="this.value = this.value.toUpperCase()">
                                                                 </div>
                                                             </div>
@@ -108,8 +146,14 @@
     </form>
 </div>
 
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/jquery/jquery@1.11.3/dist/jquery.min.js"></script>
+
 <script>
-    var countDownDate = new Date(new Date().getTime() + (1 * 60 * 1000));
+    var countDownDate = new Date(new Date().getTime() + (30 * 60 * 1000));
     var x = setInterval(function() {
 
         // Get today's date and time
@@ -129,32 +173,20 @@
         if (distance < 0) {
             clearInterval(x);
 
+
             Swal.fire({
                 title: 'Waktu telah habis!',
                 text: "Lanjut test berikutnya ?",
                 icon: 'warning',
-                showCancelButton: true,
                 confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
                 confirmButtonText: 'Ya, Lanjutkan!',
-                cancelButtonText: 'Batal'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    $.ajax({
-                        type: "post",
-                        url: $(this).attr('action'),
-                        data: $(this).serialize(),
-                        dataType: "json",
-                        success: function(response) {
-                            if (response.sukses) {
-                                window.location.reload();
-                            }
-                        },
-                        error: function(xhr, ajaxOptions, thrownError) {
-                            alert(xhr.status + '\n' + thrownError);
-                        }
-                    });
+                    $('.formsimpanbanyak').submit();
+                } else {
+                    $('.formsimpanbanyak').submit();
                 }
+
             })
 
         }
@@ -168,11 +200,8 @@
                 title: 'Selesaikan Test!',
                 text: "Apakah Anda yakin ingin menyelesaikan test ?",
                 icon: 'warning',
-                showCancelButton: true,
                 confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
                 confirmButtonText: 'Ya, Lanjutkan!',
-                cancelButtonText: 'Batal'
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({

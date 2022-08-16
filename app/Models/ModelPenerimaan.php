@@ -22,8 +22,7 @@ class ModelPenerimaan extends Model
 
     public function tampilDataPenerimaan($nofaktur)
     {
-        return $this->table('tanda_terimabarang')->join('barang', 'ttbbrgkode=brgkode')
-            ->where('ttbfaktur', $nofaktur)->get();
+        return $this->table('tanda_terimabarang')->join('barang', 'ttbbrgkode=brgkode')->where('ttbfaktur', $nofaktur)->get();
     }
 
     function ambilTotalTerima($brgkode, $nofaktur)

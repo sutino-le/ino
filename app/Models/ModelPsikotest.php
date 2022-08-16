@@ -16,4 +16,32 @@ class ModelPsikotest extends Model
     {
         return $this->table('psikotest')->where('testktp', $nomorktp)->get();
     }
+
+
+
+    public function cekPsikotest($nomorktp)
+    {
+        $query = $this->table('psikotest')->getWhere([
+            'testktp' => $nomorktp
+        ]);
+
+        $jmlApply = 0;
+        foreach ($query->getResultArray() as $r) :
+            $jmlApply += $r['testid'];
+        endforeach;
+        return $jmlApply;
+    }
+
+
+    public function hasilPsikotest($nomorktp)
+    {
+        return $this->table('psikotest')->where('testktp', $nomorktp)->get();
+    }
+
+
+
+    public function detailPsikotes($nomorktp)
+    {
+        return $this->table('psikotest')->join('soal', 'testpertid=soalid', 'left')->where('testktp', $nomorktp)->get();
+    }
 }

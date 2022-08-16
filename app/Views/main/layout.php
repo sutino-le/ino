@@ -452,13 +452,6 @@
 
 
 
-    <!-- Summernote -->
-    <script src="<?= base_url() ?>/plugins/summernote/summernote-bs4.min.js"></script>
-    <!-- CodeMirror -->
-    <script src="<?= base_url() ?>/plugins/codemirror/codemirror.js"></script>
-    <script src="<?= base_url() ?>/plugins/codemirror/mode/css/css.js"></script>
-    <script src="<?= base_url() ?>/plugins/codemirror/mode/xml/xml.js"></script>
-    <script src="<?= base_url() ?>/plugins/codemirror/mode/htmlmixed/htmlmixed.js"></script>
 
     <script src="<?= base_url() ?>/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 
@@ -467,30 +460,6 @@
         $(function() {
             bsCustomFileInput.init();
         });
-
-
-        $(function() {
-            // Summernote
-            $('#summernotedesk').summernote()
-
-            // CodeMirror
-            CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
-                mode: "htmlmixed",
-                theme: "monokai"
-            });
-        })
-
-
-        $(function() {
-            // Summernote
-            $('#summernotepers').summernote()
-
-            // CodeMirror
-            CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
-                mode: "htmlmixed",
-                theme: "monokai"
-            });
-        })
     </script>
 
 </body>

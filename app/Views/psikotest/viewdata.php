@@ -18,7 +18,23 @@
             // menambahkan menit di php
             $date = date('d-m-Y h:i:s');
 
-            if ($statusapply > 0) {
+            $totalBenar = 0;
+            foreach ($hasilTest->getResultArray() as $rowHasil) :
+                if ($rowHasil['teststatus'] == 'Benar') {
+                    $jawaban = 1;
+                } else {
+                    $jawaban = 0;
+                }
+                $totalBenar += $jawaban;
+            endforeach;
+
+
+            if ($dataktp > 0) {
+            ?>
+
+                Anda sudah melakukan Psikotest. dengan Nilai <?= $totalBenar ?>, lihat detail <a href="<?= base_url() ?>/psikotest/lihathasil">disini.</a>
+            <?php
+            } else if ($statusapply > 0) {
                 $waktu = date('d-m-Y h:i:s', strtotime('+5 minutes', strtotime($date)));
             ?>
                 <a href="<?= base_url() ?>/psikotest/mulaitest/<?= $waktu  ?>" style="text-decoration: none"><button type="button" class="btn btn-sm btn-primary" id="mulaiPsikotest"><i class="fas fa-caret-square-right"></i> Mulai Test</button></a>

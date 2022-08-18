@@ -8,8 +8,8 @@ use CodeIgniter\Model;
 class ModelSatuanPagination extends Model
 {
     protected $table = "satuan";
-    protected $column_order = array(null, 'satnama', null);
-    protected $column_search = array('satnama');
+    protected $column_order = array(null, 'satnama', 'satinisial',  null);
+    protected $column_search = array('satnama', 'satinisial');
     protected $order = array('satid' => 'ASC');
     protected $request;
     protected $db;

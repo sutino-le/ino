@@ -61,7 +61,7 @@ class Barang extends BaseController
                 $row[] = $list->brgnama;
                 $row[] = $list->katnama;
                 $row[] = $list->subkatnama;
-                $row[] = $list->satnama;
+                $row[] = $list->satinisial;
                 $row[] = $list->brgharga;
                 $row[] = $list->brgstok;
                 $row[] = $tombolEdit . ' ' . $tombolHapus;

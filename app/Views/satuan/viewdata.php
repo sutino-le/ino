@@ -34,6 +34,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Satuan</th>
+                            <th>Singkatan/Inisial</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>

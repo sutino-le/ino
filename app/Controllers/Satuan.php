@@ -51,6 +51,7 @@ class Satuan extends BaseController
 
                 $row[] = $no;
                 $row[] = $list->satnama;
+                $row[] = $list->satinisial;
                 $row[] = $tombolEdit . ' ' . $tombolhapussatuan;
                 $data[] = $row;
             }
@@ -79,12 +80,20 @@ class Satuan extends BaseController
     {
         if ($this->request->isAJAX()) {
             $satnama      = $this->request->getPost('satnama');
+            $satinisial      = $this->request->getPost('satinisial');
 
             $validation = \Config\Services::validation();
             $valid = $this->validate([
                 'satnama' => [
                     'rules'     => 'required',
                     'label'     => 'Satuan',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'satinisial' => [
+                    'rules'     => 'required',
+                    'label'     => 'Singkatan',
                     'errors'    => [
                         'required'  => '{field} tidak boleh kosong'
                     ]
@@ -95,6 +104,7 @@ class Satuan extends BaseController
                 $json = [
                     'error' => [
                         'errSatNama'      => $validation->getError('satnama'),
+                        'errSatInisial'      => $validation->getError('satinisial'),
                     ]
                 ];
             } else {
@@ -102,7 +112,8 @@ class Satuan extends BaseController
 
                 $modelsatuan->insert([
                     'satid'         => '',
-                    'satnama'         => $satnama
+                    'satnama'       => $satnama,
+                    'satinisial'    => $satinisial,
                 ]);
 
                 $json = [
@@ -124,7 +135,8 @@ class Satuan extends BaseController
         if ($cekDataSub) {
             $data = [
                 'satid'        => $cekDataSub['satid'],
-                'satnama'         => $cekDataSub['satnama']
+                'satnama'      => $cekDataSub['satnama'],
+                'satinisial'   => $cekDataSub['satinisial']
             ];
 
             $json = [
@@ -138,8 +150,9 @@ class Satuan extends BaseController
     public function updatedata()
     {
         if ($this->request->isAJAX()) {
-            $satid     = $this->request->getPost('satid');
-            $satnama      = $this->request->getPost('satnama');
+            $satid          = $this->request->getPost('satid');
+            $satnama        = $this->request->getPost('satnama');
+            $satinisial     = $this->request->getPost('satinisial');
 
             $validation = \Config\Services::validation();
             $valid = $this->validate([
@@ -149,13 +162,21 @@ class Satuan extends BaseController
                     'errors'    => [
                         'required'  => '{field} tidak boleh kosong'
                     ]
+                ],
+                'satinisial' => [
+                    'rules'     => 'required',
+                    'label'     => 'Singkatan',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
                 ]
             ]);
 
             if (!$valid) {
                 $json = [
                     'error' => [
-                        'errSatNama'      => $validation->getError('satnama')
+                        'errSatNama'      => $validation->getError('satnama'),
+                        'errSatInisial'      => $validation->getError('satinisial')
                     ]
                 ];
             } else {
@@ -163,6 +184,7 @@ class Satuan extends BaseController
 
                 $modelsatuan->update($satid, [
                     'satnama'         => $satnama,
+                    'satinisial'         => $satinisial,
                 ]);
 
                 $json = [

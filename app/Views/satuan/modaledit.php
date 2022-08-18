@@ -23,6 +23,12 @@
                         <div class="invalid-feedback errorSatNama"></div>
                     </div>
 
+                    <div class="form-group">
+                        <label for="">Singkatan</label>
+                        <input type="text" name="satinisial" id="satinisial" value="<?= $satinisial ?>" class="form-control" placeholder="Masukan Satuan...">
+                        <div class="invalid-feedback errorSaInisial"></div>
+                    </div>
+
 
                 </div>
                 <div class="modal-footer">
@@ -40,6 +46,7 @@
 <script>
     function kosong() {
         $('#satnama').val('');
+        $('#satinisial').val('');
     }
 
     $(document).ready(function() {
@@ -58,6 +65,17 @@
                         if (err.errSatNama) {
                             $('#satnama').addClass('is-invalid');
                             $('.errorSatNama').html(err.errSatNama);
+                        } else {
+                            $('#satnama').removeClass('is-invalid');
+                            $('#satnama').addClass('is-valid');
+                        }
+
+                        if (err.errSatInisial) {
+                            $('#satinisial').addClass('is-invalid');
+                            $('.errorSaInisial').html(err.errSatInisial);
+                        } else {
+                            $('#satinisial').removeClass('is-invalid');
+                            $('#satinisial').addClass('is-valid');
                         }
 
                     }

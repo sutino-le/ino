@@ -8,5 +8,5 @@ class ModelSatuan extends Model
 {
     protected $table            = 'satuan';
     protected $primaryKey       = 'satid';
-    protected $allowedFields    = ['satnama'];
+    protected $allowedFields    = ['satnama', 'satinisial'];
 }

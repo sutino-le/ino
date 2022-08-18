@@ -21,7 +21,7 @@ class ModelKategoriPagination extends Model
         $this->db = db_connect();
         $this->request = $request;
 
-        $this->dt = $this->db->table($this->table)->join('barang', 'katid=brgkatid', 'left');
+        $this->dt = $this->db->table($this->table)->join('barang', 'katid=brgkatid', 'left')->groupby('kategori.katid');
     }
     private function _get_datatables_query()
     {

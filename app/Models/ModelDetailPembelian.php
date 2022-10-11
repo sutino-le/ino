@@ -12,6 +12,11 @@ class ModelDetailPembelian extends Model
         'detfaktur', 'detbrgkode', 'dethargamasuk', 'dethargajual', 'detjml', 'detsubtotal'
     ];
 
+    public function dataPembelian()
+    {
+        return $this->table('detail_barangmasuk')->join('barang', 'brgkode=detbrgkode', 'left')->groupby('detail_barangmasuk.detbrgkode')->get();
+    }
+
     public function tampilDataDetail($nofaktur)
     {
         return $this->table('detail_barangmasuk')->join('barang', 'detbrgkode=brgkode')
@@ -51,5 +56,11 @@ class ModelDetailPembelian extends Model
     {
         return $this->table('detail_barangmasuk')->join('barang', 'detbrgkode=brgkode')
             ->where('detbrgkode', $kodebarang)->get();
+    }
+
+
+    public function downloadDataPembelian($brgkode, $tglawal, $tglakhir)
+    {
+        return $this->table('detail_barangmasuk')->join('barang', 'detbrgkode=brgkode', 'left')->join('barangmasuk', 'detfaktur=faktur', 'left')->join('suplier', 'idsup=supid', 'left')->where('tglfaktur >=', $tglawal)->where('tglfaktur <=', $tglakhir)->where('detbrgkode >=', $tglawal)->get();
     }
 }

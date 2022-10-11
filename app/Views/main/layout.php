@@ -136,6 +136,7 @@
 
                             $master_po = "show";
                             $pembelian = "show";
+                            $datapembelian = "show";
                             $penerimaan = "show";
 
                             $master_pm = "show";
@@ -164,6 +165,7 @@
                             $barang = "none";
 
                             $master_po = "none";
+                            $pembelian = "none";
                             $pembelian = "none";
                             $penerimaan = "none";
 
@@ -240,7 +242,7 @@
 
                         <li class="nav-item" style="display: <?= $master_test ?>;">
                             <a href="#" class="nav-link">
-                                <i class="fas fa-align-justify text-primary"></i>
+                                <i class="fas fa-align-justify text-secondary"></i>
                                 <p>
                                     Menu
                                     <i class="right fas fa-angle-left"></i>
@@ -249,13 +251,13 @@
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $lowongandaftar ?>;">
                                     <a href="<?= site_url('lowongan/lowongandaftar') ?>" class="nav-link">
-                                        <i class="fas fa-bars nav-icon text-primary"></i>
+                                        <i class="fas fa-bars nav-icon text-secondary"></i>
                                         <p>Lowongan Kerja</p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="display: <?= $psikotest ?>;">
                                     <a href="<?= site_url('psikotest/index') ?>" class="nav-link">
-                                        <i class="fas fa-file-signature nav-icon text-primary"></i>
+                                        <i class="fas fa-file-signature nav-icon text-secondary"></i>
                                         <p>Psikotest</p>
                                     </a>
                                 </li>
@@ -303,7 +305,7 @@
 
                         <li class="nav-item" style="display: <?= $master_po ?>;">
                             <a href="#" class="nav-link">
-                                <i class="fas fa-dolly-flatbed text-maroon"></i>
+                                <i class="fas fa-dolly-flatbed text-yellow"></i>
                                 <p>
                                     Pesanan Pembelian
                                     <i class="right fas fa-angle-left"></i>
@@ -312,13 +314,19 @@
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $pembelian ?>;">
                                     <a href="<?= site_url('pembelian/index') ?>" class="nav-link">
-                                        <i class="fas fa-cart-arrow-down nav-icon text-maroon"></i>
+                                        <i class="fas fa-cart-arrow-down nav-icon text-yellow"></i>
                                         <p>Pembelian</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" style="display: <?= $datapembelian ?>;">
+                                    <a href="<?= site_url('pembelian/datapembelian') ?>" class="nav-link">
+                                        <i class="fas fa-layer-group nav-icon text-yellow"></i>
+                                        <p>Data Pembelian</p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="display: <?= $penerimaan ?>;">
                                     <a href="<?= site_url('penerimaan/index') ?>" class="nav-link">
-                                        <i class="fas fa-hand-holding nav-icon text-maroon"></i>
+                                        <i class="fas fa-hand-holding nav-icon text-yellow"></i>
                                         <p>Penerimaan</p>
                                     </a>
                                 </li>

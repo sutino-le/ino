@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\ModelBarang;
 use App\Models\Modelbarangmasuk;
 use App\Models\ModelBarangPagination;
+use App\Models\ModelDataPembelianPagination;
 use App\Models\ModelDetailPembelian;
 use App\Models\ModelPembelian;
 use App\Models\ModelPembelianPagination;
@@ -643,6 +644,70 @@ class Pembelian extends BaseController
             }
 
             echo json_encode($json);
+        }
+    }
+
+    public function datapembelian()
+    {
+
+        $modelPembelian = new ModelDetailPembelian();
+        $data = [
+            'judul'         => 'Home',
+            'subjudul'      => 'Pembelian',
+            'tampilpembelian'  => $modelPembelian->dataPembelian(),
+        ];
+        return view('pembelian/datapembelian', $data);
+    }
+
+    public function listDataPembelian()
+    {
+
+        $brgkode = $this->request->getPost('brgkode');
+        $tglawal = $this->request->getPost('tglawal');
+        $tglakhir = $this->request->getPost('tglakhir');
+
+        $request = Services::request();
+        $datamodel = new ModelDataPembelianPagination($request);
+        if ($request->getMethod(true) == 'POST') {
+            $lists = $datamodel->get_datatables($brgkode, $tglawal, $tglakhir);
+            $data = [];
+            $no = $request->getPost("start");
+            foreach ($lists as $list) {
+                $no++;
+                $row = [];
+
+                // $tombolCetak = "<button type=\"button\" class=\"btn btn-sm btn-info\" onclick=\"cetak('" . $list->iddetail . "')\" title=\"Cetak\"><i class='fas fa-print'></i></button>";
+                // $tombolHapus = "<button type=\"button\" class=\"btn btn-sm btn-danger\" onclick=\"hapus('" . $list->iddetail . "')\" title=\"Hapus\"><i class='fas fa-trash-alt'></i></button>";
+                // $tombolEdit = "<button type=\"button\" class=\"btn btn-sm btn-primary\" onclick=\"edit('" . $list->iddetail . "')\" title=\"Edit\"><i class='fas fa-edit'></i></button>";
+
+                $row[] = $no;
+                $row[] = $list->brgnama;
+                $row[] = $list->tglfaktur;
+                $row[] = $list->detjml;
+                $row[] = number_format($list->detsubtotal, 0, ",", ".");
+                $row[] = $list->supnama;
+                $data[] = $row;
+            }
+            $output = [
+                "draw" => $request->getPost('draw'),
+                "recordsTotal" => $datamodel->count_all($brgkode, $tglawal, $tglakhir),
+                "recordsFiltered" => $datamodel->count_filtered($brgkode, $tglawal, $tglakhir),
+                "data" => $data
+            ];
+            echo json_encode($output);
+        }
+    }
+
+
+    public function downloadDataPembelian()
+    {
+        if ($this->request->isAJAX()) {
+            $brgkode = $this->request->getPost('brgkode');
+            $tglawal = $this->request->getPost('tglawal');
+            $tglakhir = $this->request->getPost('tglakhir');
+
+            $dataPembelian = new ModelDetailPembelian();
+            $rowData = $dataPembelian->downloadDataPembelian($brgkode, $tglawal, $tglakhir);
         }
     }
 }

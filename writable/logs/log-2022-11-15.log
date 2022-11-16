@@ -1,0 +1,111 @@
+ERROR - 2022-11-15 10:25:00 --> Error connecting to the database: Unknown database 'project'
+CRITICAL - 2022-11-15 10:25:00 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'project'
+#0 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\ino\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\ino\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#4 C:\xampp\htdocs\ino\app\Controllers\Home.php(15): CodeIgniter\BaseModel->findAll()
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-11-15 10:41:35 --> substr(): Passing null to parameter #1 ($string) of type string is deprecated
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8192, 'substr(): Passi...', 'C:\\xampp\\htdocs...', 78)
+#1 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(78): substr(NULL, -4)
+#2 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(116): App\Controllers\Penerimaan->buatTtb()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->input()
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-11-15 10:43:00 --> substr(): Passing null to parameter #1 ($string) of type string is deprecated
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8192, 'substr(): Passi...', 'C:\\xampp\\htdocs...', 78)
+#1 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(78): substr(NULL, -4)
+#2 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(116): App\Controllers\Penerimaan->buatTtb()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->input()
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-11-15 11:46:16 --> substr(): Passing null to parameter #1 ($string) of type string is deprecated
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8192, 'substr(): Passi...', 'C:\\xampp\\htdocs...', 78)
+#1 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(78): substr(NULL, -4)
+#2 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(116): App\Controllers\Penerimaan->buatTtb()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->input()
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-11-15 11:50:00 --> substr(): Passing null to parameter #1 ($string) of type string is deprecated
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8192, 'substr(): Passi...', 'C:\\xampp\\htdocs...', 78)
+#1 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(78): substr(NULL, -4)
+#2 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(116): App\Controllers\Penerimaan->buatTtb()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->input()
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-11-15 11:53:43 --> substr(): Passing null to parameter #1 ($string) of type string is deprecated
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8192, 'substr(): Passi...', 'C:\\xampp\\htdocs...', 82)
+#1 C:\xampp\htdocs\ino\app\Controllers\Pembelian.php(82): substr(NULL, -4)
+#2 C:\xampp\htdocs\ino\app\Controllers\Pembelian.php(117): App\Controllers\Pembelian->buatFaktur()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pembelian->input()
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pembelian))
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-11-15 13:17:04 --> Undefined variable $setting
+#0 C:\xampp\htdocs\ino\app\Views\main\layout.php(127): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 127)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\View\View.php(226): CodeIgniter\View\View->render('main/layout', Array, true)
+#4 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('levels/viewdata', Array, true)
+#5 C:\xampp\htdocs\ino\app\Controllers\Levels.php(28): view('levels/viewdata', Array)
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Levels->index()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Levels))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-15 13:17:58 --> include(main/filter.php): Failed to open stream: No such file or directory
+#0 C:\xampp\htdocs\ino\app\Views\main\layout.php(118): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(main/fi...', 'C:\\xampp\\htdocs...', 118)
+#1 C:\xampp\htdocs\ino\app\Views\main\layout.php(118): include()
+#2 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#4 C:\xampp\htdocs\ino\system\View\View.php(226): CodeIgniter\View\View->render('main/layout', Array, true)
+#5 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('levels/viewdata', Array, true)
+#6 C:\xampp\htdocs\ino\app\Controllers\Levels.php(28): view('levels/viewdata', Array)
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Levels->index()
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Levels))
+#9 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-11-15 16:42:01 --> Undefined variable $json
+#0 C:\xampp\htdocs\ino\app\Controllers\Satuan.php(148): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 148)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Satuan->formedit('91')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Satuan))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-11-15 17:55:27 --> Undefined array key "brgkapasitas"
+#0 C:\xampp\htdocs\ino\app\Controllers\Barang.php(191): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 191)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Barang->formedit('11')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Barang))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-11-15 17:55:30 --> Undefined array key "brgkapasitas"
+#0 C:\xampp\htdocs\ino\app\Controllers\Barang.php(191): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 191)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Barang->formedit('11')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Barang))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-11-15 17:57:33 --> Undefined array key "brgkapasitas"
+#0 C:\xampp\htdocs\ino\app\Controllers\Barang.php(191): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 191)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Barang->formedit('1')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Barang))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}

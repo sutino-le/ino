@@ -21,6 +21,8 @@ class SubKategori extends BaseController
         $data = [
             'judul'         => 'Home',
             'subjudul'      => 'Sub Kategori',
+            'menu'          => 'masterbarang',
+            'submenu'       => 'subkategori',
         ];
         return view('subkategori/viewdata', $data);
     }
@@ -44,16 +46,14 @@ class SubKategori extends BaseController
                 $tombolHapus = "<button type=\"button\" class=\"btn btn-sm btn-danger\" onclick=\"hapus('" . $list->subkatid . "')\" title=\"Hapus\"><i class='fas fa-trash-alt'></i></button>";
 
                 if ($list->brgsubkatid == "") {
-                    $tomboleditkategori = $tombolEdit;
                     $tombolhapuskategori = $tombolHapus;
                 } else {
-                    $tomboleditkategori = "";
                     $tombolhapuskategori = "";
                 }
 
                 $row[] = $no;
                 $row[] = $list->subkatnama;
-                $row[] = $tomboleditkategori . ' ' . $tombolhapuskategori;
+                $row[] = $tombolEdit . ' ' . $tombolhapuskategori;
                 $data[] = $row;
             }
             $output = [

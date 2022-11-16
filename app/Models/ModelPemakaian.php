@@ -7,8 +7,18 @@ use CodeIgniter\Model;
 class ModelPemakaian extends Model
 {
     protected $table            = 'pemakaian';
-    protected $primaryKey       = 'pmkid';
+    protected $primaryKey       = 'nomor';
     protected $allowedFields    = [
-        'pmknomor', 'pmkbrgkode', 'pmktanggal', 'pmkjumlah', 'pmknama', 'pmkketerangan'
+        'nomor', 'pmktanggal', 'pemakai', 'pmkuser'
     ];
+
+
+    // Dates
+    protected $useTimestamps = true;
+
+
+    public function noPakai($tanggalSekarang)
+    {
+        return $this->table('pemakaian')->select('max(nomor) as pmknomor')->where('pmktanggal', $tanggalSekarang)->get();
+    }
 }

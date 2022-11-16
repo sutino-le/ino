@@ -19,6 +19,8 @@ class Main extends BaseController
         $data = [
             'judul'         => 'Home',
             'subjudul'      => 'Awal',
+            'menu'          => '',
+            'submenu'       => '',
             'ktp_foto'          => $cekBiodata['ktp_foto'],
         ];
         return view('main/layout', $data);

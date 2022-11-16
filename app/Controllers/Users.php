@@ -22,6 +22,8 @@ class Users extends BaseController
         $data = [
             'judul'         => 'Home',
             'subjudul'      => 'users',
+            'menu'          => 'setting',
+            'submenu'       => 'user',
         ];
         return view('users/viewdata', $data);
     }

@@ -29,6 +29,8 @@ class Pembelian extends BaseController
         $data = [
             'judul'         => 'Home',
             'subjudul'      => 'Pembelian',
+            'menu'          => 'pembelian',
+            'submenu'       => 'pembelian',
         ];
         return view('pembelian/viewdata', $data);
     }
@@ -79,7 +81,13 @@ class Pembelian extends BaseController
         $hasil = $pembelian->noFaktur($tanggalSekarang)->getRowArray();
         $data = $hasil['nofaktur'];
 
-        $lastNoUrut = substr($data, -4);
+        if ($data == "") {
+            $nomorterakhir = '0000';
+        } else {
+            $nomorterakhir = $data;
+        }
+
+        $lastNoUrut = substr($nomorterakhir, -4);
         // nomor urut ditambah 1
         $nextNoUrut = intval($lastNoUrut) + 1;
         // membuat format nomor transaksi berikutnya
@@ -95,7 +103,13 @@ class Pembelian extends BaseController
         $hasil = $pembelian->noFaktur($tanggalSekarang)->getRowArray();
         $data = $hasil['nofaktur'];
 
-        $lastNoUrut = substr($data, -4);
+        if ($data == "") {
+            $nomorterakhir = '0000';
+        } else {
+            $nomorterakhir = $data;
+        }
+
+        $lastNoUrut = substr($nomorterakhir, -4);
         // nomor urut ditambah 1
         $nextNoUrut = intval($lastNoUrut) + 1;
         // membuat format nomor transaksi berikutnya
@@ -114,6 +128,8 @@ class Pembelian extends BaseController
         $data   = [
             'judul'     => 'Home',
             'subjudul'  => 'Input Faktur Pembelian',
+            'menu'      => 'pembelian',
+            'submenu'   => 'pembelian',
             'nofaktur'  => $this->buatFaktur()
         ];
         return view('pembelian/forminput', $data);
@@ -443,6 +459,8 @@ class Pembelian extends BaseController
         $data = [
             'judul'                 => 'Home',
             'subjudul'              => 'Edit Faktur Pembelian',
+            'menu'                  => 'pembelian',
+            'submenu'               => 'pembelian',
             'nofaktur'              => $faktur,
             'tanggal'               => $rowData['tglfaktur'],
             'namasuplier'           => $suplier
@@ -654,6 +672,8 @@ class Pembelian extends BaseController
         $data = [
             'judul'         => 'Home',
             'subjudul'      => 'Pembelian',
+            'menu'          => 'pembelian',
+            'submenu'       => 'datapembelian',
             'tampilpembelian'  => $modelPembelian->dataPembelian(),
         ];
         return view('pembelian/datapembelian', $data);

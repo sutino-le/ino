@@ -21,6 +21,8 @@ class Satuan extends BaseController
         $data = [
             'judul'         => 'Home',
             'subjudul'      => 'Satuan',
+            'menu'          => 'masterbarang',
+            'submenu'       => 'satuan',
         ];
         return view('satuan/viewdata', $data);
     }

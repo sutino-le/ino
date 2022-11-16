@@ -21,6 +21,8 @@ class Kategori extends BaseController
         $data = [
             'judul'         => 'Home',
             'subjudul'      => 'Kategori',
+            'menu'          => 'masterbarang',
+            'submenu'       => 'kategori',
         ];
         return view('kategori/viewdata', $data);
     }

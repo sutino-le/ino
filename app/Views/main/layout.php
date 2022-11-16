@@ -10,7 +10,8 @@
     <link href="<?= base_url() ?>/upload/logo.png" rel="apple-touch-icon">
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?= base_url() ?>/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
@@ -28,7 +29,8 @@
     <!-- Bootstrap Color Picker -->
     <link rel="stylesheet" href="<?= base_url() ?>/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="<?= base_url() ?>/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet"
+        href="<?= base_url() ?>/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <!-- Select2 -->
     <link rel="stylesheet" href="<?= base_url() ?>/plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
@@ -57,7 +59,8 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__wobble" src="<?= base_url() ?>/upload/logo.png" alt="AdminLTELogo" height="60" width="60">
+            <img class="animation__wobble" src="<?= base_url() ?>/upload/logo.png" alt="AdminLTELogo" height="60"
+                width="60">
         </div>
 
         <!-- Navbar -->
@@ -79,7 +82,8 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
                 <li class="nav-item">
-                    <a class="text-white" href="<?= site_url('login/keluar') ?>"><i class="fas fa-sign-out-alt"></i> Logout &nbsp;</a>
+                    <a class="text-white" href="<?= site_url('login/keluar') ?>"><i class="fas fa-sign-out-alt"></i>
+                        Logout &nbsp;</a>
                 </li>
             </ul>
         </nav>
@@ -89,7 +93,8 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="<?= base_url() ?>" class="brand-link">
-                <img src="<?= base_url() ?>/upload/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="<?= base_url() ?>/upload/logo.png" alt="AdminLTE Logo"
+                    class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">RSP</span>
             </a>
 
@@ -99,7 +104,8 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?= base_url() ?>/upload/<?= session()->ktp_foto ?>" class="img-circle elevation-2" alt="User Image">
+                        <img src="<?= base_url() ?>/upload/<?= session()->ktp_foto ?>" class="img-circle elevation-2"
+                            alt="User Image">
                     </div>
                     <div class="info">
                         <a href="<?= site_url('profil/index/' . session()->iduser) ?>" class="d-block">
@@ -109,78 +115,81 @@
                 </div>
 
                 <!-- Sidebar Menu -->
+                <?php
+
+                // if (session()->idlevel == 1) :
+                if (session()->idlevel == 1) {
+                    $setting = "show";
+                    $levels = "show";
+                    $users = "show";
+
+                    $master_hr = "show";
+                    $wilayah = "show";
+                    $lowongan = "show";
+                    $soal = "show";
+
+                    $master_test = "show";
+                    $lowongandaftar = "show";
+                    $psikotest = "show";
+
+                    $master_barang = "show";
+                    $kategori = "show";
+                    $subkategori = "show";
+                    $satuan = "show";
+                    $barang = "show";
+
+                    $master_po = "show";
+                    $pembelian = "show";
+                    $datapembelian = "show";
+                    $penerimaan = "show";
+
+                    $master_pm = "show";
+                    $pemakaian = "show";
+
+                    $biodata = "show";
+                    $biodata_ktp = "show";
+                } else {
+                    $setting = "none";
+                    $levels = "none";
+                    $users = "none";
+
+                    $master_hr = "none";
+                    $wilayah = "none";
+                    $lowongan = "none";
+                    $soal = "none";
+
+                    $master_test = "show";
+                    $lowongandaftar = "show";
+                    $psikotest = "show";
+
+                    $master_barang = "none";
+                    $kategori = "none";
+                    $subkategori = "none";
+                    $satuan = "none";
+                    $barang = "none";
+
+                    $master_po = "none";
+                    $pembelian = "none";
+                    $pembelian = "none";
+                    $penerimaan = "none";
+
+                    $master_pm = "none";
+                    $pemakaian = "none";
+
+                    $biodata = "none";
+                    $biodata_ktp = "none";
+                }
+                ?>
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <?php
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
 
-                        // if (session()->idlevel == 1) :
-                        if (session()->idlevel == 1) {
-                            $setting = "show";
-                            $levels = "show";
-                            $users = "show";
-
-                            $master_hr = "show";
-                            $wilayah = "show";
-                            $lowongan = "show";
-                            $soal = "show";
-
-                            $master_test = "show";
-                            $lowongandaftar = "show";
-                            $psikotest = "show";
-
-                            $master_barang = "show";
-                            $kategori = "show";
-                            $subkategori = "show";
-                            $satuan = "show";
-                            $barang = "show";
-
-                            $master_po = "show";
-                            $pembelian = "show";
-                            $datapembelian = "show";
-                            $penerimaan = "show";
-
-                            $master_pm = "show";
-                            $pemakaian = "show";
-
-                            $biodata = "show";
-                            $biodata_ktp = "show";
-                        } else {
-                            $setting = "none";
-                            $levels = "none";
-                            $users = "none";
-
-                            $master_hr = "none";
-                            $wilayah = "none";
-                            $lowongan = "none";
-                            $soal = "none";
-
-                            $master_test = "show";
-                            $lowongandaftar = "show";
-                            $psikotest = "show";
-
-                            $master_barang = "none";
-                            $kategori = "none";
-                            $subkategori = "none";
-                            $satuan = "none";
-                            $barang = "none";
-
-                            $master_po = "none";
-                            $pembelian = "none";
-                            $pembelian = "none";
-                            $penerimaan = "none";
-
-                            $master_pm = "none";
-                            $pemakaian = "none";
-
-                            $biodata = "none";
-                            $biodata_ktp = "none";
-                        }
-
-                        ?>
-
-
-                        <li class="nav-item" style="display: <?= $setting ?>;">
-                            <a href="#" class="nav-link">
+                        <li class="nav-header">
+                            <hr>HR
+                        </li>
+                        <li class="nav-item <?= ($menu == 'setting') ? 'menu-open' : '' ?>"
+                            style="display: <?= $setting ?>;">
+                            <a href="#" class="nav-link <?= ($menu == 'setting') ? 'active' : '' ?>">
                                 <i class="fas fa-cog text-info"></i>
                                 <p>
                                     Setting
@@ -189,7 +198,8 @@
                             </a>
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $levels ?>;">
-                                    <a href="<?= site_url('levels/index') ?>" class="nav-link">
+                                    <a href="<?= site_url('levels/index') ?>"
+                                        class="nav-link <?= ($submenu == 'level') ? 'active' : '' ?>">
                                         <i class="fas fa-network-wired nav-icon text-info"></i>
                                         <p>Levels</p>
                                     </a>
@@ -198,7 +208,8 @@
                             </ul>
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $users ?>;">
-                                    <a href="<?= site_url('users/index') ?>" class="nav-link">
+                                    <a href="<?= site_url('users/index') ?>"
+                                        class="nav-link <?= ($submenu == 'user') ? 'active' : '' ?>">
                                         <i class="fas fa-user nav-icon text-info"></i>
                                         <p>Users</p>
                                     </a>
@@ -208,8 +219,9 @@
                         </li>
 
 
-                        <li class="nav-item" style="display: <?= $master_hr ?>;">
-                            <a href="#" class="nav-link">
+                        <li class="nav-item <?= ($menu == 'masterhr') ? 'menu-open' : '' ?>"
+                            style="display: <?= $master_hr ?>;">
+                            <a href="#" class="nav-link <?= ($menu == 'masterhr') ? 'active' : '' ?>">
                                 <i class="fas fa-database text-primary"></i>
                                 <p>
                                     Master HR
@@ -218,19 +230,22 @@
                             </a>
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $wilayah ?>;">
-                                    <a href="<?= site_url('wilayah/index') ?>" class="nav-link">
+                                    <a href="<?= site_url('wilayah/index') ?>"
+                                        class="nav-link <?= ($submenu == 'wilayah') ? 'active' : '' ?>">
                                         <i class="fas fa-map-marked-alt nav-icon text-primary"></i>
                                         <p>Wilayah</p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="display: <?= $lowongan ?>;">
-                                    <a href="<?= site_url('lowongan/index') ?>" class="nav-link">
+                                    <a href="<?= site_url('lowongan/index') ?>"
+                                        class="nav-link <?= ($submenu == 'lowongan') ? 'active' : '' ?>">
                                         <i class="fas fa-business-time nav-icon text-primary"></i>
                                         <p>Lowongan</p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="display: <?= $soal ?>;">
-                                    <a href="<?= site_url('soal/index') ?>" class="nav-link">
+                                    <a href="<?= site_url('soal/index') ?>"
+                                        class="nav-link <?= ($submenu == 'soal') ? 'active' : '' ?>">
                                         <i class="fas fa-file-alt nav-icon text-primary"></i>
                                         <p>Soal</p>
                                     </a>
@@ -239,9 +254,34 @@
                             </ul>
                         </li>
 
+                        <li class="nav-item <?= ($menu == 'biodata') ? 'menu-open' : '' ?>"
+                            style="display: <?= $biodata ?>;">
+                            <a href="#" class="nav-link <?= ($menu == 'biodata') ? 'active' : '' ?>">
+                                <i class="fas fa-users text-success"></i>
+                                <p>
+                                    Biodata
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview ml-2">
+                                <li class="nav-item" style="display: <?= $biodata_ktp ?>;">
+                                    <a href="<?= site_url('biodataktp/index') ?>"
+                                        class="nav-link <?= ($submenu == 'ktp') ? 'active' : '' ?>">
+                                        <i class="fas fa-id-card nav-icon text-success"></i>
+                                        <p>KTP</p>
+                                    </a>
+                                </li>
 
-                        <li class="nav-item" style="display: <?= $master_test ?>;">
-                            <a href="#" class="nav-link">
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-header">
+                            <hr>USER
+                        </li>
+                        <li class="nav-item <?= ($menu == 'lowongan') ? 'menu-open' : '' ?>"
+                            style="display: <?= $master_test ?>;">
+                            <a href="#" class="nav-link <?= ($menu == 'lowongan') ? 'active' : '' ?>">
                                 <i class="fas fa-align-justify text-secondary"></i>
                                 <p>
                                     Menu
@@ -250,13 +290,15 @@
                             </a>
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $lowongandaftar ?>;">
-                                    <a href="<?= site_url('lowongan/lowongandaftar') ?>" class="nav-link">
+                                    <a href="<?= site_url('lowongan/lowongandaftar') ?>"
+                                        class="nav-link <?= ($submenu == 'lowongankerja') ? 'active' : '' ?>">
                                         <i class="fas fa-bars nav-icon text-secondary"></i>
                                         <p>Lowongan Kerja</p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="display: <?= $psikotest ?>;">
-                                    <a href="<?= site_url('psikotest/index') ?>" class="nav-link">
+                                    <a href="<?= site_url('psikotest/index') ?>"
+                                        class="nav-link <?= ($submenu == 'psikotest') ? 'active' : '' ?>">
                                         <i class="fas fa-file-signature nav-icon text-secondary"></i>
                                         <p>Psikotest</p>
                                     </a>
@@ -265,8 +307,12 @@
                         </li>
 
 
-                        <li class="nav-item" style="display: <?= $master_barang ?>;">
-                            <a href="#" class="nav-link">
+                        <li class="nav-header">
+                            <hr>PURCHASING
+                        </li>
+                        <li class="nav-item <?= ($menu == 'masterbarang') ? 'menu-open' : '' ?>"
+                            style="display: <?= $master_barang ?>;">
+                            <a href="#" class="nav-link <?= ($menu == 'masterbarang') ? 'active' : '' ?>">
                                 <i class="fas fa-coins text-warning"></i>
                                 <p>
                                     Master Barang
@@ -275,25 +321,29 @@
                             </a>
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $kategori ?>;">
-                                    <a href="<?= site_url('kategori/index') ?>" class="nav-link">
+                                    <a href="<?= site_url('kategori/index') ?>"
+                                        class="nav-link <?= ($submenu == 'kategori') ? 'active' : '' ?>">
                                         <i class="fas fa-cube nav-icon text-warning"></i>
                                         <p>Kategori</p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="display: <?= $subkategori ?>;">
-                                    <a href="<?= site_url('subkategori/index') ?>" class="nav-link">
+                                    <a href="<?= site_url('subkategori/index') ?>"
+                                        class="nav-link <?= ($submenu == 'subkategori') ? 'active' : '' ?>">
                                         <i class="fas fa-cubes nav-icon text-warning"></i>
                                         <p>Sub Kategori</p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="display: <?= $satuan ?>;">
-                                    <a href="<?= site_url('satuan/index') ?>" class="nav-link">
+                                    <a href="<?= site_url('satuan/index') ?>"
+                                        class="nav-link <?= ($submenu == 'satuan') ? 'active' : '' ?>">
                                         <i class="fas fa-tag nav-icon text-warning"></i>
                                         <p>Satuan</p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="display: <?= $barang ?>;">
-                                    <a href="<?= site_url('barang/index') ?>" class="nav-link">
+                                    <a href="<?= site_url('barang/index') ?>"
+                                        class="nav-link <?= ($submenu == 'barang') ? 'active' : '' ?>">
                                         <i class="fas fa-box-open nav-icon text-warning"></i>
                                         <p>Barang</p>
                                     </a>
@@ -303,9 +353,10 @@
                         </li>
 
 
-                        <li class="nav-item" style="display: <?= $master_po ?>;">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-dolly-flatbed text-yellow"></i>
+                        <li class="nav-item <?= ($menu == 'pembelian') ? 'menu-open' : '' ?>"
+                            style="display: <?= $master_po ?>;">
+                            <a href="#" class="nav-link <?= ($menu == 'pembelian') ? 'active' : '' ?>">
+                                <i class="fas fa-dolly-flatbed text-success"></i>
                                 <p>
                                     Pesanan Pembelian
                                     <i class="right fas fa-angle-left"></i>
@@ -313,20 +364,23 @@
                             </a>
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $pembelian ?>;">
-                                    <a href="<?= site_url('pembelian/index') ?>" class="nav-link">
-                                        <i class="fas fa-cart-arrow-down nav-icon text-yellow"></i>
+                                    <a href="<?= site_url('pembelian/index') ?>"
+                                        class="nav-link <?= ($submenu == 'pembelian') ? 'active' : '' ?>">
+                                        <i class="fas fa-cart-arrow-down nav-icon text-success"></i>
                                         <p>Pembelian</p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="display: <?= $datapembelian ?>;">
-                                    <a href="<?= site_url('pembelian/datapembelian') ?>" class="nav-link">
-                                        <i class="fas fa-layer-group nav-icon text-yellow"></i>
+                                    <a href="<?= site_url('pembelian/datapembelian') ?>"
+                                        class="nav-link <?= ($submenu == 'datapembelian') ? 'active' : '' ?>">
+                                        <i class="fas fa-layer-group nav-icon text-success"></i>
                                         <p>Data Pembelian</p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="display: <?= $penerimaan ?>;">
-                                    <a href="<?= site_url('penerimaan/index') ?>" class="nav-link">
-                                        <i class="fas fa-hand-holding nav-icon text-yellow"></i>
+                                    <a href="<?= site_url('penerimaan/index') ?>"
+                                        class="nav-link <?= ($submenu == 'penerimaan') ? 'active' : '' ?>">
+                                        <i class="fas fa-hand-holding nav-icon text-success"></i>
                                         <p>Penerimaan</p>
                                     </a>
                                 </li>
@@ -335,8 +389,9 @@
                         </li>
 
 
-                        <li class="nav-item" style="display: <?= $master_pm ?>;">
-                            <a href="#" class="nav-link">
+                        <li class="nav-item <?= ($menu == 'pemakaian') ? 'menu-open' : '' ?>"
+                            style="display: <?= $master_pm ?>;">
+                            <a href="#" class="nav-link <?= ($menu == 'pemakaian') ? 'active' : '' ?>">
                                 <i class="fas fa-retweet text-danger"></i>
                                 <p>
                                     Pemakaian Barang
@@ -345,29 +400,10 @@
                             </a>
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $pemakaian ?>;">
-                                    <a href="<?= site_url('pemakaian/index') ?>" class="nav-link">
+                                    <a href="<?= site_url('pemakaian/index') ?>"
+                                        class="nav-link <?= ($menu == 'pemakaian') ? 'active' : '' ?>">
                                         <i class="fas fa-dolly nav-icon text-danger"></i>
                                         <p>Pemakaian Barang</p>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </li>
-
-
-                        <li class="nav-item" style="display: <?= $biodata ?>;">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-users text-success"></i>
-                                <p>
-                                    Biodata
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview ml-2">
-                                <li class="nav-item" style="display: <?= $biodata_ktp ?>;">
-                                    <a href="<?= site_url('biodataktp/index') ?>" class="nav-link">
-                                        <i class="fas fa-id-card nav-icon text-success"></i>
-                                        <p>KTP</p>
                                     </a>
                                 </li>
 
@@ -406,7 +442,8 @@
                             ?>
                             <?= $this->endSection('judul') ?>
                             <ol class="breadcrumb float">
-                                <li class="breadcrumb-item"><a href="<?= base_url() ?>"><?= $judule; ?><?= $this->renderSection('judul'); ?></a>
+                                <li class="breadcrumb-item"><a
+                                        href="<?= base_url() ?>"><?= $judule; ?><?= $this->renderSection('judul'); ?></a>
                                 </li>
                                 <li class="breadcrumb-item active">
                                     <?= $subjudule; ?><?= $this->renderSection('subjudul'); ?></li>
@@ -465,9 +502,9 @@
 
 
     <script>
-        $(function() {
-            bsCustomFileInput.init();
-        });
+    $(function() {
+        bsCustomFileInput.init();
+    });
     </script>
 
 </body>

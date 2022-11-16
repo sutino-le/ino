@@ -21,7 +21,7 @@ class ModelSubKategoriPagination extends Model
         $this->db = db_connect();
         $this->request = $request;
 
-        $this->dt = $this->db->table($this->table)->join('barang', 'subkatid=brgsubkatid', 'left');
+        $this->dt = $this->db->table($this->table)->join('barang', 'subkatid=brgsubkatid', 'left')->groupBy('subkatid', 'asc');
     }
     private function _get_datatables_query()
     {

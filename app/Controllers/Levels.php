@@ -22,6 +22,8 @@ class Levels extends BaseController
         $data = [
             'judul'         => 'Home',
             'subjudul'      => 'Levels',
+            'menu'          => 'setting',
+            'submenu'       => 'level',
         ];
         return view('levels/viewdata', $data);
     }
@@ -44,7 +46,7 @@ class Levels extends BaseController
                 $tombolEdit = "<button type=\"button\" class=\"btn btn-sm btn-info\" onclick=\"edit('" . $list->levelid . "')\" title=\"Edit\"><i class='fas fa-edit'></i></button>";
                 $tombolHapus = "<button type=\"button\" class=\"btn btn-sm btn-danger\" onclick=\"hapus('" . $list->levelid . "')\" title=\"Hapus\"><i class='fas fa-trash-alt'></i></button>";
 
-                if($list->userlevelid == ""){
+                if ($list->userlevelid == "") {
                     $tomboleditlevel = $tombolEdit;
                     $tombolhapuslevel = $tombolHapus;
                 } else {

@@ -20,6 +20,8 @@ class Wilayah extends BaseController
         $data = [
             'judul'         => 'Home',
             'subjudul'      => 'Wilayah',
+            'menu'          => 'masterhr',
+            'submenu'       => 'wilayah',
         ];
         return view('wilayah/viewdata', $data);
     }

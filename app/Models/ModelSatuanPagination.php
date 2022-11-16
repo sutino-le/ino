@@ -21,7 +21,7 @@ class ModelSatuanPagination extends Model
         $this->db = db_connect();
         $this->request = $request;
 
-        $this->dt = $this->db->table($this->table)->join('barang', 'satid=brgsatid', 'left');
+        $this->dt = $this->db->table($this->table)->join('barang', 'satid=brgsatid', 'left')->groupBy('satid', 'asc');
     }
     private function _get_datatables_query()
     {

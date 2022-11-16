@@ -28,6 +28,8 @@ class Barang extends BaseController
         $data = [
             'judul'         => 'Home',
             'subjudul'      => 'Barang',
+            'menu'          => 'masterbarang',
+            'submenu'       => 'barang',
         ];
         return view('barang/viewdata', $data);
     }
@@ -151,6 +153,10 @@ class Barang extends BaseController
                     'brgkatid'              => $this->request->getPost('brgkatid'),
                     'brgsubkatid'           => $this->request->getPost('brgsubkatid'),
                     'brgsatid'              => $this->request->getPost('brgsatid'),
+                    'brgkapasitas'          => $this->request->getPost('brgkapasitas'),
+                    'brgpanjang'            => $this->request->getPost('brgpanjang'),
+                    'brglebar'              => $this->request->getPost('brglebar'),
+                    'brgtinggi'             => $this->request->getPost('brgtinggi'),
                     'brgharga'              => $this->request->getPost('brgharga'),
                     'brggambar'             => '',
                     'brgstok'               => '0',
@@ -182,6 +188,10 @@ class Barang extends BaseController
             'brgsubkatnama'     => $cekSubKategori['subkatnama'],
             'brgsatid'          => $cekBarang['brgsatid'],
             'brgsatnama'        => $cekSatuan['satnama'],
+            'brgkapasitas'      => $cekBarang['brgkapasitas'],
+            'brgpanjang'        => $cekBarang['brgpanjang'],
+            'brglebar'          => $cekBarang['brglebar'],
+            'brgtinggi'         => $cekBarang['brgtinggi'],
             'brgharga'          => $cekBarang['brgharga'],
             'brggambar'         => $cekBarang['brggambar'],
             'brgstok'           => $cekBarang['brgstok'],
@@ -200,11 +210,15 @@ class Barang extends BaseController
     public function updatedata()
     {
         if ($this->request->isAJAX()) {
-            $brgkode          = $this->request->getPost('brgkode');
+            $brgkode        = $this->request->getPost('brgkode');
             $brgnama        = $this->request->getPost('brgnama');
             $brgkatid       = $this->request->getPost('brgkatid');
             $brgsubkatid    = $this->request->getPost('brgsubkatid');
             $brgsatid       = $this->request->getPost('brgsatid');
+            $brgkapasitas   = $this->request->getPost('brgkapasitas');
+            $brgpanjang     = $this->request->getPost('brgpanjang');
+            $brglebar       = $this->request->getPost('brglebar');
+            $brgtinggi      = $this->request->getPost('brgtinggi');
             $brgharga       = $this->request->getPost('brgharga');
 
             $validation = \Config\Services::validation();
@@ -263,6 +277,10 @@ class Barang extends BaseController
                     'brgkatid'              => $brgkatid,
                     'brgsubkatid'           => $brgsubkatid,
                     'brgsatid'              => $brgsatid,
+                    'brgkapasitas'          => $brgkapasitas,
+                    'brgpanjang'            => $brgpanjang,
+                    'brglebar'              => $brglebar,
+                    'brgtinggi'             => $brgtinggi,
                     'brgharga'              => $brgharga
                 ]);
 

@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\ModelBiodataKtp;
+use App\Models\ModelBiodataKtpNamaPagination;
 use App\Models\ModelBiodataKtpPagination;
 use App\Models\ModelUsers;
 use App\Models\ModelUsersUpdate;
@@ -23,6 +24,8 @@ class BiodataKtp extends BaseController
         $data = [
             'judul'         => 'Home',
             'subjudul'      => 'Biodata KTP',
+            'menu'          => 'biodata',
+            'submenu'       => 'ktp',
         ];
         return view('biodataktp/viewdata', $data);
     }
@@ -68,7 +71,9 @@ class BiodataKtp extends BaseController
 
         $data = [
             'judul'         => 'Home',
-            'subjudul'      => 'Biodata KTP - Input'
+            'subjudul'      => 'Biodata KTP - Input',
+            'menu'          => 'biodata',
+            'submenu'       => 'ktp',
         ];
 
         return view('biodataktp/formtambah', $data);
@@ -261,6 +266,8 @@ class BiodataKtp extends BaseController
             $data = [
                 'judul'                 => 'Home',
                 'subjudul'              => 'Edit Biodata KTP',
+                'menu'                  => 'biodata',
+                'submenu'               => 'ktp',
                 'ktp_nomor'             => $cekData['ktp_nomor'],
                 'ktp_nama'              => $cekData['ktp_nama'],
                 'ktp_tempat_lahir'      => $cekData['ktp_tempat_lahir'],
@@ -281,6 +288,8 @@ class BiodataKtp extends BaseController
             $data = [
                 'judul'                 => 'Home',
                 'subjudul'              => 'Edit Biodata KTP',
+                'menu'                  => 'biodata',
+                'submenu'               => 'ktp',
                 'ktp_nomor'             => $cekData['ktp_nomor'],
                 'ktp_nama'              => $cekData['ktp_nama'],
                 'ktp_tempat_lahir'      => $cekData['ktp_tempat_lahir'],
@@ -518,6 +527,50 @@ class BiodataKtp extends BaseController
             ];
 
             echo json_encode($json);
+        }
+    }
+
+    // modal data untuk menampilkan data ktp untuk pemakaian barang
+    public function modalData()
+    {
+        if ($this->request->isAJAX()) {
+            $json = [
+                'data' => view('biodataktp/modaldata')
+            ];
+
+            echo json_encode($json);
+        } else {
+            exit('Maaf, gagal menampilkan data');
+        }
+    }
+
+    // menampilkan data dimodal data pencarian untuk pemakaian barang
+    public function listDataKtp()
+    {
+        $request = Services::request();
+        $datamodel = new ModelBiodataKtpNamaPagination($request);
+        if ($request->getMethod(true) == 'POST') {
+            $lists = $datamodel->get_datatables();
+            $data = [];
+            $no = $request->getPost("start");
+            foreach ($lists as $list) {
+                $no++;
+                $row = [];
+
+                $tombolPilih = "<button type=\"button\" class=\"btn btn-sm btn-info\" onclick=\"pilih('" . $list->ktp_nomor . "', '" . $list->ktp_nama . "')\" title=\"Pilih\"><i class='fas fa-hand-point-up'></i></button>";
+
+                $row[] = $no;
+                $row[] = $list->ktp_nama;
+                $row[] = $tombolPilih;
+                $data[] = $row;
+            }
+            $output = [
+                "draw" => $request->getPost('draw'),
+                "recordsTotal" => $datamodel->count_all(),
+                "recordsFiltered" => $datamodel->count_filtered(),
+                "data" => $data
+            ];
+            echo json_encode($output);
         }
     }
 }

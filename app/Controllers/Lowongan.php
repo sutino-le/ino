@@ -22,6 +22,8 @@ class Lowongan extends BaseController
         $data = [
             'judul'         => 'Home',
             'subjudul'      => 'Lowongan',
+            'menu'          => 'masterhr',
+            'submenu'       => 'lowongan',
         ];
         return view('lowongan/viewdata', $data);
     }
@@ -82,7 +84,9 @@ class Lowongan extends BaseController
 
         $data = [
             'judul'         => 'Home',
-            'subjudul'      => 'Lowongan - Input'
+            'subjudul'      => 'Lowongan - Input',
+            'menu'          => 'masterhr',
+            'submenu'       => 'lowongan',
         ];
 
         return view('lowongan/formtambah', $data);
@@ -149,6 +153,8 @@ class Lowongan extends BaseController
         $data = [
             'judul'         => 'Home',
             'subjudul'      => 'Lowongan - Edit',
+            'menu'          => 'masterhr',
+            'submenu'       => 'lowongan',
             'lowonganjob'           =>  $cekLoker['lowonganjob'],
             'lowongandeskripsi'     =>  $cekLoker['lowongandeskripsi'],
             'lowonganpersyaratan'   =>  $cekLoker['lowonganpersyaratan'],
@@ -212,6 +218,8 @@ class Lowongan extends BaseController
         $data = [
             'judul'         => 'Home',
             'subjudul'      => 'Daftar Lowongan',
+            'menu'          => 'lowongan',
+            'submenu'       => 'lowongankerja',
             'tampildata'    => $cekDataLoker,
         ];
 

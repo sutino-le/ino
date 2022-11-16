@@ -41,6 +41,8 @@ class Psikotest extends BaseController
         $data = [
             'judul'         => 'Home',
             'subjudul'      => 'Psikotest',
+            'menu'          => 'lowongan',
+            'submenu'       => 'psikotest',
             'statusapply'   => $statusapply,
             'dataktp'       => $dataTest,
             'hasilTest'     => $hasilTest
@@ -60,6 +62,8 @@ class Psikotest extends BaseController
         $data = [
             'judul'         => 'Home',
             'subjudul'      => 'Daftar Lowongan',
+            'menu'          => 'lowongan',
+            'submenu'       => 'psikotest',
             'tampildata'    => $cekDataSoal,
             'waktu'         => $id,
             'dataktp'       => $dataTest
@@ -112,6 +116,8 @@ class Psikotest extends BaseController
         $data = [
             'judul'         => 'Home',
             'subjudul'      => 'Psikotest',
+            'menu'          => 'lowongan',
+            'submenu'       => 'psikotest',
             'tampilhasiltest'   => $cekHasilTest,
         ];
 

@@ -9,7 +9,7 @@ class ModelBarang extends Model
     protected $table            = 'barang';
     protected $primaryKey       = 'brgkode';
     protected $allowedFields    = [
-        'brgnama', 'brgkatid', 'brgsubkatid', 'brgsatid', 'brgharga', 'brggambar', 'brgstok'
+        'brgnama', 'brgkatid', 'brgsubkatid', 'brgsatid', 'brgkapasitas', 'brgpanjang', 'brglebar', 'brgtinggi', 'brgharga', 'brggambar', 'brgstok'
     ];
 
 

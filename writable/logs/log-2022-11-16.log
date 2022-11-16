@@ -1,0 +1,257 @@
+CRITICAL - 2022-11-16 08:18:20 --> Undefined variable $menu
+#0 C:\xampp\htdocs\ino\app\Views\main\layout.php(190): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 190)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('main/layout', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Main.php(24): view('main/layout', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Main->index()
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Main))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-11-16 08:19:03 --> Undefined array key "brgkapasitas"
+#0 C:\xampp\htdocs\ino\app\Controllers\Barang.php(191): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 191)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Barang->formedit('2')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Barang))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-11-16 08:19:16 --> Undefined array key "brgkapasitas"
+#0 C:\xampp\htdocs\ino\app\Controllers\Barang.php(191): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 191)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Barang->formedit('6')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Barang))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2022-11-16 09:16:40 --> Unknown column 'pmkbrgkode' in 'on clause'
+CRITICAL - 2022-11-16 09:16:40 --> Unknown column 'pmkbrgkode' in 'on clause'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPemakaianBBPagination.php(58): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(40): App\Models\ModelPemakaianBBPagination->get_datatables('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakaian()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2022-11-16 09:16:45 --> Unknown column 'pmkbrgkode' in 'on clause'
+CRITICAL - 2022-11-16 09:16:45 --> Unknown column 'pmkbrgkode' in 'on clause'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPemakaianBBPagination.php(58): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(40): App\Models\ModelPemakaianBBPagination->get_datatables('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakaian()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-16 09:27:12 --> Undefined variable $tbl_storage
+#0 C:\xampp\htdocs\ino\app\Models\ModelPemakaianBBPagination.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 74)
+#1 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(61): App\Models\ModelPemakaianBBPagination->count_all('', '', '')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakaian()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-11-16 09:30:23 --> Undefined variable $tbl_storage
+#0 C:\xampp\htdocs\ino\app\Models\ModelPemakaianBBPagination.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 74)
+#1 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(61): App\Models\ModelPemakaianBBPagination->count_all('', '', '')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakaian()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-11-16 09:30:34 --> Undefined variable $tbl_storage
+#0 C:\xampp\htdocs\ino\app\Models\ModelPemakaianBBPagination.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 74)
+#1 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(61): App\Models\ModelPemakaianBBPagination->count_all('', '', '')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakaian()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-11-16 09:30:47 --> Undefined variable $tbl_storage
+#0 C:\xampp\htdocs\ino\app\Models\ModelPemakaianBBPagination.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 74)
+#1 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(61): App\Models\ModelPemakaianBBPagination->count_all('', '', '')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakaian()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-11-16 09:30:49 --> Call to undefined method App\Models\ModelPemakaian::noPakai
+#0 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(75): CodeIgniter\Model->__call('noPakai', Array)
+#1 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(129): App\Controllers\Pemakaian->buatNomor()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->forminput()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+ERROR - 2022-11-16 09:32:54 --> Unknown column 'pmknomor' in 'field list'
+CRITICAL - 2022-11-16 09:32:54 --> Unknown column 'pmknomor' in 'field list'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT max(pmkn...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT max(pmkn...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT max(pmkn...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT max(pmkn...', Array, false)
+#4 C:\xampp\htdocs\ino\system\Model.php(728): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ino\app\Models\ModelPemakaian.php(22): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(75): App\Models\ModelPemakaian->noPakai('2022-11-16')
+#7 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(129): App\Controllers\Pemakaian->buatNomor()
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->forminput()
+#9 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#10 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2022-11-16 09:44:30 --> Undefined variable $tbl_storage
+#0 C:\xampp\htdocs\ino\app\Models\ModelPemakaianBBPagination.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 74)
+#1 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(61): App\Models\ModelPemakaianBBPagination->count_all('', '', '')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakaian()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-11-16 09:44:35 --> Undefined property: stdClass::$supnama
+#0 C:\xampp\htdocs\ino\app\Controllers\BiodataKtp.php(554): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\xampp\\htdocs...', 554)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\BiodataKtp->listDataKtp()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BiodataKtp))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-11-16 11:15:44 --> insertBatch() called with no data
+#0 C:\xampp\htdocs\ino\system\Model.php(272): CodeIgniter\Database\BaseBuilder->insertBatch(Array, NULL, 100)
+#1 C:\xampp\htdocs\ino\system\BaseModel.php(814): CodeIgniter\Model->doInsertBatch(Array, NULL, 100, false)
+#2 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(368): CodeIgniter\BaseModel->insertBatch(Array)
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->selesaikanPemakaian()
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-11-16 11:52:35 --> Undefined variable $tbl_storage
+#0 C:\xampp\htdocs\ino\app\Models\ModelPemakaianBBPagination.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 74)
+#1 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(64): App\Models\ModelPemakaianBBPagination->count_all('', '', '')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakaian()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-11-16 11:55:44 --> Undefined variable $tbl_storage
+#0 C:\xampp\htdocs\ino\app\Models\ModelPemakaianBBPagination.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 74)
+#1 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(64): App\Models\ModelPemakaianBBPagination->count_all('', '', '')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakaian()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-11-16 11:59:06 --> Undefined variable $tbl_storage
+#0 C:\xampp\htdocs\ino\app\Models\ModelPemakaianPagination.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 74)
+#1 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(64): App\Models\ModelPemakaianPagination->count_all('', '', '')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakaian()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-11-16 11:59:25 --> Undefined variable $tbl_storage
+#0 C:\xampp\htdocs\ino\app\Models\ModelPemakaianPagination.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 74)
+#1 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(64): App\Models\ModelPemakaianPagination->count_all('', '', '')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakaian()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-11-16 13:06:38 --> Undefined variable $kategori
+#0 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 42)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakaian()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-11-16 13:07:35 --> Undefined variable $kategori
+#0 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 42)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakaian()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-11-16 13:08:44 --> Undefined variable $tbl_storage
+#0 C:\xampp\htdocs\ino\app\Models\ModelPemakaianPagination.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 73)
+#1 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(63): App\Models\ModelPemakaianPagination->count_all('', '')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakaian()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-11-16 13:10:49 --> Undefined variable $tbl_storage
+#0 C:\xampp\htdocs\ino\app\Models\ModelPemakaianPagination.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 73)
+#1 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(63): App\Models\ModelPemakaianPagination->count_all('', '')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakaian()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-11-16 13:13:18 --> syntax error, unexpected variable "$i"
+#0 C:\xampp\htdocs\ino\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\ino\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\Mode...')
+#2 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(40): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\Mode...')
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakaian()
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-11-16 13:59:20 --> Undefined array key "pemakaian"
+#0 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(447): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 447)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->edit('1611220001')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-11-16 13:59:55 --> Undefined array key "pemakaian"
+#0 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(447): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 447)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->edit('1611220001')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-11-16 14:00:18 --> Undefined array key "idsup"
+#0 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(449): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 449)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->edit('1611220001')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-11-16 14:20:27 --> Undefined variable $no
+#0 C:\xampp\htdocs\ino\app\Views\pembelian\cetakfaktur.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 55)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('pembelian/cetak...', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Pembelian.php(416): view('pembelian/cetak...', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pembelian->cetakFaktur('1611220002')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pembelian))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-11-16 16:01:56 --> Undefined variable $menu
+#0 C:\xampp\htdocs\ino\app\Views\main\layout.php(190): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 190)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\View\View.php(226): CodeIgniter\View\View->render('main/layout', Array, true)
+#4 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('biodataktp/form...', Array, true)
+#5 C:\xampp\htdocs\ino\app\Controllers\BiodataKtp.php(77): view('biodataktp/form...', Array)
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\BiodataKtp->formtambah()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BiodataKtp))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-16 16:03:59 --> Undefined variable $menu
+#0 C:\xampp\htdocs\ino\app\Views\main\layout.php(190): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 190)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\View\View.php(226): CodeIgniter\View\View->render('main/layout', Array, true)
+#4 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('biodataktp/form...', Array, true)
+#5 C:\xampp\htdocs\ino\app\Controllers\BiodataKtp.php(307): view('biodataktp/form...', Array)
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\BiodataKtp->edit('317306670194000...')
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BiodataKtp))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}

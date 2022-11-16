@@ -13,6 +13,8 @@ class Soal extends BaseController
         $data = [
             'judul'         => 'Home',
             'subjudul'      => 'Soal',
+            'menu'          => 'masterhr',
+            'submenu'       => 'soal',
         ];
         return view('soal/viewdata', $data);
     }

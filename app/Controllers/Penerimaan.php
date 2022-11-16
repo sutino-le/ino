@@ -25,6 +25,8 @@ class Penerimaan extends BaseController
         $data = [
             'judul'         => 'Home',
             'subjudul'      => 'Penerimaan',
+            'menu'          => 'pembelian',
+            'submenu'       => 'penerimaan',
             'datapembelian' => $modelPembelian->findAll()
         ];
         return view('penerimaan/viewdata', $data);
@@ -75,7 +77,13 @@ class Penerimaan extends BaseController
         $hasil = $penerimaan->noTtb($tanggalSekarang)->getRowArray();
         $data = $hasil['nottb'];
 
-        $lastNoUrut = substr($data, -4);
+        if ($data == "") {
+            $nomorterakhir = '0000';
+        } else {
+            $nomorterakhir = $data;
+        }
+
+        $lastNoUrut = substr($nomorterakhir, -4);
         // nomor urut ditambah 1
         $nextNoUrut = intval($lastNoUrut) + 1;
         // membuat format nomor transaksi berikutnya
@@ -91,7 +99,13 @@ class Penerimaan extends BaseController
         $hasil = $penerimaan->noTtb($tanggalSekarang)->getRowArray();
         $data = $hasil['nottb'];
 
-        $lastNoUrut = substr($data, -4);
+        if ($data == "") {
+            $nomorterakhir = '0000';
+        } else {
+            $nomorterakhir = $data;
+        }
+
+        $lastNoUrut = substr($nomorterakhir, -4);
         // nomor urut ditambah 1
         $nextNoUrut = intval($lastNoUrut) + 1;
         // membuat format nomor transaksi berikutnya
@@ -111,6 +125,8 @@ class Penerimaan extends BaseController
         $data   = [
             'judul'         => 'Home',
             'subjudul'      => 'Input Penerimaan',
+            'menu'          => 'pembelian',
+            'submenu'       => 'penerimaan',
             'penerima'      => session()->namauser,
             'tampilfaktur'  => $modelPembelian->findAll(),
             'nottb'         => $this->buatTtb()

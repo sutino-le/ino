@@ -20,6 +20,8 @@ class ModelPemakaianDet extends Model
     {
         return $this->table('detail_pemakaian')->join('barang', 'pmkbrgkode=brgkode')
             ->join('satuan', 'brgsatid=satid')
-            ->where('pmknomor', $nomor)->get();
+            ->where('pmknomor', $nomor)
+            ->orderBy('brgnama', 'asc')
+            ->get();
     }
 }

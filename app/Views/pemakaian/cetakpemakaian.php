@@ -8,7 +8,7 @@
     <title>Cetak Pemakaian</title>
 </head>
 
-<body onload="window.print();">
+<body>
     <table border="0" style="width: 100%;">
         <tr style="text-align: center;">
             <td colspan="4">
@@ -37,18 +37,21 @@
             <td colspan="4">
                 <table style="width: 100%; text-align:left; font-size: 10pt;">
                     <tr>
-                        <th>No</th>
+                        <th align="center">No</th>
                         <th>Nama Barang</th>
-                        <th>Jumlah</th>
-                        <th>Jenis</th>
+                        <th align="center">Jumlah</th>
+                        <th align="right">Harga</th>
+                        <th align="right">Total</th>
+                        <th align="center">Jenis</th>
                         <th>Keterangan</th>
                     </tr>
                     <?php
                     $no = 1;
+                    $totalHargaPmk = 0;
                     foreach ($detailpemakaian->getResultArray() as $row) :
                     ?>
                     <tr>
-                        <td><?= $no++ ?></td>
+                        <td align="center"><?= $no++ ?></td>
                         <td><?= $row['brgnama'] ?></td>
                         <?php
                             if ($row['pmkjumlah'] > 1) {
@@ -57,11 +60,27 @@
                                 $satuan = $row['satinisial'];
                             }
                             ?>
-                        <td><?= number_format($row['pmkjumlah'], 0, ",", ".") . ' ' . $satuan  ?></td>
-                        <td><?= $row['pmkjenis'] ?></td>
+                        <td align="center"><?= number_format($row['pmkjumlah'], 0, ",", ".") . ' ' . $satuan  ?></td>
+                        <td align="right"><?= number_format($row['brgharga'], 0, ",", ".")  ?></td>
+                        <td align="right"><?= number_format($row['pmkjumlah'] * $row['brgharga'], 0, ",", ".") ?></td>
+                        <td align="center"><?= $row['pmkjenis'] ?></td>
                         <td><?= $row['pmkketerangan'] ?></td>
                     </tr>
-                    <?php endforeach; ?>
+                    <?php
+                        $totalHargaPmk += $row['pmkjumlah'] * $row['brgharga'];
+                    endforeach;
+                    ?>
+                    <tr>
+                        <td colspan="7">
+                            <hr style="border: 0; border-top: 1px dashed #000;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" colspan="4">Total Keseluruhan :</td>
+                        <td align="right"><?= number_format($totalHargaPmk, 0, ",", ".") ?></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
                 </table>
             </td>
         </tr>

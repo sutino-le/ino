@@ -6,6 +6,8 @@ use App\Controllers\BaseController;
 use App\Models\ModelBiodataDomisili;
 use App\Models\ModelBiodataKtp;
 use App\Models\ModelLevels;
+use App\Models\ModelPemakaian;
+use App\Models\ModelPemakaianDet;
 use App\Models\ModelUsers;
 use App\Models\ModelUsersUpdate;
 use App\Models\ModelWilayah;
@@ -106,6 +108,8 @@ class Profil extends BaseController
             $data = [
                 'judul'                 => 'Home',
                 'subjudul'              => 'Profil',
+                'menu'                  => '',
+                'submenu'               => '',
                 'validation'            => \Config\Services::validation(),
                 'userid'                => $rowUser['userid'],
                 'usernama'              => $rowUser['usernama'],
@@ -138,6 +142,8 @@ class Profil extends BaseController
             $data = [
                 'judul'                 => 'Home',
                 'subjudul'              => 'Profil',
+                'menu'                  => '',
+                'submenu'               => '',
                 'validation'            => \Config\Services::validation(),
                 'userid'                => $rowUser['userid'],
                 'usernama'              => $rowUser['usernama'],
@@ -251,6 +257,8 @@ class Profil extends BaseController
                 $data = [
                     'judul'                 => 'Home',
                     'subjudul'              => 'Edit Biodata KTP',
+                    'menu'                  => '',
+                    'submenu'               => '',
                     'userid'                => $cekData['userid'],
                     'ktp_nomor'             => $cekDataKtp['ktp_nomor'],
                     'ktp_nama'              => $cekDataKtp['ktp_nama'],
@@ -273,6 +281,8 @@ class Profil extends BaseController
                 $data = [
                     'judul'                 => 'Home',
                     'subjudul'              => 'Edit Biodata KTP',
+                    'menu'                  => '',
+                    'submenu'               => '',
                     'userid'                => $cekData['userid'],
                     'ktp_nomor'             => $cekDataKtp['ktp_nomor'],
                     'ktp_nama'              => $cekDataKtp['ktp_nama'],
@@ -492,6 +502,30 @@ class Profil extends BaseController
 
 
             echo json_encode($json);
+        }
+    }
+
+
+    // untuk menampilkan pemakaian
+    public function tampilPemakaian()
+    {
+        if ($this->request->isAJAX()) {
+            $ktpnomor = $this->request->getPost('ktpnomor');
+
+            $modelPemakaian = new ModelPemakaian();
+            $dataPemakai = $modelPemakaian->tampilDataPemakaian($ktpnomor);
+
+            $data = [
+                'tampildata' => $dataPemakai
+            ];
+
+            $json = [
+                'data' => view('profil/datapemakai', $data)
+            ];
+
+            echo json_encode($json);
+        } else {
+            exit('Maaf, gagal menampilkan data');
         }
     }
 }

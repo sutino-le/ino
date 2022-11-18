@@ -170,7 +170,7 @@
 
                     $master_po = "none";
                     $pembelian = "none";
-                    $pembelian = "none";
+                    $datapembelian = "none";
                     $penerimaan = "none";
 
                     $master_pm = "none";

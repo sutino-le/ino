@@ -11,10 +11,10 @@
 <?= $this->section('isi') ?>
 
 <style>
-    .list-group-flush {
-        height: 620px;
-        overflow-y: auto;
-    }
+.list-group-flush {
+    height: 620px;
+    overflow-y: auto;
+}
 </style>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
 <div class='card'>
@@ -43,7 +43,8 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="">Bagian</label>
-                            <input type="text" name="lowonganjob" id="lowonganjob" class="form-control" placeholder="Masukan Bagian...">
+                            <input type="text" name="lowonganjob" id="lowonganjob" class="form-control"
+                                placeholder="Masukan Bagian...">
                             <div class="invalid-feedback errorLowonganJob"></div>
                         </div>
                     </div>
@@ -88,7 +89,8 @@
     <div class='card-footer bg-secondary'>
         <div class='row'>
             <div class='col text-right'>
-                <button type="submit" class="btn btn-sm btn-success" id="tombolSelesaiTransaksi"><i class="fa fa-save"></i>
+                <button type="submit" class="btn btn-sm btn-success" id="tombolSelesaiTransaksi"><i
+                        class="fa fa-save"></i>
                     Selesai</button>
             </div>
         </div>
@@ -111,76 +113,87 @@
 <script src="<?= base_url() ?>/plugins/codemirror/mode/htmlmixed/htmlmixed.js"></script>
 
 <script>
-    $(document).ready(function() {
+$(document).ready(function() {
 
-        $('.formsimpan').submit(function(e) {
-            e.preventDefault();
+    $('.formsimpan').submit(function(e) {
+        e.preventDefault();
 
-            $.ajax({
-                type: "post",
-                url: $(this).attr('action'),
-                data: $(this).serialize(),
-                dataType: "json",
-                success: function(response) {
-                    if (response.error) {
-                        let err = response.error;
+        $.ajax({
+            type: "post",
+            url: $(this).attr('action'),
+            data: $(this).serialize(),
+            dataType: "json",
+            success: function(response) {
+                if (response.error) {
+                    let err = response.error;
 
-                        if (err.errLowonganJob) {
-                            $('#lowonganjob').addClass('is-invalid');
-                            $('.errorLowonganJob').html(err.errLowonganJob);
-                        } else {
-                            $('#lowonganjob').removeClass('is-invalid');
-                            $('#lowonganjob').addClass('is-valid');
-                        }
-
-                        if (err.errLowonganDesk) {
-                            $('#summernotedesk').addClass('is-invalid');
-                            $('.errorLowonganDesk').html(err.errLowonganDesk);
-                        } else {
-                            $('#summernotedesk').removeClass('is-invalid');
-                            $('#summernotedesk').addClass('is-valid');
-                        }
-
-                        if (err.errLowonganPers) {
-                            $('#summernotepers').addClass('is-invalid');
-                            $('.errorLowonganPers').html(err.errLowonganPers);
-                        } else {
-                            $('#summernotepers').removeClass('is-invalid');
-                            $('#summernotepers').addClass('is-valid');
-                        }
+                    if (err.errLowonganJob) {
+                        $('#lowonganjob').addClass('is-invalid');
+                        $('.errorLowonganJob').html(err.errLowonganJob);
+                    } else {
+                        $('#lowonganjob').removeClass('is-invalid');
+                        $('#lowonganjob').addClass('is-valid');
                     }
 
-                    if (response.sukses) {
-                        Swal.fire(
-                            'Berhasil',
-                            response.success,
-                            'success'
-                        ).then((result) => {
-                            window.location.href = ('<?= base_url() ?>/lowongan/index');
-                        })
+                    if (err.errLowonganDesk) {
+                        $('#summernotedesk').addClass('is-invalid');
+                        $('.errorLowonganDesk').html(err.errLowonganDesk);
+                    } else {
+                        $('#summernotedesk').removeClass('is-invalid');
+                        $('#summernotedesk').addClass('is-valid');
                     }
-                },
-                error: function(xhr, ajaxOptions, thrownError) {
-                    alert(xhr.status + '\n' + thrownError);
+
+                    if (err.errLowonganPers) {
+                        $('#summernotepers').addClass('is-invalid');
+                        $('.errorLowonganPers').html(err.errLowonganPers);
+                    } else {
+                        $('#summernotepers').removeClass('is-invalid');
+                        $('#summernotepers').addClass('is-valid');
+                    }
                 }
-            });
 
-            return false;
+                if (response.sukses) {
+                    Swal.fire(
+                        'Berhasil',
+                        response.success,
+                        'success'
+                    ).then((result) => {
+                        window.location.href = ('<?= base_url() ?>/lowongan/index');
+                    })
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + '\n' + thrownError);
+            }
         });
+
+        return false;
     });
+});
 
 
 
-    $(function() {
-        // Summernote
-        $('#summernotepers').summernote()
+$(function() {
+    // Summernote
+    $('#summernotedesk').summernote()
 
-        // CodeMirror
-        CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
-            mode: "htmlmixed",
-            theme: "monokai"
-        });
-    })
+    // CodeMirror
+    CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+        mode: "htmlmixed",
+        theme: "monokai"
+    });
+})
+
+$(function() {
+    // Summernote
+    $('#summernotepers').summernote()
+
+    // CodeMirror
+    CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+        mode: "htmlmixed",
+        theme: "monokai"
+    });
+})
 </script>
 
 <?= $this->endSection('isi') ?>

@@ -35,4 +35,29 @@ class ModelPenerimaan extends Model
         endforeach;
         return $totalterima;
     }
+
+
+
+
+    public function dataTtb($nottb)
+    {
+        return $this->table('tanda_terimabarang')
+            ->join('barangmasuk', 'ttbfaktur=faktur')
+            ->join('suplier', 'idsup=supid', 'left')
+            ->join('barang', 'ttbbrgkode=brgkode')
+            ->where('ttbnomor', $nottb)
+            ->groupBy('ttbnomor', 'asc')
+            ->get();
+    }
+
+
+    public function tampilDataTtb($nottb)
+    {
+        return $this->table('tanda_terimabarang')
+            ->join('barang', 'ttbbrgkode=brgkode')
+            ->join('satuan', 'brgsatid=satid')
+            ->where('ttbnomor', $nottb)
+            ->orderBy('brgnama', 'asc')
+            ->get();
+    }
 }

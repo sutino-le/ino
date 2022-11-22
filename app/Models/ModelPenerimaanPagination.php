@@ -8,8 +8,8 @@ use CodeIgniter\Model;
 class ModelPenerimaanPagination extends Model
 {
     protected $table = "tanda_terimabarang";
-    protected $column_order = array(null, 'ttbnomor', 'ttbfaktur', 'ttbtanggal', 'brgnama', 'ttbjml', 'ttbpenerima', null);
-    protected $column_search = array('ttbnomor', 'ttbfaktur', 'ttbtanggal', 'brgnama');
+    protected $column_order = array(null, 'ttbnomor', 'ttbfaktur', 'ttbtanggal',  null);
+    protected $column_search = array('ttbnomor', 'ttbfaktur', 'ttbtanggal',);
     protected $order = array('ttbfaktur' => 'ASC');
     protected $request;
     protected $db;
@@ -24,9 +24,9 @@ class ModelPenerimaanPagination extends Model
     private function _get_datatables_query($ttbfaktur, $tglawal, $tglakhir)
     {
         if ($ttbfaktur == '' && $tglawal == '' && $tglakhir == '') {
-            $this->dt = $this->db->table($this->table)->join('barangmasuk', 'ttbfaktur=faktur', 'left')->join('barang', 'ttbbrgkode=brgkode', 'left');
+            $this->dt = $this->db->table($this->table)->join('barangmasuk', 'ttbfaktur=faktur', 'left')->join('barang', 'ttbbrgkode=brgkode', 'left')->groupBy('ttbnomor', 'asc');
         } else {
-            $this->dt = $this->db->table($this->table)->join('barangmasuk', 'ttbfaktur=faktur', 'left')->join('barang', 'ttbbrgkode=brgkode', 'left')->where('ttbfaktur', $ttbfaktur)->where('ttbtanggal >=', $tglawal)->where('ttbtanggal <=', $tglakhir);
+            $this->dt = $this->db->table($this->table)->join('barangmasuk', 'ttbfaktur=faktur', 'left')->join('barang', 'ttbbrgkode=brgkode', 'left')->groupBy('ttbnomor', 'asc')->where('ttbfaktur', $ttbfaktur)->where('ttbtanggal >=', $tglawal)->where('ttbtanggal <=', $tglakhir);
         }
         $i = 0;
         foreach ($this->column_search as $item) {
@@ -66,9 +66,9 @@ class ModelPenerimaanPagination extends Model
     public function count_all($ttbfaktur, $tglawal, $tglakhir)
     {
         if ($ttbfaktur == '' && $tglawal == '' && $tglakhir == '') {
-            $tbl_storage = $this->db->table($this->table)->join('barangmasuk', 'ttbfaktur=faktur', 'left')->join('barang', 'ttbbrgkode=brgkode', 'left');
+            $tbl_storage = $this->db->table($this->table)->join('barangmasuk', 'ttbfaktur=faktur', 'left')->join('barang', 'ttbbrgkode=brgkode', 'left')->groupBy('ttbnomor', 'asc');
         } else {
-            $tbl_storage = $this->db->table($this->table)->join('barangmasuk', 'ttbfaktur=faktur', 'left')->join('barang', 'ttbbrgkode=brgkode', 'left')->where('ttbfaktur', $ttbfaktur)->where('ttbtanggal >=', $tglawal)->where('ttbtanggal <=', $tglakhir);
+            $tbl_storage = $this->db->table($this->table)->join('barangmasuk', 'ttbfaktur=faktur', 'left')->join('barang', 'ttbbrgkode=brgkode', 'left')->groupBy('ttbnomor', 'asc')->where('ttbfaktur', $ttbfaktur)->where('ttbtanggal >=', $tglawal)->where('ttbtanggal <=', $tglakhir);
         }
 
         return $tbl_storage->countAllResults();

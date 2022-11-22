@@ -43,7 +43,7 @@
             </div>
         </div>
 
-        <table style="width: 100%;" id="datapemakaian"
+        <table style="width: 100%;" id="pemakaian"
             class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
             <thead>
                 <tr>
@@ -63,8 +63,8 @@
     </div>
 </div>
 <script>
-function listDataPemakaian() {
-    var table = $('#datapemakaian').dataTable({
+function listData() {
+    var table = $('#pemakaian').dataTable({
         destroy: true,
         "processing": true,
         "serverSide": true,
@@ -85,17 +85,17 @@ function listDataPemakaian() {
 }
 
 $(document).ready(function() {
-    listDataPemakaian();
+    listData();
 
     $('#tombolTampil').click(function(e) {
         e.preventDefault();
-        listDataPemakaian();
+        listData();
     });
 });
 
 function cetak(nomor) {
     let windowCetak = window.open('<?= base_url() ?>/pemakaian/cetakPemakaian/' + nomor, "Cetak Pemakaian",
-        "width=1300, height=600");
+        "width=1300, height=800");
 
     windowCetak.focus();
 }
@@ -121,7 +121,7 @@ function hapus(nomor) {
                 success: function(response) {
                     if (response.sukses) {
                         swal.fire('Berhasil', response.sukes, 'success');
-                        listDataPemakaian();
+                        listData();
                     }
                 },
                 error: function(xhr, ajaxOptions, thrownError) {

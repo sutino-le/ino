@@ -141,10 +141,13 @@
                     $master_po = "show";
                     $pembelian = "show";
                     $datapembelian = "show";
+
+                    $master_ttb = "show";
                     $penerimaan = "show";
 
                     $master_pm = "show";
                     $pemakaian = "show";
+                    $datapemakaian = "show";
 
                     $biodata = "show";
                     $biodata_ktp = "show";
@@ -171,10 +174,13 @@
                     $master_po = "none";
                     $pembelian = "none";
                     $datapembelian = "none";
+
+                    $master_ttb = "none";
                     $penerimaan = "none";
 
                     $master_pm = "none";
                     $pemakaian = "none";
+                    $datapemakaian = "none";
 
                     $biodata = "none";
                     $biodata_ktp = "none";
@@ -377,14 +383,34 @@
                                         <p>Data Pembelian</p>
                                     </a>
                                 </li>
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item <?= ($menu == 'penerimaan') ? 'menu-open' : '' ?>"
+                            style="display: <?= $master_ttb ?>;">
+                            <a href="#" class="nav-link <?= ($menu == 'penerimaan') ? 'active' : '' ?>">
+                                <i class="fas fa-truck-loading text-info"></i>
+                                <p>
+                                    Penerimaan Barang
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $penerimaan ?>;">
                                     <a href="<?= site_url('penerimaan/index') ?>"
                                         class="nav-link <?= ($submenu == 'penerimaan') ? 'active' : '' ?>">
-                                        <i class="fas fa-hand-holding nav-icon text-success"></i>
+                                        <i class="fas fa-hand-holding nav-icon text-info"></i>
                                         <p>Penerimaan</p>
                                     </a>
                                 </li>
-
+                                <li class="nav-item" style="display: <?= $penerimaan ?>;">
+                                    <a href="<?= site_url('penerimaan/detailttb') ?>"
+                                        class="nav-link <?= ($submenu == 'detailpenerimaan') ? 'active' : '' ?>">
+                                        <i class="fas fa-hand-holding nav-icon text-info"></i>
+                                        <p>Detail Penerimaan</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 
@@ -401,12 +427,20 @@
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $pemakaian ?>;">
                                     <a href="<?= site_url('pemakaian/index') ?>"
-                                        class="nav-link <?= ($menu == 'pemakaian') ? 'active' : '' ?>">
-                                        <i class="fas fa-dolly nav-icon text-danger"></i>
-                                        <p>Pemakaian Barang</p>
+                                        class="nav-link <?= ($submenu == 'pemakaian') ? 'active' : '' ?>">
+                                        <i class="fas fa-external-link-alt nav-icon text-danger"></i>
+                                        <p>Pemakaian</p>
                                     </a>
                                 </li>
-
+                            </ul>
+                            <ul class="nav nav-treeview ml-2">
+                                <li class="nav-item" style="display: <?= $datapemakaian ?>;">
+                                    <a href="<?= site_url('pemakaian/datapemakaian') ?>"
+                                        class="nav-link <?= ($submenu == 'datapemakaian') ? 'active' : '' ?>">
+                                        <i class="fas fa-file-export nav-icon text-danger"></i>
+                                        <p>Detail Pemakaian</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 

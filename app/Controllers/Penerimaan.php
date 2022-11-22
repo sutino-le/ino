@@ -7,6 +7,7 @@ use App\Models\ModelBarang;
 use App\Models\ModelDetailPembelian;
 use App\Models\ModelPembelian;
 use App\Models\ModelPenerimaan;
+use App\Models\ModelPenerimaanDetPagination;
 use App\Models\ModelPenerimaanPagination;
 use Config\Services;
 
@@ -19,20 +20,35 @@ class Penerimaan extends BaseController
         $this->db = db_connect();
     }
 
+    // untuk menampilkan penerimaan barang
     public function index()
     {
         $modelPembelian = new ModelPembelian();
         $data = [
             'judul'         => 'Home',
             'subjudul'      => 'Penerimaan',
-            'menu'          => 'pembelian',
+            'menu'          => 'penerimaan',
             'submenu'       => 'penerimaan',
             'datapembelian' => $modelPembelian->findAll()
         ];
         return view('penerimaan/viewdata', $data);
     }
 
+    // untuk menampilkan detail penerimaan barang
+    public function detailttb()
+    {
+        $modelPembelian = new ModelPembelian();
+        $data = [
+            'judul'         => 'Home',
+            'subjudul'      => 'Penerimaan',
+            'menu'          => 'penerimaan',
+            'submenu'       => 'detailpenerimaan',
+            'datapembelian' => $modelPembelian->findAll()
+        ];
+        return view('penerimaan/detailpenerimaan', $data);
+    }
 
+    // deta penerimaan
     public function listData()
     {
 
@@ -42,6 +58,43 @@ class Penerimaan extends BaseController
 
         $request = Services::request();
         $datamodel = new ModelPenerimaanPagination($request);
+        if ($request->getMethod(true) == 'POST') {
+            $lists = $datamodel->get_datatables($ttbfaktur, $tglawal, $tglakhir);
+            $data = [];
+            $no = $request->getPost("start");
+            foreach ($lists as $list) {
+                $no++;
+                $row = [];
+
+                $tombolCetak = "<button type=\"button\" class=\"btn btn-sm btn-info\" onclick=\"cetak('" . $list->ttbnomor . "')\" title=\"Cetak\"><i class='fas fa-print'></i></button>";
+
+                $row[] = $no;
+                $row[] = $list->ttbnomor;
+                $row[] = $list->ttbtanggal;
+                $row[] = $list->ttbpenerima;
+                $row[] = $tombolCetak;
+                $data[] = $row;
+            }
+            $output = [
+                "draw" => $request->getPost('draw'),
+                "recordsTotal" => $datamodel->count_all($ttbfaktur, $tglawal, $tglakhir),
+                "recordsFiltered" => $datamodel->count_filtered($ttbfaktur, $tglawal, $tglakhir),
+                "data" => $data
+            ];
+            echo json_encode($output);
+        }
+    }
+
+    // detail penerimaan
+    public function listDataDetail()
+    {
+
+        $ttbfaktur = $this->request->getPost('nofaktur');
+        $tglawal = $this->request->getPost('tglawal');
+        $tglakhir = $this->request->getPost('tglakhir');
+
+        $request = Services::request();
+        $datamodel = new ModelPenerimaanDetPagination($request);
         if ($request->getMethod(true) == 'POST') {
             $lists = $datamodel->get_datatables($ttbfaktur, $tglawal, $tglakhir);
             $data = [];
@@ -125,7 +178,7 @@ class Penerimaan extends BaseController
         $data   = [
             'judul'         => 'Home',
             'subjudul'      => 'Input Penerimaan',
-            'menu'          => 'pembelian',
+            'menu'          => 'penerimaan',
             'submenu'       => 'penerimaan',
             'penerima'      => session()->namauser,
             'tampilfaktur'  => $modelPembelian->findAll(),
@@ -374,6 +427,30 @@ class Penerimaan extends BaseController
             }
 
             echo json_encode($json);
+        }
+    }
+
+    // untuk mencetak penerimaan barang
+    public function cetakTtb($nottb)
+    {
+        $modelPenerimaan = new ModelPenerimaan();
+
+        $cekData = $modelPenerimaan->dataTtb($nottb)->getRowArray();
+
+        if ($cekData != null) {
+            $data = [
+                'nomor'             => $cekData['ttbnomor'],
+                'ttbtanggal'        => $cekData['ttbtanggal'],
+                'penerima'          => $cekData['ttbpenerima'],
+                'supnama'           => $cekData['supnama'],
+                'supalamat'         => $cekData['supalamat'],
+                'faktur'            => $cekData['faktur'],
+                'detailpenerimaan'  => $modelPenerimaan->tampilDataTtb($nottb)
+            ];
+
+            return view('penerimaan/cetakpenerimaan', $data);
+        } else {
+            return redirect()->to(site_url('penerimaan/index'));
         }
     }
 }

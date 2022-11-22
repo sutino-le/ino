@@ -14,6 +14,6 @@ class ModelLowongan extends Model
 
     public function cariData($status)
     {
-        return $this->table('lowongan')->like('lowonganstatus', $status)->get();
+        return $this->table('lowongan')->where('lowonganstatus', $status)->get();
     }
 }

@@ -1,0 +1,250 @@
+ERROR - 2022-11-21 08:34:24 --> Table 'project.pemakaiandeet' doesn't exist
+CRITICAL - 2022-11-21 08:34:24 --> Table 'project.pemakaiandeet' doesn't exist
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPemakaianDetPagination.php(58): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(708): App\Models\ModelPemakaianDetPagination->get_datatables('', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakai()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2022-11-21 08:36:44 --> Table 'project.pemakaiandeet' doesn't exist
+CRITICAL - 2022-11-21 08:36:44 --> Table 'project.pemakaiandeet' doesn't exist
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPemakaianDetPagination.php(58): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(708): App\Models\ModelPemakaianDetPagination->get_datatables('', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakai()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2022-11-21 08:38:27 --> Table 'project.pemakaiandeet' doesn't exist
+CRITICAL - 2022-11-21 08:38:27 --> Table 'project.pemakaiandeet' doesn't exist
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPemakaianDetPagination.php(58): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(698): App\Models\ModelPemakaianDetPagination->get_datatables('', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakai()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2022-11-21 08:40:51 --> Table 'project.pemakaiandeet' doesn't exist
+CRITICAL - 2022-11-21 08:40:51 --> Table 'project.pemakaiandeet' doesn't exist
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPemakaianDetPagination.php(58): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(698): App\Models\ModelPemakaianDetPagination->get_datatables('', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakai()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2022-11-21 08:41:12 --> Table 'project.pemakaiandeet' doesn't exist
+CRITICAL - 2022-11-21 08:41:12 --> Table 'project.pemakaiandeet' doesn't exist
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPemakaianDetPagination.php(58): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(698): App\Models\ModelPemakaianDetPagination->get_datatables('', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakai()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2022-11-21 08:41:37 --> Table 'project.pemakaiandet' doesn't exist
+CRITICAL - 2022-11-21 08:41:37 --> Table 'project.pemakaiandet' doesn't exist
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPemakaianDetPagination.php(58): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(698): App\Models\ModelPemakaianDetPagination->get_datatables('', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakai()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-21 09:02:24 --> strpos(): Passing null to parameter #1 ($haystack) of type string is deprecated
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8192, 'strpos(): Passi...', 'C:\\xampp\\htdocs...', 413)
+#1 C:\xampp\htdocs\ino\system\Debug\Toolbar.php(413): strpos(NULL, '<head>')
+#2 C:\xampp\htdocs\ino\system\Filters\DebugToolbar.php(40): CodeIgniter\Debug\Toolbar->prepare(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\RedirectResponse))
+#3 C:\xampp\htdocs\ino\system\Filters\Filters.php(196): CodeIgniter\Filters\DebugToolbar->after(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\RedirectResponse), NULL)
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(436): CodeIgniter\Filters\Filters->run('/', 'after')
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-11-21 09:20:59 --> Object of class CodeIgniter\Database\MySQLi\Result could not be converted to int
+#0 C:\xampp\htdocs\ino\app\Views\home\viewdata.php(340): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Object of class...', 'C:\\xampp\\htdocs...', 340)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('home/viewdata', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Home.php(22): view('home/viewdata', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-11-21 09:22:01 --> Object of class CodeIgniter\Database\MySQLi\Result could not be converted to int
+#0 C:\xampp\htdocs\ino\app\Controllers\Home.php(17): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Object of class...', 'C:\\xampp\\htdocs...', 17)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-11-21 09:28:41 --> Object of class CodeIgniter\Database\MySQLi\Result could not be converted to int
+#0 C:\xampp\htdocs\ino\app\Controllers\Home.php(17): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Object of class...', 'C:\\xampp\\htdocs...', 17)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-11-21 09:29:04 --> Call to a member function getResultArray() on array
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-11-21 09:29:05 --> Call to a member function getResultArray() on array
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-11-21 09:29:05 --> Call to a member function getResultArray() on array
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-11-21 09:29:07 --> Call to a member function getResultArray() on array
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-11-21 09:29:25 --> Call to a member function getResultArray() on array
+#0 C:\xampp\htdocs\ino\system\View\View.php(210): include()
+#1 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('home/viewdata', Array, true)
+#3 C:\xampp\htdocs\ino\app\Controllers\Home.php(28): view('home/viewdata', Array)
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-11-21 09:30:06 --> Object of class CodeIgniter\Database\MySQLi\Result could not be converted to int
+#0 C:\xampp\htdocs\ino\app\Controllers\Home.php(17): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Object of class...', 'C:\\xampp\\htdocs...', 17)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-11-21 09:34:03 --> CodeIgniter\Database\BaseBuilder::getWhere(): Argument #2 ($limit) must be of type ?int, string given, called in C:\xampp\htdocs\ino\system\Model.php on line 728
+#0 C:\xampp\htdocs\ino\system\Model.php(728): CodeIgniter\Database\BaseBuilder->getWhere('lowonganstatus', 'Aktif')
+#1 C:\xampp\htdocs\ino\app\Models\ModelLowongan.php(17): CodeIgniter\Model->__call('getwhere', Array)
+#2 C:\xampp\htdocs\ino\app\Controllers\Home.php(15): App\Models\ModelLowongan->cariData('Aktif')
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-11-21 10:46:28 --> Undefined variable $datapembelian
+#0 C:\xampp\htdocs\ino\app\Views\penerimaan\viewdata.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 39)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('penerimaan/view...', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(31): view('penerimaan/view...', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->index()
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-11-21 11:23:48 --> Cannot use object of type CodeIgniter\Database\MySQLi\Result as array
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->cetakTtb('1611220003')
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-11-21 11:24:27 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::getResultRow()
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->cetakTtb('1611220003')
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-11-21 11:24:39 --> Undefined array key "ttbnomor"
+#0 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(442): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 442)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->cetakTtb('1611220003')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-11-21 11:25:58 --> Undefined array key "ttbnomor"
+#0 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(442): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 442)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->cetakTtb('1611220003')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-11-21 11:26:08 --> Undefined array key "ttbtanggal"
+#0 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(443): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 443)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->cetakTtb('1611220003')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-11-21 11:26:56 --> Undefined variable $ktpnama
+#0 C:\xampp\htdocs\ino\app\Views\penerimaan\cetakpenerimaan.php(29): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 29)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('penerimaan/ceta...', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(448): view('penerimaan/ceta...', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->cetakTtb('1611220003')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-11-21 11:40:11 --> Undefined variable $ktpnama
+#0 C:\xampp\htdocs\ino\app\Views\penerimaan\cetakpenerimaan.php(29): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 29)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('penerimaan/ceta...', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(448): view('penerimaan/ceta...', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->cetakTtb('1611220001')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-11-21 11:43:33 --> Undefined array key "pmkjenis"
+#0 C:\xampp\htdocs\ino\app\Views\penerimaan\cetakpenerimaan.php(66): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 66)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('penerimaan/ceta...', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(448): view('penerimaan/ceta...', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->cetakTtb('1611220003')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-11-21 11:43:48 --> Undefined array key "pmkjenis"
+#0 C:\xampp\htdocs\ino\app\Views\penerimaan\cetakpenerimaan.php(66): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 66)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('penerimaan/ceta...', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(448): view('penerimaan/ceta...', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->cetakTtb('1611220003')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}

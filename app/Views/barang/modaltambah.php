@@ -190,7 +190,7 @@ $(document).ready(function() {
                     Swal.fire({
                         title: 'Berhasil',
                         text: response.sukses +
-                            ", Apakah ingin menambah Kategori ?",
+                            ", Apakah ingin menambah Barang ?",
                         icon: 'success',
                         showCancelButton: true,
                         confirmButtonColor: '#3085d6',

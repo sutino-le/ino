@@ -26,7 +26,7 @@ class ModelDataPembelianPagination extends Model
         if ($tglawal == '' && $tglakhir == '') {
             $this->dt = $this->db->table($this->table)->join('barang', 'detbrgkode=brgkode', 'left')->join('barangmasuk', 'detfaktur=faktur', 'left')->join('suplier', 'idsup=supid', 'left');
         } else {
-            $this->dt = $this->db->table($this->table)->join('barang', 'detbrgkode=brgkode', 'left')->join('barangmasuk', 'detfaktur=faktur', 'left')->join('suplier', 'idsup=supid', 'left')->where('tglfaktur >=', $tglawal)->where('tglfaktur <=', $tglakhir);
+            $this->dt = $this->db->table($this->table)->join('barang', 'detbrgkode=brgkode', 'left')->join('barangmasuk', 'detfaktur=faktur', 'left')->join('suplier', 'idsup=supid', 'left')->where('detbrgkode', $brgkode)->where('tglfaktur >=', $tglawal)->where('tglfaktur <=', $tglakhir);
         }
         $i = 0;
         foreach ($this->column_search as $item) {
@@ -68,7 +68,7 @@ class ModelDataPembelianPagination extends Model
         if ($tglawal == '' && $tglakhir == '') {
             $tbl_storage = $this->db->table($this->table)->join('barang', 'detbrgkode=brgkode', 'left')->join('barangmasuk', 'detfaktur=faktur', 'left')->join('suplier', 'idsup=supid', 'left');
         } else {
-            $tbl_storage = $this->db->table($this->table)->join('barang', 'detbrgkode=brgkode', 'left')->join('barangmasuk', 'detfaktur=faktur', 'left')->join('suplier', 'idsup=supid', 'left')->where('tglfaktur >=', $tglawal)->where('tglfaktur <=', $tglakhir);
+            $tbl_storage = $this->db->table($this->table)->join('barang', 'detbrgkode=brgkode', 'left')->join('barangmasuk', 'detfaktur=faktur', 'left')->join('suplier', 'idsup=supid', 'left')->where('detbrgkode', $brgkode)->where('tglfaktur >=', $tglawal)->where('tglfaktur <=', $tglakhir);
         }
 
         return $tbl_storage->countAllResults();

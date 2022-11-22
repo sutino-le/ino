@@ -8,6 +8,7 @@ use App\Models\ModelBarangPagination;
 use App\Models\ModelBiodataKtp;
 use App\Models\ModelPemakaian;
 use App\Models\ModelPemakaianDet;
+use App\Models\ModelPemakaianDetPagination;
 use App\Models\ModelPemakaianPagination;
 use App\Models\ModelPemakaianTemp;
 use Config\Services;
@@ -16,17 +17,12 @@ class Pemakaian extends BaseController
 {
     public function index()
     {
-        $ModelPemakaian = new ModelPemakaian();
-
-        $modelBarang = new ModelBarang();
 
         $data = [
             'judul'         => 'Home',
             'subjudul'      => 'Pemakaian',
             'menu'          => 'pemakaian',
             'submenu'       => 'pemakaian',
-            'datapembelian' => $ModelPemakaian->findAll(),
-            'datakategori'  => $modelBarang->dataBarang(),
         ];
         return view('pemakaian/viewdata', $data);
     }
@@ -673,6 +669,54 @@ class Pemakaian extends BaseController
             }
 
             echo json_encode($json);
+        }
+    }
+
+    // menampilkan data pemakaian
+    public function datapemakaian()
+    {
+
+        $data = [
+            'judul'         => 'Home',
+            'subjudul'      => 'Pemakaian',
+            'menu'          => 'pemakaian',
+            'submenu'       => 'datapemakaian',
+        ];
+        return view('pemakaian/datapemakaian', $data);
+    }
+
+    // untuk menampilkan data pemakaian
+    public function listDataPemakai()
+    {
+
+        $tglawal = $this->request->getPost('tglawal');
+        $tglakhir = $this->request->getPost('tglakhir');
+
+        $request = Services::request();
+        $datamodel = new ModelPemakaianDetPagination($request);
+        if ($request->getMethod(true) == 'POST') {
+            $lists = $datamodel->get_datatables($tglawal, $tglakhir);
+            $data = [];
+            $no = $request->getPost("start");
+            foreach ($lists as $list) {
+                $no++;
+                $row = [];
+
+                $row[] = $no;
+                $row[] = $list->brgnama;
+                $row[] = $list->subkatnama;
+                $row[] = $list->pmktanggal;
+                $row[] = $list->ktp_nama;
+                $row[] = $list->pmkuser;
+                $data[] = $row;
+            }
+            $output = [
+                "draw" => $request->getPost('draw'),
+                "recordsTotal" => $datamodel->count_all($tglawal, $tglakhir),
+                "recordsFiltered" => $datamodel->count_filtered($tglawal, $tglakhir),
+                "data" => $data
+            ];
+            echo json_encode($output);
         }
     }
 }

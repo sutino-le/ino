@@ -20,6 +20,7 @@
                     <input type="text" name="nofaktur" id="nofaktur" class="form-control" value="<?= $nofaktur ?>"
                         readonly>
                     <input type="hidden" name="tglfaktur" value="<?= $tglfaktur ?>">
+                    <input type="hidden" name="jenis" value="<?= $jenis ?>">
                     <input type="hidden" name="idsuplier" value="<?= $idsuplier ?>">
                 </div>
 

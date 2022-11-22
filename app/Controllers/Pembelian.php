@@ -38,13 +38,14 @@ class Pembelian extends BaseController
     public function listData()
     {
 
+        $brgkode = $this->request->getPost('brgkode');
         $tglawal = $this->request->getPost('tglawal');
         $tglakhir = $this->request->getPost('tglakhir');
 
         $request = Services::request();
         $datamodel = new ModelPembelianPagination($request);
         if ($request->getMethod(true) == 'POST') {
-            $lists = $datamodel->get_datatables($tglawal, $tglakhir);
+            $lists = $datamodel->get_datatables($brgkode, $tglawal, $tglakhir);
             $data = [];
             $no = $request->getPost("start");
             foreach ($lists as $list) {
@@ -65,8 +66,8 @@ class Pembelian extends BaseController
             }
             $output = [
                 "draw" => $request->getPost('draw'),
-                "recordsTotal" => $datamodel->count_all($tglawal, $tglakhir),
-                "recordsFiltered" => $datamodel->count_filtered($tglawal, $tglakhir),
+                "recordsTotal" => $datamodel->count_all($brgkode, $tglawal, $tglakhir),
+                "recordsFiltered" => $datamodel->count_filtered($brgkode, $tglawal, $tglakhir),
                 "data" => $data
             ];
             echo json_encode($output);
@@ -309,9 +310,10 @@ class Pembelian extends BaseController
     function modalPembayaran()
     {
         if ($this->request->isAJAX()) {
-            $nofaktur = $this->request->getPost('nofaktur');
-            $tglfaktur = $this->request->getPost('tglfaktur');
-            $idsuplier = $this->request->getPost('idsuplier');
+            $nofaktur   = $this->request->getPost('nofaktur');
+            $tglfaktur  = $this->request->getPost('tglfaktur');
+            $jenis      = $this->request->getPost('jenis');
+            $idsuplier  = $this->request->getPost('idsuplier');
             $totalharga = $this->request->getPost('totalharga');
 
             $modelTemp = new ModelTempPembelian();
@@ -322,6 +324,7 @@ class Pembelian extends BaseController
                 $data = [
                     'nofaktur'      => $nofaktur,
                     'tglfaktur'     => $tglfaktur,
+                    'jenis'         => $jenis,
                     'idsuplier'     => $idsuplier,
                     'totalharga'    => $totalharga
                 ];
@@ -342,12 +345,13 @@ class Pembelian extends BaseController
     function simpanPembayaran()
     {
         if ($this->request->isAJAX()) {
-            $nofaktur = $this->request->getPost('nofaktur');
-            $tglfaktur = $this->request->getPost('tglfaktur');
-            $idsuplier = $this->request->getPost('idsuplier');
+            $nofaktur   = $this->request->getPost('nofaktur');
+            $tglfaktur  = $this->request->getPost('tglfaktur');
+            $jenis      = $this->request->getPost('jenis');
+            $idsuplier  = $this->request->getPost('idsuplier');
             $totalbayar = str_replace(".", "", $this->request->getPost('totalbayar'));
             $jumlahuang = str_replace(".", "", $this->request->getPost('jumlahuang'));
-            $sisauang = str_replace(".", "", $this->request->getPost('sisauang'));
+            $sisauang   = str_replace(".", "", $this->request->getPost('sisauang'));
 
             $ModelPembelian = new ModelPembelian();
 
@@ -355,6 +359,7 @@ class Pembelian extends BaseController
             $ModelPembelian->insert([
                 'faktur'        => $nofaktur,
                 'tglfaktur'     => $tglfaktur,
+                'jenis'         => $jenis,
                 'idsup'         => $idsuplier,
                 'totalharga'    => $totalbayar,
                 'jumlahuang'    => $jumlahuang,
@@ -383,6 +388,7 @@ class Pembelian extends BaseController
             // hapus temp barang masuk berdasarkan faktur
             $modelTemp->where(['detfaktur' => $nofaktur]);
             $modelTemp->delete();
+
 
             $json = [
                 'sukses'        => 'Transaksi berhasil disimpan',

@@ -1,0 +1,12 @@
+CRITICAL - 2022-11-23 10:03:15 --> Undefined variable $pengembalian
+#0 C:\xampp\htdocs\ino\app\Views\main\layout.php(458): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 458)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\View\View.php(226): CodeIgniter\View\View->render('main/layout', Array, true)
+#4 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('pemakaian/viewd...', Array, true)
+#5 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(27): view('pemakaian/viewd...', Array)
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->index()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}

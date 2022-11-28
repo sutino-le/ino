@@ -149,6 +149,10 @@
                     $pemakaian = "show";
                     $datapemakaian = "show";
 
+                    $master_pgm = "show";
+                    $pengembalian = "show";
+                    $datapengembalian = "show";
+
                     $biodata = "show";
                     $biodata_ktp = "show";
                 } else {
@@ -181,6 +185,10 @@
                     $master_pm = "none";
                     $pemakaian = "none";
                     $datapemakaian = "none";
+
+                    $master_pgm = "none";
+                    $pengembalian = "none";
+                    $datapengembalian = "none";
 
                     $biodata = "none";
                     $biodata_ktp = "none";
@@ -428,7 +436,7 @@
                                 <li class="nav-item" style="display: <?= $pemakaian ?>;">
                                     <a href="<?= site_url('pemakaian/index') ?>"
                                         class="nav-link <?= ($submenu == 'pemakaian') ? 'active' : '' ?>">
-                                        <i class="fas fa-external-link-alt nav-icon text-danger"></i>
+                                        <i class="fas fa-share nav-icon text-danger"></i>
                                         <p>Pemakaian</p>
                                     </a>
                                 </li>
@@ -437,7 +445,7 @@
                                 <li class="nav-item" style="display: <?= $datapemakaian ?>;">
                                     <a href="<?= site_url('pemakaian/datapemakaian') ?>"
                                         class="nav-link <?= ($submenu == 'datapemakaian') ? 'active' : '' ?>">
-                                        <i class="fas fa-file-export nav-icon text-danger"></i>
+                                        <i class="fas fa-share-square nav-icon text-danger"></i>
                                         <p>Detail Pemakaian</p>
                                     </a>
                                 </li>
@@ -445,9 +453,41 @@
                         </li>
 
 
+                        <li class="nav-item <?= ($menu == 'pengembalian') ? 'menu-open' : '' ?>"
+                            style="display: <?= $master_pgm ?>;">
+                            <a href="#" class="nav-link <?= ($menu == 'pengembalian') ? 'active' : '' ?>">
+                                <i class="fas fa-reply-all text-warning"></i>
+                                <p>
+                                    Pengembalian Barang
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview ml-2">
+                                <li class="nav-item" style="display: <?= $pengembalian ?>;">
+                                    <a href="<?= site_url('pengembalian/index') ?>"
+                                        class="nav-link <?= ($submenu == 'pengembalian') ? 'active' : '' ?>">
+                                        <i class="fas fa-reply nav-icon text-warning"></i>
+                                        <p>Pengembalian</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview ml-2">
+                                <li class="nav-item" style="display: <?= $datapengembalian ?>;">
+                                    <a href="<?= site_url('pengembalian/datapengembalian') ?>"
+                                        class="nav-link <?= ($submenu == 'datapengembalian') ? 'active' : '' ?>">
+                                        <i class="fas fa-recycle nav-icon text-warning"></i>
+                                        <p>Detail Pengembalian</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
-                        <?php //endif; 
-                        ?>
+
+                        <li class="nav-header">
+                            <hr>
+                            <marquee>Rackindo Setara Perkasa</marquee>
+                            <hr>
+                        </li>
 
 
                     </ul>

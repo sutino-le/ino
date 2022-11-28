@@ -6,37 +6,32 @@ use CodeIgniter\Model;
 
 class ModelPengembalian extends Model
 {
-    protected $DBGroup          = 'default';
-    protected $table            = 'modelpengembalians';
-    protected $primaryKey       = 'id';
-    protected $useAutoIncrement = true;
-    protected $insertID         = 0;
-    protected $returnType       = 'array';
-    protected $useSoftDeletes   = false;
-    protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $table            = 'pengembalian';
+    protected $primaryKey       = 'pgmnomor';
+    protected $allowedFields    = [
+        'pgmnomor', 'pgmtanggal', 'pgmoleh', 'pgmuser'
+    ];
+
 
     // Dates
-    protected $useTimestamps = false;
-    protected $dateFormat    = 'datetime';
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
+    protected $useTimestamps = true;
 
-    // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
-    protected $skipValidation       = false;
-    protected $cleanValidationRules = true;
 
-    // Callbacks
-    protected $allowCallbacks = true;
-    protected $beforeInsert   = [];
-    protected $afterInsert    = [];
-    protected $beforeUpdate   = [];
-    protected $afterUpdate    = [];
-    protected $beforeFind     = [];
-    protected $afterFind      = [];
-    protected $beforeDelete   = [];
-    protected $afterDelete    = [];
+    public function noKembali($tanggalSekarang)
+    {
+        return $this->table('pengembalian')->select('max(pgmnomor) as pgmnomor')->where('pgmtanggal', $tanggalSekarang)->get();
+    }
+
+
+    public function tampilDataPengembalian($ktpnomor)
+    {
+        return $this->table('pengembalian')
+            ->join('detail_pengembalian', 'pgmnomor=detpgmnomor')
+            ->join('barang', 'pmkbrgkode=brgkode')
+            ->join('satuan', 'brgsatid=satid')
+            ->where('pgmoleh', $ktpnomor)
+            ->orderBy('pgmtanggal', 'desc')
+            ->orderBy('brgnama', 'asc')
+            ->get();
+    }
 }

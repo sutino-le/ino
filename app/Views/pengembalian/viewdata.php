@@ -22,15 +22,14 @@
     <div class="card-header">
         <?= form_button('', '<i class="fa fa-plus-circle"></i> Pengembalian', [
             'class'     => 'btn btn-sm btn-primary',
-            'onclick'   => "location.href=('" . site_url('pengembalian/input') . "')"
+            'onclick'   => "location.href=('" . site_url('pengembalian/forminput') . "')"
         ]) ?>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
 
 
-        <table style="width: 100%;" id="datapengembalian"
-            class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
+        <table style="width: 100%;" id="datapengembalian" class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
             <thead>
                 <tr>
                     <th>No</th>

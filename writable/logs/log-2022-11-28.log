@@ -7,3 +7,66 @@ CRITICAL - 2022-11-28 13:04:09 --> strpos(): Passing null to parameter #1 ($hays
 #5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #7 {main}
+CRITICAL - 2022-11-28 22:24:09 --> Undefined array key "pmknomor"
+#0 C:\xampp\htdocs\ino\app\Controllers\Pengembalian.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 70)
+#1 C:\xampp\htdocs\ino\app\Controllers\Pengembalian.php(123): App\Controllers\Pengembalian->buatNomor()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pengembalian->forminput()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-11-28 22:24:35 --> Undefined array key "pgmnomor"
+#0 C:\xampp\htdocs\ino\app\Controllers\Pengembalian.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 70)
+#1 C:\xampp\htdocs\ino\app\Controllers\Pengembalian.php(123): App\Controllers\Pengembalian->buatNomor()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pengembalian->forminput()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-11-28 22:25:14 --> Undefined array key "pgmnomor"
+#0 C:\xampp\htdocs\ino\app\Controllers\Pengembalian.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 70)
+#1 C:\xampp\htdocs\ino\app\Controllers\Pengembalian.php(123): App\Controllers\Pengembalian->buatNomor()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pengembalian->forminput()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-11-28 22:26:05 --> Undefined array key "pgmnomor"
+#0 C:\xampp\htdocs\ino\app\Controllers\Pengembalian.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 70)
+#1 C:\xampp\htdocs\ino\app\Controllers\Pengembalian.php(123): App\Controllers\Pengembalian->buatNomor()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pengembalian->forminput()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-11-28 22:27:10 --> Undefined array key "pgmnomor"
+#0 C:\xampp\htdocs\ino\app\Controllers\Pengembalian.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 70)
+#1 C:\xampp\htdocs\ino\app\Controllers\Pengembalian.php(123): App\Controllers\Pengembalian->buatNomor()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pengembalian->forminput()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-11-28 22:28:58 --> Undefined array key "pgmnomor"
+#0 C:\xampp\htdocs\ino\app\Controllers\Pengembalian.php(71): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 71)
+#1 C:\xampp\htdocs\ino\app\Controllers\Pengembalian.php(122): App\Controllers\Pengembalian->buatNomor()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pengembalian->forminput()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-11-28 22:29:28 --> Undefined array key "pgmnomor"
+#0 C:\xampp\htdocs\ino\app\Controllers\Pengembalian.php(71): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 71)
+#1 C:\xampp\htdocs\ino\app\Controllers\Pengembalian.php(122): App\Controllers\Pengembalian->buatNomor()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pengembalian->forminput()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2022-11-28 22:38:12 --> Call to undefined method App\Models\ModelPengembalianTemp::tampilDataTemp
+#0 C:\xampp\htdocs\ino\app\Controllers\Pengembalian.php(137): CodeIgniter\Model->__call('tampilDataTemp', Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pengembalian->tampilDataTemp()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}

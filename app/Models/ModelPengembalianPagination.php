@@ -7,10 +7,10 @@ use CodeIgniter\Model;
 
 class ModelPengembalianPagination extends Model
 {
-    protected $table = "pemakaian";
-    protected $column_order = array(null, 'nomor', 'pmktanggal', 'pemakai', null);
-    protected $column_search = array('nomor', 'pmktanggal', 'pemakai');
-    protected $order = array('nomor' => 'ASC');
+    protected $table = "pengembalian";
+    protected $column_order = array(null, 'pgmnomor', 'pgmtanggal', 'pgmoleh', null);
+    protected $column_search = array('pgmnomor', 'pgmtanggal', 'pgmoleh');
+    protected $order = array('pgmnomor' => 'ASC');
     protected $request;
     protected $db;
     protected $dt;
@@ -24,9 +24,9 @@ class ModelPengembalianPagination extends Model
     private function _get_datatables_query($tglawal, $tglakhir)
     {
         if ($tglawal == '' && $tglakhir == '') {
-            $this->dt = $this->db->table($this->table)->join('biodata_ktp', 'pemakai=ktp_nomor', 'left');
+            $this->dt = $this->db->table($this->table)->join('biodata_ktp', 'pgmoleh=ktp_nomor', 'left');
         } else {
-            $this->dt = $this->db->table($this->table)->join('biodata_ktp', 'pemakai=ktp_nomor', 'left')->where('pmktanggal >=', $tglawal)->where('pmktanggal <=', $tglakhir);
+            $this->dt = $this->db->table($this->table)->join('biodata_ktp', 'pgmoleh=ktp_nomor', 'left')->where('pgmtanggal >=', $tglawal)->where('pgmtanggal <=', $tglakhir);
         }
         $i = 0;
         foreach ($this->column_search as $item) {
@@ -66,9 +66,9 @@ class ModelPengembalianPagination extends Model
     public function count_all($tglawal, $tglakhir)
     {
         if ($tglawal == '' && $tglakhir == '') {
-            $tbl_storage = $this->db->table($this->table)->join('biodata_ktp', 'pemakai=ktp_nomor', 'left');
+            $tbl_storage = $this->db->table($this->table)->join('biodata_ktp', 'pgmoleh=ktp_nomor', 'left');
         } else {
-            $tbl_storage = $this->db->table($this->table)->join('biodata_ktp', 'pemakai=ktp_nomor', 'left')->where('pmktanggal >=', $tglawal)->where('pmktanggal <=', $tglakhir);
+            $tbl_storage = $this->db->table($this->table)->join('biodata_ktp', 'pgmoleh=ktp_nomor', 'left')->where('pgmtanggal >=', $tglawal)->where('pgmtanggal <=', $tglakhir);
         }
 
         return $tbl_storage->countAllResults();

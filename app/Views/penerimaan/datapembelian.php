@@ -16,13 +16,13 @@
         $nobeli = 1;
         foreach ($tampilpembelian->getResultArray() as $rowPembelian) :
         ?>
-            <tr>
-                <td><?= $nobeli++ ?></td>
-                <td><?= $rowPembelian['brgnama'] ?></td>
-                <td align="center"><?= $rowPembelian['detjml'] ?></td>
-                <td align="center"><?= $rowPembelian['ttbjml'] ?></td>
-                <td align="center">
-                    <?php
+        <tr>
+            <td><?= $nobeli++ ?></td>
+            <td><?= $rowPembelian['brgnama'] ?></td>
+            <td align="center"><?= $rowPembelian['detjml'] ?></td>
+            <td align="center"><?= $rowPembelian['ttbjml'] ?></td>
+            <td align="center">
+                <?php
                     if ($rowPembelian['ttbjml'] < $rowPembelian['detjml']) {
                         echo "-";
                     } else if ($rowPembelian['ttbjml'] > $rowPembelian['detjml']) {
@@ -31,8 +31,8 @@
                         echo "Selesai";
                     }
                     ?>
-                </td>
-            </tr>
+            </td>
+        </tr>
         <?php endforeach ?>
     </tbody>
 </table>

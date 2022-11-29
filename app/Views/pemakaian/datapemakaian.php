@@ -88,49 +88,6 @@ $(document).ready(function() {
         listDataPemakaian();
     });
 });
-
-function cetak(nomor) {
-    let windowCetak = window.open('<?= base_url() ?>/pemakaian/cetakPemakaian/' + nomor, "Cetak Pemakaian",
-        "width=1300, height=600");
-
-    windowCetak.focus();
-}
-
-function hapus(nomor) {
-    Swal.fire({
-        title: 'Hapus Pemakaian?',
-        text: "Apakah ingin menghapus pemakaian !",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Ya, Hapus!'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            $.ajax({
-                type: "post",
-                url: "<?= base_url() ?>/pemakaian/hapusPemakaian",
-                data: {
-                    nomor: nomor
-                },
-                dataType: "json",
-                success: function(response) {
-                    if (response.sukses) {
-                        swal.fire('Berhasil', response.sukes, 'success');
-                        listDataPemakaian();
-                    }
-                },
-                error: function(xhr, ajaxOptions, thrownError) {
-                    alert(xhr.status + '\n' + thrownError);
-                }
-            });
-        }
-    })
-}
-
-function edit(nomor) {
-    window.location.href = ('<?= base_url() ?>/pemakaian/edit/') + nomor;
-}
 </script>
 
 <?= $this->endSection('isi') ?>

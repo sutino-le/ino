@@ -407,7 +407,7 @@ class Pemakaian extends BaseController
 
             return view('pemakaian/cetakPemakaian', $data);
         } else {
-            return redirect()->to(site_url('pemakaian/input'));
+            return redirect()->to(site_url('pemakaian/forminput'));
         }
     }
 
@@ -444,9 +444,9 @@ class Pemakaian extends BaseController
         $rowBiodata = $modelBiodata->find($rowData['pemakai']);
 
         if ($rowData['pemakai'] == 0) {
-            $ktmnama = '';
+            $ktpnama = '';
         } else {
-            $ktmnama = $rowBiodata['ktp_nama'];
+            $ktpnama = $rowBiodata['ktp_nama'];
         }
 
         $data = [
@@ -457,7 +457,7 @@ class Pemakaian extends BaseController
             'nomor'                 => $nomor,
             'pmktanggal'            => $rowData['pmktanggal'],
             'pemakai'               => $rowData['pemakai'],
-            'ktmnama'               => $ktmnama
+            'ktpnama'               => $ktpnama
         ];
 
         return view('pemakaian/formedit', $data);

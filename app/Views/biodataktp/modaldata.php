@@ -56,8 +56,13 @@ function listDataKtp() {
 }
 
 function pilih(ktp_nomor, ktp_nama) {
+    // pemakaian
     $('#pemakainama').val(ktp_nama);
     $('#pemakai').val(ktp_nomor);
+
+    // pengembalian
+    $('#pengembaliannama').val(ktp_nama);
+    $('#pgmoleh').val(ktp_nomor);
 
     $('#modaldataktp').modal('hide');
 }

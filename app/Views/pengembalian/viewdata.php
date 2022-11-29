@@ -29,14 +29,15 @@
     <div class="card-body">
 
 
-        <table style="width: 100%;" id="datapengembalian" class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
+        <table style="width: 100%;" id="pengembalian"
+            class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
             <thead>
                 <tr>
                     <th>No</th>
                     <th>Nomor</th>
                     <th>Tanggal</th>
-                    <th>Nama Barang</th>
                     <th>Dikembalikan</th>
+                    <th>User</th>
                     <th>#</th>
                 </tr>
             </thead>
@@ -47,5 +48,83 @@
 
     </div>
 </div>
+
+<script>
+function listData() {
+    var table = $('#pengembalian').dataTable({
+        destroy: true,
+        "processing": true,
+        "serverSide": true,
+        "order": [],
+        "ajax": {
+            "url": "<?= base_url() ?>/pengembalian/listData",
+            "type": "POST",
+            "data": {
+                tglawal: $('#tglawal').val(),
+                tglakhir: $('#tglakhir').val(),
+            }
+        },
+        "colomnDefs": [{
+            "targets": [0, 5],
+            "orderable": false,
+        }, ],
+    });
+}
+
+$(document).ready(function() {
+    listData();
+
+    $('#tombolTampil').click(function(e) {
+        e.preventDefault();
+        listData();
+    });
+});
+
+
+
+function cetak(pgmnomor) {
+    let windowCetak = window.open('<?= base_url() ?>/pengembalian/cetakPengembalian/' + pgmnomor, "Cetak Pengembalian",
+        "width=1300, height=800");
+
+    windowCetak.focus();
+}
+
+
+function hapus(pgmnomor) {
+    Swal.fire({
+        title: 'Hapus Pengembalian?',
+        text: "Apakah ingin menghapus pengembalian !",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Hapus!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: "post",
+                url: "<?= base_url() ?>/pengembalian/hapusPengembalian",
+                data: {
+                    pgmnomor: pgmnomor
+                },
+                dataType: "json",
+                success: function(response) {
+                    if (response.sukses) {
+                        swal.fire('Berhasil', response.sukes, 'success');
+                        listData();
+                    }
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status + '\n' + thrownError);
+                }
+            });
+        }
+    })
+}
+
+function edit(pgmnomor) {
+    window.location.href = ('<?= base_url() ?>/pengembalian/edit/') + pgmnomor;
+}
+</script>
 
 <?= $this->endSection('isi') ?>

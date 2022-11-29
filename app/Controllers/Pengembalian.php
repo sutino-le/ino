@@ -5,7 +5,11 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\ModelBarang;
 use App\Models\ModelBarangPagination;
+use App\Models\ModelBiodataKtp;
+use App\Models\ModelPemakaianDet;
 use App\Models\ModelPengembalian;
+use App\Models\ModelPengembalianDet;
+use App\Models\ModelPengembalianDetPagination;
 use App\Models\ModelPengembalianPagination;
 use App\Models\ModelPengembalianTemp;
 use Config\Services;
@@ -40,15 +44,15 @@ class Pengembalian extends BaseController
                 $no++;
                 $row = [];
 
-                $tombolCetak = "<button type=\"button\" class=\"btn btn-sm btn-info\" onclick=\"cetak('" . $list->nomor . "')\" title=\"Cetak\"><i class='fas fa-print'></i></button>";
-                $tombolHapus = "<button type=\"button\" class=\"btn btn-sm btn-danger\" onclick=\"hapus('" . $list->nomor . "')\" title=\"Hapus\"><i class='fas fa-trash-alt'></i></button>";
-                $tombolEdit = "<button type=\"button\" class=\"btn btn-sm btn-primary\" onclick=\"edit('" . $list->nomor . "')\" title=\"Edit\"><i class='fas fa-edit'></i></button>";
+                $tombolCetak = "<button type=\"button\" class=\"btn btn-sm btn-info\" onclick=\"cetak('" . $list->pgmnomor . "')\" title=\"Cetak\"><i class='fas fa-print'></i></button>";
+                $tombolHapus = "<button type=\"button\" class=\"btn btn-sm btn-danger\" onclick=\"hapus('" . $list->pgmnomor . "')\" title=\"Hapus\"><i class='fas fa-trash-alt'></i></button>";
+                $tombolEdit = "<button type=\"button\" class=\"btn btn-sm btn-primary\" onclick=\"edit('" . $list->pgmnomor . "')\" title=\"Edit\"><i class='fas fa-edit'></i></button>";
 
                 $row[] = $no;
-                $row[] = $list->nomor;
-                $row[] = $list->pmktanggal;
+                $row[] = $list->pgmnomor;
+                $row[] = $list->pgmtanggal;
                 $row[] = $list->ktp_nama;
-                $row[] = $list->pmkuser;;
+                $row[] = $list->pgmuser;;
                 $row[] = $tombolCetak . ' ' . $tombolHapus . ' ' . $tombolEdit;
                 $data[] = $row;
             }
@@ -128,6 +132,82 @@ class Pengembalian extends BaseController
         return view('pengembalian/forminput', $data);
     }
 
+    // untuk menyimpan item Pengembalian
+    function simpanItem()
+    {
+        if ($this->request->isAJAX()) {
+            $pgmnomor       = $this->request->getPost('pgmnomor');
+            $pgmbrgkode     = $this->request->getPost('pgmbrgkode');
+            $pgmjenis       = $this->request->getPost('pgmjenis');
+            $pgmketerangan  = $this->request->getPost('pgmketerangan');
+            $pgmjumlah      = $this->request->getPost('pgmjumlah');
+
+            $validation = \Config\Services::validation();
+
+            $valid = $this->validate([
+                'pgmbrgkode'    => [
+                    'label'     => 'Kode Barang',
+                    'rules'     => 'required',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'pgmjumlah'    => [
+                    'label'     => 'Jumlah',
+                    'rules'     => 'required',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'pgmjenis'    => [
+                    'label'     => 'Jenis',
+                    'rules'     => 'required',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'pgmketerangan'    => [
+                    'label'     => 'Keterangan',
+                    'rules'     => 'required',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ]
+            ]);
+
+            if (!$valid) {
+                $json = [
+                    'error' => [
+                        'errPgmBrgKode'     => $validation->getError('pgmbrgkode'),
+                        'errPgmJumlah'      => $validation->getError('pgmjumlah'),
+                        'errPgmJenis'       => $validation->getError('pgmjenis'),
+                        'errPgmKeterangan'  => $validation->getError('pgmketerangan'),
+                    ]
+                ];
+            } else {
+
+
+                $modelPengembalianTemp = new ModelPengembalianTemp();
+
+                $modelPengembalianTemp->insert([
+                    'detpgmnomor'          => $pgmnomor,
+                    'detpgmbrgkode'        => $pgmbrgkode,
+                    'detpgmjumlah'         => $pgmjumlah,
+                    'detpgmjenis'          => $pgmjenis,
+                    'detpgmketerangan'     => $pgmketerangan
+                ]);
+
+                $json = [
+                    'sukses' => 'Item berhasil ditambahkan'
+                ];
+            }
+
+            echo json_encode($json);
+        } else {
+            exit('Maaf, gagal menampilkan data');
+        }
+    }
+
 
     // untuk menampilkan data temp_pengembalian
     public function tampilDataTemp()
@@ -149,6 +229,22 @@ class Pengembalian extends BaseController
             echo json_encode($json);
         } else {
             exit('Maaf, gagal menampilkan data');
+        }
+    }
+
+    // untuk menghaput item data temp
+    public function hapusItem()
+    {
+        if ($this->request->isAJAX()) {
+            $detpgmid = $this->request->getPost('detpgmid');
+            $modelPengembalianTemp = new ModelPengembalianTemp();
+            $modelPengembalianTemp->delete($detpgmid);
+
+            $json = [
+                'sukses' => 'Item berhasil dihapus'
+            ];
+
+            echo json_encode($json);
         }
     }
 
@@ -225,6 +321,386 @@ class Pengembalian extends BaseController
             echo json_encode($json);
         } else {
             exit('Maaf, gagal menampilkan data');
+        }
+    }
+
+    // menyelesaikan form input pengembalian
+    function selesaiPengembalian()
+    {
+        if ($this->request->isAJAX()) {
+            $pgmnomor   = $this->request->getPost('pgmnomor');
+            $pgmtanggal = $this->request->getPost('pgmtanggal');
+            $pgmoleh    = $this->request->getPost('pgmoleh');
+            $pgmuser    = $this->request->getPost('pgmuser');
+
+            $modelTemp  = new ModelPengembalianTemp();
+
+            $dataTemp   = $modelTemp->tampilDataTemp($pgmnomor);
+
+            if ($dataTemp->getNumRows() > 0) {
+                // Simpan ke tabel Pengembalian
+                $modelPengembalian = new ModelPengembalian();
+
+                $modelPengembalian->insert([
+                    'pgmnomor'      => $pgmnomor,
+                    'pgmtanggal'    => $pgmtanggal,
+                    'pgmoleh'       => $pgmoleh,
+                    'pgmuser'       => $pgmuser,
+                ]);
+
+
+
+                // simpan ke detail Pengembalian
+                $modelDetailPengembalian = new ModelPengembalianDet();
+                foreach ($dataTemp->getResultArray() as $rowtemp) :
+                    $modelDetailPengembalian->insert([
+                        'detpgmnomor'      => $rowtemp['detpgmnomor'],
+                        'detpgmbrgkode'    => $rowtemp['detpgmbrgkode'],
+                        'detpgmjumlah'     => $rowtemp['detpgmjumlah'],
+                        'detpgmjenis'      => $rowtemp['detpgmjenis'],
+                        'detpgmketerangan' => $rowtemp['detpgmketerangan'],
+                    ]);
+                endforeach;
+
+                // hapus temp Pengembalian berdasarkan nomor
+                $modelTemp->where(['detpgmnomor' => $pgmnomor]);
+                $modelTemp->delete();
+
+                // $modelTemp->emptyTable();
+
+                $json   = [
+                    'sukses'  => 'Pengembalian berhasil disimpan'
+                ];
+            } else {
+                $json = [
+                    'error'  => 'Maaf, item belum ada'
+                ];
+            }
+
+            echo json_encode($json);
+        } else {
+            exit('Maaf, gagal menghapus data');
+        }
+    }
+
+    // untuk mencetak pengembalian
+    public function cetakPengembalian($pgmnomor)
+    {
+        $modelPengembalian = new ModelPengembalian();
+        $modelDetail = new ModelPengembalianDet();
+        $modelBiodata = new ModelBiodataKtp();
+
+        $cekData = $modelPengembalian->find($pgmnomor);
+        $dataBiodata = $modelBiodata->find($cekData['pgmoleh']);
+
+        $ktpnama = ($dataBiodata != null) ? $dataBiodata['ktp_nama'] : '-';
+        if ($cekData != null) {
+            $data = [
+                'pgmnomor'              => $pgmnomor,
+                'pgmtanggal'            => $cekData['pgmtanggal'],
+                'ktpnama'               => $ktpnama,
+                'detailpengembalian'    => $modelDetail->tampilDataDetail($pgmnomor)
+            ];
+
+            return view('pengembalian/cetakPengembalian', $data);
+        } else {
+            return redirect()->to(site_url('pengembalian/forminput'));
+        }
+    }
+
+    // untuk menghapus data pengembalian
+    function hapusPengembalian()
+    {
+        if ($this->request->isAJAX()) {
+            $pgmnomor = $this->request->getPost('pgmnomor');
+
+            $modelDetail = new ModelPengembalianDet();
+            $modelPengembalian = new ModelPengembalian();
+
+            // hapus detail
+            $modelDetail->where(['detpgmnomor' => $pgmnomor]);
+            $modelDetail->delete();
+            $modelPengembalian->delete($pgmnomor);
+
+            $json = [
+                'sukses' => 'Pengembalian berhasil dihapus'
+            ];
+
+            echo json_encode($json);
+        }
+    }
+
+    // untuk menampilkan form edit pengembalian
+    public function edit($pgmnomor)
+    {
+        $modelPengembalian = new ModelPengembalian();
+        $rowData = $modelPengembalian->find($pgmnomor);
+
+
+        $modelBiodata = new ModelBiodataKtp();
+        $rowBiodata = $modelBiodata->find($rowData['pgmoleh']);
+
+        if ($rowData['pgmoleh'] == 0) {
+            $ktpnama = '';
+        } else {
+            $ktpnama = $rowBiodata['ktp_nama'];
+        }
+
+        $data = [
+            'judul'                 => 'Home',
+            'subjudul'              => 'Edit Pengembalian',
+            'menu'                  => 'pengembalian',
+            'submenu'               => 'pengembalian',
+            'pgmnomor'              => $pgmnomor,
+            'pgmtanggal'            => $rowData['pgmtanggal'],
+            'pgmoleh'               => $rowData['pgmoleh'],
+            'ktpnama'               => $ktpnama
+        ];
+
+        return view('pengembalian/formedit', $data);
+    }
+
+    // untuk tampil data detail
+    public function tampilDataDetail()
+    {
+        if ($this->request->isAJAX()) {
+            $pgmnomor = $this->request->getPost('pgmnomor');
+
+            $modelDetailPengembalian = new ModelPengembalianDet();
+            $dataDetail = $modelDetailPengembalian->tampilDataDetail($pgmnomor);
+
+            $data = [
+                'tampildata' => $dataDetail
+            ];
+
+            $json = [
+                'data' => view('pengembalian/datadetail', $data)
+            ];
+
+            echo json_encode($json);
+        } else {
+            exit('Maaf, gagal menampilkan data');
+        }
+    }
+
+    // untuk menghapus detail
+    function hapusItemDetail()
+    {
+        if ($this->request->isAJAX()) {
+            $detpgmid = $this->request->getPost('detpgmid');
+            $ModelDetailPengembalian = new ModelPengembalianDet();
+
+            $ModelDetailPengembalian->delete($detpgmid);
+
+
+            $json = [
+                'sukses' => 'Item berhasil dihapus'
+            ];
+
+            echo json_encode($json);
+        }
+    }
+
+    // untuk mengedit item
+    function editItem()
+    {
+        if ($this->request->isAJAX()) {
+            $detpgmid           = $this->request->getPost('detpgmid');
+            $pgmnomor           = $this->request->getPost('pgmnomor');
+            $pgmbrgkode      = $this->request->getPost('pgmbrgkode');
+            $pgmjenis        = $this->request->getPost('pgmjenis');
+            $pgmketerangan   = $this->request->getPost('pgmketerangan');
+            $pgmjumlah       = $this->request->getPost('pgmjumlah');
+
+            $validation = \Config\Services::validation();
+
+            $valid = $this->validate([
+                'pgmbrgkode'    => [
+                    'label'     => 'Kode Barang',
+                    'rules'     => 'required',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'pgmjenis'    => [
+                    'label'     => 'Jenis Pemakaian',
+                    'rules'     => 'required',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'pgmketerangan'    => [
+                    'label'     => 'Keterangan',
+                    'rules'     => 'required',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ]
+            ]);
+
+            if (!$valid) {
+                $json = [
+                    'error' => [
+                        'errPgmBrgKode'     => $validation->getError('pgmbrgkode'),
+                        'errPgmJenis'       => $validation->getError('pgmjenis'),
+                        'errPgmKeterangan'  => $validation->getError('pgmketerangan'),
+                    ]
+                ];
+            } else {
+
+                $modelPengembalianDet = new ModelPengembalianDet();
+
+                $modelPengembalianDet->update($detpgmid, [
+                    'detpgmnomor'          => $pgmnomor,
+                    'detpgmbrgkode'        => $pgmbrgkode,
+                    'detpgmjumlah'         => $pgmjumlah,
+                    'detpgmjenis'          => $pgmjenis,
+                    'detpgmketerangan'     => $pgmketerangan
+                ]);
+
+                $json = [
+                    'sukses' => 'Item berhasil diupdate'
+                ];
+            }
+
+            echo json_encode($json);
+        }
+    }
+
+
+    // untuk simpan item detail
+    function simpanDetail()
+    {
+        if ($this->request->isAJAX()) {
+            $pgmnomor       = $this->request->getPost('pgmnomor');
+            $pgmbrgkode     = $this->request->getPost('pgmbrgkode');
+            $pgmjenis       = $this->request->getPost('pgmjenis');
+            $pgmketerangan  = $this->request->getPost('pgmketerangan');
+            $pgmjumlah      = $this->request->getPost('pgmjumlah');
+
+            $validation = \Config\Services::validation();
+
+            $valid = $this->validate([
+                'pgmbrgkode'    => [
+                    'label'     => 'Kode Barang',
+                    'rules'     => 'required',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'pgmjenis'    => [
+                    'label'     => 'Jenis Pemakaian',
+                    'rules'     => 'required',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'pgmketerangan'    => [
+                    'label'     => 'Keterangan',
+                    'rules'     => 'required',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ]
+            ]);
+
+            if (!$valid) {
+                $json = [
+                    'error' => [
+                        'errPgmBrgKode'     => $validation->getError('pgmbrgkode'),
+                        'errPgmJenis'       => $validation->getError('pgmjenis'),
+                        'errPgmKeterangan'  => $validation->getError('pgmketerangan'),
+                    ]
+                ];
+            } else {
+                $modelPengembalianDet = new ModelPengembalianDet();
+
+                $modelPengembalianDet->insert([
+                    'detpgmnomor'          => $pgmnomor,
+                    'detpgmbrgkode'        => $pgmbrgkode,
+                    'detpgmjumlah'         => $pgmjumlah,
+                    'detpgmjenis'          => $pgmjenis,
+                    'detpgmketerangan'     => $pgmketerangan
+                ]);
+
+                $json = [
+                    'sukses' => 'Item berhasil ditambahkan'
+                ];
+            }
+
+            echo json_encode($json);
+        }
+    }
+
+    // menyelesaikan form input pengembalian
+    function selesaiPengembalianEdit()
+    {
+        if ($this->request->isAJAX()) {
+            $pgmnomor   = $this->request->getPost('pgmnomor');
+
+            $modelDet  = new ModelPengembalianDet();
+
+            $dataDet   = $modelDet->tampilDataDet($pgmnomor);
+
+            if ($dataDet->getNumRows() > 0) {
+                $json   = [
+                    'sukses'  => 'Pengembalian berhasil disimpan'
+                ];
+            } else {
+                $json = [
+                    'error'  => 'Maaf, item belum ada'
+                ];
+            }
+
+            echo json_encode($json);
+        }
+    }
+
+    // menampilkan data pengembalian
+    public function datapengembalian()
+    {
+
+        $data = [
+            'judul'         => 'Home',
+            'subjudul'      => 'Pengembalian',
+            'menu'          => 'pengembalian',
+            'submenu'       => 'datapengembalian',
+        ];
+        return view('pengembalian/datapengembalian', $data);
+    }
+
+    // untuk menampilkan data pengembalian
+    public function listDataPengembalian()
+    {
+
+        $tglawal = $this->request->getPost('tglawal');
+        $tglakhir = $this->request->getPost('tglakhir');
+
+        $request = Services::request();
+        $datamodel = new ModelPengembalianDetPagination($request);
+        if ($request->getMethod(true) == 'POST') {
+            $lists = $datamodel->get_datatables($tglawal, $tglakhir);
+            $data = [];
+            $no = $request->getPost("start");
+            foreach ($lists as $list) {
+                $no++;
+                $row = [];
+
+                $row[] = $no;
+                $row[] = $list->brgnama;
+                $row[] = $list->subkatnama;
+                $row[] = $list->pgmtanggal;
+                $row[] = $list->ktp_nama;
+                $row[] = $list->pgmuser;
+                $data[] = $row;
+            }
+            $output = [
+                "draw" => $request->getPost('draw'),
+                "recordsTotal" => $datamodel->count_all($tglawal, $tglakhir),
+                "recordsFiltered" => $datamodel->count_filtered($tglawal, $tglakhir),
+                "data" => $data
+            ];
+            echo json_encode($output);
         }
     }
 }

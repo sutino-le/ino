@@ -18,8 +18,8 @@ class ModelPengembalianTemp extends Model
 
 
 
-    public function tampilDataTemp($detpgmnomor)
+    public function tampilDataTemp($pgmnomor)
     {
-        return $this->table('temp_pengembalian')->join('barang', 'detpgmbrgkode=brgkode')->where('detpgmnomor', $detpgmnomor)->get();
+        return $this->table('temp_pengembalian')->join('barang', 'detpgmbrgkode=brgkode')->where('detpgmnomor', $pgmnomor)->get();
     }
 }

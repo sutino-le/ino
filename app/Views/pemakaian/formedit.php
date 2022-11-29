@@ -54,7 +54,7 @@ table#datadetail tbody tr:hover {
                         <div class="form-group">
                             <label for="">Tgl. Pakai</label>
                             <input type="date" name="pmktanggal" id="pmktanggal" class="form-control"
-                                value="<?= date("Y-m-d") ?>">
+                                value="<?= $pmktanggal ?>">
                         </div>
                     </div>
 
@@ -63,7 +63,7 @@ table#datadetail tbody tr:hover {
                             <label for="">Cari Pemakai</label>
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" placeholder="Nama Pemakai" name="pemakainama"
-                                    id="pemakainama" value="<?= $ktmnama ?>" readonly>
+                                    id="pemakainama" value="<?= $ktpnama ?>" readonly>
                                 <input type="hidden" name="pemakai" id="pemakai" value="<?= $pemakai ?>">
                                 <input type="hidden" name="pmkuser" id="pmkuser" value="<?= session()->namauser ?>">
                                 <div class="input-group-append">

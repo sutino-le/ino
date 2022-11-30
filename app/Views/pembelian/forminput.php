@@ -109,9 +109,9 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-2">
+                    <div class="col-lg-1">
                         <div class="form-group">
-                            <label for="">Harga Jual (Rp)</label>
+                            <label for="">Harga Jual</label>
                             <input type="text" class="form-control" name="hargajual" id="hargajual" readonly>
                         </div>
                     </div>
@@ -125,13 +125,21 @@
 
                     <div class="col-lg-2">
                         <div class="form-group">
-                            <label for="">Harga Beli (Rp)</label>
+                            <label for="">Harga Beli</label>
                             <input type="text" class="form-control" name="hargabeli" id="hargabeli" autocomplete="off">
                             <div class="invalid-feedback errorHargaBeli"></div>
                         </div>
                     </div>
 
-                    <div class=" col-lg-2">
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label for="">Keterangan</label>
+                            <input type="text" class="form-control" name="detketerangan" id="detketerangan">
+                            <div class="invalid-feedback errorKeterangan"></div>
+                        </div>
+                    </div>
+
+                    <div class=" col-lg-1">
                         <div class="form-group">
                             <label for="">#</label>
                             <div class="input-group">
@@ -203,6 +211,7 @@ function kosong() {
     $('#hargajual').val('');
     $('#hargabeli').val('');
     $('#jml').val('1');
+    $('#detketerangan').val('');
     $('#kodebarang').focus();
 }
 
@@ -213,6 +222,7 @@ function simpanItem() {
     let hargabeli = $('#hargabeli').val();
     let hargajual = $('#hargajual').val();
     let jml = $('#jml').val();
+    let detketerangan = $('#detketerangan').val();
 
 
     $.ajax({
@@ -224,7 +234,8 @@ function simpanItem() {
             namabarang: namabarang,
             hargabeli: hargabeli,
             hargajual: hargajual,
-            jml: jml
+            jml: jml,
+            detketerangan: detketerangan,
         },
         dataType: "json",
         success: function(response) {
@@ -246,6 +257,14 @@ function simpanItem() {
                 } else {
                     $('#hargabeli').removeClass('is-invalid');
                     $('#hargabeli').addClass('is-valid');
+                }
+
+                if (err.errKeterangan) {
+                    $('#detketerangan').addClass('is-invalid');
+                    $('.errorKeterangan').html(err.errKeterangan);
+                } else {
+                    $('#detketerangan').removeClass('is-invalid');
+                    $('#detketerangan').addClass('is-valid');
                 }
             }
 

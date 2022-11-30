@@ -9,7 +9,7 @@ class ModelTempPembelian extends Model
     protected $table            = 'temp_barangmasuk';
     protected $primaryKey       = 'iddetail';
     protected $allowedFields    = [
-        'detfaktur', 'detbrgkode', 'dethargamasuk', 'dethargajual', 'detjml', 'detsubtotal'
+        'detfaktur', 'detbrgkode', 'dethargamasuk', 'dethargajual', 'detjml', 'detsubtotal', 'detketerangan'
     ];
 
     public function tampilDataTemp($nofaktur)

@@ -9,7 +9,7 @@ class ModelDetailPembelian extends Model
     protected $table            = 'detail_barangmasuk';
     protected $primaryKey       = 'iddetail';
     protected $allowedFields    = [
-        'detfaktur', 'detbrgkode', 'dethargamasuk', 'dethargajual', 'detjml', 'detsubtotal'
+        'detfaktur', 'detbrgkode', 'dethargamasuk', 'dethargajual', 'detjml', 'detsubtotal', 'detketerangan'
     ];
 
     public function dataPembelian()

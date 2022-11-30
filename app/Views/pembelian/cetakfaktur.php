@@ -53,6 +53,7 @@
                             <th align="center">Satuan</th>
                             <th align="center">Harga</th>
                             <th align="center">Total Harga</th>
+                            <th align="center">Keterangan</th>
                         </tr>
                     </thead>
 
@@ -80,6 +81,7 @@
                         <td align="right">Rp.
                             <?= number_format(($row['detjml'] * $row['dethargamasuk']), 0, ",", ".") ?>
                         </td>
+                        <td><?= $row['detketerangan'] ?></td>
                     </tr>
                     <?php endforeach; ?>
 

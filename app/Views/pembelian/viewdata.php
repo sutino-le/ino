@@ -33,6 +33,16 @@
                 <label for="">Filter Data</label>
             </div>
             <div class="col">
+                <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"
+                    name="idsup" id="idsup">
+                    <option value="">Pilih Suplier</option>
+                    <option value="">------------</option>
+                    <?php foreach ($tampilsuplier as $rowsuplier) : ?>
+                    <option value="<?= $rowsuplier['supid'] ?>"><?= $rowsuplier['supnama'] ?></option>
+                    <?php endforeach ?>
+                </select>
+            </div>
+            <div class="col">
                 <input type="date" name="tglawal" id="tglawal" class="form-control">
             </div>
             <div class="col">
@@ -73,6 +83,7 @@ function listDataPembelian() {
             "url": "<?= base_url() ?>/pembelian/listData",
             "type": "POST",
             "data": {
+                idsup: $('#idsup').val(),
                 tglawal: $('#tglawal').val(),
                 tglakhir: $('#tglakhir').val(),
             }

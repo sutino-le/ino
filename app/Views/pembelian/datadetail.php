@@ -22,9 +22,9 @@
             <th>Kode Barang</th>
             <th>Nama Barang</th>
             <th>Harga Beli</th>
-            <th>Harga Jual</th>
             <th>Jumlah</th>
             <th>Sub.Total</th>
+            <th>Keterangan</th>
             <th>#</th>
         </tr>
     </thead>
@@ -33,80 +33,83 @@
         $no = 1;
         foreach ($tampildata->getResultArray() as $row) :
         ?>
-            <tr>
-                <td>
-                    <?= $no++; ?>
-                    <input type="hidden" value="<?= $row['iddetail'] ?>" id="id">
-                </td>
-                <td><?= $row['detbrgkode']; ?></td>
-                <td><?= $row['brgnama']; ?></td>
-                <td align="right"><?= number_format($row['dethargamasuk'], 0, ",", "."); ?></td>
-                <td align="right"><?= number_format($row['dethargajual'], 0, ",", "."); ?></td>
-                <td align="right"><?= number_format($row['detjml'], 0, ",", "."); ?></td>
-                <td align="right"><?= number_format($row['detsubtotal'], 0, ",", "."); ?></td>
-                <td>
-                    <button type="button" class="btn btn-sm btn-danger" onclick="hapusItem('<?= $row['iddetail'] ?>')"><i class="fa fa-trash-alt"></i></button>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                <?= $no++; ?>
+                <input type="hidden" value="<?= $row['iddetail'] ?>" id="id">
+            </td>
+            <td><?= $row['detbrgkode']; ?></td>
+            <td><?= $row['brgnama']; ?></td>
+            <td align="right"><?= number_format($row['dethargamasuk'], 0, ",", "."); ?></td>
+            <td align="right"><?= number_format($row['detjml'], 0, ",", "."); ?></td>
+            <td align="right"><?= number_format($row['detsubtotal'], 0, ",", "."); ?></td>
+            <td><?= $row['detketerangan']; ?></td>
+            <td>
+                <button type="button" class="btn btn-sm btn-danger" onclick="hapusItem('<?= $row['iddetail'] ?>')"><i
+                        class="fa fa-trash-alt"></i></button>
+            </td>
+        </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
 <script>
-    function hapusItem(iddetail) {
-        Swal.fire({
-            title: 'Hapus Item ?',
-            text: "Yakin ingin menghapus Item ini !",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Ya, hapus!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                    type: "post",
-                    url: "<?= base_url() ?>/pembelian/hapusItemDetail",
-                    data: {
-                        iddetail: iddetail
-                    },
-                    dataType: "json",
-                    success: function(response) {
-                        if (response.sukses) {
-                            swal.fire('Berhasil', response.sukses, 'success');
-                            tampilDataDetail();
-                            kosong();
-                        }
+function hapusItem(iddetail) {
+    Swal.fire({
+        title: 'Hapus Item ?',
+        text: "Yakin ingin menghapus Item ini !",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, hapus!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: "post",
+                url: "<?= base_url() ?>/pembelian/hapusItemDetail",
+                data: {
+                    iddetail: iddetail
+                },
+                dataType: "json",
+                success: function(response) {
+                    if (response.sukses) {
+                        swal.fire('Berhasil', response.sukses, 'success');
+                        tampilDataDetail();
+                        kosong();
                     }
-                });
-            }
-        })
-    }
+                }
+            });
+        }
+    })
+}
 
-    $('#datadetail tbody').on('click', 'tr', function() {
-        let row = $(this).closest('tr');
+$('#datadetail tbody').on('click', 'tr', function() {
+    let row = $(this).closest('tr');
 
-        let kodebarang = row.find('td:eq(1)').text();
-        let id = row.find('td input').val();
+    let kodebarang = row.find('td:eq(1)').text();
+    let id = row.find('td input').val();
+    let detketerangan = row.find('td:eq(6)').text();
 
-        $('#iddetail').val(id);
-        $('#kodebarang').val(kodebarang);
+    $('#iddetail').val(id);
+    $('#kodebarang').val(kodebarang);
+    $('#detketerangan').val(detketerangan);
 
-        $('#tombolBatal').fadeIn();
-        $('#tombolEditItem').fadeIn();
-        $('#kodebarang').prop('readonly', true);
-        $('#tombolCari').prop('disabled', true);
-        $('#tombolSimpanItem').fadeOut();
-        ambilDataBarang();
-    });
+    $('#tombolBatal').fadeIn();
+    $('#tombolEditItem').fadeIn();
+    $('#kodebarang').prop('readonly', true);
+    $('#tombolCari').prop('disabled', true);
+    $('#tombolSimpanItem').fadeOut();
+    ambilDataBarang();
+});
 
-    $(document).on('click', '#tombolBatal', function(e) {
-        e.preventDefault();
-        kosong();
-        tampilDataDetail();
-        $('#tombolBatal').fadeOut();
-        $('#tombolEditItem').fadeOut();
-        $('#kodebarang').prop('readonly', false);
-        $('#tombolCari').prop('disabled', false);
-        $('#tombolSimpanItem').fadeIn();
-    });
+$(document).on('click', '#tombolBatal', function(e) {
+    e.preventDefault();
+    kosong();
+    tampilDataDetail();
+    $('#tombolBatal').fadeOut();
+    $('#tombolEditItem').fadeOut();
+    $('#kodebarang').prop('readonly', false);
+    $('#tombolCari').prop('disabled', false);
+    $('#tombolSimpanItem').fadeIn();
+});
 </script>

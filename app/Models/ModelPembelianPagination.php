@@ -8,8 +8,8 @@ use CodeIgniter\Model;
 class ModelPembelianPagination extends Model
 {
     protected $table = "barangmasuk";
-    protected $column_order = array(null, 'faktur', 'tglfaktur', 'supnama', 'totalharga', null);
-    protected $column_search = array('faktur', 'tglfaktur', 'supnama');
+    protected $column_order = array(null, 'faktur', 'tglfaktur', 'idsup', null);
+    protected $column_search = array('faktur', 'tglfaktur', 'idsup');
     protected $order = array('faktur' => 'ASC');
     protected $request;
     protected $db;
@@ -21,12 +21,12 @@ class ModelPembelianPagination extends Model
         $this->db = db_connect();
         $this->request = $request;
     }
-    private function _get_datatables_query($tglawal, $tglakhir)
+    private function _get_datatables_query($idsup, $tglawal, $tglakhir)
     {
         if ($tglawal == '' && $tglakhir == '') {
             $this->dt = $this->db->table($this->table)->join('suplier', 'idsup=supid', 'left');
         } else {
-            $this->dt = $this->db->table($this->table)->join('suplier', 'idsup=supid', 'left')->where('tglfaktur >=', $tglawal)->where('tglfaktur <=', $tglakhir);
+            $this->dt = $this->db->table($this->table)->join('suplier', 'idsup=supid', 'left')->like('idsup', $idsup)->where('tglfaktur >=', $tglawal)->where('tglfaktur <=', $tglakhir);
         }
         $i = 0;
         foreach ($this->column_search as $item) {
@@ -50,25 +50,25 @@ class ModelPembelianPagination extends Model
             $this->dt->orderBy(key($order), $order[key($order)]);
         }
     }
-    function get_datatables($tglawal, $tglakhir)
+    function get_datatables($idsup, $tglawal, $tglakhir)
     {
-        $this->_get_datatables_query($tglawal, $tglakhir);
+        $this->_get_datatables_query($idsup, $tglawal, $tglakhir);
         if ($this->request->getPost('length') != -1)
             $this->dt->limit($this->request->getPost('length'), $this->request->getPost('start'));
         $query = $this->dt->get();
         return $query->getResult();
     }
-    function count_filtered($tglawal, $tglakhir)
+    function count_filtered($idsup, $tglawal, $tglakhir)
     {
-        $this->_get_datatables_query($tglawal, $tglakhir);
+        $this->_get_datatables_query($idsup, $tglawal, $tglakhir);
         return $this->dt->countAllResults();
     }
-    public function count_all($tglawal, $tglakhir)
+    public function count_all($idsup, $tglawal, $tglakhir)
     {
         if ($tglawal == '' && $tglakhir == '') {
             $tbl_storage = $this->db->table($this->table)->join('suplier', 'idsup=supid', 'left');
         } else {
-            $tbl_storage = $this->db->table($this->table)->join('suplier', 'idsup=supid', 'left')->where('tglfaktur >=', $tglawal)->where('tglfaktur <=', $tglakhir);
+            $tbl_storage = $this->db->table($this->table)->join('suplier', 'idsup=supid', 'left')->like('idsup', $idsup)->where('tglfaktur >=', $tglawal)->where('tglfaktur <=', $tglakhir);
         }
 
         return $tbl_storage->countAllResults();

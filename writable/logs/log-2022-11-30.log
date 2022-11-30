@@ -1,0 +1,63 @@
+CRITICAL - 2022-11-30 08:59:49 --> A non-numeric value encountered
+#0 C:\xampp\htdocs\ino\app\Controllers\Pembelian.php(609): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric v...', 'C:\\xampp\\htdocs...', 609)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pembelian->editItem()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pembelian))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2022-11-30 16:52:48 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IS NULL
+AND `tglfaktur` <= '2022-11-30'
+ORDER BY `faktur` ASC
+ LIMIT 10' at line 4
+CRITICAL - 2022-11-30 16:52:48 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IS NULL
+AND `tglfaktur` <= '2022-11-30'
+ORDER BY `faktur` ASC
+ LIMIT 10' at line 4
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPembelianPagination.php(58): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ino\app\Controllers\Pembelian.php(48): App\Models\ModelPembelianPagination->get_datatables(NULL, '2022-11-30', '2022-11-30')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pembelian->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pembelian))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2022-11-30 16:52:52 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IS NULL
+AND `tglfaktur` <= '2022-11-30'
+ORDER BY `faktur` ASC
+ LIMIT 10' at line 4
+CRITICAL - 2022-11-30 16:52:52 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IS NULL
+AND `tglfaktur` <= '2022-11-30'
+ORDER BY `faktur` ASC
+ LIMIT 10' at line 4
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPembelianPagination.php(58): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ino\app\Controllers\Pembelian.php(48): App\Models\ModelPembelianPagination->get_datatables(NULL, '2022-11-30', '2022-11-30')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pembelian->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pembelian))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-11-30 17:21:22 --> CodeIgniter\Database\BaseBuilder::like(): Argument #2 ($match) must be of type string, null given, called in C:\xampp\htdocs\ino\app\Models\ModelPembelianPagination.php on line 29
+#0 C:\xampp\htdocs\ino\app\Models\ModelPembelianPagination.php(29): CodeIgniter\Database\BaseBuilder->like('idsup', NULL)
+#1 C:\xampp\htdocs\ino\app\Models\ModelPembelianPagination.php(55): App\Models\ModelPembelianPagination->_get_datatables_query(NULL, '2022-11-01', '2022-11-30')
+#2 C:\xampp\htdocs\ino\app\Controllers\Pembelian.php(51): App\Models\ModelPembelianPagination->get_datatables(NULL, '2022-11-01', '2022-11-30')
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pembelian->listData()
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pembelian))
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-11-30 17:22:11 --> CodeIgniter\Database\BaseBuilder::like(): Argument #2 ($match) must be of type string, null given, called in C:\xampp\htdocs\ino\app\Models\ModelPembelianPagination.php on line 29
+#0 C:\xampp\htdocs\ino\app\Models\ModelPembelianPagination.php(29): CodeIgniter\Database\BaseBuilder->like('idsup', NULL)
+#1 C:\xampp\htdocs\ino\app\Models\ModelPembelianPagination.php(55): App\Models\ModelPembelianPagination->_get_datatables_query(NULL, '2022-11-30', '2022-11-30')
+#2 C:\xampp\htdocs\ino\app\Controllers\Pembelian.php(51): App\Models\ModelPembelianPagination->get_datatables(NULL, '2022-11-30', '2022-11-30')
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pembelian->listData()
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pembelian))
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}

@@ -26,11 +26,14 @@ class Pembelian extends BaseController
 
     public function index()
     {
+        $modelSuplier  = new ModelSuplier();
+
         $data = [
             'judul'         => 'Home',
             'subjudul'      => 'Pembelian',
             'menu'          => 'pembelian',
             'submenu'       => 'pembelian',
+            'tampilsuplier' => $modelSuplier->findAll(),
         ];
         return view('pembelian/viewdata', $data);
     }
@@ -38,14 +41,14 @@ class Pembelian extends BaseController
     public function listData()
     {
 
-        $brgkode = $this->request->getPost('brgkode');
+        $idsup = $this->request->getPost('idsup');
         $tglawal = $this->request->getPost('tglawal');
         $tglakhir = $this->request->getPost('tglakhir');
 
         $request = Services::request();
         $datamodel = new ModelPembelianPagination($request);
         if ($request->getMethod(true) == 'POST') {
-            $lists = $datamodel->get_datatables($brgkode, $tglawal, $tglakhir);
+            $lists = $datamodel->get_datatables($idsup, $tglawal, $tglakhir);
             $data = [];
             $no = $request->getPost("start");
             foreach ($lists as $list) {
@@ -66,8 +69,8 @@ class Pembelian extends BaseController
             }
             $output = [
                 "draw" => $request->getPost('draw'),
-                "recordsTotal" => $datamodel->count_all($brgkode, $tglawal, $tglakhir),
-                "recordsFiltered" => $datamodel->count_filtered($brgkode, $tglawal, $tglakhir),
+                "recordsTotal" => $datamodel->count_all($idsup, $tglawal, $tglakhir),
+                "recordsFiltered" => $datamodel->count_filtered($idsup, $tglawal, $tglakhir),
                 "data" => $data
             ];
             echo json_encode($output);
@@ -196,6 +199,7 @@ class Pembelian extends BaseController
             $hargabeli = $this->request->getPost('hargabeli');
             $hargajual = $this->request->getPost('hargajual');
             $jml = $this->request->getPost('jml');
+            $detketerangan = $this->request->getPost('detketerangan');
 
             $validation = \Config\Services::validation();
 
@@ -208,7 +212,14 @@ class Pembelian extends BaseController
                     ]
                 ],
                 'hargabeli'    => [
-                    'label'     => 'Harga Beli',
+                    'label'    => 'Harga Beli',
+                    'rules'    => 'required',
+                    'errors'   => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'detketerangan'    => [
+                    'label'     => 'Keterangan',
                     'rules'     => 'required',
                     'errors'    => [
                         'required'  => '{field} tidak boleh kosong'
@@ -219,8 +230,9 @@ class Pembelian extends BaseController
             if (!$valid) {
                 $json = [
                     'error' => [
-                        'errKodeBarang'      => $validation->getError('kodebarang'),
-                        'errHargaBeli'      => $validation->getError('hargabeli'),
+                        'errKodeBarang'         => $validation->getError('kodebarang'),
+                        'errHargaBeli'          => $validation->getError('hargabeli'),
+                        'errKeterangan'         => $validation->getError('detketerangan'),
                     ]
                 ];
             } else {
@@ -229,12 +241,13 @@ class Pembelian extends BaseController
                 $modalTempPembelian = new ModelTempPembelian();
 
                 $modalTempPembelian->insert([
-                    'detfaktur'     => $nofaktur,
-                    'detbrgkode'    => $kodebarang,
-                    'dethargamasuk' => $hargabeli,
-                    'dethargajual'  => $hargajual,
-                    'detjml'        => $jml,
-                    'detsubtotal'   => intval($jml) * intval($hargabeli)
+                    'detfaktur'         => $nofaktur,
+                    'detbrgkode'        => $kodebarang,
+                    'dethargamasuk'     => $hargabeli,
+                    'dethargajual'      => $hargajual,
+                    'detjml'            => $jml,
+                    'detsubtotal'       => intval($jml) * intval($hargabeli),
+                    'detketerangan'     => $detketerangan,
                 ]);
 
                 $json = [
@@ -372,12 +385,13 @@ class Pembelian extends BaseController
             $fieldDetail = [];
             foreach ($dataTemp->getResultArray() as $row) {
                 $fieldDetail[] = [
-                    'detfaktur'     => $row['detfaktur'],
-                    'detbrgkode'    => $row['detbrgkode'],
-                    'dethargamasuk' => $row['dethargamasuk'],
-                    'dethargajual'  => $row['dethargajual'],
-                    'detjml'        => $row['detjml'],
-                    'detsubtotal'   => $row['detsubtotal']
+                    'detfaktur'         => $row['detfaktur'],
+                    'detbrgkode'        => $row['detbrgkode'],
+                    'dethargamasuk'     => $row['dethargamasuk'],
+                    'dethargajual'      => $row['dethargajual'],
+                    'detjml'            => $row['detjml'],
+                    'detsubtotal'       => $row['detsubtotal'],
+                    'detketerangan'     => $row['detketerangan']
                 ];
             }
 
@@ -547,6 +561,7 @@ class Pembelian extends BaseController
             $iddetail = $this->request->getPost('iddetail');
             $jml = $this->request->getPost('jml');
             $hargabeli = $this->request->getPost('hargabeli');
+            $detketerangan = $this->request->getPost('detketerangan');
 
             $validation = \Config\Services::validation();
 
@@ -564,6 +579,13 @@ class Pembelian extends BaseController
                     'errors'    => [
                         'required'  => '{field} tidak boleh kosong'
                     ]
+                ],
+                'detketerangan'    => [
+                    'label'     => 'Keterangan',
+                    'rules'     => 'required',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
                 ]
             ]);
 
@@ -571,7 +593,8 @@ class Pembelian extends BaseController
                 $json = [
                     'error' => [
                         'errIdDetail'      => $validation->getError('iddetail'),
-                        'errHargaBeli'      => $validation->getError('hargabeli'),
+                        'errHargaBeli'     => $validation->getError('hargabeli'),
+                        'errKeterangan'    => $validation->getError('detketerangan'),
                     ]
                 ];
             } else {
@@ -585,8 +608,9 @@ class Pembelian extends BaseController
                 //lakukan update pada detail
                 $modelDetail->update($iddetail, [
                     'dethargamasuk' => $hargabeli,
-                    'detjml' => $jml,
-                    'detsubtotal' => $hargabeli * $jml
+                    'detjml'        => $jml,
+                    'detsubtotal'   => $hargabeli * $jml,
+                    'detketerangan' => $detketerangan,
                 ]);
 
                 //ambil total harga
@@ -608,12 +632,13 @@ class Pembelian extends BaseController
     function simpanDetail()
     {
         if ($this->request->isAJAX()) {
-            $nofaktur = $this->request->getPost('nofaktur');
-            $kodebarang = $this->request->getPost('kodebarang');
-            $namabarang = $this->request->getPost('namabarang');
-            $hargabeli = $this->request->getPost('hargabeli');
-            $hargajual = $this->request->getPost('hargajual');
-            $jml = $this->request->getPost('jml');
+            $nofaktur       = $this->request->getPost('nofaktur');
+            $kodebarang     = $this->request->getPost('kodebarang');
+            $namabarang     = $this->request->getPost('namabarang');
+            $hargabeli      = $this->request->getPost('hargabeli');
+            $hargajual      = $this->request->getPost('hargajual');
+            $jml            = $this->request->getPost('jml');
+            $detketerangan  = $this->request->getPost('detketerangan');
 
             $validation = \Config\Services::validation();
 
@@ -631,6 +656,13 @@ class Pembelian extends BaseController
                     'errors'    => [
                         'required'  => '{field} tidak boleh kosong'
                     ]
+                ],
+                'detketerangan'    => [
+                    'label'     => 'Keterangan',
+                    'rules'     => 'required',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
                 ]
             ]);
 
@@ -639,6 +671,7 @@ class Pembelian extends BaseController
                     'error' => [
                         'errKodeBarang'      => $validation->getError('kodebarang'),
                         'errHargaBeli'      => $validation->getError('hargabeli'),
+                        'errKeterangan'      => $validation->getError('detketerangan'),
                     ]
                 ];
             } else {
@@ -647,12 +680,13 @@ class Pembelian extends BaseController
                 $modalDetailPembelian = new ModelDetailPembelian();
 
                 $modalDetailPembelian->insert([
-                    'detfaktur'     => $nofaktur,
-                    'detbrgkode'    => $kodebarang,
-                    'dethargamasuk' => $hargabeli,
-                    'dethargajual'  => $hargajual,
-                    'detjml'        => $jml,
-                    'detsubtotal'   => $jml * $hargabeli
+                    'detfaktur'         => $nofaktur,
+                    'detbrgkode'        => $kodebarang,
+                    'dethargamasuk'     => $hargabeli,
+                    'dethargajual'      => $hargajual,
+                    'detjml'            => $jml,
+                    'detsubtotal'       => $jml * $hargabeli,
+                    'detketerangan'     => $detketerangan,
                 ]);
 
                 //ambil total harga

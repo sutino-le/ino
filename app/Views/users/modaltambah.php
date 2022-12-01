@@ -1,5 +1,6 @@
 <!-- Modal -->
-<div class="modal fade" id="modalTambah" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="modalTambah" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
 
@@ -16,31 +17,36 @@
 
                     <div class="form-group">
                         <label for="">User ID</label>
-                        <input type="text" name="userid" id="userid" class="form-control" placeholder="Masukan User ID...">
+                        <input type="text" name="userid" id="userid" class="form-control"
+                            placeholder="Masukan User ID...">
                         <div class="invalid-feedback errorUserID"></div>
                     </div>
 
                     <div class="form-group">
                         <label for="">User KTP</label>
-                        <input type="text" name="userktp" id="userktp" class="form-control" placeholder="Masukan Nomor KTP...">
+                        <input type="text" name="userktp" id="userktp" class="form-control"
+                            placeholder="Masukan Nomor KTP...">
                         <div class="invalid-feedback errorUserKtp"></div>
                     </div>
 
                     <div class="form-group">
                         <label for="">User Nama</label>
-                        <input type="text" name="usernama" id="usernama" class="form-control" placeholder="Masukan User Nama...">
+                        <input type="text" name="usernama" id="usernama" class="form-control"
+                            placeholder="Masukan User Nama...">
                         <div class="invalid-feedback errorUserNama"></div>
                     </div>
 
                     <div class="form-group">
                         <label for="">User Email</label>
-                        <input type="email" name="useremail" id="useremail" class="form-control" placeholder="Masukan User Email...">
+                        <input type="email" name="useremail" id="useremail" class="form-control"
+                            placeholder="Masukan User Email...">
                         <div class="invalid-feedback errorUserEmail"></div>
                     </div>
 
                     <div class="form-group">
                         <label for="">User Password</label>
-                        <input type="password" name="userpassword" id="userpassword" class="form-control" placeholder="Masukan User Password...">
+                        <input type="password" name="userpassword" id="userpassword" class="form-control"
+                            placeholder="Masukan User Password...">
                         <div class="invalid-feedback errorUserPassword"></div>
                     </div>
 
@@ -50,7 +56,7 @@
                             <option value="">Pilih Level</option>
                             <option value=""></option>
                             <?php foreach ($datalevel as $rowlevel) : ?>
-                                <option value="<?= $rowlevel['levelid'] ?>"><?= $rowlevel['levelnama'] ?></option>
+                            <option value="<?= $rowlevel['levelid'] ?>"><?= $rowlevel['levelnama'] ?></option>
                             <?php endforeach; ?>
                         </select>
                         <div class="invalid-feedback errorUserLevelId"></div>
@@ -59,7 +65,8 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-sm btn-success" id="tombolsimpan" autocomplete="off">Simpan</button>
+                    <button type="submit" class="btn btn-sm btn-success" id="tombolsimpan"
+                        autocomplete="off">Simpan</button>
                     <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" id="batal">Batal</button>
                 </div>
 
@@ -71,91 +78,109 @@
 </div>
 
 <script>
-    function kosong() {
-        $('#userid').val('');
-        $('#usernktp').val('');
-        $('#usernama').val('');
-        $('#useremail').val('');
-        $('#userpassword').val('');
-        $('#userlevelid').val('');
-    }
+function kosong() {
+    $('#userid').val('');
+    $('#userktp').val('');
+    $('#usernama').val('');
+    $('#useremail').val('');
+    $('#userpassword').val('');
+    $('#userlevelid').val('');
+}
 
-    $(document).ready(function() {
-        $('.formsimpan').submit(function(e) {
-            e.preventDefault();
+$(document).ready(function() {
+    $('.formsimpan').submit(function(e) {
+        e.preventDefault();
 
-            $.ajax({
-                type: "post",
-                url: $(this).attr('action'),
-                data: $(this).serialize(),
-                dataType: "json",
-                success: function(response) {
-                    if (response.error) {
-                        let err = response.error;
+        $.ajax({
+            type: "post",
+            url: $(this).attr('action'),
+            data: $(this).serialize(),
+            dataType: "json",
+            success: function(response) {
+                if (response.error) {
+                    let err = response.error;
 
-                        if (err.errUserID) {
-                            $('#userid').addClass('is-invalid');
-                            $('.errorUserID').html(err.errUserID);
-                        }
-
-                        if (err.errUserKtp) {
-                            $('#usernktp').addClass('is-invalid');
-                            $('.errorUserKtp').html(err.errUserKtp);
-                        }
-
-                        if (err.errUserNama) {
-                            $('#usernama').addClass('is-invalid');
-                            $('.errorUserNama').html(err.errUserNama);
-                        }
-
-                        if (err.errUserEmail) {
-                            $('#useremail').addClass('is-invalid');
-                            $('.errorUserEmail').html(err.errUserEmail);
-                        }
-
-                        if (err.errUserPassword) {
-                            $('#userpassword').addClass('is-invalid');
-                            $('.errorUserPassword').html(err.errUserPassword);
-                        }
-
-                        if (err.errUserLevelId) {
-                            $('#userlevelid').addClass('is-invalid');
-                            $('.errorUserLevelId').html(err.errUserLevelId);
-                        }
+                    if (err.errUserID) {
+                        $('#userid').addClass('is-invalid');
+                        $('.errorUserID').html(err.errUserID);
+                    } else {
+                        $('#userid').removeClass('is-invalid');
+                        $('#userid').addClass('is-valid');
                     }
 
-                    if (response.sukses) {
-                        Swal.fire({
-                            title: 'Berhasil',
-                            text: response.sukses +
-                                ", Apakah ingin menambah Users ?",
-                            icon: 'success',
-                            showCancelButton: true,
-                            confirmButtonColor: '#3085d6',
-                            cancelButtonColor: '#d33',
-                            confirmButtonText: 'Ya!'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                $('#modalTambah').modal('show');
-                                kosong();
-                            } else {
-                                window.location.reload();
-                            }
-                        })
+                    if (err.errUserKtp) {
+                        $('#userktp').addClass('is-invalid');
+                        $('.errorUserKtp').html(err.errUserKtp);
+                    } else {
+                        $('#userktp').removeClass('is-invalid');
+                        $('#userktp').addClass('is-valid');
                     }
-                },
-                error: function(xhr, ajaxOptions, thrownError) {
-                    alert(xhr.status + '\n' + thrownError);
+
+                    if (err.errUserNama) {
+                        $('#usernama').addClass('is-invalid');
+                        $('.errorUserNama').html(err.errUserNama);
+                    } else {
+                        $('#usernama').removeClass('is-invalid');
+                        $('#usernama').addClass('is-valid');
+                    }
+
+                    if (err.errUserEmail) {
+                        $('#useremail').addClass('is-invalid');
+                        $('.errorUserEmail').html(err.errUserEmail);
+                    } else {
+                        $('#useremail').removeClass('is-invalid');
+                        $('#useremail').addClass('is-valid');
+                    }
+
+                    if (err.errUserPassword) {
+                        $('#userpassword').addClass('is-invalid');
+                        $('.errorUserPassword').html(err.errUserPassword);
+                    } else {
+                        $('#userpassword').removeClass('is-invalid');
+                        $('#userpassword').addClass('is-valid');
+                    }
+
+                    if (err.errUserLevelId) {
+                        $('#userlevelid').addClass('is-invalid');
+                        $('.errorUserLevelId').html(err.errUserLevelId);
+                    } else {
+                        $('#userlevelid').removeClass('is-invalid');
+                        $('#userlevelid').addClass('is-valid');
+                    }
                 }
-            });
 
-            return false;
+                if (response.sukses) {
+                    Swal.fire({
+                        title: 'Berhasil',
+                        text: response.sukses +
+                            ", Apakah ingin menambah Users ?",
+                        icon: 'success',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Ya!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $('#modalTambah').modal('show');
+                            kosong();
+                        } else {
+                            window.location.reload();
+                        }
+                    })
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + '\n' + thrownError);
+            }
         });
 
-        $('#batal').click(function(e) {
-            e.preventDefault();
-            window.location.reload();
-        });
-
+        return false;
     });
+
+    $('#batal').click(function(e) {
+        e.preventDefault();
+        window.location.reload();
+    });
+
+});
 </script>

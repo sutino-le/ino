@@ -16,4 +16,14 @@ class ModelUsers extends Model
     {
         return $this->table('users')->like('userlevelid', $idlevel);
     }
+
+    public function cariKtp($userktp)
+    {
+        return $this->table('users')->Where('userktp', $userktp)->get();
+    }
+
+    public function cariEmail($useremail)
+    {
+        return $this->table('users')->Where('useremail', $useremail)->get();
+    }
 }

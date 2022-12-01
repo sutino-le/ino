@@ -30,14 +30,14 @@ class Login extends BaseController
                 'label'     => 'ID User',
                 'rules'     => 'required',
                 'errors'    => [
-                    'required'  => '{field} tidak boleh kosong'
+                    'required'  => 'User/Password tidak boleh kosong'
                 ]
             ],
             'pass'    => [
                 'label'     => 'Password',
                 'rules'     => 'required',
                 'errors'    => [
-                    'required'  => '{field} tidak boleh kosong'
+                    'required'  => 'User/Password tidak boleh kosong'
                 ]
             ]
         ]);
@@ -45,7 +45,7 @@ class Login extends BaseController
         if (!$valid) {
             $sessError = [
                 'errIdUser'     => $validation->getError('iduser'),
-                'errPassword'   => $validation->getError('pass')
+                'errIdUser'   => $validation->getError('pass')
             ];
 
             session()->setFlashdata($sessError);
@@ -56,7 +56,7 @@ class Login extends BaseController
             $cekUserLogin = $modelLogin->find($iduser);
             if ($cekUserLogin == null) {
                 $sessError = [
-                    'errIdUser'     => 'Maaf user tidak terdaftar',
+                    'errIdUser'     => 'Maaf user/password salah',
                 ];
 
                 session()->setFlashdata($sessError);
@@ -74,20 +74,31 @@ class Login extends BaseController
                     $modelFotoKtp = new ModelBiodataKtp();
                     $cekKtpFoto = $modelFotoKtp->find($cekUserLogin['userktp']);
 
-                    $simpan_session = [
-                        'iduser'    => $iduser,
-                        'namauser'  => $cekUserLogin['usernama'],
-                        'levelnama'  => $cekLevel['levelnama'],
-                        'idlevel'   => $idlevel,
-                        'ktp_foto'  => $cekKtpFoto['ktp_foto'],
-                        'userktp'  => $cekUserLogin['userktp']
-                    ];
+                    if ($cekKtpFoto > 0) {
+                        $simpan_session = [
+                            'iduser'    => $iduser,
+                            'namauser'  => $cekUserLogin['usernama'],
+                            'levelnama'  => $cekLevel['levelnama'],
+                            'idlevel'   => $idlevel,
+                            'ktp_foto'  => $cekKtpFoto['ktp_foto'],
+                            'userktp'  => $cekUserLogin['userktp']
+                        ];
+                    } else {
+                        $simpan_session = [
+                            'iduser'    => $iduser,
+                            'namauser'  => $cekUserLogin['usernama'],
+                            'levelnama'  => $cekLevel['levelnama'],
+                            'idlevel'   => $idlevel,
+                            'ktp_foto'  => 'user.png',
+                            'userktp'  => $cekUserLogin['userktp']
+                        ];
+                    }
                     session()->set($simpan_session);
 
                     return redirect()->to('/main/index')->withInput()->with('validation', $validation);
                 } else {
                     $sessError = [
-                        'errPassword'     => 'Maaf password anda salah !!',
+                        'errIdUser'     => 'Maaf user/password salah',
                     ];
 
                     session()->setFlashdata($sessError);
@@ -113,11 +124,10 @@ class Login extends BaseController
     {
         if ($this->request->isAJAX()) {
             $userid      = $this->request->getPost('userid');
-            $userktp      = $this->request->getPost('userktp');
             $usernama      = $this->request->getPost('usernama');
+            $userktp      = $this->request->getPost('userktp');
             $useremail      = $this->request->getPost('useremail');
             $userpassword      = $this->request->getPost('userpassword');
-            $userlevelid      = $this->request->getPost('userlevelid');
 
             $validation = \Config\Services::validation();
             $valid = $this->validate([
@@ -169,38 +179,77 @@ class Login extends BaseController
                     ]
                 ];
             } else {
-                $modelLevel = new Modelusers();
+                $modelUser = new Modelusers();
 
-                $modelLevel->insert([
-                    'userid'            => $userid,
-                    'usernama'          => $usernama,
-                    'userktp'           => $userktp,
-                    'useremail'         => $useremail,
-                    'userpassword'      => password_hash($userpassword, PASSWORD_BCRYPT),
-                    'userlevelid'       => $userlevelid
-                ]);
+                // Cek userid
+                $cekUser = $modelUser->find($userid);
 
-                $modelBiodata = new ModelBiodataKtp();
 
-                if ($modelLevel) {
-                    $modelBiodata->insert([
-                        'ktp_nomor'         => $userktp,
-                        'ktp_nama'          => $usernama,
-                        'ktp_tempat_lahir'  => '',
-                        'ktp_tanggal_lahir' => '',
-                        'ktp_kelamin'       => '',
-                        'ktp_alamat'        => '',
-                        'ktp_rt'            => '',
-                        'ktp_rw'            => '',
-                        'ktp_alamatid'      => '',
-                        'ktp_hp'            => '',
-                        'ktp_email'         => $useremail,
-                        'ktp_foto'          => ''
-                    ]);
-
+                if ($cekUser > 0) {
                     $json = [
-                        'sukses'        => 'Data berhasil disimpan'
+                        'error' => [
+                            'errUserID'         => 'ID User suda ada...',
+                        ]
                     ];
+                } else {
+
+                    $modelUser = new Modelusers();
+
+                    $cekKtp = $modelUser->cariKtp($userktp)->getRowArray();
+                    $cekEmail = $modelUser->cariEmail($useremail)->getRowArray();
+
+                    if ($cekKtp > 0) {
+                        $json = [
+                            'error' => [
+                                'errUserKtp'       => 'Nomor KTP sudah ada...',
+                            ]
+                        ];
+                    } else {
+
+                        $modelUser = new Modelusers();
+                        $cekEmail = $modelUser->cariEmail($useremail)->getRowArray();
+
+
+                        if ($cekEmail > 0) {
+                            $json = [
+                                'error' => [
+                                    'errUserEmail'      => 'Email sudah ada...',
+                                ]
+                            ];
+                        } else {
+                            $modelUser->insert([
+                                'userid'            => $userid,
+                                'usernama'          => $usernama,
+                                'userktp'           => $userktp,
+                                'useremail'         => $useremail,
+                                'userpassword'      => password_hash($userpassword, PASSWORD_BCRYPT),
+                                'userlevelid'       => '2'
+                            ]);
+
+                            $modelBiodata = new ModelBiodataKtp();
+
+                            if ($modelUser) {
+                                $modelBiodata->insert([
+                                    'ktp_nomor'         => $userktp,
+                                    'ktp_nama'          => $usernama,
+                                    'ktp_tempat_lahir'  => '',
+                                    'ktp_tanggal_lahir' => '',
+                                    'ktp_kelamin'       => '',
+                                    'ktp_alamat'        => '',
+                                    'ktp_rt'            => '',
+                                    'ktp_rw'            => '',
+                                    'ktp_alamatid'      => 82521,
+                                    'ktp_hp'            => '',
+                                    'ktp_email'         => $useremail,
+                                    'ktp_foto'          => 'user.png'
+                                ]);
+
+                                $json = [
+                                    'sukses'        => 'Anda telah berhasil mendaftar...'
+                                ];
+                            }
+                        }
+                    }
                 }
             }
 

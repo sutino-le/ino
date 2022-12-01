@@ -72,8 +72,10 @@ table#datadetail tbody tr:hover {
                                     id="kodebarang">
                                 <input type="hidden" id="iddetail">
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-primary" type="button" id="tombolCariBarang"><i
-                                            class="fas fa-search"></i></button>
+                                    <button class="btn btn-outline-primary" type="button" id="tombolCariBarang"
+                                        title="Cari Barang"><i class="fas fa-search"></i></button>
+                                    <button class="btn btn-outline-success" type="button" id="tambahBarang"
+                                        title="Tambah Barang"><i class="fas fa-plus-square"></i></button>
                                 </div>
                                 <div class="invalid-feedback errorIdDetail"></div>
                             </div>
@@ -161,6 +163,28 @@ table#datadetail tbody tr:hover {
 <div class="viewmodal" style="display: none;"></div>
 
 <script>
+$(document).ready(function() {
+
+    $('#tambahBarang').click(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: "post",
+            url: "<?= base_url() ?>/barang/formtambah",
+            dataType: "json",
+            success: function(response) {
+                if (response.data) {
+                    $('.viewmodal').html(response.data).show();
+                    $('#modalTambah').modal('show');
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + '\n' + thrownError);
+            }
+        });
+    });
+
+});
+
 function kosong() {
     $('#kodebarang').val('');
     $('#namabarang').val('');

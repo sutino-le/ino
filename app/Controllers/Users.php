@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\ModelBiodataKtp;
 use App\Models\ModelLevels;
 use App\Models\ModelUsers;
 use App\Models\ModelUsersPagination;
@@ -146,20 +147,78 @@ class Users extends BaseController
                     ]
                 ];
             } else {
-                $modelLevel = new Modelusers();
+                $modelUser = new Modelusers();
 
-                $modelLevel->insert([
-                    'userid'            => $userid,
-                    'usernama'          => $usernama,
-                    'userktp'           => $userktp,
-                    'useremail'         => $useremail,
-                    'userpassword'      => password_hash($userpassword, PASSWORD_BCRYPT),
-                    'userlevelid'       => $userlevelid
-                ]);
+                // Cek userid
+                $cekUser = $modelUser->find($userid);
 
-                $json = [
-                    'sukses'        => 'Data berhasil disimpan'
-                ];
+
+                if ($cekUser > 0) {
+                    $json = [
+                        'error' => [
+                            'errUserID'         => 'ID User suda ada...',
+                        ]
+                    ];
+                } else {
+
+                    $modelUser = new Modelusers();
+
+                    $cekKtp = $modelUser->cariKtp($userktp)->getRowArray();
+                    $cekEmail = $modelUser->cariEmail($useremail)->getRowArray();
+
+                    if ($cekKtp > 0) {
+                        $json = [
+                            'error' => [
+                                'errUserKtp'       => 'Nomor KTP sudah ada...',
+                            ]
+                        ];
+                    } else {
+
+                        $modelUser = new Modelusers();
+                        $cekEmail = $modelUser->cariEmail($useremail)->getRowArray();
+
+
+                        if ($cekEmail > 0) {
+                            $json = [
+                                'error' => [
+                                    'errUserEmail'      => 'Email sudah ada...',
+                                ]
+                            ];
+                        } else {
+                            $modelUser->insert([
+                                'userid'            => $userid,
+                                'usernama'          => $usernama,
+                                'userktp'           => $userktp,
+                                'useremail'         => $useremail,
+                                'userpassword'      => password_hash($userpassword, PASSWORD_BCRYPT),
+                                'userlevelid'       => $userlevelid
+                            ]);
+
+                            $modelBiodata = new ModelBiodataKtp();
+
+                            if ($modelUser) {
+                                $modelBiodata->insert([
+                                    'ktp_nomor'         => $userktp,
+                                    'ktp_nama'          => $usernama,
+                                    'ktp_tempat_lahir'  => '',
+                                    'ktp_tanggal_lahir' => '',
+                                    'ktp_kelamin'       => '',
+                                    'ktp_alamat'        => '',
+                                    'ktp_rt'            => '',
+                                    'ktp_rw'            => '',
+                                    'ktp_alamatid'      => 82521,
+                                    'ktp_hp'            => '',
+                                    'ktp_email'         => $useremail,
+                                    'ktp_foto'          => 'user.png'
+                                ]);
+
+                                $json = [
+                                    'sukses'        => 'Anda telah berhasil disimpan...'
+                                ];
+                            }
+                        }
+                    }
+                }
             }
 
 
@@ -274,7 +333,14 @@ class Users extends BaseController
 
     public function hapus($userid)
     {
+        $modelUser = new ModelUsers();
+        $cekData = $modelUser->find($userid);
+
+        $modelBiodata = new ModelBiodataKtp();
+
         $this->users->delete($userid);
+
+        $modelBiodata->delete($cekData['userktp']);
 
         $json = [
             'sukses' => 'Data berhasil dihapus'

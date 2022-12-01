@@ -16,13 +16,23 @@ class Main extends BaseController
         $modelBiodata = new ModelBiodataKtp();
         $cekBiodata = $modelBiodata->find($cekUser['userktp']);
 
-        $data = [
-            'judul'         => 'Home',
-            'subjudul'      => 'Awal',
-            'menu'          => '',
-            'submenu'       => '',
-            'ktp_foto'          => $cekBiodata['ktp_foto'],
-        ];
+        if ($cekBiodata > 0) {
+            $data = [
+                'judul'         => 'Home',
+                'subjudul'      => 'Awal',
+                'menu'          => '',
+                'submenu'       => '',
+                'ktp_foto'      => $cekBiodata['ktp_foto'],
+            ];
+        } else {
+            $data = [
+                'judul'         => 'Home',
+                'subjudul'      => 'Awal',
+                'menu'          => '',
+                'submenu'       => '',
+                'ktp_foto'      => 'user.png',
+            ];
+        }
         return view('main/layout', $data);
     }
 }

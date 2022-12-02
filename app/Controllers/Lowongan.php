@@ -228,25 +228,27 @@ class Lowongan extends BaseController
 
     public function lowonganapply()
     {
-        $lowonganid = $this->request->getPost('lowonganid');
-        $applytanggal = date('Y-m-d');
-        $modelApply = new ModelLowonganApply();
+        if ($this->request->isAJAX()) {
+            $lowonganid = $this->request->getPost('lowonganid');
+            $applytanggal = date('Y-m-d');
+            $modelApply = new ModelLowonganApply();
 
 
-        $modelApply->insert([
-            'applyktp'      => session()->userktp,
-            'applylowid'    => $lowonganid,
-            'applytanggal'  => $applytanggal,
-            'applystatus'   => 'Submit'
+            $modelApply->insert([
+                'applyktp'      => session()->userktp,
+                'applylowid'    => $lowonganid,
+                'applytanggal'  => $applytanggal,
+                'applystatus'   => 'Submit'
 
 
-        ]);
+            ]);
 
-        $json = [
-            'sukses' => 'Anda berhasil submit'
-        ];
+            $json = [
+                'sukses' => 'Anda berhasil submit'
+            ];
 
 
-        echo json_encode($json);
+            echo json_encode($json);
+        }
     }
 }

@@ -21,11 +21,19 @@
     <link href="<?= base_url() ?>/templatecf/css/styles.css" rel="stylesheet" />
 
 
+    <link rel="stylesheet" href="<?= base_url() ?>/plugins/sweetalert2/sweetalert2.min.css">
+    <script src="<?= base_url() ?>/plugins/sweetalert2/sweetalert2.all.min.js"></script>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+
+
     <style>
     /* Make the image fully responsive */
     .carousel-inner img {
@@ -40,45 +48,107 @@
         padding: 10px;
         font-size: 1em
     }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #navbar {
+        overflow: hidden;
+        background-color: #f1f1f1;
+        padding: 30px 10px;
+        transition: 0.4s;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 99;
+        opacity: 0.2;
+    }
+
+    #navbar a {
+        float: left;
+        color: black;
+        text-align: center;
+        padding: 12px;
+        text-decoration: none;
+        font-size: 18px;
+        line-height: 25px;
+        border-radius: 4px;
+    }
+
+    #navbar #logo {
+        font-size: 35px;
+        font-weight: bold;
+        transition: 0.4s;
+    }
+
+    #navbar a:hover {
+        background-color: lightseagreen;
+        color: black;
+    }
+
+    #navbar a.active {
+        background-color: dodgerblue;
+        color: white;
+    }
+
+    #navbar-right {
+        float: right;
+    }
+
+    @media screen and (max-width: 580px) {
+        #navbar {
+            padding: 20px 10px !important;
+        }
+
+        #navbar a {
+            float: none;
+            display: block;
+            text-align: left;
+        }
+
+        #navbar-right {
+            float: none;
+        }
+    }
     </style>
 
 
 </head>
 
-<body id="page-top">
+<body>
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-        <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="#page-top">PT Rackindo Setara Perkasa</a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#proses">Business Process</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#career">Career</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
-                    <?php
-                    if (session()->namauser) {
-                    ?>
-                    <li class="nav-item"><a class="nav-link"
-                            href="<?= site_url('profil/index/' . session()->iduser) ?>"><?= session()->namauser ?></a>
-                    </li>
-                    <?php
-                    } else {
-                    ?>
-                    <li class="nav-item"><a class="nav-link" href="<?= site_url('login/index') ?>">Login</a></li>
-                    <?php
-                    }
-                    ?>
-                </ul>
-            </div>
-        </div>
+
+    <nav class="navbar navbar-light bg-light shadow-lg" id="navbar">
+        <a class="navbar-brand" href="#page-top">PT Rackindo Setara Perkasa</a>
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#proses">Business Process</a></li>
+            <li class="nav-item"><a class="nav-link" href="#career">Career</a></li>
+            <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
+            <?php
+            if (session()->namauser) {
+            ?>
+            <li class="nav-item"><a class="nav-link"
+                    href="<?= site_url('profil/index/' . session()->iduser) ?>"><?= session()->namauser ?></a>
+            </li>
+            <?php
+            } else {
+            ?>
+            <li class="nav-item"><a class="nav-link" href="<?= site_url('login/index') ?>">Login</a></li>
+            <?php
+            }
+            ?>
+        </ul>
     </nav>
+
+
+
     <!-- Masthead-->
     <header class="masthead">
         <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
@@ -105,11 +175,15 @@
                         <h3>COMPANY HISTORY</h3>
                         <br>
                         <p class="text" align="justify">
-                            Founded in the late 1980, initially we started as a home industry furniture that used raw
-                            materials of solid wood in the production process. At that time, the main activity of our
+                            Founded in the late 1980, initially we started as a home industry furniture that used
+                            raw
+                            materials of solid wood in the production process. At that time, the main activity of
+                            our
                             business were to receive various orders, cooperate with small tenders, and customized
-                            furnishing to houses. The applied marketing way was still conventional, named door-to-door
-                            marketing. Along with the development of industry, we acquired a company in 1992 and merged
+                            furnishing to houses. The applied marketing way was still conventional, named
+                            door-to-door
+                            marketing. Along with the development of industry, we acquired a company in 1992 and
+                            merged
                             it into an entity called PT Rackindo Setara Perkasa. <br><br>
 
                             While running previous business, PT Rackindo Setara Perkasa started innovating to
@@ -117,17 +191,24 @@
                             knocked-down furnishings using Particle Board (PB), Medium Density Fibreboard (MDF) and
                             laminated with paper or polyvinyl chloride (PVC). Our featured products were bedroom set
                             (bed, nakkas, wardrobe, and dresser table), kitchen set, living room set (decorative
-                            cabinet), shoes rack, credenza, bookcase, coffee table and audio video rack. By the method
-                            of business-to-business (B2B), product marketing were done to furniture shops in Jakarta and
+                            cabinet), shoes rack, credenza, bookcase, coffee table and audio video rack. By the
+                            method
+                            of business-to-business (B2B), product marketing were done to furniture shops in Jakarta
+                            and
                             Greater area (Jabodetabek). We also cooperated with outsourcing agents or distributors
                             spread throughout the major cities in Indonesia. <br><br>
 
-                            In 2001 PT Rackindo Setara Perkasa did another acquisition with a furniture company in which
-                            it remained to survive today. Three companies merged under the name of Rackindo Group then
-                            had different segmenting, targeting and positioning in market for each business. Still in
-                            the same core business, namely furniture, PT Rackindo Setara Perkasa (Rackindo) remained to
+                            In 2001 PT Rackindo Setara Perkasa did another acquisition with a furniture company in
+                            which
+                            it remained to survive today. Three companies merged under the name of Rackindo Group
+                            then
+                            had different segmenting, targeting and positioning in market for each business. Still
+                            in
+                            the same core business, namely furniture, PT Rackindo Setara Perkasa (Rackindo) remained
+                            to
                             focus on home furniture market, while PT Mitra Rackindo Perkasa Gemilang (Mitra) had a
-                            segment of high-end office furnitureand PT Surya Citra Indah Perkasa (Sucitra) was directed
+                            segment of high-end office furnitureand PT Surya Citra Indah Perkasa (Sucitra) was
+                            directed
                             to the low-end office furniture.
                         </p>
                         <br><br><br><br><br><br>
@@ -190,95 +271,101 @@
             <hr class="d-none d-lg-block mb-5 mt-2 ms-0" />
 
             <!-- Featured Project Row-->
+
+
+
+
             <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
                 <div class="col-xl-8 col-lg-7">
 
-                    <div id="demo" class="carousel slide" data-ride="carousel">
-                        <ul class="carousel-indicators">
-                            <li data-target="#demo" data-slide-to="0" class="active"></li>
-                            <li data-target="#demo" data-slide-to="1"></li>
-                            <li data-target="#demo" data-slide-to="2"></li>
-                            <li data-target="#demo" data-slide-to="3"></li>
-                            <li data-target="#demo" data-slide-to="4"></li>
-                            <li data-target="#demo" data-slide-to="5"></li>
-                            <li data-target="#demo" data-slide-to="6"></li>
-                        </ul>
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                            <li data-target="#myCarousel" data-slide-to="3"></li>
+                            <li data-target="#myCarousel" data-slide-to="4"></li>
+                            <li data-target="#myCarousel" data-slide-to="5"></li>
+                            <li data-target="#myCarousel" data-slide-to="6"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
+
+                            <div class="item active">
                                 <img src="<?= base_url() ?>/templatecf/assets/img/proses-01-laminating.jpg"
-                                    alt="STEEP 1 : LAMINATING" width="1100" height="500">
-                                <div class=" carousel-caption">
-                                    <span class="badge badge-info">
-                                        <h3 class="text">STEEP 1 : LAMINATING</h3>
-                                    </span>
+                                    alt="Los Angeles" style="width:100%;">
+                                <div class="carousel-caption">
+                                    <h3 class="text">STEEP 1 : LAMINATING</h3>
+                                    <p></p>
                                 </div>
                             </div>
-                            <div class="carousel-item">
-                                <img src="<?= base_url() ?>/templatecf/assets/img/proses-02-cutting.jpg"
-                                    alt="STEEP 2 : CUTTING" width="1100" height="500">
-                                <div class=" carousel-caption">
 
-                                    <span class="badge badge-info">
-                                        <h3 class="text">STEEP 2 : CUTTING</h3>
-                                    </span>
+                            <div class="item">
+                                <img src="<?= base_url() ?>/templatecf/assets/img/proses-02-cutting.jpg" alt="Chicago"
+                                    style="width:100%;">
+                                <div class="carousel-caption">
+                                    <h3 class="text">STEEP 2 : CUTTING</h3>
+                                    <p></p>
                                 </div>
                             </div>
-                            <div class="carousel-item">
-                                <img src="<?= base_url() ?>/templatecf/assets/img/proses-03-edge.jpg"
-                                    alt="STEEP 3 : EDGE BANDING" width="1100" height="500">
-                                <div class=" carousel-caption">
 
-                                    <span class="badge badge-info">
-                                        <h3 class="text">STEEP 3 : EDGE BANDING</h3>
-                                    </span>
+                            <div class="item">
+                                <img src="<?= base_url() ?>/templatecf/assets/img/proses-03-edge.jpg" alt="New York"
+                                    style="width:100%;">
+                                <div class="carousel-caption">
+                                    <h3 class="text">STEEP 3 : EDGE BANDING</h3>
+                                    <p></p>
                                 </div>
                             </div>
-                            <div class="carousel-item">
-                                <img src="<?= base_url() ?>/templatecf/assets/img/proses-04-drilling.jpg"
-                                    alt="STEEP 4 : DRILLING" width="1100" height="500">
-                                <div class=" carousel-caption">
 
-                                    <span class="badge badge-info">
-                                        <h3 class="text">STEEP 4 : DRILLING</h3>
-                                    </span>
+                            <div class="item">
+                                <img src="<?= base_url() ?>/templatecf/assets/img/proses-04-drilling.jpg" alt="New York"
+                                    style="width:100%;">
+                                <div class="carousel-caption">
+                                    <h3 class="text">STEEP 4 : DRILLING</h3>
+                                    <p></p>
                                 </div>
                             </div>
-                            <div class="carousel-item">
-                                <img src="<?= base_url() ?>/templatecf/assets/img/proses-05-CNC.jpg"
-                                    alt="STEEP 5 : CNC PROCESS" width="1100" height="500">
-                                <div class=" carousel-caption">
 
-                                    <span class="badge badge-info">
-                                        <h3 class="text">STEEP 5 : CNC PROCESS</h3>
-                                    </span>
+                            <div class="item">
+                                <img src="<?= base_url() ?>/templatecf/assets/img/proses-05-CNC.jpg" alt="New York"
+                                    style="width:100%;">
+                                <div class="carousel-caption">
+                                    <h3 class="text">STEEP 5 : CNC PROCESS</h3>
+                                    <p></p>
                                 </div>
                             </div>
-                            <div class="carousel-item">
+
+                            <div class="item">
                                 <img src="<?= base_url() ?>/templatecf/assets/img/proses-06-finishing.jpg"
-                                    alt="STEEP 6 : FINISHING" width="1100" height="500">
-                                <div class=" carousel-caption">
-
-                                    <span class="badge badge-info">
-                                        <h3 class="text">STEEP 6 : FINISHING</h3>
-                                    </span>
+                                    alt="New York" style="width:100%;">
+                                <div class="carousel-caption">
+                                    <h3 class="text">STEEP 6 : FINISHING</h3>
+                                    <p></p>
                                 </div>
                             </div>
-                            <div class="carousel-item">
-                                <img src="<?= base_url() ?>/templatecf/assets/img/proses-07-packaging.jpg"
-                                    alt="STEEP 7 : PACKING" width="1100" height="500">
-                                <div class=" carousel-caption">
 
-                                    <span class="badge badge-info">
-                                        <h3 class="text">STEEP 7 : PACKING</h3>
-                                    </span>
+                            <div class="item">
+                                <img src="?= base_url() ?>/templatecf/assets/img/proses-07-packaging.jpg" alt="New York"
+                                    style="width:100%;">
+                                <div class="carousel-caption">
+                                    <h3 class="text">STEEP 7 : PACKING</h3>
+                                    <p></p>
                                 </div>
                             </div>
+
                         </div>
-                        <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                            <span class="carousel-control-prev-icon"></span>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
                         </a>
-                        <a class="carousel-control-next" href="#demo" data-slide="next">
-                            <span class="carousel-control-next-icon"></span>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
                         </a>
                     </div>
 
@@ -287,8 +374,10 @@
                     <div class="featured-text text-lg-left">
                         <h4>PRODUCTION</h4>
                         <p class="text-black-50 mb-0" align="justify">
-                            Production process involves more than 500 professional workers with more than 20 years of
-                            experience. We only use high quality raw materials to produce the best furniture products.
+                            Production process involves more than 500 professional workers with more than 20 years
+                            of
+                            experience. We only use high quality raw materials to produce the best furniture
+                            products.
                         </p>
                     </div>
                 </div>
@@ -321,8 +410,8 @@
                     <?php
                         if (session()->namauser) {
                         ?>
-                    <a href="<?= site_url('psikotest/index') ?>" style="text-decoration: none"><button type="button"
-                            class="btn btn-info btn-block">Apply Now</button></a>
+                    <button type="button" class="btn btn-info btn-block"
+                        onclick="apply('<?= $rowloker['lowonganid'] ?>')" title="Submit">Apply</button>
                     <?php
                         } else {
                         ?>
@@ -416,7 +505,8 @@
                             <i class="fas fa-map-marked-alt text-primary mb-2"></i>
                             <h4 class="text-uppercase m-0">Address</h4>
                             <hr class="my-4 mx-auto" />
-                            <div class="small text-black-50">Kompleks Pergudangan Kamal Indah, Jl. Kapuk Kamal Indah I
+                            <div class="small text-black-50">Kompleks Pergudangan Kamal Indah, Jl. Kapuk Kamal Indah
+                                I
                                 Kav. 15 - 17, Jakarta Barat 11810, Indonesia</div>
                         </div>
                     </div>
@@ -437,7 +527,8 @@
                             <i class="fas fa-mobile-alt text-primary mb-2"></i>
                             <h4 class="text-uppercase m-0">Phone</h4>
                             <hr class="my-4 mx-auto" />
-                            <div class="small text-black-50">(021) 5595 1295 / 5595 1393 <br>(021) 5595 8524 / 5595 8527
+                            <div class="small text-black-50">(021) 5595 1295 / 5595 1393 <br>(021) 5595 8524 / 5595
+                                8527
                             </div>
                         </div>
                     </div>
@@ -450,6 +541,9 @@
             </div>
         </div>
     </section>
+
+
+
     <!-- Footer-->
     <footer class="footer bg-black small text-center text-white-50">
         <div class="container px-4 px-lg-5">Copyright &copy; 2022 PT Rackindo Setara Perkasa</div>
@@ -466,6 +560,67 @@
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
 
+
+    <script>
+    function apply(lowonganid) {
+        Swal.fire({
+            title: 'Submit Lowongan?',
+            text: "Apakah ingin submit lowongan ini !",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Submit!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "post",
+                    url: "<?= base_url() ?>/lowongan/lowonganapply",
+                    data: {
+                        lowonganid: lowonganid
+                    },
+                    dataType: "json",
+                    success: function(response) {
+                        if (response.sukses) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Berhasil',
+                                text: response.sukses
+                            }).then((resul) => {
+                                if (resul.isConfirmed) {
+                                    window.location
+                                        .reload();
+                                }
+                            });
+                        }
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(xhr.status + '\n' + thrownError);
+                    }
+                });
+            }
+        })
+    }
+    </script>
+
+    <script>
+    // When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+            document.getElementById("navbar").style.padding = "10px 5px";
+            document.getElementById("navbar").style.opacity = 1;
+            document.getElementById("logo").style.fontSize = "20px";
+        } else {
+            document.getElementById("navbar").style.padding = "30px 10px";
+            document.getElementById("navbar").style.opacity = 0.2;
+            document.getElementById("logo").style.fontSize = "35px";
+        }
+    }
+    </script>
 
 
 

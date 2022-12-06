@@ -128,6 +128,9 @@
                     $lowongan = "show";
                     $soal = "show";
 
+                    $biodata = "show";
+                    $biodata_ktp = "show";
+
                     $master_test = "show";
                     $lowongandaftar = "show";
                     $psikotest = "show";
@@ -153,8 +156,8 @@
                     $pengembalian = "show";
                     $datapengembalian = "show";
 
-                    $biodata = "show";
-                    $biodata_ktp = "show";
+                    $master_finger = "show";
+                    $finger = "show";
                 } else {
                     $setting = "none";
                     $levels = "none";
@@ -164,6 +167,9 @@
                     $wilayah = "none";
                     $lowongan = "none";
                     $soal = "none";
+
+                    $biodata = "none";
+                    $biodata_ktp = "none";
 
                     $master_test = "show";
                     $lowongandaftar = "show";
@@ -190,8 +196,8 @@
                     $pengembalian = "none";
                     $datapengembalian = "none";
 
-                    $biodata = "none";
-                    $biodata_ktp = "none";
+                    $master_finger = "none";
+                    $finger = "none";
                 }
                 ?>
                 <nav class="mt-2">
@@ -271,7 +277,7 @@
                         <li class="nav-item <?= ($menu == 'biodata') ? 'menu-open' : '' ?>"
                             style="display: <?= $biodata ?>;">
                             <a href="#" class="nav-link <?= ($menu == 'biodata') ? 'active' : '' ?>">
-                                <i class="fas fa-users text-success"></i>
+                                <i class="fas fa-users text-warning"></i>
                                 <p>
                                     Biodata
                                     <i class="right fas fa-angle-left"></i>
@@ -281,11 +287,31 @@
                                 <li class="nav-item" style="display: <?= $biodata_ktp ?>;">
                                     <a href="<?= site_url('biodataktp/index') ?>"
                                         class="nav-link <?= ($submenu == 'ktp') ? 'active' : '' ?>">
-                                        <i class="fas fa-id-card nav-icon text-success"></i>
+                                        <i class="fas fa-id-card nav-icon text-warning"></i>
                                         <p>KTP</p>
                                     </a>
                                 </li>
 
+                            </ul>
+                        </li>
+
+                        <li class="nav-item <?= ($menu == 'finger') ? 'menu-open' : '' ?>"
+                            style="display: <?= $master_finger ?>;">
+                            <a href="#" class="nav-link <?= ($menu == 'finger') ? 'active' : '' ?>">
+                                <i class="fas fa-fingerprint text-success"></i>
+                                <p>
+                                    Finger
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview ml-2">
+                                <li class="nav-item" style="display: <?= $finger ?>;">
+                                    <a href="<?= site_url('finger/index') ?>"
+                                        class="nav-link <?= ($submenu == 'finger') ? 'active' : '' ?>">
+                                        <i class="fas fa-fingerprint nav-icon text-success"></i>
+                                        <p>Finger</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 
@@ -481,6 +507,7 @@
                                 </li>
                             </ul>
                         </li>
+
 
 
                         <li class="nav-header">

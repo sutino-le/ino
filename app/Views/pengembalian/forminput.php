@@ -82,6 +82,7 @@
                                     <button class="btn btn-outline-primary" type="button" id="tombolCariBarang"><i
                                             class="fas fa-search"></i></button>
                                 </div>
+                                <input type="hidden" name="detpgmpmkid" id="detpgmpmkid">
                                 <div class="invalid-feedback errorPgmBrgKode"></div>
                             </div>
                         </div>
@@ -178,6 +179,7 @@
 <script>
 function kosong() {
     $('#pgmbrgkode').val('');
+    $('#detpgmpmkid').val('');
     $('#namabarang').val('');
     $('#brgstok').val('');
     $('#pgmjumlah').val('1');
@@ -192,6 +194,7 @@ function simpanItem() {
     let pgmjenis = $('#pgmjenis').val();
     let pgmketerangan = $('#pgmketerangan').val();
     let pgmjumlah = $('#pgmjumlah').val();
+    let detpgmpmkid = $('#pgmbrgkode').val();
 
 
     $.ajax({
@@ -202,7 +205,8 @@ function simpanItem() {
             pgmbrgkode: pgmbrgkode,
             pgmjenis: pgmjenis,
             pgmketerangan: pgmketerangan,
-            pgmjumlah: pgmjumlah
+            pgmjumlah: pgmjumlah,
+            detpgmpmkid: detpgmpmkid
         },
         dataType: "json",
         success: function(response) {

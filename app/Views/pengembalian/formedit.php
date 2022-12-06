@@ -89,6 +89,7 @@ table#datadetail tbody tr:hover {
                                     <button class="btn btn-outline-primary" type="button" id="tombolCariBarang"><i
                                             class="fas fa-search"></i></button>
                                 </div>
+                                <input type="hidden" name="detpgmpmkid" id="detpgmpmkid">
                                 <div class="invalid-feedback errorPgmBrgKode"></div>
                             </div>
                         </div>
@@ -187,6 +188,7 @@ table#datadetail tbody tr:hover {
 <script>
 function kosong() {
     $('#pgmbrgkode').val('');
+    $('#detpgmpmkid').val('');
     $('#namabarang').val('');
     $('#brgstok').val('');
     $('#pgmjumlah').val('1');
@@ -279,6 +281,7 @@ function simpanDetail() {
     let pgmjenis = $('#pgmjenis').val();
     let pgmketerangan = $('#pgmketerangan').val();
     let pgmjumlah = $('#pgmjumlah').val();
+    let detpgmpmkid = $('#detpgmpmkid').val();
 
 
     $.ajax({
@@ -289,7 +292,8 @@ function simpanDetail() {
             pgmbrgkode: pgmbrgkode,
             pgmjenis: pgmjenis,
             pgmketerangan: pgmketerangan,
-            pgmjumlah: pgmjumlah
+            pgmjumlah: pgmjumlah,
+            detpgmpmkid: detpgmpmkid
         },
         dataType: "json",
         success: function(response) {
@@ -355,6 +359,7 @@ $(document).ready(function() {
         let pgmjenis = $('#pgmjenis').val();
         let pgmketerangan = $('#pgmketerangan').val();
         let pgmjumlah = $('#pgmjumlah').val();
+        let detpgmpmkid = $('#detpgmpmkid').val();
 
 
 
@@ -367,7 +372,8 @@ $(document).ready(function() {
                 pgmbrgkode: pgmbrgkode,
                 pgmjenis: pgmjenis,
                 pgmketerangan: pgmketerangan,
-                pgmjumlah: pgmjumlah
+                pgmjumlah: pgmjumlah,
+                detpgmpmkid: detpgmpmkid
             },
             dataType: "json",
             success: function(response) {

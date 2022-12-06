@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\ModelBarang;
 use App\Models\ModelBarangPagination;
 use App\Models\ModelBiodataKtp;
+use App\Models\ModelPemakaianCariPagination;
 use App\Models\ModelPemakaianDet;
 use App\Models\ModelPengembalian;
 use App\Models\ModelPengembalianDet;
@@ -141,6 +142,7 @@ class Pengembalian extends BaseController
             $pgmjenis       = $this->request->getPost('pgmjenis');
             $pgmketerangan  = $this->request->getPost('pgmketerangan');
             $pgmjumlah      = $this->request->getPost('pgmjumlah');
+            $detpgmpmkid      = $this->request->getPost('detpgmpmkid');
 
             $validation = \Config\Services::validation();
 
@@ -194,7 +196,8 @@ class Pengembalian extends BaseController
                     'detpgmbrgkode'        => $pgmbrgkode,
                     'detpgmjumlah'         => $pgmjumlah,
                     'detpgmjenis'          => $pgmjenis,
-                    'detpgmketerangan'     => $pgmketerangan
+                    'detpgmketerangan'     => $pgmketerangan,
+                    'detpgmpmkid'          => $detpgmpmkid
                 ]);
 
                 $json = [
@@ -265,7 +268,7 @@ class Pengembalian extends BaseController
     public function listDataBarang()
     {
         $request = Services::request();
-        $datamodel = new ModelBarangPagination($request);
+        $datamodel = new ModelPemakaianCariPagination($request);
         if ($request->getMethod(true) == 'POST') {
             $lists = $datamodel->get_datatables();
             $data = [];
@@ -274,13 +277,14 @@ class Pengembalian extends BaseController
                 $no++;
                 $row = [];
 
-                $tombolPilih = "<button type=\"button\" class=\"btn btn-sm btn-info\" onclick=\"pilih('" . $list->brgkode . "')\" title=\"Pilih\"><i class='fas fa-hand-point-up'></i></button>";
+                $tombolPilih = "<button type=\"button\" class=\"btn btn-sm btn-info\" onclick=\"pilih('" . $list->brgkode . "', '" . $list->pmkid . "')\" title=\"Pilih\"><i class='fas fa-hand-point-up'></i></button>";
 
                 $row[] = $no;
                 $row[] = $list->brgkode;
                 $row[] = $list->brgnama;
-                $row[] = number_format($list->brgharga, 0, ",", ".");
-                $row[] = number_format($list->brgstok, 0, ",", ".");
+                $row[] = date('d-M-Y', strtotime($list->pmktanggal));
+                $row[] = number_format($list->pmkjumlah, 0, ",", ".");
+                $row[] = $list->ktp_nama;
                 $row[] = $tombolPilih;
                 $data[] = $row;
             }
@@ -359,6 +363,7 @@ class Pengembalian extends BaseController
                         'detpgmjumlah'     => $rowtemp['detpgmjumlah'],
                         'detpgmjenis'      => $rowtemp['detpgmjenis'],
                         'detpgmketerangan' => $rowtemp['detpgmketerangan'],
+                        'detpgmpmkid'      => $rowtemp['detpgmpmkid'],
                     ]);
                 endforeach;
 
@@ -507,10 +512,11 @@ class Pengembalian extends BaseController
         if ($this->request->isAJAX()) {
             $detpgmid           = $this->request->getPost('detpgmid');
             $pgmnomor           = $this->request->getPost('pgmnomor');
-            $pgmbrgkode      = $this->request->getPost('pgmbrgkode');
-            $pgmjenis        = $this->request->getPost('pgmjenis');
-            $pgmketerangan   = $this->request->getPost('pgmketerangan');
-            $pgmjumlah       = $this->request->getPost('pgmjumlah');
+            $pgmbrgkode         = $this->request->getPost('pgmbrgkode');
+            $pgmjenis           = $this->request->getPost('pgmjenis');
+            $pgmketerangan      = $this->request->getPost('pgmketerangan');
+            $pgmjumlah          = $this->request->getPost('pgmjumlah');
+            $detpgmpmkid        = $this->request->getPost('detpgmpmkid');
 
             $validation = \Config\Services::validation();
 
@@ -555,7 +561,8 @@ class Pengembalian extends BaseController
                     'detpgmbrgkode'        => $pgmbrgkode,
                     'detpgmjumlah'         => $pgmjumlah,
                     'detpgmjenis'          => $pgmjenis,
-                    'detpgmketerangan'     => $pgmketerangan
+                    'detpgmketerangan'     => $pgmketerangan,
+                    'detpgmpmkid'          => $detpgmpmkid
                 ]);
 
                 $json = [
@@ -577,6 +584,7 @@ class Pengembalian extends BaseController
             $pgmjenis       = $this->request->getPost('pgmjenis');
             $pgmketerangan  = $this->request->getPost('pgmketerangan');
             $pgmjumlah      = $this->request->getPost('pgmjumlah');
+            $detpgmpmkid    = $this->request->getPost('detpgmpmkid');
 
             $validation = \Config\Services::validation();
 
@@ -620,7 +628,8 @@ class Pengembalian extends BaseController
                     'detpgmbrgkode'        => $pgmbrgkode,
                     'detpgmjumlah'         => $pgmjumlah,
                     'detpgmjenis'          => $pgmjenis,
-                    'detpgmketerangan'     => $pgmketerangan
+                    'detpgmketerangan'     => $pgmketerangan,
+                    'detpgmpmkid'          => $detpgmpmkid
                 ]);
 
                 $json = [

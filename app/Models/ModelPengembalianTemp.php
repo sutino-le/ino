@@ -9,7 +9,7 @@ class ModelPengembalianTemp extends Model
     protected $table            = 'temp_pengembalian';
     protected $primaryKey       = 'detpgmid';
     protected $allowedFields    = [
-        'detpgmnomor', 'detpgmbrgkode', 'detpgmjumlah', 'detpgmjenis', 'detpgmketerangan'
+        'detpgmnomor', 'detpgmbrgkode', 'detpgmjumlah', 'detpgmjenis', 'detpgmketerangan', 'detpgmpmkid'
     ];
 
 

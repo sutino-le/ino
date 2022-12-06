@@ -1,0 +1,58 @@
+CRITICAL - 2022-12-06 09:16:01 --> Call to undefined function App\Controllers\Parse_Data()
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Finger->index()
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Finger))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-12-06 09:31:50 --> parse_str(): Argument #2 ($result) cannot be passed by reference
+#0 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Finger->index()
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Finger))
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-12-06 09:32:27 --> parse_url() expects at most 2 arguments, 3 given
+#0 C:\xampp\htdocs\ino\app\Controllers\Finger.php(36): parse_url('HTTP/1.0 200 OK...', '<GetAttLogRespo...', '</GetAttLogResp...')
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Finger->index()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Finger))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-12-06 09:41:03 --> Cannot use object of type mysqli_result as array
+#0 C:\xampp\htdocs\ino\system\View\View.php(210): include()
+#1 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('finger/download', Array, true)
+#3 C:\xampp\htdocs\ino\app\Controllers\Finger.php(12): view('finger/download')
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Finger->index()
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Finger))
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-12-06 09:47:30 --> Undefined variable $judul
+#0 C:\xampp\htdocs\ino\app\Views\finger\download.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 4)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('finger/download', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Finger.php(12): view('finger/download')
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Finger->index()
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Finger))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-12-06 10:12:20 --> Undefined variable $judul
+#0 C:\xampp\htdocs\ino\app\Views\finger\download.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 4)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('finger/download', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Finger.php(58): view('finger/download')
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Finger->download()
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Finger))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-12-06 16:29:01 --> Trying to access array offset on value of type null
+#0 C:\xampp\htdocs\ino\app\Controllers\Pembelian.php(423): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\xampp\\htdocs...', 423)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pembelian->cetakFaktur('1611220002')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pembelian))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}

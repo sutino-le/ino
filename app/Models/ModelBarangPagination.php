@@ -62,7 +62,7 @@ class ModelBarangPagination extends Model
     }
     public function count_all()
     {
-        $tbl_storage = $this->db->table($this->table);
+        $tbl_storage = $this->db->table($this->table)->join('kategori', 'brgkatid=katid', 'left')->join('subkategori', 'brgsubkatid=subkatid', 'left')->join('satuan', 'brgsatid=satid', 'left');
         return $tbl_storage->countAllResults();
     }
 }

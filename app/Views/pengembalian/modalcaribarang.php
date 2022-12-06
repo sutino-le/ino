@@ -7,7 +7,8 @@
  <script src="<?= base_url() ?>/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
  <!-- Modal -->
- <div class="modal fade" id="modalcaribarang" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+ <div class="modal fade" id="modalcaribarang" data-backdrop="static" data-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
      <div class="modal-dialog modal-lg">
          <div class="modal-content">
              <div class="modal-header">
@@ -18,14 +19,16 @@
              </div>
              <div class="modal-body">
 
-                 <table style="width: 100%;" id="databarang" class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
+                 <table style="width: 100%;" id="databarang"
+                     class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
                      <thead>
                          <tr>
                              <th>No</th>
                              <th>Kode Barang</th>
                              <th>Nama Barang</th>
-                             <th>harga</th>
-                             <th>Stok</th>
+                             <th>Tanggal</th>
+                             <th>Jumlah</th>
+                             <th>Pemakai</th>
                              <th>Aksi</th>
                          </tr>
                      </thead>
@@ -43,33 +46,34 @@
  </div>
 
  <script>
-     function listDataBarang() {
-         var table = $('#databarang').dataTable({
-             destroy: true,
-             "processing": true,
-             "serverSide": true,
-             "order": [],
-             "ajax": {
-                 "url": "<?= base_url() ?>/pengembalian/listDataBarang",
-                 "type": "POST",
-             },
-             "colomnDefs": [{
-                 "targets": [0, 5],
-                 "orderable": false,
-             }, ],
-         });
-     }
+function listDataBarang() {
+    var table = $('#databarang').dataTable({
+        destroy: true,
+        "processing": true,
+        "serverSide": true,
+        "order": [],
+        "ajax": {
+            "url": "<?= base_url() ?>/pengembalian/listDataBarang",
+            "type": "POST",
+        },
+        "colomnDefs": [{
+            "targets": [0, 5],
+            "orderable": false,
+        }, ],
+    });
+}
 
-     function pilih(id) {
-         $('#pgmbrgkode').val(id);
-         $('#modalcaribarang').on('hidden.bs.modal', function(event) {
-             ambilDataBarang();
-         });
+function pilih(id, detpgmpmkid) {
+    $('#pgmbrgkode').val(id);
+    $('#detpgmpmkid').val(detpgmpmkid);
+    $('#modalcaribarang').on('hidden.bs.modal', function(event) {
+        ambilDataBarang();
+    });
 
-         $('#modalcaribarang').modal('hide');
-     }
+    $('#modalcaribarang').modal('hide');
+}
 
-     $(document).ready(function() {
-         listDataBarang();
-     });
+$(document).ready(function() {
+    listDataBarang();
+});
  </script>

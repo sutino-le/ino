@@ -4,6 +4,7 @@
     <thead>
         <tr>
             <th>No.</th>
+            <th>ID Pakai</th>
             <th>Kode Barang</th>
             <th>Nama Barang</th>
             <th>Jenis</th>
@@ -22,6 +23,7 @@
                 <?= $no++; ?>
                 <input type="hidden" value="<?= $row['detpgmid'] ?>" id="id">
             </td>
+            <td><?= $row['detpgmpmkid']; ?></td>
             <td><?= $row['detpgmbrgkode']; ?></td>
             <td><?= $row['brgnama']; ?></td>
             <td><?= $row['detpgmjenis']; ?></td>
@@ -69,12 +71,14 @@ function hapusItem(detpgmid) {
 $('#datadetail tbody').on('click', 'tr', function() {
     let row = $(this).closest('tr');
 
-    let pgmbrgkode = row.find('td:eq(1)').text();
-    let pgmjenis = row.find('td:eq(3)').text();
-    let pgmketerangan = row.find('td:eq(4)').text();
+    let detpgmpmkid = row.find('td:eq(1)').text();
+    let pgmbrgkode = row.find('td:eq(2)').text();
+    let pgmjenis = row.find('td:eq(4)').text();
+    let pgmketerangan = row.find('td:eq(5)').text();
     let id = row.find('td input').val();
 
     $('#detpgmid').val(id);
+    $('#detpgmpmkid').val(detpgmpmkid);
     $('#pgmbrgkode').val(pgmbrgkode);
     $('#pgmjenis').val(pgmjenis);
     $('#pgmketerangan').val(pgmketerangan);

@@ -77,9 +77,23 @@
                             ?>
                         <td align="center"><?= number_format($row['detjml'], 0, ",", ".") ?> </td>
                         <td align="center"><?= $satuan  ?></td>
-                        <td align="right">Rp. <?= $row['dethargamasuk'] ?></td>
-                        <td align="right">Rp.
-                            <?= number_format(($row['detjml'] * $row['dethargamasuk']), 0, ",", ".") ?>
+                        <td align="center">
+                            <table width="90%">
+                                <tr>
+                                    <td align="left">Rp.</td>
+                                    <td align="right">
+                                        <?= number_format(($row['dethargamasuk']), 0, ",", ".") ?></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td align="center">
+                            <table width="90%">
+                                <tr>
+                                    <td align="left">Rp.</td>
+                                    <td align="right">
+                                        <?= number_format(($row['detjml'] * $row['dethargamasuk']), 0, ",", ".") ?></td>
+                                </tr>
+                            </table>
                         </td>
                         <td><?= $row['detketerangan'] ?></td>
                     </tr>
@@ -89,7 +103,21 @@
                         <td colspan="2" align="right"><b>Total Pembelian :</b></td>
                         <td align="center"><b><?= $totaljumlah ?></b></td>
                         <td align="center">Item</td>
-                        <td colspan="2" align="right"><b>Rp. <?= $totalhargabayar ?></b></td>
+                        <td align="right"></td>
+
+                        <td align="center">
+                            <table width="90%">
+                                <tr>
+                                    <td align="left"><b>Rp.</b></td>
+                                    <td align="right">
+                                        <b>
+                                            <?= number_format(($totalhargabayar), 0, ",", ".") ?>
+                                        </b>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td></td>
                     </tr>
             </td>
         </tr>
@@ -105,7 +133,13 @@
             <td align="center" width="20%">Dipesan Oleh</td>
         </tr>
         <tr>
-            <td><br><br><br><br></td>
+            <td>
+                <ul>
+                    <li>Seragam harus sama dengan sample yang kami berikan. Apabila berbeda, kami akan mengembalikan
+                        semua seragam yang berbeda dengan sample.</li>
+                    <li>Maximal pengerjaan seragam 5 minggu (kalender kerja) sejak PO ini diterbitkan.</li>
+                </ul>
+            </td>
             <td></td>
             <td></td>
         </tr>

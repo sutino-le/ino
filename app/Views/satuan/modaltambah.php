@@ -26,7 +26,7 @@
                         <label for="">Singkatan</label>
                         <input type="text" name="satinisial" id="satinisial" class="form-control"
                             placeholder="Masukan Satuan...">
-                        <div class="invalid-feedback errorSaInisial"></div>
+                        <div class="invalid-feedback errorSatInisial"></div>
                     </div>
 
 
@@ -73,7 +73,7 @@ $(document).ready(function() {
 
                     if (err.errSatInisial) {
                         $('#satinisial').addClass('is-invalid');
-                        $('.errorSaInisial').html(err.errSatInisial);
+                        $('.errorSatInisial').html(err.errSatInisial);
                     } else {
                         $('#satinisial').removeClass('is-invalid');
                         $('#satinisial').addClass('is-valid');

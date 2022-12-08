@@ -71,7 +71,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="<?= base_url() ?>/home/index" class="nav-link">Home</a>
+                    <a href="<?= base_url() ?>/main/index" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -127,6 +127,10 @@
                     $wilayah = "show";
                     $lowongan = "show";
                     $soal = "show";
+                    $bagian = "show";
+                    $jabatan = "show";
+                    $jeniskaryawan = "show";
+                    $jenispkwt = "show";
 
                     $biodata = "show";
                     $biodata_ktp = "show";
@@ -167,6 +171,10 @@
                     $wilayah = "none";
                     $lowongan = "none";
                     $soal = "none";
+                    $bagian = "none";
+                    $jabatan = "none";
+                    $jeniskaryawan = "none";
+                    $jenispkwt = "none";
 
                     $biodata = "none";
                     $biodata_ktp = "none";
@@ -207,6 +215,8 @@
                         <li class="nav-header">
                             <hr>HR
                         </li>
+
+                        <!-- Setting -->
                         <li class="nav-item <?= ($menu == 'setting') ? 'menu-open' : '' ?>"
                             style="display: <?= $setting ?>;">
                             <a href="#" class="nav-link <?= ($menu == 'setting') ? 'active' : '' ?>">
@@ -238,7 +248,7 @@
                             </ul>
                         </li>
 
-
+                        <!-- Master HR -->
                         <li class="nav-item <?= ($menu == 'masterhr') ? 'menu-open' : '' ?>"
                             style="display: <?= $master_hr ?>;">
                             <a href="#" class="nav-link <?= ($menu == 'masterhr') ? 'active' : '' ?>">
@@ -270,10 +280,38 @@
                                         <p>Soal</p>
                                     </a>
                                 </li>
-
+                                <li class="nav-item" style="display: <?= $bagian ?>;">
+                                    <a href="<?= site_url('hrbagian/index') ?>"
+                                        class="nav-link <?= ($submenu == 'bagian') ? 'active' : '' ?>">
+                                        <i class="fas fa-bezier-curve nav-icon text-primary"></i>
+                                        <p>Bagian</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" style="display: <?= $jabatan ?>;">
+                                    <a href="<?= site_url('hrjabatan/index') ?>"
+                                        class="nav-link <?= ($submenu == 'jabatan') ? 'active' : '' ?>">
+                                        <i class="fas fa-user-tie nav-icon text-primary"></i>
+                                        <p>Jabatan</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" style="display: <?= $jeniskaryawan ?>;">
+                                    <a href="<?= site_url('hrjeniskaryawan/index') ?>"
+                                        class="nav-link <?= ($submenu == 'jeniskaryawan') ? 'active' : '' ?>">
+                                        <i class="fas fa-users-cog nav-icon text-primary"></i>
+                                        <p>Jenis Karyawan</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" style="display: <?= $jenispkwt ?>;">
+                                    <a href="<?= site_url('hrjenispkwt/index') ?>"
+                                        class="nav-link <?= ($submenu == 'jenispkwt') ? 'active' : '' ?>">
+                                        <i class="fas fa-file-signature nav-icon text-primary"></i>
+                                        <p>Jenis PKWT</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 
+                        <!-- Biodata -->
                         <li class="nav-item <?= ($menu == 'biodata') ? 'menu-open' : '' ?>"
                             style="display: <?= $biodata ?>;">
                             <a href="#" class="nav-link <?= ($menu == 'biodata') ? 'active' : '' ?>">
@@ -295,6 +333,7 @@
                             </ul>
                         </li>
 
+                        <!-- Finger -->
                         <li class="nav-item <?= ($menu == 'finger') ? 'menu-open' : '' ?>"
                             style="display: <?= $master_finger ?>;">
                             <a href="#" class="nav-link <?= ($menu == 'finger') ? 'active' : '' ?>">
@@ -319,6 +358,8 @@
                         <li class="nav-header">
                             <hr>USER
                         </li>
+
+                        <!-- Menu -->
                         <li class="nav-item <?= ($menu == 'lowongan') ? 'menu-open' : '' ?>"
                             style="display: <?= $master_test ?>;">
                             <a href="#" class="nav-link <?= ($menu == 'lowongan') ? 'active' : '' ?>">
@@ -350,6 +391,8 @@
                         <li class="nav-header">
                             <hr>PURCHASING
                         </li>
+
+                        <!-- Master Barang -->
                         <li class="nav-item <?= ($menu == 'masterbarang') ? 'menu-open' : '' ?>"
                             style="display: <?= $master_barang ?>;">
                             <a href="#" class="nav-link <?= ($menu == 'masterbarang') ? 'active' : '' ?>">
@@ -392,7 +435,7 @@
                             </ul>
                         </li>
 
-
+                        <!-- Pesanan Pembalian -->
                         <li class="nav-item <?= ($menu == 'pembelian') ? 'menu-open' : '' ?>"
                             style="display: <?= $master_po ?>;">
                             <a href="#" class="nav-link <?= ($menu == 'pembelian') ? 'active' : '' ?>">
@@ -420,7 +463,7 @@
                             </ul>
                         </li>
 
-
+                        <!-- Penerimaan Barang -->
                         <li class="nav-item <?= ($menu == 'penerimaan') ? 'menu-open' : '' ?>"
                             style="display: <?= $master_ttb ?>;">
                             <a href="#" class="nav-link <?= ($menu == 'penerimaan') ? 'active' : '' ?>">
@@ -448,7 +491,7 @@
                             </ul>
                         </li>
 
-
+                        <!-- Pemakaian Barang -->
                         <li class="nav-item <?= ($menu == 'pemakaian') ? 'menu-open' : '' ?>"
                             style="display: <?= $master_pm ?>;">
                             <a href="#" class="nav-link <?= ($menu == 'pemakaian') ? 'active' : '' ?>">
@@ -478,7 +521,7 @@
                             </ul>
                         </li>
 
-
+                        <!-- Pengembalian Barang -->
                         <li class="nav-item <?= ($menu == 'pengembalian') ? 'menu-open' : '' ?>"
                             style="display: <?= $master_pgm ?>;">
                             <a href="#" class="nav-link <?= ($menu == 'pengembalian') ? 'active' : '' ?>">

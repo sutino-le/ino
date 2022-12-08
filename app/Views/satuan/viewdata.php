@@ -29,7 +29,8 @@
         <div class="card-body mt-1">
             <div class="table-responsive">
 
-                <table style="width: 100%;" id="dataSatuan" class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
+                <table style="width: 100%;" id="dataSatuan"
+                    class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -51,101 +52,101 @@
 <div class="viewmodal" style="display: none;"></div>
 
 <script>
-    function listDataSatuan() {
-        var table = $('#dataSatuan').dataTable({
-            destroy: true,
-            "processing": true,
-            "serverSide": true,
-            "order": [],
-            "ajax": {
-                "url": "<?= base_url() ?>/satuan/listData",
-                "type": "POST",
-            },
-            "colomnDefs": [{
-                "targets": [0, 3],
-                "orderable": false,
-            }, ],
-        });
-    }
-
-    $(document).ready(function() {
-        listDataSatuan();
+function listDataSatuan() {
+    var table = $('#dataSatuan').dataTable({
+        destroy: true,
+        "processing": true,
+        "serverSide": true,
+        "order": [],
+        "ajax": {
+            "url": "<?= base_url() ?>/satuan/listData",
+            "type": "POST",
+        },
+        "colomnDefs": [{
+            "targets": [0, 3],
+            "orderable": false,
+        }, ],
     });
+}
+
+$(document).ready(function() {
+    listDataSatuan();
+});
 
 
-    $(document).ready(function() {
+$(document).ready(function() {
 
-        $('#tambahSatuan').click(function(e) {
-            e.preventDefault();
-            $.ajax({
-                type: "post",
-                url: "<?= base_url() ?>/satuan/formtambah",
-                dataType: "json",
-                success: function(response) {
-                    if (response.data) {
-                        $('.viewmodal').html(response.data).show();
-                        $('#modalTambah').modal('show');
-                    }
-                },
-                error: function(xhr, ajaxOptions, thrownError) {
-                    alert(xhr.status + '\n' + thrownError);
-                }
-            });
-        });
-
-    });
-
-    function edit(satid) {
+    $('#tambahSatuan').click(function(e) {
+        e.preventDefault();
         $.ajax({
             type: "post",
-            url: "<?= base_url() ?>/satuan/formedit/" + satid,
+            url: "<?= base_url() ?>/satuan/formtambah",
             dataType: "json",
             success: function(response) {
                 if (response.data) {
                     $('.viewmodal').html(response.data).show();
-                    $('#modalEdit').modal('show');
+                    $('#modalTambah').modal('show');
                 }
             },
             error: function(xhr, ajaxOptions, thrownError) {
                 alert(xhr.status + '\n' + thrownError);
             }
         });
-    }
+    });
 
-    function hapus(satid) {
+});
 
-        Swal.fire({
-            title: 'Hapus Data!',
-            text: "Apakah Anda yakin ingin menghapus ?",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Ya, Hapus!',
-            cancelButtonText: 'Batal'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                    url: "<?= base_url() ?>/satuan/hapusdata/" + satid,
-                    dataType: "json",
-                    success: function(response) {
-                        if (response.sukses) {
-                            swal.fire(
-                                'Berhasil',
-                                response.sukses,
-                                'success'
-                            ).then((result) => {
-                                window.location.reload();
-                            })
-                        }
-                    },
-                    error: function(xhr, ajaxOptions, thrownError) {
-                        alert(xhr.status + '\n' + thrownError);
-                    }
-                });
+function edit(satid) {
+    $.ajax({
+        type: "post",
+        url: "<?= base_url() ?>/satuan/formedit/" + satid,
+        dataType: "json",
+        success: function(response) {
+            if (response.data) {
+                $('.viewmodal').html(response.data).show();
+                $('#modalEdit').modal('show');
             }
-        })
-    }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(xhr.status + '\n' + thrownError);
+        }
+    });
+}
+
+function hapus(satid) {
+
+    Swal.fire({
+        title: 'Hapus Data!',
+        text: "Apakah Anda yakin ingin menghapus ?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Hapus!',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: "<?= base_url() ?>/satuan/hapusdata/" + satid,
+                dataType: "json",
+                success: function(response) {
+                    if (response.sukses) {
+                        swal.fire(
+                            'Berhasil',
+                            response.sukses,
+                            'success'
+                        ).then((result) => {
+                            window.location.reload();
+                        })
+                    }
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status + '\n' + thrownError);
+                }
+            });
+        }
+    })
+}
 </script>
 
 <?= $this->endSection('isi') ?>

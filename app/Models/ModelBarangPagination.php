@@ -10,7 +10,7 @@ class ModelBarangPagination extends Model
     protected $table = "barang";
     protected $column_order = array(null, 'brgnama', 'katnama', 'subkatnama', 'satnama', 'brgharga', 'brgstok', null);
     protected $column_search = array('brgnama');
-    protected $order = array('brgnama' => 'ASC');
+    protected $order = array('brgstok' => 'DESC');
     protected $request;
     protected $db;
     protected $dt;

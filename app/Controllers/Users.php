@@ -237,6 +237,7 @@ class Users extends BaseController
 
             $data = [
                 'userid'        => $cekData['userid'],
+                'userktp'       => $cekData['userktp'],
                 'usernama'      => $cekData['usernama'],
                 'useremail'     => $cekData['useremail'],
                 'userpassword'  => $cekData['userpassword'],
@@ -256,7 +257,10 @@ class Users extends BaseController
     {
         if ($this->request->isAJAX()) {
             $useridlama     = $this->request->getPost('useridlama');
+            $userktplama     = $this->request->getPost('userktplama');
+            $useremaillama     = $this->request->getPost('useremaillama');
             $userid         = $this->request->getPost('userid');
+            $userktp         = $this->request->getPost('userktp');
             $usernama       = $this->request->getPost('usernama');
             $useremail      = $this->request->getPost('useremail');
             $userpassword   = $this->request->getPost('userpassword');
@@ -267,6 +271,13 @@ class Users extends BaseController
                 'userid' => [
                     'rules'     => 'required',
                     'label'     => 'User ID',
+                    'errors'    => [
+                        'required'  => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'userktp' => [
+                    'rules'     => 'required',
+                    'label'     => 'Nomor KTP',
                     'errors'    => [
                         'required'  => '{field} tidak boleh kosong'
                     ]
@@ -304,26 +315,75 @@ class Users extends BaseController
             if (!$valid) {
                 $json = [
                     'error' => [
-                        'erruserid'         => $validation->getError('userid'),
+                        'errUserID'         => $validation->getError('userid'),
+                        'errUserKtp'       => $validation->getError('userktp'),
                         'errUserNama'       => $validation->getError('usernama'),
                         'errUserEmail'      => $validation->getError('useremail'),
                         'errUserPassword'   => $validation->getError('userpassword'),
-                        'errUserLevelId'    => $validation->getError('userlevelid')
+                        'errUserLevelId'    => $validation->getError('userlevelid'),
                     ]
                 ];
             } else {
+                $modelUser = new Modelusers();
 
-                $this->users->update($useridlama, [
-                    'userid'           => $userid,
-                    'usernama'         => $usernama,
-                    'useremail'        => $useremail,
-                    'userpassword'     => password_hash($userpassword, PASSWORD_BCRYPT),
-                    'userlevelid'      => $userlevelid,
-                ]);
+                // Cek userid
+                $cekUser = $modelUser->find($userid);
 
-                $json = [
-                    'sukses'        => 'Data berhasil dirubah'
-                ];
+
+                if ($useridlama != $cekUser['userid'] and $cekUser > 0) {
+                    $json = [
+                        'error' => [
+                            'errUserID'         => 'ID User suda ada...',
+                        ]
+                    ];
+                } else {
+
+                    $modelUser = new Modelusers();
+
+                    $cekKtp = $modelUser->cariKtp($userktp)->getRowArray();
+
+                    if ($userktplama != $cekKtp['userktp'] and $cekKtp > 0) {
+                        $json = [
+                            'error' => [
+                                'errUserKtp'       => 'Nomor KTP sudah ada...',
+                            ]
+                        ];
+                    } else {
+
+                        $modelUser = new Modelusers();
+                        $cekEmail = $modelUser->cariEmail($useremail)->getRowArray();
+
+
+                        if ($useremaillama != $cekEmail['useremail'] and $cekEmail > 0) {
+                            $json = [
+                                'error' => [
+                                    'errUserEmail'      => 'Email sudah ada...',
+                                ]
+                            ];
+                        } else {
+                            $modelUser->update($useridlama, [
+                                'userid'            => $userid,
+                                'usernama'          => $usernama,
+                                'userktp'           => $userktp,
+                                'useremail'         => $useremail,
+                                'userpassword'      => password_hash($userpassword, PASSWORD_BCRYPT),
+                                'userlevelid'       => $userlevelid
+                            ]);
+
+                            $modelBiodata = new ModelBiodataKtp();
+
+                            if ($modelUser) {
+                                $modelBiodata->update($userktplama, [
+                                    'ktp_nomor'         => $userktp,
+                                ]);
+
+                                $json = [
+                                    'sukses'        => 'Anda telah berhasil disimpan...'
+                                ];
+                            }
+                        }
+                    }
+                }
             }
 
 

@@ -18,57 +18,136 @@
 <script src="<?= base_url() ?>/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="<?= base_url() ?>/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
-<div class="card">
-    <div class="card-header">
-        <?= form_button('', '<i class="fa fa-plus-circle"></i> Input Faktur', [
-            'class'     => 'btn btn-sm btn-primary',
-            'onclick'   => "location.href=('" . site_url('hrjeniskaryawan/input') . "')"
-        ]) ?>
-    </div>
-    <!-- /.card-header -->
-    <div class="card-body">
 
-        <table style="width: 100%;" id="hrjeniskaryawan" class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Faktur</th>
-                    <th>Tanggal</th>
-                    <th>Nama Suplier</th>
-                    <th>TotalHarga</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
 
-            </tbody>
-        </table>
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <button type="button" class="btn btn-sm btn-primary" id="tambahJenisKaryawan"><i
+                    class="fas fa-plus-circle"></i>
+                Tambah Jenis Karyawan</button>
+        </div>
+        <div class="card-body mt-1">
+            <div class="table-responsive">
 
+                <table style="width: 100%;" id="dataJenisKaryawan"
+                    class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>ID</th>
+                            <th>Jenis</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
     </div>
 </div>
 
+<div class="viewmodal" style="display: none;"></div>
 
 <script>
-    function listData() {
-        var table = $('#hrjeniskaryawan').dataTable({
-            destroy: true,
-            "processing": true,
-            "serverSide": true,
-            "order": [],
-            "ajax": {
-                "url": "<?= base_url() ?>/hrjeniskaryawan/listData",
-                "type": "POST",
-            },
-            "colomnDefs": [{
-                "targets": [0, 5],
-                "orderable": false,
-            }, ],
-        });
-    }
+function listDataJenisKaryawan() {
+    var table = $('#dataJenisKaryawan').dataTable({
+        destroy: true,
+        "processing": true,
+        "serverSide": true,
+        "order": [],
+        "ajax": {
+            "url": "<?= base_url() ?>/hrjenisKaryawan/listData",
+            "type": "POST",
+        },
+        "colomnDefs": [{
+            "targets": [0, 3],
+            "orderable": false,
+        }, ],
+    });
+}
 
-    $(document).ready(function() {
-        listData();
+$(document).ready(function() {
+    listDataJenisKaryawan();
+});
+
+
+$(document).ready(function() {
+
+    $('#tambahJenisKaryawan').click(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: "post",
+            url: "<?= base_url() ?>/hrjenisKaryawan/formtambah",
+            dataType: "json",
+            success: function(response) {
+                if (response.data) {
+                    $('.viewmodal').html(response.data).show();
+                    $('#modalTambah').modal('show');
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + '\n' + thrownError);
+            }
+        });
     });
 
+});
 
-    <?= $this->endSection('isi') ?>
+function edit(jkid) {
+    $.ajax({
+        type: "post",
+        url: "<?= base_url() ?>/hrjenisKaryawan/formedit/" + jkid,
+        dataType: "json",
+        success: function(response) {
+            if (response.data) {
+                $('.viewmodal').html(response.data).show();
+                $('#modalEdit').modal('show');
+            }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(xhr.status + '\n' + thrownError);
+        }
+    });
+}
+
+function hapus(jkid) {
+
+    Swal.fire({
+        title: 'Hapus Data!',
+        text: "Apakah Anda yakin ingin menghapus ?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Hapus!',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: "<?= base_url() ?>/hrjenisKaryawan/hapusdata/" + jkid,
+                dataType: "json",
+                success: function(response) {
+                    if (response.sukses) {
+                        swal.fire(
+                            'Berhasil',
+                            response.sukses,
+                            'success'
+                        ).then((result) => {
+                            window.location.reload();
+                        })
+                    }
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status + '\n' + thrownError);
+                }
+            });
+        }
+    })
+}
+</script>
+
+<?= $this->endSection('isi') ?>

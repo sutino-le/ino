@@ -39,9 +39,9 @@ class HrBagian extends BaseController
                 $tombolHapus = "<button type=\"button\" class=\"btn btn-sm btn-danger\" onclick=\"hapus('" . $list->bagianid . "')\" title=\"Hapus\"><i class='fas fa-trash-alt'></i></button>";
 
                 // if ($list->brgsatid == "") {
-                //     $tombolhapussatuan = $tombolHapus;
+                //     $tombolhapusBagian = $tombolHapus;
                 // } else {
-                //     $tombolhapussatuan = "";
+                //     $tombolhapusBagian = "";
                 // }
 
                 $row[] = $no;
@@ -87,14 +87,14 @@ class HrBagian extends BaseController
             $valid = $this->validate([
                 'bagiannama' => [
                     'rules'     => 'required',
-                    'label'     => 'Satuan',
+                    'label'     => 'Bagian',
                     'errors'    => [
                         'required'  => '{field} tidak boleh kosong'
                     ]
                 ],
                 'bagianparent' => [
                     'rules'     => 'required',
-                    'label'     => 'Singkatan',
+                    'label'     => 'Parent',
                     'errors'    => [
                         'required'  => '{field} tidak boleh kosong'
                     ]
@@ -162,14 +162,14 @@ class HrBagian extends BaseController
             $valid = $this->validate([
                 'bagiannama' => [
                     'rules'     => 'required',
-                    'label'     => 'Satuan',
+                    'label'     => 'Bagian',
                     'errors'    => [
                         'required'  => '{field} tidak boleh kosong'
                     ]
                 ],
                 'bagianparent' => [
                     'rules'     => 'required',
-                    'label'     => 'Singkatan',
+                    'label'     => 'Parent',
                     'errors'    => [
                         'required'  => '{field} tidak boleh kosong'
                     ]

@@ -49,6 +49,7 @@ class Barang extends BaseController
 
                 $tombolEdit = "<button type=\"button\" class=\"btn btn-sm btn-info\" onclick=\"edit('" . $list->brgkode . "')\" title=\"Edit\"><i class='fas fa-edit'></i></button>";
                 $tombolHapus = "<button type=\"button\" class=\"btn btn-sm btn-danger\" onclick=\"hapus('" . $list->brgkode . "')\" title=\"Hapus\"><i class='fas fa-trash-alt'></i></button>";
+                $tombolDetail = "<button type=\"button\" class=\"btn btn-sm btn-success\" onclick=\"detail('" . $list->brgkode . "')\" title=\"Detail\"><i class='fas fa-search'></i></button>";
 
 
                 // if ($list->brgsatid == "") {
@@ -66,7 +67,7 @@ class Barang extends BaseController
                 $row[] = $list->satinisial;
                 $row[] = $list->brgharga;
                 $row[] = $list->brgstok;
-                $row[] = $tombolEdit . ' ' . $tombolHapus;
+                $row[] = $tombolEdit . ' ' . $tombolHapus . ' ' . $tombolDetail;
                 $data[] = $row;
             }
             $output = [
@@ -301,6 +302,42 @@ class Barang extends BaseController
             'sukses' => 'Data berhasil dihapus'
         ];
 
+
+        echo json_encode($json);
+    }
+
+    public function datadetail($brgkode)
+    {
+        $cekBarang = $this->barang->find($brgkode);
+        $cekKategori = $this->kategori->find($cekBarang['brgkatid']);
+        $cekSubKategori = $this->subkategori->find($cekBarang['brgsubkatid']);
+        $cekSatuan = $this->satuan->find($cekBarang['brgsatid']);
+
+
+        $data = [
+            'brgkode'             => $cekBarang['brgkode'],
+            'brgnama'           => $cekBarang['brgnama'],
+            'brgkatid'          => $cekBarang['brgkatid'],
+            'brgkatnama'        => $cekKategori['katnama'],
+            'brgsubkatid'       => $cekBarang['brgsubkatid'],
+            'brgsubkatnama'     => $cekSubKategori['subkatnama'],
+            'brgsatid'          => $cekBarang['brgsatid'],
+            'brgsatnama'        => $cekSatuan['satnama'],
+            'brgkapasitas'      => $cekBarang['brgkapasitas'],
+            'brgpanjang'        => $cekBarang['brgpanjang'],
+            'brglebar'          => $cekBarang['brglebar'],
+            'brgtinggi'         => $cekBarang['brgtinggi'],
+            'brgharga'          => $cekBarang['brgharga'],
+            'brggambar'         => $cekBarang['brggambar'],
+            'brgstok'           => $cekBarang['brgstok'],
+            'kategori'          => $this->kategori->findAll(),
+            'subkategori'       => $this->subkategori->findAll(),
+            'satuan'            => $this->satuan->findAll(),
+        ];
+
+        $json = [
+            'data' => view('barang/modaledit', $data)
+        ];
 
         echo json_encode($json);
     }

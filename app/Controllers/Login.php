@@ -196,7 +196,6 @@ class Login extends BaseController
                     $modelUser = new Modelusers();
 
                     $cekKtp = $modelUser->cariKtp($userktp)->getRowArray();
-                    $cekEmail = $modelUser->cariEmail($useremail)->getRowArray();
 
                     if ($cekKtp > 0) {
                         $json = [

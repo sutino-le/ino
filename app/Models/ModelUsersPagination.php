@@ -8,8 +8,8 @@ use CodeIgniter\Model;
 class ModelUsersPagination extends Model
 {
     protected $table = "users";
-    protected $column_order = array(null, 'userid', 'usernama', 'email', 'userpassword', 'levelnama', null);
-    protected $column_search = array('userid', 'usernama', 'email', 'userpassword', 'levelnama');
+    protected $column_order = array(null, 'userid', 'usernama', 'useremail', null);
+    protected $column_search = array('userid', 'usernama', 'useremail');
     protected $order = array('usernama' => 'ASC');
     protected $request;
     protected $db;

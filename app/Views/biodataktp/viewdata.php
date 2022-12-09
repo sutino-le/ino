@@ -23,13 +23,14 @@
 <div class="col-md-12">
     <div class="card">
         <div class="card-header">
-            <button type="button" class="btn btn-sm btn-primary" id="tambahBiodataKtp"><i class="fas fa-plus-circle"></i>
-                Tambah BiodataKtp</button>
+            <!-- <button type="button" class="btn btn-sm btn-primary" id="tambahBiodataKtp"><i class="fas fa-plus-circle"></i>
+                Tambah BiodataKtp</button> -->
         </div>
         <div class="card-body mt-1">
             <div class="table-responsive">
 
-                <table style="width: 100%;" id="dataBiodataKtp" class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
+                <table style="width: 100%;" id="dataBiodataKtp"
+                    class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -54,72 +55,72 @@
 <div class="viewmodal" style="display: none;"></div>
 
 <script>
-    function listDataBiodataKtp() {
-        var table = $('#dataBiodataKtp').dataTable({
-            destroy: true,
-            "processing": true,
-            "serverSide": true,
-            "order": [],
-            "ajax": {
-                "url": "<?= base_url() ?>/biodataktp/listData",
-                "type": "POST",
-            },
-            "colomnDefs": [{
-                "targets": [0, 6],
-                "orderable": false,
-            }, ],
-        });
-    }
+function listDataBiodataKtp() {
+    var table = $('#dataBiodataKtp').dataTable({
+        destroy: true,
+        "processing": true,
+        "serverSide": true,
+        "order": [],
+        "ajax": {
+            "url": "<?= base_url() ?>/biodataktp/listData",
+            "type": "POST",
+        },
+        "colomnDefs": [{
+            "targets": [0, 6],
+            "orderable": false,
+        }, ],
+    });
+}
 
-    $(document).ready(function() {
-        listDataBiodataKtp();
+$(document).ready(function() {
+    listDataBiodataKtp();
+});
+
+
+$(document).ready(function() {
+
+    $('#tambahBiodataKtp').click(function(e) {
+        e.preventDefault();
+        window.location.href = ('<?= base_url() ?>/biodataktp/formtambah');
     });
 
+});
 
-    $(document).ready(function() {
+function edit(ktp_nomor) {
+    window.location.href = ('<?= base_url() ?>/biodataktp/edit/') + ktp_nomor;
+}
 
-        $('#tambahBiodataKtp').click(function(e) {
-            e.preventDefault();
-            window.location.href = ('<?= base_url() ?>/biodataktp/formtambah');
-        });
-
-    });
-
-    function edit(ktp_nomor) {
-        window.location.href = ('<?= base_url() ?>/biodataktp/edit/') + ktp_nomor;
-    }
-
-    function hapus(ktp_nomor) {
-        Swal.fire({
-            title: 'Hapus Biodata?',
-            text: "Apakah ingin menghapus data!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Ya, Hapus!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                    type: "post",
-                    url: "<?= base_url() ?>/biodataktp/hapusBiodata",
-                    data: {
-                        ktp_nomor: ktp_nomor
-                    },
-                    dataType: "json",
-                    success: function(response) {
-                        if (response.sukses) {
-                            swal.fire('Berhasil', response.sukes, 'success');
-                            window.location.href = ('<?= base_url() ?>/biodataktp/index');
-                        }
-                    },
-                    error: function(xhr, ajaxOptions, thrownError) {
-                        alert(xhr.status + '\n' + thrownError);
+function hapus(ktp_nomor) {
+    Swal.fire({
+        title: 'Hapus Biodata?',
+        text: "Apakah ingin menghapus data!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Hapus!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: "post",
+                url: "<?= base_url() ?>/biodataktp/hapusBiodata",
+                data: {
+                    ktp_nomor: ktp_nomor
+                },
+                dataType: "json",
+                success: function(response) {
+                    if (response.sukses) {
+                        swal.fire('Berhasil', response.sukes, 'success');
+                        window.location.href = ('<?= base_url() ?>/biodataktp/index');
                     }
-                });
-            }
-        })
-    }
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status + '\n' + thrownError);
+                }
+            });
+        }
+    })
+}
 </script>
 
 <?= $this->endSection('isi') ?>

@@ -1,0 +1,132 @@
+CRITICAL - 2022-12-15 11:55:53 --> strpos(): Passing null to parameter #1 ($haystack) of type string is deprecated
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8192, 'strpos(): Passi...', 'C:\\xampp\\htdocs...', 413)
+#1 C:\xampp\htdocs\ino\system\Debug\Toolbar.php(413): strpos(NULL, '<head>')
+#2 C:\xampp\htdocs\ino\system\Filters\DebugToolbar.php(40): CodeIgniter\Debug\Toolbar->prepare(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\RedirectResponse))
+#3 C:\xampp\htdocs\ino\system\Filters\Filters.php(196): CodeIgniter\Filters\DebugToolbar->after(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\RedirectResponse), NULL)
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(436): CodeIgniter\Filters\Filters->run('login/index', 'after')
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-12-15 11:56:43 --> strpos(): Passing null to parameter #1 ($haystack) of type string is deprecated
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8192, 'strpos(): Passi...', 'C:\\xampp\\htdocs...', 413)
+#1 C:\xampp\htdocs\ino\system\Debug\Toolbar.php(413): strpos(NULL, '<head>')
+#2 C:\xampp\htdocs\ino\system\Filters\DebugToolbar.php(40): CodeIgniter\Debug\Toolbar->prepare(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\RedirectResponse))
+#3 C:\xampp\htdocs\ino\system\Filters\Filters.php(196): CodeIgniter\Filters\DebugToolbar->after(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\RedirectResponse), NULL)
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(436): CodeIgniter\Filters\Filters->run('login/index', 'after')
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-12-15 11:56:47 --> strpos(): Passing null to parameter #1 ($haystack) of type string is deprecated
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8192, 'strpos(): Passi...', 'C:\\xampp\\htdocs...', 413)
+#1 C:\xampp\htdocs\ino\system\Debug\Toolbar.php(413): strpos(NULL, '<head>')
+#2 C:\xampp\htdocs\ino\system\Filters\DebugToolbar.php(40): CodeIgniter\Debug\Toolbar->prepare(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\RedirectResponse))
+#3 C:\xampp\htdocs\ino\system\Filters\Filters.php(196): CodeIgniter\Filters\DebugToolbar->after(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\RedirectResponse), NULL)
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(436): CodeIgniter\Filters\Filters->run('login/index', 'after')
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-12-15 11:57:14 --> strpos(): Passing null to parameter #1 ($haystack) of type string is deprecated
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8192, 'strpos(): Passi...', 'C:\\xampp\\htdocs...', 413)
+#1 C:\xampp\htdocs\ino\system\Debug\Toolbar.php(413): strpos(NULL, '<head>')
+#2 C:\xampp\htdocs\ino\system\Filters\DebugToolbar.php(40): CodeIgniter\Debug\Toolbar->prepare(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\RedirectResponse))
+#3 C:\xampp\htdocs\ino\system\Filters\Filters.php(196): CodeIgniter\Filters\DebugToolbar->after(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\RedirectResponse), NULL)
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(436): CodeIgniter\Filters\Filters->run('login/index', 'after')
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-12-15 11:57:15 --> strpos(): Passing null to parameter #1 ($haystack) of type string is deprecated
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8192, 'strpos(): Passi...', 'C:\\xampp\\htdocs...', 413)
+#1 C:\xampp\htdocs\ino\system\Debug\Toolbar.php(413): strpos(NULL, '<head>')
+#2 C:\xampp\htdocs\ino\system\Filters\DebugToolbar.php(40): CodeIgniter\Debug\Toolbar->prepare(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\RedirectResponse))
+#3 C:\xampp\htdocs\ino\system\Filters\Filters.php(196): CodeIgniter\Filters\DebugToolbar->after(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\RedirectResponse), NULL)
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(436): CodeIgniter\Filters\Filters->run('login/index', 'after')
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-12-15 11:57:16 --> strpos(): Passing null to parameter #1 ($haystack) of type string is deprecated
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8192, 'strpos(): Passi...', 'C:\\xampp\\htdocs...', 413)
+#1 C:\xampp\htdocs\ino\system\Debug\Toolbar.php(413): strpos(NULL, '<head>')
+#2 C:\xampp\htdocs\ino\system\Filters\DebugToolbar.php(40): CodeIgniter\Debug\Toolbar->prepare(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\RedirectResponse))
+#3 C:\xampp\htdocs\ino\system\Filters\Filters.php(196): CodeIgniter\Filters\DebugToolbar->after(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\RedirectResponse), NULL)
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(436): CodeIgniter\Filters\Filters->run('login/index', 'after')
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-12-15 13:55:38 --> Undefined array key "ktp_email"
+#0 C:\xampp\htdocs\ino\app\Controllers\Profil.php(126): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 126)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Profil->index('admin')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profil))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-12-15 13:56:52 --> Undefined variable $ktp_email
+#0 C:\xampp\htdocs\ino\app\Views\profil\viewdata.php(392): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 392)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('profil/viewdata', Array, true)
+#4 C:\xampp\htdocs\ino\app\Controllers\Profil.php(174): view('profil/viewdata', Array)
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Profil->index('admin')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profil))
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-12-15 15:36:02 --> Undefined variable $hrseleksi
+#0 C:\xampp\htdocs\ino\app\Views\main\layout.php(320): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 320)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\View\View.php(226): CodeIgniter\View\View->render('main/layout', Array, true)
+#4 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('finger/viewdata', Array, true)
+#5 C:\xampp\htdocs\ino\app\Controllers\Finger.php(20): view('finger/viewdata', Array)
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Finger->index()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Finger))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-12-15 15:36:45 --> Undefined variable $hrseleksi
+#0 C:\xampp\htdocs\ino\app\Views\main\layout.php(326): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 326)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\View\View.php(226): CodeIgniter\View\View->render('main/layout', Array, true)
+#4 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('finger/viewdata', Array, true)
+#5 C:\xampp\htdocs\ino\app\Controllers\Finger.php(20): view('finger/viewdata', Array)
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Finger->index()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Finger))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-12-15 15:36:57 --> Undefined variable $seleksi
+#0 C:\xampp\htdocs\ino\app\Views\main\layout.php(370): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 370)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\View\View.php(226): CodeIgniter\View\View->render('main/layout', Array, true)
+#4 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('finger/viewdata', Array, true)
+#5 C:\xampp\htdocs\ino\app\Controllers\Finger.php(20): view('finger/viewdata', Array)
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Finger->index()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Finger))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-12-15 15:37:44 --> Undefined variable $seleksi
+#0 C:\xampp\htdocs\ino\app\Views\main\layout.php(370): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 370)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\View\View.php(226): CodeIgniter\View\View->render('main/layout', Array, true)
+#4 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('finger/viewdata', Array, true)
+#5 C:\xampp\htdocs\ino\app\Controllers\Finger.php(20): view('finger/viewdata', Array)
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Finger->index()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Finger))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-12-15 15:39:48 --> Undefined variable $hrseleksi
+#0 C:\xampp\htdocs\ino\app\Views\main\layout.php(354): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 354)
+#1 C:\xampp\htdocs\ino\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ino\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ino\system\View\View.php(226): CodeIgniter\View\View->render('main/layout', Array, true)
+#4 C:\xampp\htdocs\ino\system\Common.php(1089): CodeIgniter\View\View->render('hrpelamar/viewd...', Array, true)
+#5 C:\xampp\htdocs\ino\app\Controllers\HrPelamar.php(17): view('hrpelamar/viewd...', Array)
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\HrPelamar->index()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HrPelamar))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}

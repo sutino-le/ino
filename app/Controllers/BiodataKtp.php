@@ -6,6 +6,11 @@ use App\Controllers\BaseController;
 use App\Models\ModelBiodataKtp;
 use App\Models\ModelBiodataKtpNamaPagination;
 use App\Models\ModelBiodataKtpPagination;
+use App\Models\ModelLowongan;
+use App\Models\ModelLowonganApply;
+use App\Models\ModelPemakaian;
+use App\Models\ModelPengembalian;
+use App\Models\ModelPsikotest;
 use App\Models\ModelUsers;
 use App\Models\ModelUsersUpdate;
 use App\Models\ModelWilayah;
@@ -51,7 +56,7 @@ class BiodataKtp extends BaseController
                 $row[] = $list->ktp_tempat_lahir . '<br>' . $list->ktp_tanggal_lahir;
                 $row[] = $list->ktp_kelamin;
                 $row[] = $list->ktp_alamat . ' RT/RW ' . $list->ktp_rt . '/' . $list->ktp_rw . ', Kel. ' . $list->kelurahan . ', Kec. ' . $list->kecamatan . ' - ' . $list->kota_kabupaten . ' - ' . $list->propinsi;
-                $row[] = $list->ktp_email . '<br>' . $list->ktp_hp;
+                $row[] = $list->ktp_hp;
                 $row[] = $tombolEdit . ' ' . $tombolHapus;
                 $data[] = $row;
             }
@@ -92,7 +97,6 @@ class BiodataKtp extends BaseController
             $ktp_rw             = $this->request->getPost('ktp_rw');
             $ktp_alamatid       = $this->request->getPost('ktp_alamatid');
             $ktp_hp             = $this->request->getPost('ktp_hp');
-            $ktp_email          = $this->request->getPost('ktp_email');
 
             $validation = \Config\Services::validation();
 
@@ -195,13 +199,6 @@ class BiodataKtp extends BaseController
                         'required'  => '{field} tidak boleh kosong'
                     ]
                 ],
-                'ktp_email' => [
-                    'rules'     => 'required',
-                    'label'     => 'Email',
-                    'errors'    => [
-                        'required'  => '{field} tidak boleh kosong'
-                    ]
-                ]
             ]);
 
             if (!$valid) {
@@ -221,7 +218,6 @@ class BiodataKtp extends BaseController
                         'errPropinsi'        => $validation->getError('propinsi'),
                         'errKtpAlamatId'        => $validation->getError('ktp_alamatid'),
                         'errKtpHp'              => $validation->getError('ktp_hp'),
-                        'errKtpEmail'           => $validation->getError('ktp_email'),
                     ]
                 ];
             } else {
@@ -239,7 +235,6 @@ class BiodataKtp extends BaseController
                     'ktp_rw'            => $ktp_rw,
                     'ktp_alamatid'      => $ktp_alamatid,
                     'ktp_hp'            => $ktp_hp,
-                    'ktp_email'         => $ktp_email,
                     'ktp_foto'          => ''
                 ]);
 
@@ -278,7 +273,6 @@ class BiodataKtp extends BaseController
                 'ktp_rw'                => $cekData['ktp_rw'],
                 'ktp_alamatid'          => $cekData['ktp_alamatid'],
                 'ktp_hp'                => $cekData['ktp_hp'],
-                'ktp_email'             => $cekData['ktp_email'],
                 'kelurahan'             => $rowWilayah['kelurahan'],
                 'kecamatan'             => $rowWilayah['kecamatan'],
                 'kota_kabupaten'        => $rowWilayah['kota_kabupaten'],
@@ -300,7 +294,6 @@ class BiodataKtp extends BaseController
                 'ktp_rw'                => $cekData['ktp_rw'],
                 'ktp_alamatid'          => $cekData['ktp_alamatid'],
                 'ktp_hp'                => $cekData['ktp_hp'],
-                'ktp_email'             => $cekData['ktp_email'],
                 'kelurahan'             => '',
                 'kecamatan'             => '',
                 'kota_kabupaten'        => '',
@@ -327,7 +320,6 @@ class BiodataKtp extends BaseController
             $ktp_rw             = $this->request->getPost('ktp_rw');
             $ktp_alamatid       = $this->request->getPost('ktp_alamatid');
             $ktp_hp             = $this->request->getPost('ktp_hp');
-            $ktp_email          = $this->request->getPost('ktp_email');
 
             $validation = \Config\Services::validation();
 
@@ -430,13 +422,6 @@ class BiodataKtp extends BaseController
                         'required'  => '{field} tidak boleh kosong'
                     ]
                 ],
-                'ktp_email' => [
-                    'rules'     => 'required',
-                    'label'     => 'Email',
-                    'errors'    => [
-                        'required'  => '{field} tidak boleh kosong'
-                    ]
-                ]
             ]);
 
             if (!$valid) {
@@ -456,7 +441,6 @@ class BiodataKtp extends BaseController
                         'errPropinsi'        => $validation->getError('propinsi'),
                         'errKtpAlamatId'        => $validation->getError('ktp_alamatid'),
                         'errKtpHp'              => $validation->getError('ktp_hp'),
-                        'errKtpEmail'           => $validation->getError('ktp_email'),
                     ]
                 ];
             } else {
@@ -474,25 +458,36 @@ class BiodataKtp extends BaseController
                     'ktp_rw'            => $ktp_rw,
                     'ktp_alamatid'      => $ktp_alamatid,
                     'ktp_hp'            => $ktp_hp,
-                    'ktp_email'         => $ktp_email,
                 ]);
 
                 if ($modelBiodata) {
                     $modelUser = new ModelUsersUpdate();
-                    // $rowUser = $modelUser->find($ktp_nomor_lama);
+                    $modelPemakaian = new ModelPemakaian();
+                    $modelPengembalian = new ModelPengembalian();
+                    $modelLowongan = new ModelLowonganApply();
+                    $modelPsikotest = new ModelPsikotest();
 
-                    // $userid   = $rowUser['propinsi'];
 
-                    // if ($rowUser > 0) {
                     $modelUser->update($ktp_nomor_lama, [
                         'userktp'   => $ktp_nomor
                     ]);
-                    // }
 
-                    // $modelUser->where(['userktp' => $ktp_nomor_lama]);
-                    // $modelUser->update([
-                    //     'userktp'   => $ktp_nomor
-                    // ]);
+
+                    $modelPemakaian->update($ktp_nomor_lama, [
+                        'pemakai'   => $ktp_nomor
+                    ]);
+
+                    $modelPengembalian->update($ktp_nomor_lama, [
+                        'pgmoleh'   => $ktp_nomor
+                    ]);
+
+                    $modelLowongan->update($ktp_nomor_lama, [
+                        'applyktp'   => $ktp_nomor
+                    ]);
+
+                    $modelPsikotest->update($ktp_nomor_lama, [
+                        'testktp'   => $ktp_nomor
+                    ]);
 
 
                     $json = [

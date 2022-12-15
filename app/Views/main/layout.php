@@ -132,8 +132,13 @@
                     $jeniskaryawan = "show";
                     $jenispkwt = "show";
 
+                    $struktur = "show";
+
                     $biodata = "show";
                     $biodata_ktp = "show";
+
+                    $hrseleksi = "show";
+                    $pelamar = "show";
 
                     $master_test = "show";
                     $lowongandaftar = "show";
@@ -176,8 +181,13 @@
                     $jeniskaryawan = "none";
                     $jenispkwt = "none";
 
+                    $struktur = "none";
+
                     $biodata = "none";
                     $biodata_ktp = "none";
+
+                    $hrseleksi = "none";
+                    $pelamar = "none";
 
                     $master_test = "show";
                     $lowongandaftar = "show";
@@ -311,6 +321,18 @@
                             </ul>
                         </li>
 
+                        <!-- Struktur -->
+                        <li class="nav-item <?= ($menu == 'struktur') ? 'menu-open' : '' ?>"
+                            style="display: <?= $master_hr ?>;">
+                            <a href="<?= site_url('hrstruktur/index') ?>"
+                                class="nav-link <?= ($menu == 'struktur') ? 'active' : '' ?>">
+                                <i class="fas fa-bezier-curve text-warning"></i>
+                                <p>
+                                    Struktur Organisasi
+                                </p>
+                            </a>
+                        </li>
+
                         <!-- Biodata -->
                         <li class="nav-item <?= ($menu == 'biodata') ? 'menu-open' : '' ?>"
                             style="display: <?= $biodata ?>;">
@@ -327,6 +349,29 @@
                                         class="nav-link <?= ($submenu == 'ktp') ? 'active' : '' ?>">
                                         <i class="fas fa-id-card nav-icon text-warning"></i>
                                         <p>KTP</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <!-- Seleksi -->
+                        <li class="nav-item <?= ($menu == 'seleksi') ? 'menu-open' : '' ?>"
+                            style="display: <?= $hrseleksi ?>;">
+                            <a href="#" class="nav-link <?= ($menu == 'seleksi') ? 'active' : '' ?>">
+                                <i class="fas fa-user-clock text-secondary"></i>
+                                <p>
+                                    Seleksi
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview ml-2">
+
+                                <li class="nav-item" style="display: <?= $pelamar ?>;">
+                                    <a href="<?= site_url('hrpelamar/index') ?>"
+                                        class="nav-link <?= ($submenu == 'pelamar') ? 'active' : '' ?>">
+                                        <i class="fas fa-user-friends nav-icon text-secondary"></i>
+                                        <p>Pelamar</p>
                                     </a>
                                 </li>
 

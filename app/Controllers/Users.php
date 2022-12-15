@@ -5,6 +5,11 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\ModelBiodataKtp;
 use App\Models\ModelLevels;
+use App\Models\ModelLowongan;
+use App\Models\ModelLowonganApply;
+use App\Models\ModelPemakaian;
+use App\Models\ModelPengembalian;
+use App\Models\ModelPsikotest;
 use App\Models\ModelUsers;
 use App\Models\ModelUsersPagination;
 use Config\Services;
@@ -208,7 +213,6 @@ class Users extends BaseController
                                     'ktp_rw'            => '',
                                     'ktp_alamatid'      => 82521,
                                     'ktp_hp'            => '',
-                                    'ktp_email'         => $useremail,
                                     'ktp_foto'          => 'user.png'
                                 ]);
 
@@ -371,10 +375,30 @@ class Users extends BaseController
                             ]);
 
                             $modelBiodata = new ModelBiodataKtp();
+                            $modelPemakai = new ModelPemakaian();
+                            $modelPengembalian = new ModelPengembalian();
+                            $modelLowongan = new ModelLowonganApply();
+                            $modelPsikotest = new ModelPsikotest();
 
                             if ($modelUser) {
                                 $modelBiodata->update($userktplama, [
                                     'ktp_nomor'         => $userktp,
+                                ]);
+
+                                $modelPemakai->update($userktplama, [
+                                    'pemakai'   => $userktp
+                                ]);
+
+                                $modelPengembalian->update($userktplama, [
+                                    'pgmoleh'   => $userktp
+                                ]);
+
+                                $modelLowongan->update($userktplama, [
+                                    'applyktp'   => $userktp
+                                ]);
+
+                                $modelPsikotest->update($userktplama, [
+                                    'testktp'   => $userktp
                                 ]);
 
                                 $json = [

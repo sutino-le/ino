@@ -39,17 +39,17 @@ class Filters extends BaseConfig
             // 'csrf',
             // 'invalidchars',
             'filterAdmin' => [
-                'except' => ['home/*', 'login/*', 'login', '/']
+                'except' => ['home/*', 'login/*', '/']
             ],
             'filterUser' => [
-                'except' => ['home/*', 'login/*', 'login', '/']
+                'except' => ['home/*', 'login/*', '/']
             ]
         ],
         'after' => [
             // 'honeypot',
             // 'secureheaders',
             'filterAdmin' => [
-                'except' => ['/', 'home/*', 'main/*', 'profil/*', 'levels/*', 'users/*', 'wilayah/*', 'lowongan/*', 'soal/*', 'psikotest/*', 'kategori/*', 'subkategori/*', 'satuan/*', 'barang/*', 'pembelian/*', 'penerimaan/*', 'pemakaian/*', 'suplier/*', 'biodataktp/*', 'pengembalian/*', 'finger/*', 'hrbagian/*', 'hrjabatan/*', 'hrjeniskaryawan/*', 'hrjenispkwt/*',]
+                'except' => ['/', 'home/*', 'main/*', 'profil/*', 'levels/*', 'users/*', 'wilayah/*', 'lowongan/*', 'soal/*', 'psikotest/*', 'kategori/*', 'subkategori/*', 'satuan/*', 'barang/*', 'pembelian/*', 'penerimaan/*', 'pemakaian/*', 'suplier/*', 'biodataktp/*', 'pengembalian/*', 'finger/*', 'hrbagian/*', 'hrjabatan/*', 'hrjeniskaryawan/*', 'hrjenispkwt/*', 'hrstruktur/*', 'hrpelamar/*',]
             ],
             'filterUser' => [
                 'except' => ['/', 'home/*', 'main/*', 'profil/*', 'wilayah/*', 'lowongan/*',  'psikotest/*',]

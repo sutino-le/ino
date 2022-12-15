@@ -61,6 +61,28 @@ class Finger extends BaseController
             'menu'          => 'finger',
             'submenu'       => 'finger',
         ];
-        return view('finger/download', $data);
+        return view('finger/download202', $data);
+    }
+
+    public function download203()
+    {
+        $data = [
+            'judul'         => 'Home',
+            'subjudul'      => 'Finger',
+            'menu'          => 'finger',
+            'submenu'       => 'finger',
+        ];
+        return view('finger/download203', $data);
+    }
+
+    public function download204()
+    {
+        $data = [
+            'judul'         => 'Home',
+            'subjudul'      => 'Finger',
+            'menu'          => 'finger',
+            'submenu'       => 'finger',
+        ];
+        return view('finger/download204', $data);
     }
 }

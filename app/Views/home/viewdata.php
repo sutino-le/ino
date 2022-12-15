@@ -31,6 +31,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
 
 
 
@@ -124,27 +128,33 @@
 <body>
     <!-- Navigation-->
 
-    <nav class="navbar navbar-light bg-light shadow-lg" id="navbar">
-        <a class="navbar-brand" href="#page-top">PT Rackindo Setara Perkasa</a>
-        <ul class="nav nav-pills">
-            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="#proses">Business Process</a></li>
-            <li class="nav-item"><a class="nav-link" href="#career">Career</a></li>
-            <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
-            <?php
-            if (session()->namauser) {
-            ?>
-            <li class="nav-item"><a class="nav-link"
-                    href="<?= site_url('profil/index/' . session()->iduser) ?>"><?= session()->namauser ?></a>
-            </li>
-            <?php
-            } else {
-            ?>
-            <li class="nav-item"><a class="nav-link" href="<?= site_url('login/index') ?>">Login</a></li>
-            <?php
-            }
-            ?>
-        </ul>
+    <nav class="navbar navbar-expand-md navbar-light bg-light shadow-lg" id="navbar">
+        <a class="navbar-brand" href="#">PT Rackindo Setara Perkasa</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#proses">Business Process</a></li>
+                <li class="nav-item"><a class="nav-link" href="#career">Career</a></li>
+                <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
+                <?php
+                if (session()->namauser) {
+                ?>
+                <li class="nav-item"><a class="nav-link"
+                        href="<?= site_url('profil/index/' . session()->iduser) ?>"><?= session()->namauser ?></a>
+                </li>
+                <?php
+                } else {
+                ?>
+                <li class="nav-item"><a class="nav-link" href="<?= site_url('login/index') ?>">Login</a></li>
+                <?php
+                }
+                ?>
+            </ul>
+        </div>
     </nav>
 
 

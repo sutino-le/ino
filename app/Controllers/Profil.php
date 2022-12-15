@@ -123,7 +123,6 @@ class Profil extends BaseController
                 'ktp_rw'                => $rowKtp['ktp_rw'],
                 'ktp_alamatid'          => $rowKtp['ktp_alamatid'],
                 'ktp_hp'                => $rowKtp['ktp_hp'],
-                'ktp_email'             => $rowKtp['ktp_email'],
                 'ktp_foto'              => $rowKtp['ktp_foto'],
                 'kelurahan'             => $data_wilayah['kelurahan'],
                 'kecamatan'             => $data_wilayah['kecamatan'],
@@ -157,7 +156,6 @@ class Profil extends BaseController
                 'ktp_rw'                => '',
                 'ktp_alamatid'          => '',
                 'ktp_hp'                => '',
-                'ktp_email'             => '',
                 'ktp_foto'              => '',
                 'kelurahan'             => $data_wilayah['kelurahan'],
                 'kecamatan'             => $data_wilayah['kecamatan'],
@@ -270,7 +268,6 @@ class Profil extends BaseController
                     'ktp_rw'                => $cekDataKtp['ktp_rw'],
                     'ktp_alamatid'          => $cekDataKtp['ktp_alamatid'],
                     'ktp_hp'                => $cekDataKtp['ktp_hp'],
-                    'ktp_email'             => $cekDataKtp['ktp_email'],
                     'kelurahan'             => $rowWilayah['kelurahan'],
                     'kecamatan'             => $rowWilayah['kecamatan'],
                     'kota_kabupaten'        => $rowWilayah['kota_kabupaten'],
@@ -294,7 +291,6 @@ class Profil extends BaseController
                     'ktp_rw'                => $cekDataKtp['ktp_rw'],
                     'ktp_alamatid'          => $cekDataKtp['ktp_alamatid'],
                     'ktp_hp'                => $cekDataKtp['ktp_hp'],
-                    'ktp_email'             => $cekDataKtp['ktp_email'],
                     'kelurahan'             => '',
                     'kecamatan'             => '',
                     'kota_kabupaten'        => '',
@@ -326,7 +322,6 @@ class Profil extends BaseController
             $ktp_rw             = $this->request->getPost('ktp_rw');
             $ktp_alamatid       = $this->request->getPost('ktp_alamatid');
             $ktp_hp             = $this->request->getPost('ktp_hp');
-            $ktp_email          = $this->request->getPost('ktp_email');
 
             $validation = \Config\Services::validation();
 
@@ -429,13 +424,6 @@ class Profil extends BaseController
                         'required'  => '{field} tidak boleh kosong'
                     ]
                 ],
-                'ktp_email' => [
-                    'rules'     => 'required',
-                    'label'     => 'Email',
-                    'errors'    => [
-                        'required'  => '{field} tidak boleh kosong'
-                    ]
-                ]
             ]);
 
             if (!$valid) {
@@ -455,7 +443,6 @@ class Profil extends BaseController
                         'errPropinsi'        => $validation->getError('propinsi'),
                         'errKtpAlamatId'        => $validation->getError('ktp_alamatid'),
                         'errKtpHp'              => $validation->getError('ktp_hp'),
-                        'errKtpEmail'           => $validation->getError('ktp_email'),
                     ]
                 ];
             } else {
@@ -473,7 +460,6 @@ class Profil extends BaseController
                     'ktp_rw'            => $ktp_rw,
                     'ktp_alamatid'      => $ktp_alamatid,
                     'ktp_hp'            => $ktp_hp,
-                    'ktp_email'         => $ktp_email,
                 ]);
 
                 if ($modelBiodata) {

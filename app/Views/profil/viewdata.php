@@ -384,17 +384,6 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label for="">Email <font color="#ff9999"> &#42;
-                                                                        </font></label>
-                                                                    <input type="email" name="ktp_email" id="ktp_email"
-                                                                        class="form-control" value="<?= $ktp_email ?>"
-                                                                        placeholder="Masukan Email...">
-                                                                    <div class="invalid-feedback errorKtpEmail"></div>
-                                                                </div>
-                                                            </div>
-
                                                         </div>
 
 
@@ -627,14 +616,6 @@ $(document).ready(function() {
                     } else {
                         $('#ktp_hp').removeClass('is-invalid');
                         $('#ktp_hp').addClass('is-valid');
-                    }
-
-                    if (err.errKtpEmail) {
-                        $('#ktp_email').addClass('is-invalid');
-                        $('.errorKtpEmail').html(err.errKtpEmail);
-                    } else {
-                        $('#ktp_email').removeClass('is-invalid');
-                        $('#ktp_email').addClass('is-valid');
                     }
 
                 }

@@ -23,8 +23,8 @@
 <div class="col-md-12">
     <div class="card">
         <div class="card-header">
-            <button type="button" class="btn btn-sm btn-primary" id="tambahUsers"><i class="fas fa-plus-circle"></i>
-                Tambah User</button>
+            <!-- <button type="button" class="btn btn-sm btn-primary" id="tambahUsers"><i class="fas fa-plus-circle"></i>
+                Tambah User</button> -->
         </div>
         <div class="card-body mt-1">
             <div class="table-responsive">

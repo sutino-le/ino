@@ -167,6 +167,9 @@
 
                     $master_finger = "show";
                     $finger = "show";
+
+                    $master_pengingat = "show";
+                    $pengingat = "show";
                 } else {
                     $setting = "none";
                     $levels = "none";
@@ -216,6 +219,9 @@
 
                     $master_finger = "none";
                     $finger = "none";
+
+                    $master_pengingat = "none";
+                    $pengingat = "none";
                 }
                 ?>
                 <nav class="mt-2">
@@ -326,7 +332,7 @@
                             style="display: <?= $master_hr ?>;">
                             <a href="<?= site_url('hrstruktur/index') ?>"
                                 class="nav-link <?= ($menu == 'struktur') ? 'active' : '' ?>">
-                                <i class="fas fa-bezier-curve text-warning"></i>
+                                <i class="fas fa-bezier-curve text-lightblue"></i>
                                 <p>
                                     Struktur Organisasi
                                 </p>
@@ -394,6 +400,27 @@
                                         class="nav-link <?= ($submenu == 'finger') ? 'active' : '' ?>">
                                         <i class="fas fa-fingerprint nav-icon text-success"></i>
                                         <p>Finger</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- pengingat -->
+                        <li class="nav-item <?= ($menu == 'pengingat') ? 'menu-open' : '' ?>"
+                            style="display: <?= $master_pengingat ?>;">
+                            <a href="#" class="nav-link <?= ($menu == 'pengingat') ? 'active' : '' ?>">
+                                <i class="fas fa-bell text-purple "></i>
+                                <p>
+                                    Pengingat
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview ml-2">
+                                <li class="nav-item" style="display: <?= $pengingat ?>;">
+                                    <a href="<?= site_url('pengingat/index') ?>"
+                                        class="nav-link <?= ($submenu == 'pengingat') ? 'active' : '' ?>">
+                                        <i class="fas fa-bell nav-icon text-purple "></i>
+                                        <p>pengingat</p>
                                     </a>
                                 </li>
                             </ul>

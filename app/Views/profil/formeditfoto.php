@@ -1,5 +1,6 @@
 <!-- Modal -->
-<div class="modal fade" id="modalEditFoto" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="modalEditFoto" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
 
@@ -18,7 +19,8 @@
                 <input type="hidden" name="ktp_nomor" id="ktp_nomor" value="<?= $ktp_nomor ?>">
 
                 <div class="form-group">
-                    <img src="<?= base_url() ?>/upload/<?= $ktp_foto ?>" class="img-thumbnail" style="width: 50%;" alt="Foto Profil">
+                    <img src="<?= base_url() ?>/upload/<?= $ktp_foto ?>" class="img-thumbnail" style="width: 50%;"
+                        alt="Foto Profil">
                 </div>
 
                 <div class="form-group">
@@ -30,7 +32,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-sm btn-success" id="tombolsimpan" autocomplete="off">Simpan</button>
+                <button type="submit" class="btn btn-sm btn-success" id="tombolsimpan"
+                    autocomplete="off">Simpan</button>
                 <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" id="batal">Batal</button>
             </div>
 

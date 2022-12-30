@@ -1,0 +1,56 @@
+CRITICAL - 2022-12-27 09:31:39 --> Call to undefined method App\Models\ModelPengingat::tampilDataIngat
+#0 C:\xampp\htdocs\ino\app\Controllers\Pengingat.php(264): CodeIgniter\Model->__call('tampilDataIngat', Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pengingat->tampilDataPengingat()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengingat))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-12-27 09:32:45 --> Call to undefined method App\Models\ModelPengingat::tampilDataIngat
+#0 C:\xampp\htdocs\ino\app\Controllers\Pengingat.php(264): CodeIgniter\Model->__call('tampilDataIngat', Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pengingat->tampilDataPengingat()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengingat))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-12-27 09:33:23 --> Call to undefined method App\Models\ModelPengingat::tampilDataIngat
+#0 C:\xampp\htdocs\ino\app\Controllers\Pengingat.php(264): CodeIgniter\Model->__call('tampilDataIngat', Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pengingat->tampilDataPengingat()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengingat))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-12-27 09:34:12 --> Call to undefined method App\Models\ModelPengingat::tampilDataIngat
+#0 C:\xampp\htdocs\ino\app\Controllers\Pengingat.php(264): CodeIgniter\Model->__call('tampilDataIngat', Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pengingat->tampilDataPengingat()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengingat))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-12-27 09:36:08 --> Call to undefined method App\Models\ModelPengingat::tampilDataIngat
+#0 C:\xampp\htdocs\ino\app\Controllers\Pengingat.php(264): CodeIgniter\Model->__call('tampilDataIngat', Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pengingat->tampilDataPengingat()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengingat))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-12-27 09:36:34 --> Call to undefined method App\Models\ModelPengingat::tampilDataIngat
+#0 C:\xampp\htdocs\ino\app\Controllers\Pengingat.php(264): CodeIgniter\Model->__call('tampilDataIngat', Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pengingat->tampilDataPengingat()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengingat))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-12-27 09:37:53 --> Call to undefined method App\Models\ModelPengingat::tampilDataIngat
+#0 C:\xampp\htdocs\ino\app\Controllers\Pengingat.php(264): CodeIgniter\Model->__call('tampilDataIngat', Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pengingat->tampilDataPengingat()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengingat))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-12-27 13:05:38 --> Call to undefined method App\Models\ModelPengingat::tampilDataIngat
+#0 C:\xampp\htdocs\ino\app\Controllers\Pengingat.php(264): CodeIgniter\Model->__call('tampilDataIngat', Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pengingat->tampilDataPengingat()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengingat))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}

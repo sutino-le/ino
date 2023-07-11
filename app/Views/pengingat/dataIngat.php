@@ -22,17 +22,17 @@
         <tr>
             <td>
                 <?= $no++; ?>
-                <input type="hidden" value="<?= $row['ingatid'] ?>" id="ingatid">
+                <input type="hidden" value="<?= $row['pgtid'] ?>" id="pgtid">
             </td>
-            <td><?= $row['ingatkode']; ?></td>
+            <td><?= $row['pgtbrgkode']; ?></td>
             <td><?= $row['brgnama']; ?></td>
-            <td><?= $row['ingatlocation']; ?></td>
-            <td><?= $row['ingatawal']; ?></td>
-            <td><?= $row['ingatakhir']; ?></td>
+            <td><?= $row['pgtlocation']; ?></td>
+            <td><?= $row['pgtawal']; ?></td>
+            <td><?= $row['pgtakhir']; ?></td>
             <td><?= $row['ktp_nama']; ?></td>
-            <td><?= $row['ingatketerangan']; ?></td>
+            <td><?= $row['pgtketerangan']; ?></td>
             <td>
-                <button type="button" class="btn btn-sm btn-danger" onclick="hapusItem('<?= $row['ingatid'] ?>')"><i
+                <button type="button" class="btn btn-sm btn-danger" onclick="hapusItem('<?= $row['pgtid'] ?>')"><i
                         class="fa fa-trash-alt"></i></button>
             </td>
         </tr>
@@ -40,7 +40,7 @@
     </tbody>
 </table>
 <script>
-function hapusItem(ingatid) {
+function hapusItem(pgtid) {
     let ingatnomor = $('#ingatnomor').val();
     Swal.fire({
         title: 'Hapus Item ?',
@@ -56,7 +56,7 @@ function hapusItem(ingatid) {
                 type: "post",
                 url: "<?= base_url() ?>/pengingat/hapusItemIngat",
                 data: {
-                    ingatid: ingatid
+                    pgtid: pgtid
                 },
                 dataType: "json",
                 success: function(response) {
@@ -69,32 +69,4 @@ function hapusItem(ingatid) {
         }
     })
 }
-
-
-
-$('#dataingat tbody').on('click', 'tr', function() {
-    let row = $(this).closest('tr');
-
-    let ingatid = row.find('td input').val();
-
-    $('#ingatid').val(ingatid);
-
-    $('#tombolBatal').fadeIn();
-    $('#tombolEditItem').fadeIn();
-    $('#ingatkode').prop('readonly', true);
-    $('#tombolCari').prop('disabled', true);
-    $('#tombolSimpanItem').fadeOut();
-    ambilDataPengingat();
-});
-
-$(document).on('click', '#tombolBatal', function(e) {
-    e.preventDefault();
-    kosong();
-    tampilDataPengingat();
-    $('#tombolBatal').fadeOut();
-    $('#tombolEditItem').fadeOut();
-    $('#ingatkode').prop('readonly', false);
-    $('#tombolCari').prop('disabled', false);
-    $('#tombolSimpanItem').fadeIn();
-});
 </script>

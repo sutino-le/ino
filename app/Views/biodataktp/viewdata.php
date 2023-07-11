@@ -121,6 +121,10 @@ function hapus(ktp_nomor) {
         }
     })
 }
+
+function detail(userid) {
+    window.location.href = ('<?= base_url() ?>/profil/index/') + userid;
+}
 </script>
 
 <?= $this->endSection('isi') ?>

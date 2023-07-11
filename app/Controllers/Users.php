@@ -213,7 +213,7 @@ class Users extends BaseController
                                     'ktp_rw'            => '',
                                     'ktp_alamatid'      => 82521,
                                     'ktp_hp'            => '',
-                                    'ktp_foto'          => 'user.png'
+                                    'ktp_foto'          => ''
                                 ]);
 
                                 $json = [

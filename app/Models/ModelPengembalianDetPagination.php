@@ -9,7 +9,7 @@ class ModelPengembalianDetPagination extends Model
 {
     protected $table = "pengembalian";
     protected $column_order = array(null, 'pgmnomor', 'pgmtanggal', 'pgmoleh', null);
-    protected $column_search = array('pgmnomor', 'pgmtanggal', 'pgmoleh');
+    protected $column_search = array('pgmnomor', 'pgmtanggal', 'pgmoleh', 'brgnama', 'ktp_nama');
     protected $order = array('pgmnomor' => 'ASC');
     protected $request;
     protected $db;

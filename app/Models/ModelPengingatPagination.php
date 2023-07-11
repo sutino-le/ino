@@ -8,9 +8,9 @@ use CodeIgniter\Model;
 class ModelPengingatPagination extends Model
 {
     protected $table = "pengingat";
-    protected $column_order = array(null, 'pgtbrgkode', 'pgtlocation', 'pgtawal', null);
-    protected $column_search = array('pgtbrgkode', 'pgtlocation', 'pgtawal');
-    protected $order = array('pgtbrgkode' => 'ASC');
+    protected $column_order = array(null, 'ingatnomor', 'ingattanggal', 'ingatuser', null);
+    protected $column_search = array('ingatnomor', 'ingattanggal', 'ingatuser');
+    protected $order = array('ingatnomor' => 'ASC');
     protected $request;
     protected $db;
     protected $dt;
@@ -23,7 +23,7 @@ class ModelPengingatPagination extends Model
     }
     private function _get_datatables_query()
     {
-        $this->dt = $this->db->table($this->table)->join('pengingatdet', 'ingatnomor=pgtnomor', 'left')->join('biodata_ktp', 'pgtuser=ktp_nomor', 'left')->join('barang', 'pgtbrgkode=brgkode', 'left');
+        $this->dt = $this->db->table($this->table);
 
         $i = 0;
         foreach ($this->column_search as $item) {
@@ -62,7 +62,7 @@ class ModelPengingatPagination extends Model
     }
     public function count_all()
     {
-        $tbl_storage = $this->db->table($this->table)->join('pengingatdet', 'ingatnomor=pgtnomor', 'left')->join('biodata_ktp', 'pgtuser=ktp_nomor', 'left')->join('barang', 'pgtbrgkode=brgkode', 'left');
+        $tbl_storage = $this->db->table($this->table);
 
         return $tbl_storage->countAllResults();
     }

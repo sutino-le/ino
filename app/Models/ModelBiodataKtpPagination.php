@@ -8,8 +8,8 @@ use CodeIgniter\Model;
 class ModelBiodataKtpPagination extends Model
 {
     protected $table = "biodata_ktp";
-    protected $column_order = array(null, 'ktp_nomor', 'ktp_nama', 'ktp_tempat_lahir', 'ktp_alamat', 'ktp_hp', 'ktp_email', null);
-    protected $column_search = array('ktp_nomor', 'ktp_nama', 'ktp_tempat_lahir', 'ktp_alamat', 'ktp_hp', 'ktp_email');
+    protected $column_order = array(null, 'ktp_nama', 'ktp_tempat_lahir', 'ktp_kelamin', 'ktp_alamat', 'ktp_hp', null);
+    protected $column_search = array('ktp_nama', 'ktp_tempat_lahir', 'ktp_kelamin', 'ktp_alamat', 'ktp_hp',);
     protected $order = array('ktp_nama' => 'ASC');
     protected $request;
     protected $db;

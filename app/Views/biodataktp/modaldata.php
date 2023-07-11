@@ -57,8 +57,8 @@ function listDataKtp() {
 
 function pilih(ktp_nomor, ktp_nama) {
     // pengingat
-    $('#ingatnama').val(ktp_nama);
-    $('#ingatuser').val(ktp_nomor);
+    $('#pgtnama').val(ktp_nama);
+    $('#pgtuser').val(ktp_nomor);
 
     // pemakaian
     $('#pemakainama').val(ktp_nama);

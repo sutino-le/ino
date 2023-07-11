@@ -48,7 +48,8 @@
                     <th>Kategori</th>
                     <th>Tanggal</th>
                     <th>Pemakai</th>
-                    <th>User</th>
+                    <th>Keterangan</th>
+                    <th>Pengembalian</th>
                 </tr>
             </thead>
             <tbody>
@@ -74,7 +75,7 @@ function listDataPemakaian() {
             }
         },
         "colomnDefs": [{
-            "targets": [0, 5],
+            "targets": [0, 6],
             "orderable": false,
         }, ],
     });

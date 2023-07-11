@@ -29,8 +29,7 @@
         <div class="card-body mt-1">
             <div class="table-responsive">
 
-                <table style="width: 100%;" id="dataBarang"
-                    class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
+                <table style="width: 100%;" id="dataBarang" class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -56,120 +55,120 @@
 <div class="viewmodal" style="display: none;"></div>
 
 <script>
-function listDataBarang() {
-    var table = $('#dataBarang').dataTable({
-        destroy: true,
-        "processing": true,
-        "serverSide": true,
-        "order": [],
-        "ajax": {
-            "url": "<?= base_url() ?>/barang/listData",
-            "type": "POST",
-        },
-        "colomnDefs": [{
-            "targets": [0, 8],
-            "orderable": false,
-        }, ],
-    });
-}
-
-$(document).ready(function() {
-    listDataBarang();
-});
-
-
-$(document).ready(function() {
-
-    $('#tambahBarang').click(function(e) {
-        e.preventDefault();
-        $.ajax({
-            type: "post",
-            url: "<?= base_url() ?>/barang/formtambah",
-            dataType: "json",
-            success: function(response) {
-                if (response.data) {
-                    $('.viewmodal').html(response.data).show();
-                    $('#modalTambah').modal('show');
-                }
+    function listDataBarang() {
+        var table = $('#dataBarang').dataTable({
+            destroy: true,
+            "processing": true,
+            "serverSide": true,
+            "order": [],
+            "ajax": {
+                "url": "<?= base_url() ?>/barang/listData",
+                "type": "POST",
             },
-            error: function(xhr, ajaxOptions, thrownError) {
-                alert(xhr.status + '\n' + thrownError);
-            }
+            "colomnDefs": [{
+                "targets": [0, 8],
+                "orderable": false,
+            }, ],
         });
+    }
+
+    $(document).ready(function() {
+        listDataBarang();
     });
 
-});
 
-function edit(brgkode) {
-    $.ajax({
-        type: "post",
-        url: "<?= base_url() ?>/barang/formedit/" + brgkode,
-        dataType: "json",
-        success: function(response) {
-            if (response.data) {
-                $('.viewmodal').html(response.data).show();
-                $('#modalEdit').modal('show');
-            }
-        },
-        error: function(xhr, ajaxOptions, thrownError) {
-            alert(xhr.status + '\n' + thrownError);
-        }
-    });
-}
+    $(document).ready(function() {
 
-function hapus(brgkode) {
-
-    Swal.fire({
-        title: 'Hapus Data!',
-        text: "Apakah Anda yakin ingin menghapus ?",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Ya, Hapus!',
-        cancelButtonText: 'Batal'
-    }).then((result) => {
-        if (result.isConfirmed) {
+        $('#tambahBarang').click(function(e) {
+            e.preventDefault();
             $.ajax({
-                url: "<?= base_url() ?>/barang/hapusdata/" + brgkode,
+                type: "post",
+                url: "<?= base_url() ?>/barang/formtambah",
                 dataType: "json",
                 success: function(response) {
-                    if (response.sukses) {
-                        swal.fire(
-                            'Berhasil',
-                            response.sukses,
-                            'success'
-                        ).then((result) => {
-                            window.location.reload();
-                        })
+                    if (response.data) {
+                        $('.viewmodal').html(response.data).show();
+                        $('#modalTambah').modal('show');
                     }
                 },
                 error: function(xhr, ajaxOptions, thrownError) {
                     alert(xhr.status + '\n' + thrownError);
                 }
             });
-        }
-    })
-}
+        });
 
-
-
-function detail(brgkode) {
-    $.ajax({
-        type: "post",
-        url: "<?= base_url() ?>/barang/datadetail/" + brgkode,
-        dataType: "json",
-        success: function(response) {
-            if (response.data) {
-                $('.viewmodal').html(response.data).show();
-                $('#modalEdit').modal('show');
-            }
-        },
-        error: function(xhr, ajaxOptions, thrownError) {
-            alert(xhr.status + '\n' + thrownError);
-        }
     });
-}
+
+    function edit(brgkode) {
+        $.ajax({
+            type: "post",
+            url: "<?= base_url() ?>/barang/formedit/" + brgkode,
+            dataType: "json",
+            success: function(response) {
+                if (response.data) {
+                    $('.viewmodal').html(response.data).show();
+                    $('#modalEdit').modal('show');
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + '\n' + thrownError);
+            }
+        });
+    }
+
+    function hapus(brgkode) {
+
+        Swal.fire({
+            title: 'Hapus Data!',
+            text: "Apakah Anda yakin ingin menghapus ?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: "<?= base_url() ?>/barang/hapusdata/" + brgkode,
+                    dataType: "json",
+                    success: function(response) {
+                        if (response.sukses) {
+                            swal.fire(
+                                'Berhasil',
+                                response.sukses,
+                                'success'
+                            ).then((result) => {
+                                window.location.reload();
+                            })
+                        }
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(xhr.status + '\n' + thrownError);
+                    }
+                });
+            }
+        })
+    }
+
+
+
+    function detail(brgkode) {
+        $.ajax({
+            type: "post",
+            url: "<?= base_url() ?>/barang/datadetail/" + brgkode,
+            dataType: "json",
+            success: function(response) {
+                if (response.data) {
+                    $('.viewmodal').html(response.data).show();
+                    $('#modalEdit').modal('show');
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + '\n' + thrownError);
+            }
+        });
+    }
 </script>
 
 <?= $this->endSection('isi') ?>

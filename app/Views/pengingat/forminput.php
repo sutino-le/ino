@@ -41,6 +41,7 @@
                             <label for="">No. Pengingat</label>
                             <input type="text" name="ingatnomor" id="ingatnomor" value="<?= $ingatnomor ?>"
                                 class="form-control" readonly>
+                            <div class="invalid-feedback errorIngatNomor"></div>
                         </div>
                     </div>
 
@@ -105,8 +106,8 @@
                         <div class="form-group">
                             <label for="">Cari User</label>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Nama User" name="ingatnama"
-                                    id="ingatnama" readonly>
+                                <input type="text" class="form-control" placeholder="Nama User" name="pgtnama"
+                                    id="pgtnama" readonly>
                                 <input type="hidden" name="pgtuser" id="pgtuser">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-primary" type="button" id="tombolCariUser"
@@ -183,7 +184,7 @@
             <div class='col text-right'>
                 <button type="submit" class="btn btn-sm btn-success" id="tombolSelesaiTransaksi"><i
                         class="fa fa-save"></i>
-                    Selesaikan Pemakaian</button>
+                    Selesaikan Pengingat</button>
             </div>
         </div>
     </div>
@@ -202,6 +203,10 @@ function kosong() {
     $('#pgtbrgkode').val('');
     $('#namabarang').val('');
     $('#pgtlocation').val('');
+    $('#pgtnama').val('');
+    $('#pgtuser').val('');
+    $('#pgtawal').val('');
+    $('#pgtakhir').val('');
     $('#pgtketerangan').val('');
     $('#pgtbrgkode').focus();
 }
@@ -333,11 +338,11 @@ function buatNoIngat() {
 
 function simpanItem() {
     let ingatnomor = $('#ingatnomor').val();
+    let pgtbrgkode = $('#pgtbrgkode').val();
+    let pgtlocation = $('#pgtlocation').val();
     let pgtawal = $('#pgtawal').val();
     let pgtakhir = $('#pgtakhir').val();
     let pgtuser = $('#pgtuser').val();
-    let pgtbrgkode = $('#pgtbrgkode').val();
-    let pgtlocation = $('#pgtlocation').val();
     let pgtketerangan = $('#pgtketerangan').val();
 
 
@@ -345,7 +350,7 @@ function simpanItem() {
         type: "post",
         url: "<?= base_url() ?>/pengingat/simpanItem",
         data: {
-            pgtnomor: ingatnomor,
+            ingatnomor: ingatnomor,
             pgtbrgkode: pgtbrgkode,
             pgtlocation: pgtlocation,
             pgtawal: pgtawal,
@@ -358,6 +363,30 @@ function simpanItem() {
 
             if (response.error) {
                 let err = response.error;
+
+                if (err.errIngatNomor) {
+                    $('#ingatnomor').addClass('is-invalid');
+                    $('.errorIngatNomor').html(err.errIngatNomor);
+                } else {
+                    $('#ingatnomor').removeClass('is-invalid');
+                    $('#ingatnomor').addClass('is-valid');
+                }
+
+                if (err.errPgtBrgKode) {
+                    $('#pgtbrgkode').addClass('is-invalid');
+                    $('.errorPgtBrgKode').html(err.errPgtBrgKode);
+                } else {
+                    $('#pgtbrgkode').removeClass('is-invalid');
+                    $('#pgtbrgkode').addClass('is-valid');
+                }
+
+                if (err.errPgtLocation) {
+                    $('#pgtlocation').addClass('is-invalid');
+                    $('.errorPgtLocation').html(err.errPgtLocation);
+                } else {
+                    $('#pgtlocation').removeClass('is-invalid');
+                    $('#pgtlocation').addClass('is-valid');
+                }
 
                 if (err.errPgtAwal) {
                     $('#pgtawal').addClass('is-invalid');
@@ -376,27 +405,11 @@ function simpanItem() {
                 }
 
                 if (err.errPgtUser) {
-                    $('#ingatnama').addClass('is-invalid');
+                    $('#pgtnama').addClass('is-invalid');
                     $('.errorPgtUser').html(err.errPgtUser);
                 } else {
-                    $('#ingatnama').removeClass('is-invalid');
-                    $('#ingatnama').addClass('is-valid');
-                }
-
-                if (err.errPgtBrgKode) {
-                    $('#pgtbrgkode').addClass('is-invalid');
-                    $('.errorPgtBrgKode').html(err.errPgtBrgKode);
-                } else {
-                    $('#pgtbrgkode').removeClass('is-invalid');
-                    $('#pgtbrgkode').addClass('is-valid');
-                }
-
-                if (err.errPgtLocation) {
-                    $('#pgtlocation').addClass('is-invalid');
-                    $('.errorPgtLocation').html(err.errPgtLocation);
-                } else {
-                    $('#pgtlocation').removeClass('is-invalid');
-                    $('#pgtlocation').addClass('is-valid');
+                    $('#pgtnama').removeClass('is-invalid');
+                    $('#pgtnama').addClass('is-valid');
                 }
             }
 
@@ -489,93 +502,56 @@ $(document).ready(function() {
 
 
 
-    $('#tombolEditItem').click(function(e) {
+
+    $('#tombolSelesaiTransaksi').click(function(e) {
         e.preventDefault();
-        $.ajax({
-            type: "post",
-            url: "<?= base_url() ?>/pengingat/editItemPengingat",
-            data: {
 
 
-                pgtid: $('#pgtid').val(),
-                ingatnomor: $('#ingatnomor').val(),
-                pgtawal: $('#pgtawal').val(),
-                pgtakhir: $('#pgtakhir').val(),
-                pgtuser: $('#pgtuser').val(),
-                ingatnama: $('#ingatnama').val(),
-                pgtbrgkode: $('#pgtbrgkode').val(),
-                namabarang: $('#namabarang').val(),
-                pgtlocation: $('#pgtlocation').val(),
-                pgtketerangan: $('#pgtketerangan').val(),
-            },
-            dataType: "json",
-            success: function(response) {
-                if (response.error) {
-                    let err = response.error;
+        let ingatnomor = $('#ingatnomor').val();
 
-                    if (err.errPgtAwal) {
-                        $('#pgtawal').addClass('is-invalid');
-                        $('.errorPgtAwal').html(err.errPgtAwal);
-                    } else {
-                        $('#pgtawal').removeClass('is-invalid');
-                        $('#pgtawal').addClass('is-valid');
+        if (ingatnomor.length == 0) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Oops...',
+                text: 'Maaf, Nomor tidak boleh kosong'
+            })
+        } else {
+            $.ajax({
+                type: "post",
+                url: "<?= base_url() ?>/pengingat/selesaiPengingat",
+                data: {
+                    ingatnomor: $('#ingatnomor').val(),
+                    ingattanggal: $('#ingattanggal').val(),
+                    ingatuser: $('#ingatuser').val(),
+                },
+                dataType: "json",
+                success: function(response) {
+                    if (response.error) {
+                        swal.fire('Error', response.error, 'error');
+                        kosong();
                     }
 
-                    if (err.errPgtAkhir) {
-                        $('#pgtakhir').addClass('is-invalid');
-                        $('.errorPgtAkhir').html(err.errPgtAkhir);
-                    } else {
-                        $('#pgtakhir').removeClass('is-invalid');
-                        $('#pgtakhir').addClass('is-valid');
+                    if (response.sukses) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Berhasil',
+                            text: response.sukses
+                        }).then((resul) => {
+                            if (resul.isConfirmed) {
+                                window.location
+                                    .reload();
+                            }
+                        });
                     }
-
-                    if (err.errPgtUser) {
-                        $('#ingatnama').addClass('is-invalid');
-                        $('.errorPgtUser').html(err.errPgtUser);
-                    } else {
-                        $('#ingatnama').removeClass('is-invalid');
-                        $('#ingatnama').addClass('is-valid');
-                    }
-
-                    if (err.errPgtBrgKode) {
-                        $('#pgtbrgkode').addClass('is-invalid');
-                        $('.errorPgtBrgKode').html(err.errPgtBrgKode);
-                    } else {
-                        $('#pgtbrgkode').removeClass('is-invalid');
-                        $('#pgtbrgkode').addClass('is-valid');
-                    }
-
-                    if (err.errPgtLocation) {
-                        $('#pgtlocation').addClass('is-invalid');
-                        $('.errorPgtLocation').html(err.errPgtLocation);
-                    } else {
-                        $('#pgtlocation').removeClass('is-invalid');
-                        $('#pgtlocation').addClass('is-valid');
-                    }
-
-
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status + '\n' + thrownError);
                 }
+            });
+        }
 
 
-                if (response.sukses) {
-                    swal.fire({
-                        'icon': 'success',
-                        'title': 'Berhasil',
-                        'text': response.sukses
-                    });
-                    kosong();
-                    tampilDataPengingat();
-                    $('#tombolBatal').fadeOut();
-                    $('#tombolEditItem').fadeOut();
-                    $('#pgtbrgkode').prop('readonly', false);
-                    $('#tombolCari').prop('disabled', false);
-                    $('#tombolSimpanItem').fadeIn();
-                }
-            },
-            error: function(xhr, ajaxOptions, thrownError) {
-                alert(xhr.status + '\n' + thrownError);
-            }
-        });
+
     });
 
 });

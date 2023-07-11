@@ -17,13 +17,6 @@ use Config\Services;
 class Pembelian extends BaseController
 {
 
-    public function __construct()
-    {
-        $this->barang = new ModelBarang();
-        $this->pembelian = new ModelPembelian();
-    }
-
-
     public function index()
     {
         $modelSuplier  = new ModelSuplier();

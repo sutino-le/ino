@@ -36,6 +36,12 @@ class ModelPenerimaan extends Model
         return $totalterima;
     }
 
+    public function penerimaanBarang($brgkode)
+    {
+        return $this->table('tanda_terimabarang')->join('barang', 'ttbbrgkode=brgkode')
+            ->where('ttbbrgkode', $brgkode)->get();
+    }
+
 
 
 

@@ -702,12 +702,19 @@ class Pemakaian extends BaseController
                 $no++;
                 $row = [];
 
+                if (empty($list->detpgmjenis)) {
+                    $status = "Belum";
+                } else {
+                    $status = "Sudah dan Kondisi : " . $list->detpgmjenis;
+                }
+
                 $row[] = $no;
                 $row[] = $list->brgnama;
                 $row[] = $list->subkatnama;
                 $row[] = $list->pmktanggal;
                 $row[] = $list->ktp_nama;
-                $row[] = $list->pmkuser;
+                $row[] = $list->pmkketerangan;
+                $row[] = $status;
                 $data[] = $row;
             }
             $output = [

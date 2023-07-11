@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class ModelPengingat extends Model
 {
     protected $table            = 'pengingat';
-    protected $primaryKey       = 'ingatid';
+    protected $primaryKey       = 'ingatnomor';
     protected $allowedFields    = [
         'ingatnomor', 'ingattanggal', 'ingatuser'
     ];

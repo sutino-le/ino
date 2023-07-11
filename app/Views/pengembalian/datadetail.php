@@ -88,6 +88,7 @@ $('#datadetail tbody').on('click', 'tr', function() {
     $('#pgmbrgkode').prop('readonly', true);
     $('#pgmjenis').prop('disabled', true);
     $('#tombolCari').prop('disabled', true);
+    $('#tombolCariBarang').prop('disabled', true);
     $('#tombolSimpanItem').fadeOut();
     ambilDataBarang();
 });
@@ -100,6 +101,7 @@ $(document).on('click', '#tombolBatal', function(e) {
     $('#tombolEditItem').fadeOut();
     $('#pgmbrgkode').prop('readonly', false);
     $('#tombolCari').prop('disabled', false);
+    $('#tombolCariBarang').prop('disabled', false);
     $('#tombolSimpanItem').fadeIn();
 });
 </script>

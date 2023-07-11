@@ -28,10 +28,13 @@ class ModelPemakaian extends Model
         return $this->table('pemakaian')
             ->join('detail_pemakaian', 'nomor=pmknomor')
             ->join('barang', 'pmkbrgkode=brgkode')
+            ->join('kategori', 'brgkatid=katid')
+            ->join('subkategori', 'brgsubkatid=subkatid')
             ->join('satuan', 'brgsatid=satid')
+            ->join('detail_pengembalian', 'pmkid=detpgmpmkid', 'left')
             ->where('pemakai', $ktpnomor)
-            ->orderBy('pmktanggal', 'desc')
-            ->orderBy('brgnama', 'asc')
+            ->orderBy('subkatid', 'asc')
+            ->orderBy('pmkid', 'asc')
             ->get();
     }
 }

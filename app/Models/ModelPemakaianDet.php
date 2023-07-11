@@ -24,4 +24,11 @@ class ModelPemakaianDet extends Model
             ->orderBy('brgnama', 'asc')
             ->get();
     }
+
+
+    public function pemakaianBarang($brgkode)
+    {
+        return $this->table('detail_pemakaian')->join('pemakaian', 'pmknomor=nomor', 'left')->join('biodata_ktp', 'pemakai=ktp_nomor', 'left')->join('barang', 'pmkbrgkode=brgkode')
+            ->where('pmkbrgkode', $brgkode)->get();
+    }
 }

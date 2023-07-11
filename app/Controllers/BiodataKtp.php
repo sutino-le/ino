@@ -18,10 +18,6 @@ use Config\Services;
 
 class BiodataKtp extends BaseController
 {
-    public function __construct()
-    {
-        $this->biodataktp    = new ModelBiodataKtp();
-    }
 
 
     public function index()
@@ -50,6 +46,7 @@ class BiodataKtp extends BaseController
 
                 $tombolEdit = "<button type=\"button\" class=\"btn btn-sm btn-info\" onclick=\"edit('" . $list->ktp_nomor . "')\" title=\"Edit\"><i class='fas fa-edit'></i></button>";
                 $tombolHapus = "<button type=\"button\" class=\"btn btn-sm btn-danger\" onclick=\"hapus('" . $list->ktp_nomor . "')\" title=\"Hapus\"><i class='fas fa-trash-alt'></i></button>";
+                $tombolProfil = "<button type=\"button\" class=\"btn btn-sm btn-success\" onclick=\"detail('" . $list->userid . "')\" title=\"Detail\"><i class='fas fa-search'></i></button>";
 
                 $row[] = $no;
                 $row[] = $list->ktp_nama . '<br>' . $list->ktp_nomor;
@@ -57,7 +54,7 @@ class BiodataKtp extends BaseController
                 $row[] = $list->ktp_kelamin;
                 $row[] = $list->ktp_alamat . ' RT/RW ' . $list->ktp_rt . '/' . $list->ktp_rw . ', Kel. ' . $list->kelurahan . ', Kec. ' . $list->kecamatan . ' - ' . $list->kota_kabupaten . ' - ' . $list->propinsi;
                 $row[] = $list->ktp_hp;
-                $row[] = $tombolEdit . ' ' . $tombolHapus;
+                $row[] = $tombolEdit . ' ' . $tombolHapus . ' ' . $tombolProfil;
                 $data[] = $row;
             }
             $output = [

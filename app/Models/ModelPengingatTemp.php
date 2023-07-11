@@ -26,4 +26,12 @@ class ModelPengingatTemp extends Model
             ->orderBy('pgtid', 'desc')
             ->get();
     }
+
+
+
+
+    public function tampilDataTemp($ingatnomor)
+    {
+        return $this->table('pengingattemp')->join('barang', 'pgtbrgkode=brgkode')->where('pgtnomor', $ingatnomor)->get();
+    }
 }

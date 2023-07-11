@@ -194,7 +194,7 @@ function simpanItem() {
     let pgmjenis = $('#pgmjenis').val();
     let pgmketerangan = $('#pgmketerangan').val();
     let pgmjumlah = $('#pgmjumlah').val();
-    let detpgmpmkid = $('#pgmbrgkode').val();
+    let detpgmpmkid = $('#detpgmpmkid').val();
 
 
     $.ajax({

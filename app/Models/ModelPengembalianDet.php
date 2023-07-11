@@ -31,6 +31,15 @@ class ModelPengembalianDet extends Model
 
     public function tampilDataDet($pgmnomor)
     {
-        return $this->table('detail_pengembalian')->join('barang', 'detpgmbrgkode=brgkode')->where('detpgmnomor', $pgmnomor)->get();
+        return $this->table('detail_pengembalian')
+            ->join('barang', 'detpgmbrgkode=brgkode')
+            ->where('detpgmnomor', $pgmnomor)->get();
+    }
+
+
+    public function pengembalianBarang($brgkode)
+    {
+        return $this->table('detail_pengembalian')->join('pengembalian', 'detpgmnomor=pgmnomor', 'left')->join('biodata_ktp', 'pgmoleh=ktp_nomor', 'left')->join('barang', 'detpgmbrgkode=brgkode')
+            ->where('detpgmbrgkode', $brgkode)->get();
     }
 }

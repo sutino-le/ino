@@ -39,10 +39,8 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Nama Barang</th>
-                    <th>Lokasi</th>
-                    <th>Tgl Awal</th>
-                    <th>Tgl Akhir</th>
+                    <th>Nomor Pengingat</th>
+                    <th>Tanggal</th>
                     <th>User</th>
                     <th>#</th>
                 </tr>
@@ -65,9 +63,9 @@ function listDataPengingat() {
             "url": "<?= base_url() ?>/pengingat/listData",
             "type": "POST",
             "data": {
-                nofaktur: $('#nofaktur').val(),
-                tglawal: $('#tglawal').val(),
-                tglakhir: $('#tglakhir').val(),
+                ingatnomor: $('#ingatnomor').val(),
+                ingattanggal: $('#ingattanggal').val(),
+                ingatuser: $('#ingatuser').val(),
             }
         },
         "colomnDefs": [{
@@ -85,15 +83,6 @@ $(document).ready(function() {
         listDataPengingat();
     });
 });
-
-
-
-function cetak(nottb) {
-    let windowCetak = window.open('<?= base_url() ?>/pengingat/cetakTtb/' + nottb, "Cetak Pengingat Barang",
-        "width=1300, height=600");
-
-    windowCetak.focus();
-}
 </script>
 
 
@@ -113,6 +102,43 @@ $(function() {
     })
 
 })
+
+
+function hapus(ingatnomor) {
+    Swal.fire({
+        title: 'Hapus Pengingat?',
+        text: "Apakah ingin menghapus transaksi !",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Hapus!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: "post",
+                url: "<?= base_url() ?>/pengingat/hapusTransaksi",
+                data: {
+                    ingatnomor: ingatnomor
+                },
+                dataType: "json",
+                success: function(response) {
+                    if (response.sukses) {
+                        swal.fire('Berhasil', response.sukes, 'success');
+                        listDataPengingat();
+                    }
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status + '\n' + thrownError);
+                }
+            });
+        }
+    })
+}
+
+function edit(ingatnomor) {
+    window.location.href = ('<?= base_url() ?>/pengingat/edit/') + ingatnomor;
+}
 </script>
 
 <?= $this->endSection('isi') ?>

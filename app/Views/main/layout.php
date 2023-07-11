@@ -119,6 +119,8 @@
 
                 // if (session()->idlevel == 1) :
                 if (session()->idlevel == 1) {
+
+                    // HR
                     $setting = "show";
                     $levels = "show";
                     $users = "show";
@@ -140,10 +142,13 @@
                     $hrseleksi = "show";
                     $pelamar = "show";
 
+                    // User
                     $master_test = "show";
                     $lowongandaftar = "show";
                     $psikotest = "show";
+                    $perbaikan = "show";
 
+                    // Purchasing
                     $master_barang = "show";
                     $kategori = "show";
                     $subkategori = "show";
@@ -171,6 +176,7 @@
                     $master_pengingat = "show";
                     $pengingat = "show";
                 } else {
+                    // HR
                     $setting = "none";
                     $levels = "none";
                     $users = "none";
@@ -192,10 +198,13 @@
                     $hrseleksi = "none";
                     $pelamar = "none";
 
+                    // User
                     $master_test = "show";
                     $lowongandaftar = "show";
                     $psikotest = "show";
+                    $perbaikan = "show";
 
+                    // Purchasing
                     $master_barang = "none";
                     $kategori = "none";
                     $subkategori = "none";
@@ -454,6 +463,13 @@
                                         class="nav-link <?= ($submenu == 'psikotest') ? 'active' : '' ?>">
                                         <i class="fas fa-file-signature nav-icon text-secondary"></i>
                                         <p>Psikotest</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" style="display: <?= $perbaikan ?>;">
+                                    <a href="<?= site_url('perbaikan/index') ?>"
+                                        class="nav-link <?= ($submenu == 'perbaikan') ? 'active' : '' ?>">
+                                        <i class="fas fa-users-cog nav-icon text-secondary"></i>
+                                        <p>Perbaikan</p>
                                     </a>
                                 </li>
                             </ul>

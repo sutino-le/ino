@@ -1,0 +1,72 @@
+CRITICAL - 2023-01-11 11:06:37 --> Undefined array key 6
+#0 C:\xampp\htdocs\ino\app\Models\ModelPemakaianDetPagination.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 47)
+#1 C:\xampp\htdocs\ino\app\Models\ModelPemakaianDetPagination.php(55): App\Models\ModelPemakaianDetPagination->_get_datatables_query('', '')
+#2 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(698): App\Models\ModelPemakaianDetPagination->get_datatables('', '')
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakai()
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2023-01-11 11:08:14 --> CodeIgniter\Database\BaseBuilder::orderBy(): Argument #1 ($orderBy) must be of type string, null given, called in C:\xampp\htdocs\ino\app\Models\ModelPemakaianDetPagination.php on line 47
+#0 C:\xampp\htdocs\ino\app\Models\ModelPemakaianDetPagination.php(47): CodeIgniter\Database\BaseBuilder->orderBy(NULL, 'asc')
+#1 C:\xampp\htdocs\ino\app\Models\ModelPemakaianDetPagination.php(55): App\Models\ModelPemakaianDetPagination->_get_datatables_query('', '')
+#2 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(698): App\Models\ModelPemakaianDetPagination->get_datatables('', '')
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakai()
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2023-01-11 11:09:09 --> CodeIgniter\Database\BaseBuilder::orderBy(): Argument #1 ($orderBy) must be of type string, null given, called in C:\xampp\htdocs\ino\app\Models\ModelPemakaianDetPagination.php on line 47
+#0 C:\xampp\htdocs\ino\app\Models\ModelPemakaianDetPagination.php(47): CodeIgniter\Database\BaseBuilder->orderBy(NULL, 'asc')
+#1 C:\xampp\htdocs\ino\app\Models\ModelPemakaianDetPagination.php(55): App\Models\ModelPemakaianDetPagination->_get_datatables_query('', '')
+#2 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(698): App\Models\ModelPemakaianDetPagination->get_datatables('', '')
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakai()
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2023-01-11 11:09:30 --> Undefined array key 6
+#0 C:\xampp\htdocs\ino\app\Models\ModelPemakaianDetPagination.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 47)
+#1 C:\xampp\htdocs\ino\app\Models\ModelPemakaianDetPagination.php(55): App\Models\ModelPemakaianDetPagination->_get_datatables_query('', '')
+#2 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(698): App\Models\ModelPemakaianDetPagination->get_datatables('', '')
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakai()
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2023-01-11 11:10:02 --> Undefined array key 6
+#0 C:\xampp\htdocs\ino\app\Models\ModelPemakaianDetPagination.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 47)
+#1 C:\xampp\htdocs\ino\app\Models\ModelPemakaianDetPagination.php(55): App\Models\ModelPemakaianDetPagination->_get_datatables_query('', '')
+#2 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(698): App\Models\ModelPemakaianDetPagination->get_datatables('', '')
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakai()
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2023-01-11 11:26:08 --> Undefined array key 6
+#0 C:\xampp\htdocs\ino\app\Models\ModelPemakaianDetPagination.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 47)
+#1 C:\xampp\htdocs\ino\app\Models\ModelPemakaianDetPagination.php(55): App\Models\ModelPemakaianDetPagination->_get_datatables_query('', '')
+#2 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(698): App\Models\ModelPemakaianDetPagination->get_datatables('', '')
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakai()
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2023-01-11 11:35:06 --> syntax error, unexpected identifier "detail_pengembalian", expecting ")"
+#0 C:\xampp\htdocs\ino\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\ino\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\Mode...')
+#2 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(696): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\Mode...')
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakai()
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2023-01-11 11:56:04 --> Undefined array key 6
+#0 C:\xampp\htdocs\ino\app\Models\ModelPemakaianDetPagination.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 47)
+#1 C:\xampp\htdocs\ino\app\Models\ModelPemakaianDetPagination.php(55): App\Models\ModelPemakaianDetPagination->_get_datatables_query('', '')
+#2 C:\xampp\htdocs\ino\app\Controllers\Pemakaian.php(698): App\Models\ModelPemakaianDetPagination->get_datatables('', '')
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pemakaian->listDataPemakai()
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pemakaian))
+#5 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}

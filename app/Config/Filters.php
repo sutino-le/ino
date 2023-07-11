@@ -49,10 +49,10 @@ class Filters extends BaseConfig
             // 'honeypot',
             // 'secureheaders',
             'filterAdmin' => [
-                'except' => ['/', 'home/*', 'main/*', 'profil/*', 'levels/*', 'users/*', 'wilayah/*', 'lowongan/*', 'soal/*', 'psikotest/*', 'kategori/*', 'subkategori/*', 'satuan/*', 'barang/*', 'pembelian/*', 'penerimaan/*', 'pemakaian/*', 'suplier/*', 'biodataktp/*', 'pengembalian/*', 'finger/*', 'hrbagian/*', 'hrjabatan/*', 'hrjeniskaryawan/*', 'hrjenispkwt/*', 'hrstruktur/*', 'hrpelamar/*', 'pengingat/*',]
+                'except' => ['/', 'home/*', 'main/*', 'profil/*', 'levels/*', 'users/*', 'wilayah/*', 'lowongan/*', 'soal/*', 'psikotest/*', 'kategori/*', 'subkategori/*', 'satuan/*', 'barang/*', 'pembelian/*', 'penerimaan/*', 'pemakaian/*', 'suplier/*', 'biodataktp/*', 'pengembalian/*', 'finger/*', 'hrbagian/*', 'hrjabatan/*', 'hrjeniskaryawan/*', 'hrjenispkwt/*', 'hrstruktur/*', 'hrpelamar/*', 'pengingat/*', 'perbaikan/*',]
             ],
             'filterUser' => [
-                'except' => ['/', 'home/*', 'main/*', 'profil/*', 'wilayah/*', 'lowongan/*',  'psikotest/*',]
+                'except' => ['/', 'home/*', 'main/*', 'profil/*', 'wilayah/*', 'lowongan/*',  'psikotest/*', 'perbaikan/index', 'perbaikan/listdata', 'perbaikan/formtambah', 'perbaikan/simpan',]
             ],
             'toolbar',
         ],

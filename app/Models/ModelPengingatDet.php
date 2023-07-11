@@ -13,9 +13,6 @@ class ModelPengingatDet extends Model
     ];
 
 
-
-
-
     public function tampilDataIngat($ingatnomor)
     {
         return $this->table('pengingatdet')

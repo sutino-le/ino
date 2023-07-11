@@ -134,11 +134,11 @@
         </tr>
         <tr>
             <td>
-                <ul>
-                    <li>Seragam harus sama dengan sample yang kami berikan. Apabila berbeda, kami akan mengembalikan
-                        semua seragam yang berbeda dengan sample.</li>
-                    <li>Maximal pengerjaan seragam 5 minggu (kalender kerja) sejak PO ini diterbitkan.</li>
-                </ul>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
             </td>
             <td></td>
             <td></td>

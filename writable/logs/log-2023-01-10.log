@@ -1,0 +1,77 @@
+CRITICAL - 2023-01-10 13:37:11 --> Trying to access array offset on value of type null
+#0 C:\xampp\htdocs\ino\app\Controllers\Pembelian.php(471): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\xampp\\htdocs...', 471)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pembelian->edit('0901230001')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pembelian))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2023-01-10 13:38:38 --> Unknown column 'pengingat.ingatid' in 'where clause'
+CRITICAL - 2023-01-10 13:38:38 --> Unknown column 'pengingat.ingatid' in 'where clause'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ino\system\Model.php(142): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ino\system\BaseModel.php(523): CodeIgniter\Model->doFind(true, '0901230001')
+#6 C:\xampp\htdocs\ino\app\Controllers\Pengingat.php(396): CodeIgniter\BaseModel->find('0901230001')
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pengingat->edit('0901230001')
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengingat))
+#9 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2023-01-10 13:43:05 --> Unknown column 'pengingat.ingatid' in 'where clause'
+CRITICAL - 2023-01-10 13:43:05 --> Unknown column 'pengingat.ingatid' in 'where clause'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ino\system\Model.php(142): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ino\system\BaseModel.php(523): CodeIgniter\Model->doFind(true, '0901230001')
+#6 C:\xampp\htdocs\ino\app\Controllers\Pengingat.php(396): CodeIgniter\BaseModel->find('0901230001')
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pengingat->edit('0901230001')
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengingat))
+#9 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2023-01-10 13:45:04 --> Unknown column 'pengingat.ingatid' in 'where clause'
+CRITICAL - 2023-01-10 13:45:04 --> Unknown column 'pengingat.ingatid' in 'where clause'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ino\system\Model.php(142): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ino\system\BaseModel.php(523): CodeIgniter\Model->doFind(true, '0901230001')
+#6 C:\xampp\htdocs\ino\app\Controllers\Pengingat.php(396): CodeIgniter\BaseModel->find('0901230001')
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pengingat->edit('0901230001')
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengingat))
+#9 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-01-10 14:09:35 --> Call to undefined method App\Models\ModelPengingatTemp::tampilDataIngat
+#0 C:\xampp\htdocs\ino\app\Controllers\Pengingat.php(276): CodeIgniter\Model->__call('tampilDataIngat', Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pengingat->tampilDataPengingat()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengingat))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2023-01-10 14:09:42 --> Call to undefined method App\Models\ModelPengingatTemp::tampilDataIngat
+#0 C:\xampp\htdocs\ino\app\Controllers\Pengingat.php(276): CodeIgniter\Model->__call('tampilDataIngat', Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pengingat->tampilDataPengingat()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengingat))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2023-01-10 14:10:00 --> Call to undefined method App\Models\ModelPengingatTemp::tampilDataIngat
+#0 C:\xampp\htdocs\ino\app\Controllers\Pengingat.php(276): CodeIgniter\Model->__call('tampilDataIngat', Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pengingat->tampilDataPengingat()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengingat))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2023-01-10 14:10:31 --> Call to undefined method App\Models\ModelPengingatTemp::tampilDataIngat
+#0 C:\xampp\htdocs\ino\app\Controllers\Pengingat.php(276): CodeIgniter\Model->__call('tampilDataIngat', Array)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Pengingat->tampilDataPengingat()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengingat))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}

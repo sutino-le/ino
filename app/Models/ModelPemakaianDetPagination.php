@@ -8,7 +8,7 @@ use CodeIgniter\Model;
 class ModelPemakaianDetPagination extends Model
 {
     protected $table = "pemakaian";
-    protected $column_order = array(null, 'nomor', 'pmktanggal', 'pemakai', null);
+    protected $column_order = array(null, 'nomor', 'pmktanggal', 'pemakai', 'pmkketerangan', 'detpgmjenis');
     protected $column_search = array('nomor', 'pmktanggal', 'pemakai', 'brgnama', 'ktp_nama');
     protected $order = array('nomor' => 'ASC');
     protected $request;
@@ -24,9 +24,9 @@ class ModelPemakaianDetPagination extends Model
     private function _get_datatables_query($tglawal, $tglakhir)
     {
         if ($tglawal == '' && $tglakhir == '') {
-            $this->dt = $this->db->table($this->table)->join('detail_pemakaian', 'nomor=pmknomor', 'left')->join('barang', 'pmkbrgkode=brgkode', 'left')->join('subkategori', 'brgsubkatid=subkatid', 'left')->join('biodata_ktp', 'pemakai=ktp_nomor', 'left');
+            $this->dt = $this->db->table($this->table)->join('detail_pemakaian', 'nomor=pmknomor', 'left')->join('barang', 'pmkbrgkode=brgkode', 'left')->join('subkategori', 'brgsubkatid=subkatid', 'left')->join('biodata_ktp', 'pemakai=ktp_nomor', 'left')->join('detail_pengembalian', 'pmkid=detpgmpmkid', 'left');
         } else {
-            $this->dt = $this->db->table($this->table)->join('detail_pemakaian', 'nomor=pmknomor', 'left')->join('barang', 'pmkbrgkode=brgkode', 'left')->join('subkategori', 'brgsubkatid=subkatid', 'left')->join('biodata_ktp', 'pemakai=ktp_nomor', 'left')->where('pmktanggal >=', $tglawal)->where('pmktanggal <=', $tglakhir);
+            $this->dt = $this->db->table($this->table)->join('detail_pemakaian', 'nomor=pmknomor', 'left')->join('barang', 'pmkbrgkode=brgkode', 'left')->join('subkategori', 'brgsubkatid=subkatid', 'left')->join('biodata_ktp', 'pemakai=ktp_nomor', 'left')->join('detail_pengembalian', 'pmkid=detpgmpmkid', 'left')->where('pmktanggal >=', $tglawal)->where('pmktanggal <=', $tglakhir);
         }
         $i = 0;
         foreach ($this->column_search as $item) {
@@ -66,9 +66,9 @@ class ModelPemakaianDetPagination extends Model
     public function count_all($tglawal, $tglakhir)
     {
         if ($tglawal == '' && $tglakhir == '') {
-            $tbl_storage = $this->db->table($this->table)->join('detail_pemakaian', 'nomor=pmknomor', 'left')->join('barang', 'pmkbrgkode=brgkode', 'left')->join('subkategori', 'brgsubkatid=subkatid', 'left')->join('biodata_ktp', 'pemakai=ktp_nomor', 'left');
+            $tbl_storage = $this->db->table($this->table)->join('detail_pemakaian', 'nomor=pmknomor', 'left')->join('barang', 'pmkbrgkode=brgkode', 'left')->join('subkategori', 'brgsubkatid=subkatid', 'left')->join('biodata_ktp', 'pemakai=ktp_nomor', 'left')->join('detail_pengembalian', 'pmkid=detpgmpmkid', 'left');
         } else {
-            $tbl_storage = $this->db->table($this->table)->join('detail_pemakaian', 'nomor=pmknomor', 'left')->join('barang', 'pmkbrgkode=brgkode', 'left')->join('subkategori', 'brgsubkatid=subkatid', 'left')->join('biodata_ktp', 'pemakai=ktp_nomor', 'left')->where('pmktanggal >=', $tglawal)->where('pmktanggal <=', $tglakhir);
+            $tbl_storage = $this->db->table($this->table)->join('detail_pemakaian', 'nomor=pmknomor', 'left')->join('barang', 'pmkbrgkode=brgkode', 'left')->join('subkategori', 'brgsubkatid=subkatid', 'left')->join('biodata_ktp', 'pemakai=ktp_nomor', 'left')->join('detail_pengembalian', 'pmkid=detpgmpmkid', 'left')->where('pmktanggal >=', $tglawal)->where('pmktanggal <=', $tglakhir);
         }
 
         return $tbl_storage->countAllResults();

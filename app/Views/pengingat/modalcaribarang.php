@@ -63,7 +63,7 @@ function listDataBarang() {
 }
 
 function pilih(id) {
-    $('#ingatkode').val(id);
+    $('#pgtbrgkode').val(id);
     $('#modalcaribarang').on('hidden.bs.modal', function(event) {
         ambilDataBarang();
     });

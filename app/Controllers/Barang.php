@@ -5,22 +5,18 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\ModelBarang;
 use App\Models\ModelBarangPagination;
+use App\Models\ModelDetailPembelian;
 use App\Models\ModelKategori;
+use App\Models\ModelPemakaianDet;
 use App\Models\ModelPembelian;
+use App\Models\ModelPenerimaan;
+use App\Models\ModelPengembalianDet;
 use App\Models\ModelSatuan;
 use App\Models\ModelSubKategori;
 use Config\Services;
 
 class Barang extends BaseController
 {
-
-    public function __construct()
-    {
-        $this->barang = new ModelBarang();
-        $this->kategori = new ModelKategori();
-        $this->subkategori = new ModelSubKategori();
-        $this->satuan = new ModelSatuan();
-    }
 
 
     public function index()
@@ -83,10 +79,15 @@ class Barang extends BaseController
 
     public function formtambah()
     {
+
+        $modelKategori = new ModelKategori();
+        $modelSubKategori = new ModelSubKategori();
+        $modelSatuan = new ModelSatuan();
+
         $data = [
-            'kategori'      => $this->kategori->findAll(),
-            'subkategori'   => $this->subkategori->findAll(),
-            'satuan'        => $this->satuan->findAll(),
+            'kategori'      => $modelKategori->findAll(),
+            'subkategori'   => $modelSubKategori->findAll(),
+            'satuan'        => $modelSatuan->findAll(),
         ];
 
         $json = [
@@ -149,7 +150,9 @@ class Barang extends BaseController
                     ]
                 ];
             } else {
-                $this->barang->insert([
+
+                $modelBarang = new ModelBarang();
+                $modelBarang->insert([
                     'brgnama'               => $this->request->getPost('brgnama'),
                     'brgkatid'              => $this->request->getPost('brgkatid'),
                     'brgsubkatid'           => $this->request->getPost('brgsubkatid'),
@@ -174,10 +177,17 @@ class Barang extends BaseController
 
     public function formedit($brgkode)
     {
-        $cekBarang = $this->barang->find($brgkode);
-        $cekKategori = $this->kategori->find($cekBarang['brgkatid']);
-        $cekSubKategori = $this->subkategori->find($cekBarang['brgsubkatid']);
-        $cekSatuan = $this->satuan->find($cekBarang['brgsatid']);
+
+        $modelBarang = new ModelBarang();
+        $modelKategori = new ModelKategori();
+        $modelSubKategori = new ModelSubKategori();
+        $modelSatuan = new ModelSatuan();
+
+
+        $cekBarang = $modelBarang->find($brgkode);
+        $cekKategori = $modelKategori->find($cekBarang['brgkatid']);
+        $cekSubKategori = $modelSubKategori->find($cekBarang['brgsubkatid']);
+        $cekSatuan = $modelSatuan->find($cekBarang['brgsatid']);
 
 
         $data = [
@@ -196,9 +206,9 @@ class Barang extends BaseController
             'brgharga'          => $cekBarang['brgharga'],
             'brggambar'         => $cekBarang['brggambar'],
             'brgstok'           => $cekBarang['brgstok'],
-            'kategori'          => $this->kategori->findAll(),
-            'subkategori'       => $this->subkategori->findAll(),
-            'satuan'            => $this->satuan->findAll(),
+            'kategori'          => $modelKategori->findAll(),
+            'subkategori'       => $modelSubKategori->findAll(),
+            'satuan'            => $modelSatuan->findAll(),
         ];
 
         $json = [
@@ -221,6 +231,9 @@ class Barang extends BaseController
             $brglebar       = $this->request->getPost('brglebar');
             $brgtinggi      = $this->request->getPost('brgtinggi');
             $brgharga       = $this->request->getPost('brgharga');
+
+
+            $modelBarang = new ModelBarang();
 
             $validation = \Config\Services::validation();
             $valid = $this->validate([
@@ -273,7 +286,7 @@ class Barang extends BaseController
                 ];
             } else {
 
-                $this->barang->update($brgkode, [
+                $modelBarang->update($brgkode, [
                     'brgnama'               => $brgnama,
                     'brgkatid'              => $brgkatid,
                     'brgsubkatid'           => $brgsubkatid,
@@ -296,7 +309,10 @@ class Barang extends BaseController
 
     public function hapusdata($brgkode)
     {
-        $this->barang->delete($brgkode);
+
+        $modelBarang = new ModelBarang();
+
+        $modelBarang->delete($brgkode);
 
         $json = [
             'sukses' => 'Data berhasil dihapus'
@@ -308,10 +324,29 @@ class Barang extends BaseController
 
     public function datadetail($brgkode)
     {
-        $cekBarang = $this->barang->find($brgkode);
-        $cekKategori = $this->kategori->find($cekBarang['brgkatid']);
-        $cekSubKategori = $this->subkategori->find($cekBarang['brgsubkatid']);
-        $cekSatuan = $this->satuan->find($cekBarang['brgsatid']);
+
+        $modelBarang = new ModelBarang();
+        $modelKategori = new ModelKategori();
+        $modelSubKategori = new ModelSubKategori();
+        $modelSatuan = new ModelSatuan();
+
+        // ngambil data penerimaan atau TTB
+        $modelPenerimaan = new ModelPenerimaan();
+        $cekPenerimaan = $modelPenerimaan->penerimaanBarang($brgkode);
+
+        // ngambil data pemakaian
+        $modelPemakaian = new ModelPemakaianDet();
+        $cekPemakaian = $modelPemakaian->pemakaianBarang($brgkode);
+
+        // ngambil data pengembalian
+        $modelPengembalian = new ModelPengembalianDet();
+        $cekPengembalian = $modelPengembalian->pengembalianBarang($brgkode);
+
+
+        $cekBarang = $modelBarang->find($brgkode);
+        $cekKategori = $modelKategori->find($cekBarang['brgkatid']);
+        $cekSubKategori = $modelSubKategori->find($cekBarang['brgsubkatid']);
+        $cekSatuan = $modelSatuan->find($cekBarang['brgsatid']);
 
 
         $data = [
@@ -330,13 +365,16 @@ class Barang extends BaseController
             'brgharga'          => $cekBarang['brgharga'],
             'brggambar'         => $cekBarang['brggambar'],
             'brgstok'           => $cekBarang['brgstok'],
-            'kategori'          => $this->kategori->findAll(),
-            'subkategori'       => $this->subkategori->findAll(),
-            'satuan'            => $this->satuan->findAll(),
+            'kategori'          => $modelKategori->findAll(),
+            'subkategori'       => $modelSubKategori->findAll(),
+            'satuan'            => $modelSatuan->findAll(),
+            'datapenerimaan'    => $cekPenerimaan,
+            'datapemakaian'     => $cekPemakaian,
+            'datapengembalian'  => $cekPengembalian,
         ];
 
         $json = [
-            'data' => view('barang/modaledit', $data)
+            'data' => view('barang/modaldetail', $data)
         ];
 
         echo json_encode($json);

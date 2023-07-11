@@ -7,10 +7,10 @@ use CodeIgniter\Model;
 
 class ModelPemakaianCariPagination extends Model
 {
-    protected $table = "pemakaian";
-    protected $column_order = array(null, 'nomor', 'pmktanggal', 'pemakai', null);
-    protected $column_search = array('nomor', 'pmktanggal', 'pemakai', 'brgnama', 'ktp_nama');
-    protected $order = array('nomor' => 'ASC');
+    protected $table = "detail_pemakaian";
+    protected $column_order = array(null, 'pmknomor', 'brgnama', 'pmktanggal', 'pmkjumlah', 'ktp_nama', null);
+    protected $column_search = array('pmknomor', 'brgnama', 'pmktanggal', 'pmkjumlah', 'ktp_nama',);
+    protected $order = array('pmknomor' => 'ASC');
     protected $request;
     protected $db;
     protected $dt;
@@ -23,7 +23,7 @@ class ModelPemakaianCariPagination extends Model
     }
     private function _get_datatables_query()
     {
-        $this->dt = $this->db->table($this->table)->join('detail_pemakaian', 'nomor=pmknomor', 'left')->join('barang', 'pmkbrgkode=brgkode', 'left')->join('subkategori', 'brgsubkatid=subkatid', 'left')->join('biodata_ktp', 'pemakai=ktp_nomor', 'left');
+        $this->dt = $this->db->table($this->table)->join('pemakaian', 'pmknomor=nomor', 'left')->join('barang', 'pmkbrgkode=brgkode', 'left')->join('subkategori', 'brgsubkatid=subkatid', 'left')->join('biodata_ktp', 'pemakai=ktp_nomor', 'left');
         $i = 0;
         foreach ($this->column_search as $item) {
             if ($this->request->getPost('search')['value']) {
@@ -61,7 +61,7 @@ class ModelPemakaianCariPagination extends Model
     }
     public function count_all()
     {
-        $tbl_storage = $this->db->table($this->table);
+        $tbl_storage = $this->db->table($this->table)->join('pemakaian', 'pmknomor=nomor', 'left')->join('barang', 'pmkbrgkode=brgkode', 'left')->join('subkategori', 'brgsubkatid=subkatid', 'left')->join('biodata_ktp', 'pemakai=ktp_nomor', 'left');
         return $tbl_storage->countAllResults();
     }
 }

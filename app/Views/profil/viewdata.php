@@ -35,7 +35,8 @@
                             </button>
 
                             <img class=" profile-user-img img-fluid img-circle"
-                                src="<?= base_url() ?>/upload/<?= $ktp_foto ?>" alt="User profile picture">
+                                src="<?= base_url() ?>/upload/<?= ($ktp_foto == "") ? "user.png" : $ktp_foto ?>"
+                                alt="User profile picture">
                         </div>
 
                         <h3 class="profile-username text-center"><?= $ktp_nama ?></h3>
@@ -46,13 +47,13 @@
 
                         <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item">
-                                <b>Followers</b> <a class="float-right">1,322</a>
+                                <b>NPWP</b> <a class="float-right">0</a>
                             </li>
                             <li class="list-group-item">
-                                <b>Following</b> <a class="float-right">543</a>
+                                <b>Rekening</b> <a class="float-right">0</a>
                             </li>
                             <li class="list-group-item">
-                                <b>Friends</b> <a class="float-right">13,287</a>
+                                <b>HP</b> <a class="float-right"><?= $ktp_hp ?></a>
                             </li>
                         </ul>
 

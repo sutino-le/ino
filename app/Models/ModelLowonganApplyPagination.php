@@ -21,7 +21,7 @@ class ModelLowonganApplyPagination extends Model
         $this->db = db_connect();
         $this->request = $request;
 
-        $this->dt = $this->db->table($this->table)->join('biodata_ktp', 'ktp_nomor=applyktp');
+        $this->dt = $this->db->table($this->table)->join('biodata_ktp', 'ktp_nomor=applyktp')->join('lowongan', 'lowonganid=applylowid');
     }
     private function _get_datatables_query()
     {
@@ -62,7 +62,7 @@ class ModelLowonganApplyPagination extends Model
     }
     public function count_all()
     {
-        $tbl_storage = $this->db->table($this->table)->join('biodata_ktp', 'ktp_nomor=applyktp');
+        $tbl_storage = $this->db->table($this->table)->join('biodata_ktp', 'ktp_nomor=applyktp')->join('lowongan', 'lowonganid=applylowid');
         return $tbl_storage->countAllResults();
     }
 }

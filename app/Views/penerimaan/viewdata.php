@@ -33,12 +33,11 @@
                 <label for="">Filter Data</label>
             </div>
             <div class="col">
-                <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"
-                    name="nofaktur" id="nofaktur">
-                    <option value="">Pilih Faktur</option>
+                <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger" name="nofaktur" id="nofaktur">
+                    <option value="">Pilih No. PO</option>
                     <option value="">------------</option>
                     <?php foreach ($datapembelian as $rowfaktur) : ?>
-                    <option value="<?= $rowfaktur['faktur'] ?>"><?= $rowfaktur['faktur'] ?></option>
+                        <option value="<?= $rowfaktur['faktur'] ?>"><?= $rowfaktur['faktur'] ?></option>
                     <?php endforeach ?>
                 </select>
             </div>
@@ -53,8 +52,7 @@
             </div>
         </div>
 
-        <table style="width: 100%;" id="datattb"
-            class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
+        <table style="width: 100%;" id="datattb" class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
             <thead>
                 <tr>
                     <th>No</th>
@@ -72,45 +70,45 @@
     </div>
 </div>
 <script>
-function listDataPenerimaan() {
-    var table = $('#datattb').dataTable({
-        destroy: true,
-        "processing": true,
-        "serverSide": true,
-        "order": [],
-        "ajax": {
-            "url": "<?= base_url() ?>/penerimaan/listData",
-            "type": "POST",
-            "data": {
-                nofaktur: $('#nofaktur').val(),
-                tglawal: $('#tglawal').val(),
-                tglakhir: $('#tglakhir').val(),
-            }
-        },
-        "colomnDefs": [{
-            "targets": [0, 7],
-            "orderable": false,
-        }, ],
-    });
-}
+    function listDataPenerimaan() {
+        var table = $('#datattb').dataTable({
+            destroy: true,
+            "processing": true,
+            "serverSide": true,
+            "order": [],
+            "ajax": {
+                "url": "<?= base_url() ?>/penerimaan/listData",
+                "type": "POST",
+                "data": {
+                    nofaktur: $('#nofaktur').val(),
+                    tglawal: $('#tglawal').val(),
+                    tglakhir: $('#tglakhir').val(),
+                }
+            },
+            "colomnDefs": [{
+                "targets": [0, 7],
+                "orderable": false,
+            }, ],
+        });
+    }
 
-$(document).ready(function() {
-    listDataPenerimaan();
-
-    $('#tombolTampil').click(function(e) {
-        e.preventDefault();
+    $(document).ready(function() {
         listDataPenerimaan();
+
+        $('#tombolTampil').click(function(e) {
+            e.preventDefault();
+            listDataPenerimaan();
+        });
     });
-});
 
 
 
-function cetak(nottb) {
-    let windowCetak = window.open('<?= base_url() ?>/penerimaan/cetakTtb/' + nottb, "Cetak Penerimaan Barang",
-        "width=1300, height=600");
+    function cetak(nottb) {
+        let windowCetak = window.open('<?= base_url() ?>/penerimaan/cetakTtb/' + nottb, "Cetak Penerimaan Barang",
+            "width=1300, height=600");
 
-    windowCetak.focus();
-}
+        windowCetak.focus();
+    }
 </script>
 
 
@@ -120,16 +118,16 @@ function cetak(nottb) {
 <!-- Bootstrap4 Duallistbox -->
 
 <script>
-$(function() {
-    //Initialize Select2 Elements
-    $('.select2').select2()
+    $(function() {
+        //Initialize Select2 Elements
+        $('.select2').select2()
 
-    //Initialize Select2 Elements
-    $('.select2bs4').select2({
-        theme: 'bootstrap4'
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        })
+
     })
-
-})
 </script>
 
 <?= $this->endSection('isi') ?>

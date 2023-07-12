@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\ModelLowonganApply;
 use App\Models\ModelLowonganApplyPagination;
 use Config\Services;
 
@@ -23,8 +24,6 @@ class HrPelamar extends BaseController
 
     public function listData()
     {
-
-
         $request = Services::request();
         $datamodel = new ModelLowonganApplyPagination($request);
         if ($request->getMethod(true) == 'POST') {
@@ -45,7 +44,7 @@ class HrPelamar extends BaseController
                 // }
 
                 $row[] = $no;
-                $row[] = $list->applylowid;
+                $row[] = $list->lowonganjob;
                 $row[] = $list->ktp_nama;
                 $row[] = date('d - M - Y', strtotime($list->applytanggal));
                 $row[] = $tombolEdit . ' ' . $tombolHapus;
@@ -59,5 +58,20 @@ class HrPelamar extends BaseController
             ];
             echo json_encode($output);
         }
+    }
+
+
+
+    public function hapusdata($applyid)
+    {
+        $modelLowonganApply = new ModelLowonganApply();
+        $modelLowonganApply->delete($applyid);
+
+        $json = [
+            'sukses' => 'Data berhasil dihapus'
+        ];
+
+
+        echo json_encode($json);
     }
 }

@@ -10,8 +10,7 @@
     <link href="<?= base_url() ?>/upload/logo.png" rel="apple-touch-icon">
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?= base_url() ?>/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
@@ -29,8 +28,7 @@
     <!-- Bootstrap Color Picker -->
     <link rel="stylesheet" href="<?= base_url() ?>/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet"
-        href="<?= base_url() ?>/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <!-- Select2 -->
     <link rel="stylesheet" href="<?= base_url() ?>/plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
@@ -59,8 +57,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__wobble" src="<?= base_url() ?>/upload/logo.png" alt="AdminLTELogo" height="60"
-                width="60">
+            <img class="animation__wobble" src="<?= base_url() ?>/upload/logo.png" alt="AdminLTELogo" height="60" width="60">
         </div>
 
         <!-- Navbar -->
@@ -93,8 +90,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="<?= base_url() ?>" class="brand-link">
-                <img src="<?= base_url() ?>/upload/logo.png" alt="AdminLTE Logo"
-                    class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="<?= base_url() ?>/upload/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">RSP</span>
             </a>
 
@@ -104,8 +100,7 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?= base_url() ?>/upload/<?= session()->ktp_foto ?>" class="img-circle elevation-2"
-                            alt="User Image">
+                        <img src="<?= base_url() ?>/upload/<?= session()->ktp_foto ?>" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="<?= site_url('profil/index/' . session()->iduser) ?>" class="d-block">
@@ -175,6 +170,63 @@
 
                     $master_pengingat = "show";
                     $pengingat = "show";
+                } else if (session()->idlevel == 3) {
+
+                    // HR
+                    $setting = "none";
+                    $levels = "none";
+                    $users = "none";
+
+                    $master_hr = "none";
+                    $wilayah = "none";
+                    $lowongan = "none";
+                    $soal = "none";
+                    $bagian = "none";
+                    $jabatan = "none";
+                    $jeniskaryawan = "none";
+                    $jenispkwt = "none";
+
+                    $struktur = "none";
+
+                    $biodata = "show";
+                    $biodata_ktp = "show";
+
+                    $hrseleksi = "none";
+                    $pelamar = "none";
+
+                    // User
+                    $master_test = "show";
+                    $lowongandaftar = "show";
+                    $psikotest = "show";
+                    $perbaikan = "show";
+
+                    // Purchasing
+                    $master_barang = "show";
+                    $kategori = "show";
+                    $subkategori = "show";
+                    $satuan = "show";
+                    $barang = "show";
+
+                    $master_po = "show";
+                    $pembelian = "show";
+                    $datapembelian = "show";
+
+                    $master_ttb = "show";
+                    $penerimaan = "show";
+
+                    $master_pm = "show";
+                    $pemakaian = "show";
+                    $datapemakaian = "show";
+
+                    $master_pgm = "show";
+                    $pengembalian = "show";
+                    $datapengembalian = "show";
+
+                    $master_finger = "none";
+                    $finger = "none";
+
+                    $master_pengingat = "show";
+                    $pengingat = "show";
                 } else {
                     // HR
                     $setting = "none";
@@ -234,16 +286,14 @@
                 }
                 ?>
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                        data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                         <li class="nav-header">
                             <hr>HR
                         </li>
 
                         <!-- Setting -->
-                        <li class="nav-item <?= ($menu == 'setting') ? 'menu-open' : '' ?>"
-                            style="display: <?= $setting ?>;">
+                        <li class="nav-item <?= ($menu == 'setting') ? 'menu-open' : '' ?>" style="display: <?= $setting ?>;">
                             <a href="#" class="nav-link <?= ($menu == 'setting') ? 'active' : '' ?>">
                                 <i class="fas fa-cog text-info"></i>
                                 <p>
@@ -253,8 +303,7 @@
                             </a>
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $levels ?>;">
-                                    <a href="<?= site_url('levels/index') ?>"
-                                        class="nav-link <?= ($submenu == 'level') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('levels/index') ?>" class="nav-link <?= ($submenu == 'level') ? 'active' : '' ?>">
                                         <i class="fas fa-network-wired nav-icon text-info"></i>
                                         <p>Levels</p>
                                     </a>
@@ -263,8 +312,7 @@
                             </ul>
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $users ?>;">
-                                    <a href="<?= site_url('users/index') ?>"
-                                        class="nav-link <?= ($submenu == 'user') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('users/index') ?>" class="nav-link <?= ($submenu == 'user') ? 'active' : '' ?>">
                                         <i class="fas fa-user nav-icon text-info"></i>
                                         <p>Users</p>
                                     </a>
@@ -274,8 +322,7 @@
                         </li>
 
                         <!-- Master HR -->
-                        <li class="nav-item <?= ($menu == 'masterhr') ? 'menu-open' : '' ?>"
-                            style="display: <?= $master_hr ?>;">
+                        <li class="nav-item <?= ($menu == 'masterhr') ? 'menu-open' : '' ?>" style="display: <?= $master_hr ?>;">
                             <a href="#" class="nav-link <?= ($menu == 'masterhr') ? 'active' : '' ?>">
                                 <i class="fas fa-database text-primary"></i>
                                 <p>
@@ -285,50 +332,43 @@
                             </a>
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $wilayah ?>;">
-                                    <a href="<?= site_url('wilayah/index') ?>"
-                                        class="nav-link <?= ($submenu == 'wilayah') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('wilayah/index') ?>" class="nav-link <?= ($submenu == 'wilayah') ? 'active' : '' ?>">
                                         <i class="fas fa-map-marked-alt nav-icon text-primary"></i>
                                         <p>Wilayah</p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="display: <?= $lowongan ?>;">
-                                    <a href="<?= site_url('lowongan/index') ?>"
-                                        class="nav-link <?= ($submenu == 'lowongan') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('lowongan/index') ?>" class="nav-link <?= ($submenu == 'lowongan') ? 'active' : '' ?>">
                                         <i class="fas fa-business-time nav-icon text-primary"></i>
                                         <p>Lowongan</p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="display: <?= $soal ?>;">
-                                    <a href="<?= site_url('soal/index') ?>"
-                                        class="nav-link <?= ($submenu == 'soal') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('soal/index') ?>" class="nav-link <?= ($submenu == 'soal') ? 'active' : '' ?>">
                                         <i class="fas fa-file-alt nav-icon text-primary"></i>
                                         <p>Soal</p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="display: <?= $bagian ?>;">
-                                    <a href="<?= site_url('hrbagian/index') ?>"
-                                        class="nav-link <?= ($submenu == 'bagian') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('hrbagian/index') ?>" class="nav-link <?= ($submenu == 'bagian') ? 'active' : '' ?>">
                                         <i class="fas fa-bezier-curve nav-icon text-primary"></i>
                                         <p>Bagian</p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="display: <?= $jabatan ?>;">
-                                    <a href="<?= site_url('hrjabatan/index') ?>"
-                                        class="nav-link <?= ($submenu == 'jabatan') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('hrjabatan/index') ?>" class="nav-link <?= ($submenu == 'jabatan') ? 'active' : '' ?>">
                                         <i class="fas fa-user-tie nav-icon text-primary"></i>
                                         <p>Jabatan</p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="display: <?= $jeniskaryawan ?>;">
-                                    <a href="<?= site_url('hrjeniskaryawan/index') ?>"
-                                        class="nav-link <?= ($submenu == 'jeniskaryawan') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('hrjeniskaryawan/index') ?>" class="nav-link <?= ($submenu == 'jeniskaryawan') ? 'active' : '' ?>">
                                         <i class="fas fa-users-cog nav-icon text-primary"></i>
                                         <p>Jenis Karyawan</p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="display: <?= $jenispkwt ?>;">
-                                    <a href="<?= site_url('hrjenispkwt/index') ?>"
-                                        class="nav-link <?= ($submenu == 'jenispkwt') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('hrjenispkwt/index') ?>" class="nav-link <?= ($submenu == 'jenispkwt') ? 'active' : '' ?>">
                                         <i class="fas fa-file-signature nav-icon text-primary"></i>
                                         <p>Jenis PKWT</p>
                                     </a>
@@ -337,10 +377,8 @@
                         </li>
 
                         <!-- Struktur -->
-                        <li class="nav-item <?= ($menu == 'struktur') ? 'menu-open' : '' ?>"
-                            style="display: <?= $master_hr ?>;">
-                            <a href="<?= site_url('hrstruktur/index') ?>"
-                                class="nav-link <?= ($menu == 'struktur') ? 'active' : '' ?>">
+                        <li class="nav-item <?= ($menu == 'struktur') ? 'menu-open' : '' ?>" style="display: <?= $master_hr ?>;">
+                            <a href="<?= site_url('hrstruktur/index') ?>" class="nav-link <?= ($menu == 'struktur') ? 'active' : '' ?>">
                                 <i class="fas fa-bezier-curve text-lightblue"></i>
                                 <p>
                                     Struktur Organisasi
@@ -349,8 +387,7 @@
                         </li>
 
                         <!-- Biodata -->
-                        <li class="nav-item <?= ($menu == 'biodata') ? 'menu-open' : '' ?>"
-                            style="display: <?= $biodata ?>;">
+                        <li class="nav-item <?= ($menu == 'biodata') ? 'menu-open' : '' ?>" style="display: <?= $biodata ?>;">
                             <a href="#" class="nav-link <?= ($menu == 'biodata') ? 'active' : '' ?>">
                                 <i class="fas fa-users text-warning"></i>
                                 <p>
@@ -360,8 +397,7 @@
                             </a>
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $biodata_ktp ?>;">
-                                    <a href="<?= site_url('biodataktp/index') ?>"
-                                        class="nav-link <?= ($submenu == 'ktp') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('biodataktp/index') ?>" class="nav-link <?= ($submenu == 'ktp') ? 'active' : '' ?>">
                                         <i class="fas fa-id-card nav-icon text-warning"></i>
                                         <p>KTP</p>
                                     </a>
@@ -371,8 +407,7 @@
                         </li>
 
                         <!-- Seleksi -->
-                        <li class="nav-item <?= ($menu == 'seleksi') ? 'menu-open' : '' ?>"
-                            style="display: <?= $hrseleksi ?>;">
+                        <li class="nav-item <?= ($menu == 'seleksi') ? 'menu-open' : '' ?>" style="display: <?= $hrseleksi ?>;">
                             <a href="#" class="nav-link <?= ($menu == 'seleksi') ? 'active' : '' ?>">
                                 <i class="fas fa-user-clock text-secondary"></i>
                                 <p>
@@ -383,8 +418,7 @@
                             <ul class="nav nav-treeview ml-2">
 
                                 <li class="nav-item" style="display: <?= $pelamar ?>;">
-                                    <a href="<?= site_url('hrpelamar/index') ?>"
-                                        class="nav-link <?= ($submenu == 'pelamar') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('hrpelamar/index') ?>" class="nav-link <?= ($submenu == 'pelamar') ? 'active' : '' ?>">
                                         <i class="fas fa-user-friends nav-icon text-secondary"></i>
                                         <p>Pelamar</p>
                                     </a>
@@ -394,8 +428,7 @@
                         </li>
 
                         <!-- Finger -->
-                        <li class="nav-item <?= ($menu == 'finger') ? 'menu-open' : '' ?>"
-                            style="display: <?= $master_finger ?>;">
+                        <li class="nav-item <?= ($menu == 'finger') ? 'menu-open' : '' ?>" style="display: <?= $master_finger ?>;">
                             <a href="#" class="nav-link <?= ($menu == 'finger') ? 'active' : '' ?>">
                                 <i class="fas fa-fingerprint text-success"></i>
                                 <p>
@@ -405,8 +438,7 @@
                             </a>
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $finger ?>;">
-                                    <a href="<?= site_url('finger/index') ?>"
-                                        class="nav-link <?= ($submenu == 'finger') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('finger/index') ?>" class="nav-link <?= ($submenu == 'finger') ? 'active' : '' ?>">
                                         <i class="fas fa-fingerprint nav-icon text-success"></i>
                                         <p>Finger</p>
                                     </a>
@@ -415,8 +447,7 @@
                         </li>
 
                         <!-- pengingat -->
-                        <li class="nav-item <?= ($menu == 'pengingat') ? 'menu-open' : '' ?>"
-                            style="display: <?= $master_pengingat ?>;">
+                        <li class="nav-item <?= ($menu == 'pengingat') ? 'menu-open' : '' ?>" style="display: <?= $master_pengingat ?>;">
                             <a href="#" class="nav-link <?= ($menu == 'pengingat') ? 'active' : '' ?>">
                                 <i class="fas fa-bell text-purple "></i>
                                 <p>
@@ -426,8 +457,7 @@
                             </a>
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $pengingat ?>;">
-                                    <a href="<?= site_url('pengingat/index') ?>"
-                                        class="nav-link <?= ($submenu == 'pengingat') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('pengingat/index') ?>" class="nav-link <?= ($submenu == 'pengingat') ? 'active' : '' ?>">
                                         <i class="fas fa-bell nav-icon text-purple "></i>
                                         <p>pengingat</p>
                                     </a>
@@ -441,8 +471,7 @@
                         </li>
 
                         <!-- Menu -->
-                        <li class="nav-item <?= ($menu == 'lowongan') ? 'menu-open' : '' ?>"
-                            style="display: <?= $master_test ?>;">
+                        <li class="nav-item <?= ($menu == 'lowongan') ? 'menu-open' : '' ?>" style="display: <?= $master_test ?>;">
                             <a href="#" class="nav-link <?= ($menu == 'lowongan') ? 'active' : '' ?>">
                                 <i class="fas fa-align-justify text-secondary"></i>
                                 <p>
@@ -452,22 +481,19 @@
                             </a>
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $lowongandaftar ?>;">
-                                    <a href="<?= site_url('lowongan/lowongandaftar') ?>"
-                                        class="nav-link <?= ($submenu == 'lowongankerja') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('lowongan/lowongandaftar') ?>" class="nav-link <?= ($submenu == 'lowongankerja') ? 'active' : '' ?>">
                                         <i class="fas fa-bars nav-icon text-secondary"></i>
                                         <p>Lowongan Kerja</p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="display: <?= $psikotest ?>;">
-                                    <a href="<?= site_url('psikotest/index') ?>"
-                                        class="nav-link <?= ($submenu == 'psikotest') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('psikotest/index') ?>" class="nav-link <?= ($submenu == 'psikotest') ? 'active' : '' ?>">
                                         <i class="fas fa-file-signature nav-icon text-secondary"></i>
                                         <p>Psikotest</p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="display: <?= $perbaikan ?>;">
-                                    <a href="<?= site_url('perbaikan/index') ?>"
-                                        class="nav-link <?= ($submenu == 'perbaikan') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('perbaikan/index') ?>" class="nav-link <?= ($submenu == 'perbaikan') ? 'active' : '' ?>">
                                         <i class="fas fa-users-cog nav-icon text-secondary"></i>
                                         <p>Perbaikan</p>
                                     </a>
@@ -481,8 +507,7 @@
                         </li>
 
                         <!-- Master Barang -->
-                        <li class="nav-item <?= ($menu == 'masterbarang') ? 'menu-open' : '' ?>"
-                            style="display: <?= $master_barang ?>;">
+                        <li class="nav-item <?= ($menu == 'masterbarang') ? 'menu-open' : '' ?>" style="display: <?= $master_barang ?>;">
                             <a href="#" class="nav-link <?= ($menu == 'masterbarang') ? 'active' : '' ?>">
                                 <i class="fas fa-coins text-warning"></i>
                                 <p>
@@ -492,29 +517,25 @@
                             </a>
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $kategori ?>;">
-                                    <a href="<?= site_url('kategori/index') ?>"
-                                        class="nav-link <?= ($submenu == 'kategori') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('kategori/index') ?>" class="nav-link <?= ($submenu == 'kategori') ? 'active' : '' ?>">
                                         <i class="fas fa-cube nav-icon text-warning"></i>
                                         <p>Kategori</p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="display: <?= $subkategori ?>;">
-                                    <a href="<?= site_url('subkategori/index') ?>"
-                                        class="nav-link <?= ($submenu == 'subkategori') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('subkategori/index') ?>" class="nav-link <?= ($submenu == 'subkategori') ? 'active' : '' ?>">
                                         <i class="fas fa-cubes nav-icon text-warning"></i>
                                         <p>Sub Kategori</p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="display: <?= $satuan ?>;">
-                                    <a href="<?= site_url('satuan/index') ?>"
-                                        class="nav-link <?= ($submenu == 'satuan') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('satuan/index') ?>" class="nav-link <?= ($submenu == 'satuan') ? 'active' : '' ?>">
                                         <i class="fas fa-tag nav-icon text-warning"></i>
                                         <p>Satuan</p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="display: <?= $barang ?>;">
-                                    <a href="<?= site_url('barang/index') ?>"
-                                        class="nav-link <?= ($submenu == 'barang') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('barang/index') ?>" class="nav-link <?= ($submenu == 'barang') ? 'active' : '' ?>">
                                         <i class="fas fa-box-open nav-icon text-warning"></i>
                                         <p>Barang</p>
                                     </a>
@@ -524,8 +545,7 @@
                         </li>
 
                         <!-- Pesanan Pembalian -->
-                        <li class="nav-item <?= ($menu == 'pembelian') ? 'menu-open' : '' ?>"
-                            style="display: <?= $master_po ?>;">
+                        <li class="nav-item <?= ($menu == 'pembelian') ? 'menu-open' : '' ?>" style="display: <?= $master_po ?>;">
                             <a href="#" class="nav-link <?= ($menu == 'pembelian') ? 'active' : '' ?>">
                                 <i class="fas fa-dolly-flatbed text-success"></i>
                                 <p>
@@ -535,15 +555,13 @@
                             </a>
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $pembelian ?>;">
-                                    <a href="<?= site_url('pembelian/index') ?>"
-                                        class="nav-link <?= ($submenu == 'pembelian') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('pembelian/index') ?>" class="nav-link <?= ($submenu == 'pembelian') ? 'active' : '' ?>">
                                         <i class="fas fa-cart-arrow-down nav-icon text-success"></i>
                                         <p>Pembelian</p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="display: <?= $datapembelian ?>;">
-                                    <a href="<?= site_url('pembelian/datapembelian') ?>"
-                                        class="nav-link <?= ($submenu == 'datapembelian') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('pembelian/datapembelian') ?>" class="nav-link <?= ($submenu == 'datapembelian') ? 'active' : '' ?>">
                                         <i class="fas fa-layer-group nav-icon text-success"></i>
                                         <p>Data Pembelian</p>
                                     </a>
@@ -552,8 +570,7 @@
                         </li>
 
                         <!-- Penerimaan Barang -->
-                        <li class="nav-item <?= ($menu == 'penerimaan') ? 'menu-open' : '' ?>"
-                            style="display: <?= $master_ttb ?>;">
+                        <li class="nav-item <?= ($menu == 'penerimaan') ? 'menu-open' : '' ?>" style="display: <?= $master_ttb ?>;">
                             <a href="#" class="nav-link <?= ($menu == 'penerimaan') ? 'active' : '' ?>">
                                 <i class="fas fa-truck-loading text-info"></i>
                                 <p>
@@ -563,15 +580,13 @@
                             </a>
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $penerimaan ?>;">
-                                    <a href="<?= site_url('penerimaan/index') ?>"
-                                        class="nav-link <?= ($submenu == 'penerimaan') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('penerimaan/index') ?>" class="nav-link <?= ($submenu == 'penerimaan') ? 'active' : '' ?>">
                                         <i class="fas fa-hand-holding nav-icon text-info"></i>
                                         <p>Penerimaan</p>
                                     </a>
                                 </li>
                                 <li class="nav-item" style="display: <?= $penerimaan ?>;">
-                                    <a href="<?= site_url('penerimaan/detailttb') ?>"
-                                        class="nav-link <?= ($submenu == 'detailpenerimaan') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('penerimaan/detailttb') ?>" class="nav-link <?= ($submenu == 'detailpenerimaan') ? 'active' : '' ?>">
                                         <i class="fas fa-hand-holding nav-icon text-info"></i>
                                         <p>Detail Penerimaan</p>
                                     </a>
@@ -580,8 +595,7 @@
                         </li>
 
                         <!-- Pemakaian Barang -->
-                        <li class="nav-item <?= ($menu == 'pemakaian') ? 'menu-open' : '' ?>"
-                            style="display: <?= $master_pm ?>;">
+                        <li class="nav-item <?= ($menu == 'pemakaian') ? 'menu-open' : '' ?>" style="display: <?= $master_pm ?>;">
                             <a href="#" class="nav-link <?= ($menu == 'pemakaian') ? 'active' : '' ?>">
                                 <i class="fas fa-retweet text-danger"></i>
                                 <p>
@@ -591,8 +605,7 @@
                             </a>
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $pemakaian ?>;">
-                                    <a href="<?= site_url('pemakaian/index') ?>"
-                                        class="nav-link <?= ($submenu == 'pemakaian') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('pemakaian/index') ?>" class="nav-link <?= ($submenu == 'pemakaian') ? 'active' : '' ?>">
                                         <i class="fas fa-share nav-icon text-danger"></i>
                                         <p>Pemakaian</p>
                                     </a>
@@ -600,8 +613,7 @@
                             </ul>
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $datapemakaian ?>;">
-                                    <a href="<?= site_url('pemakaian/datapemakaian') ?>"
-                                        class="nav-link <?= ($submenu == 'datapemakaian') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('pemakaian/datapemakaian') ?>" class="nav-link <?= ($submenu == 'datapemakaian') ? 'active' : '' ?>">
                                         <i class="fas fa-share-square nav-icon text-danger"></i>
                                         <p>Detail Pemakaian</p>
                                     </a>
@@ -610,8 +622,7 @@
                         </li>
 
                         <!-- Pengembalian Barang -->
-                        <li class="nav-item <?= ($menu == 'pengembalian') ? 'menu-open' : '' ?>"
-                            style="display: <?= $master_pgm ?>;">
+                        <li class="nav-item <?= ($menu == 'pengembalian') ? 'menu-open' : '' ?>" style="display: <?= $master_pgm ?>;">
                             <a href="#" class="nav-link <?= ($menu == 'pengembalian') ? 'active' : '' ?>">
                                 <i class="fas fa-reply-all text-warning"></i>
                                 <p>
@@ -621,8 +632,7 @@
                             </a>
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $pengembalian ?>;">
-                                    <a href="<?= site_url('pengembalian/index') ?>"
-                                        class="nav-link <?= ($submenu == 'pengembalian') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('pengembalian/index') ?>" class="nav-link <?= ($submenu == 'pengembalian') ? 'active' : '' ?>">
                                         <i class="fas fa-reply nav-icon text-warning"></i>
                                         <p>Pengembalian</p>
                                     </a>
@@ -630,8 +640,7 @@
                             </ul>
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item" style="display: <?= $datapengembalian ?>;">
-                                    <a href="<?= site_url('pengembalian/datapengembalian') ?>"
-                                        class="nav-link <?= ($submenu == 'datapengembalian') ? 'active' : '' ?>">
+                                    <a href="<?= site_url('pengembalian/datapengembalian') ?>" class="nav-link <?= ($submenu == 'datapengembalian') ? 'active' : '' ?>">
                                         <i class="fas fa-recycle nav-icon text-warning"></i>
                                         <p>Detail Pengembalian</p>
                                     </a>
@@ -674,8 +683,7 @@
                             ?>
                             <?= $this->endSection('judul') ?>
                             <ol class="breadcrumb float">
-                                <li class="breadcrumb-item"><a
-                                        href="<?= base_url() ?>"><?= $judule; ?><?= $this->renderSection('judul'); ?></a>
+                                <li class="breadcrumb-item"><a href="<?= base_url() ?>"><?= $judule; ?><?= $this->renderSection('judul'); ?></a>
                                 </li>
                                 <li class="breadcrumb-item active">
                                     <?= $subjudule; ?><?= $this->renderSection('subjudul'); ?></li>
@@ -734,9 +742,9 @@
 
 
     <script>
-    $(function() {
-        bsCustomFileInput.init();
-    });
+        $(function() {
+            bsCustomFileInput.init();
+        });
     </script>
 
 </body>

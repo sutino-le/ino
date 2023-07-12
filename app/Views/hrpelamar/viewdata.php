@@ -29,8 +29,7 @@
         <div class="card-body mt-1">
             <div class="table-responsive">
 
-                <table style="width: 100%;" id="datapelamar"
-                    class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
+                <table style="width: 100%;" id="datapelamar" class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -53,26 +52,65 @@
 <div class="viewmodal" style="display: none;"></div>
 
 <script>
-function listData() {
-    var table = $('#datapelamar').dataTable({
-        destroy: true,
-        "processing": true,
-        "serverSide": true,
-        "order": [],
-        "ajax": {
-            "url": "<?= base_url() ?>/hrpelamar/listData",
-            "type": "POST",
-        },
-        "colomnDefs": [{
-            "targets": [0, 4],
-            "orderable": false,
-        }, ],
-    });
-}
+    function listData() {
+        var table = $('#datapelamar').dataTable({
+            destroy: true,
+            "processing": true,
+            "serverSide": true,
+            "order": [],
+            "ajax": {
+                "url": "<?= base_url() ?>/hrpelamar/listData",
+                "type": "POST",
+            },
+            "colomnDefs": [{
+                "targets": [0, 4],
+                "orderable": false,
+            }, ],
+        });
+    }
 
-$(document).ready(function() {
-    listData();
-});
+    $(document).ready(function() {
+        listData();
+    });
+
+
+
+
+
+    function hapus(applyid) {
+
+        Swal.fire({
+            title: 'Hapus Data!',
+            text: "Apakah Anda yakin ingin menghapus ?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: "<?= base_url() ?>/hrpelamar/hapusdata/" + applyid,
+                    dataType: "json",
+                    success: function(response) {
+                        if (response.sukses) {
+                            swal.fire(
+                                'Berhasil',
+                                response.sukses,
+                                'success'
+                            ).then((result) => {
+                                window.location.reload();
+                            })
+                        }
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(xhr.status + '\n' + thrownError);
+                    }
+                });
+            }
+        })
+    }
 </script>
 
 <?= $this->endSection('isi') ?>

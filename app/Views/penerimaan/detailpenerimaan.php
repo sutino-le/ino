@@ -31,7 +31,7 @@
             <div class="col">
                 <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"
                     name="nofaktur" id="nofaktur">
-                    <option value="">Pilih Faktur</option>
+                    <option value="">Pilih No. PO</option>
                     <option value="">------------</option>
                     <?php foreach ($datapembelian as $rowfaktur) : ?>
                     <option value="<?= $rowfaktur['faktur'] ?>"><?= $rowfaktur['faktur'] ?></option>
@@ -55,7 +55,7 @@
                 <tr>
                     <th>No</th>
                     <th>Nomor TTB</th>
-                    <th>Faktur</th>
+                    <th>Nomor PO</th>
                     <th>Tanggal</th>
                     <th>Nama Barang</th>
                     <th>Jumlah</th>

@@ -11,10 +11,6 @@ use Config\Services;
 
 class Lowongan extends BaseController
 {
-    public function __construct()
-    {
-        $this->lowongan = new ModelLowongan();
-    }
 
 
     public function index()
@@ -129,7 +125,8 @@ class Lowongan extends BaseController
                     ]
                 ];
             } else {
-                $this->lowongan->insert([
+                $modelLowongan = new ModelLowongan();
+                $modelLowongan->insert([
                     'lowonganjob'               => $this->request->getPost('lowonganjob'),
                     'lowongandeskripsi'         => $this->request->getPost('summernotedesk'),
                     'lowonganpersyaratan'       => $this->request->getPost('summernotepers'),
@@ -149,7 +146,8 @@ class Lowongan extends BaseController
 
     public function formedit($lowonganid)
     {
-        $cekLoker = $this->lowongan->find($lowonganid);
+        $modelLowongan = new ModelLowongan();
+        $cekLoker = $modelLowongan->find($lowonganid);
         $data = [
             'judul'         => 'Home',
             'subjudul'      => 'Lowongan - Edit',
@@ -165,7 +163,8 @@ class Lowongan extends BaseController
 
     public function hapusdata($lowonganid)
     {
-        $this->lowongan->delete($lowonganid);
+        $modelLowongan = new ModelLowongan();
+        $modelLowongan->delete($lowonganid);
 
         $json = [
             'sukses' => 'Data berhasil dihapus'
@@ -177,8 +176,8 @@ class Lowongan extends BaseController
 
     public function cetaklowongan($lowonganid)
     {
-
-        $cekLoker = $this->lowongan->find($lowonganid);
+        $modelLowongan = new ModelLowongan();
+        $cekLoker = $modelLowongan->find($lowonganid);
         $data = [
             'lowonganjob'           =>  $cekLoker['lowonganjob'],
             'lowongandeskripsi'     =>  $cekLoker['lowongandeskripsi'],
@@ -190,13 +189,15 @@ class Lowongan extends BaseController
 
     public function ubahstatus($lowonganid)
     {
-        $cekLoker = $this->lowongan->find($lowonganid);
+        $modelLowongan = new ModelLowongan();
+
+        $cekLoker = $modelLowongan->find($lowonganid);
         if ($cekLoker['lowonganstatus'] == "Aktif") {
-            $this->lowongan->update($lowonganid, [
+            $modelLowongan->update($lowonganid, [
                 'lowonganstatus' => 'Tidak Aktif'
             ]);
         } else {
-            $this->lowongan->update($lowonganid, [
+            $modelLowongan->update($lowonganid, [
                 'lowonganstatus' => 'Aktif'
             ]);
         }
@@ -233,20 +234,22 @@ class Lowongan extends BaseController
             $applytanggal = date('Y-m-d');
             $modelApply = new ModelLowonganApply();
 
+            // $userktp = session()->userktp;
+
+            // // cek dulu udah pernah ngelamar belom
+            // $cekData = $modelApply->cekApply($userktp, $lowonganid);
+
 
             $modelApply->insert([
                 'applyktp'      => session()->userktp,
                 'applylowid'    => $lowonganid,
                 'applytanggal'  => $applytanggal,
                 'applystatus'   => 'Submit'
-
-
             ]);
 
             $json = [
                 'sukses' => 'Anda berhasil submit'
             ];
-
 
             echo json_encode($json);
         }

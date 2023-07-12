@@ -24,4 +24,11 @@ class ModelLowonganApply extends Model
         endforeach;
         return $jmlApply;
     }
+
+    function cekApply($userktp, $lowonganid)
+    {
+        $query = $this->table('lowongan_apply')
+            ->getWhere(['applyktp' => $userktp])
+            ->getWhere(['applylowid' => $lowonganid]);
+    }
 }

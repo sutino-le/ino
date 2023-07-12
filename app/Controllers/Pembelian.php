@@ -423,6 +423,7 @@ class Pembelian extends BaseController
                 'namasuplier'       => $namaSuplier,
                 'jumlahuang'        => $cekData['jumlahuang'],
                 'sisauang'          => $cekData['sisauang'],
+                'jenispo'           => $cekData['jenis'],
                 'detailbarang'      => $modelDetail->tampilDataDetail($faktur)
             ];
 

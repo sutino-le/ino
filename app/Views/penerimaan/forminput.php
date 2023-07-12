@@ -67,10 +67,10 @@ table#datattb tbody tr:hover {
 
                     <div class="col-lg-3">
                         <div class="form-group">
-                            <label for="">Pilih Faktur</label>
+                            <label for="">Pilih No. PO</label>
                             <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"
                                 name="ttbfaktur" id="ttbfaktur">
-                                <option value="">Pilih Faktur</option>
+                                <option value="">Pilih No. PO</option>
                                 <option value="">------------</option>
                                 <?php foreach ($tampilfaktur as $rowFaktur) : ?>
                                 <option value="<?= $rowFaktur['faktur'] ?>"><?= $rowFaktur['faktur'] ?></option>

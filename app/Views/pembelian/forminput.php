@@ -38,7 +38,7 @@
 
                     <div class="col-lg-3">
                         <div class="form-group">
-                            <label for="">No. Faktur</label>
+                            <label for="">No. PO</label>
                             <input type="number" name="nofaktur" id="nofaktur" value="<?= $nofaktur ?>"
                                 class="form-control" readonly>
                         </div>
@@ -46,7 +46,7 @@
 
                     <div class="col-lg-3">
                         <div class="form-group">
-                            <label for="">Tgl. Faktur</label>
+                            <label for="">Tgl. PO</label>
                             <input type="date" name="tglfaktur" id="tglfaktur" class="form-control"
                                 value="<?= date("Y-m-d") ?>">
                         </div>

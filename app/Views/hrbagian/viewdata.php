@@ -29,8 +29,7 @@
         <div class="card-body mt-1">
             <div class="table-responsive">
 
-                <table style="width: 100%;" id="dataBagian"
-                    class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
+                <table style="width: 100%;" id="dataBagian" class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -53,101 +52,101 @@
 <div class="viewmodal" style="display: none;"></div>
 
 <script>
-function listDataBagian() {
-    var table = $('#dataBagian').dataTable({
-        destroy: true,
-        "processing": true,
-        "serverSide": true,
-        "order": [],
-        "ajax": {
-            "url": "<?= base_url() ?>/hrbagian/listData",
-            "type": "POST",
-        },
-        "colomnDefs": [{
-            "targets": [0, 3],
-            "orderable": false,
-        }, ],
-    });
-}
-
-$(document).ready(function() {
-    listDataBagian();
-});
-
-
-$(document).ready(function() {
-
-    $('#tambahBagian').click(function(e) {
-        e.preventDefault();
-        $.ajax({
-            type: "post",
-            url: "<?= base_url() ?>/hrbagian/formtambah",
-            dataType: "json",
-            success: function(response) {
-                if (response.data) {
-                    $('.viewmodal').html(response.data).show();
-                    $('#modalTambah').modal('show');
-                }
+    function listDataBagian() {
+        var table = $('#dataBagian').dataTable({
+            destroy: true,
+            "processing": true,
+            "serverSide": true,
+            "order": [],
+            "ajax": {
+                "url": "<?= base_url() ?>/hrbagian/listData",
+                "type": "POST",
             },
-            error: function(xhr, ajaxOptions, thrownError) {
-                alert(xhr.status + '\n' + thrownError);
-            }
+            "colomnDefs": [{
+                "targets": [0, 3],
+                "orderable": false,
+            }, ],
         });
+    }
+
+    $(document).ready(function() {
+        listDataBagian();
     });
 
-});
 
-function edit(bagianid) {
-    $.ajax({
-        type: "post",
-        url: "<?= base_url() ?>/hrbagian/formedit/" + bagianid,
-        dataType: "json",
-        success: function(response) {
-            if (response.data) {
-                $('.viewmodal').html(response.data).show();
-                $('#modalEdit').modal('show');
-            }
-        },
-        error: function(xhr, ajaxOptions, thrownError) {
-            alert(xhr.status + '\n' + thrownError);
-        }
-    });
-}
+    $(document).ready(function() {
 
-function hapus(bagianid) {
-
-    Swal.fire({
-        title: 'Hapus Data!',
-        text: "Apakah Anda yakin ingin menghapus ?",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Ya, Hapus!',
-        cancelButtonText: 'Batal'
-    }).then((result) => {
-        if (result.isConfirmed) {
+        $('#tambahBagian').click(function(e) {
+            e.preventDefault();
             $.ajax({
-                url: "<?= base_url() ?>/hrbagian/hapusdata/" + bagianid,
+                type: "post",
+                url: "<?= base_url() ?>/hrbagian/formtambah",
                 dataType: "json",
                 success: function(response) {
-                    if (response.sukses) {
-                        swal.fire(
-                            'Berhasil',
-                            response.sukses,
-                            'success'
-                        ).then((result) => {
-                            window.location.reload();
-                        })
+                    if (response.data) {
+                        $('.viewmodal').html(response.data).show();
+                        $('#modalTambah').modal('show');
                     }
                 },
                 error: function(xhr, ajaxOptions, thrownError) {
                     alert(xhr.status + '\n' + thrownError);
                 }
             });
-        }
-    })
-}
+        });
+
+    });
+
+    function edit(bagianid) {
+        $.ajax({
+            type: "post",
+            url: "<?= base_url() ?>/hrbagian/formedit/" + bagianid,
+            dataType: "json",
+            success: function(response) {
+                if (response.data) {
+                    $('.viewmodal').html(response.data).show();
+                    $('#modalEdit').modal('show');
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + '\n' + thrownError);
+            }
+        });
+    }
+
+    function hapus(bagianid) {
+
+        Swal.fire({
+            title: 'Hapus Data!',
+            text: "Apakah Anda yakin ingin menghapus ?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: "<?= base_url() ?>/hrbagian/hapusdata/" + bagianid,
+                    dataType: "json",
+                    success: function(response) {
+                        if (response.sukses) {
+                            swal.fire(
+                                'Berhasil',
+                                response.sukses,
+                                'success'
+                            ).then((result) => {
+                                window.location.reload();
+                            })
+                        }
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(xhr.status + '\n' + thrownError);
+                    }
+                });
+            }
+        })
+    }
 </script>
 
 <?= $this->endSection('isi') ?>

@@ -18,13 +18,14 @@ class Filters extends BaseConfig
      * @var array
      */
     public $aliases = [
-        'csrf'          => CSRF::class,
-        'toolbar'       => DebugToolbar::class,
-        'honeypot'      => Honeypot::class,
-        'invalidchars'  => InvalidChars::class,
-        'secureheaders' => SecureHeaders::class,
-        'filterAdmin'   => \App\Filters\FilterAdmin::class,
-        'filterUser'    => \App\Filters\FilterUser::class,
+        'csrf'                  => CSRF::class,
+        'toolbar'               => DebugToolbar::class,
+        'honeypot'              => Honeypot::class,
+        'invalidchars'          => InvalidChars::class,
+        'secureheaders'         => SecureHeaders::class,
+        'filterAdmin'           => \App\Filters\FilterAdmin::class,
+        'filterUser'            => \App\Filters\FilterUser::class,
+        'filterUserPurchasing'  => \App\Filters\FilterUserPurchasing::class,
     ];
 
     /**
@@ -43,6 +44,9 @@ class Filters extends BaseConfig
             ],
             'filterUser' => [
                 'except' => ['home/*', 'login/*', '/']
+            ],
+            'filterUserPurchasing' => [
+                'except' => ['home/*', 'login/*', '/']
             ]
         ],
         'after' => [
@@ -53,6 +57,9 @@ class Filters extends BaseConfig
             ],
             'filterUser' => [
                 'except' => ['/', 'home/*', 'main/*', 'profil/*', 'wilayah/*', 'lowongan/*',  'psikotest/*', 'perbaikan/index', 'perbaikan/listdata', 'perbaikan/formtambah', 'perbaikan/simpan',]
+            ],
+            'filterUser' => [
+                'except' => ['/', 'home/*', 'main/*', 'profil/*', 'wilayah/*', 'lowongan/*',  'psikotest/*', 'perbaikan/index', 'perbaikan/listdata', 'perbaikan/formtambah', 'perbaikan/simpan', 'kategori/*', 'subkategori/*', 'satuan/*', 'barang/*', 'pembelian/*', 'penerimaan/*', 'pemakaian/*', 'suplier/*', 'biodataktp/*', 'pengembalian/*',]
             ],
             'toolbar',
         ],

@@ -29,7 +29,8 @@
         <div class="card-body mt-1">
             <div class="table-responsive">
 
-                <table style="width: 100%;" id="dataUsers" class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
+                <table style="width: 100%;" id="dataUsers"
+                    class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -54,87 +55,90 @@
 <div class="viewmodal" style="display: none;"></div>
 
 <script>
-    function listDataUsers() {
-        var table = $('#dataUsers').dataTable({
-            destroy: true,
-            "processing": true,
-            "serverSide": true,
-            "order": [],
-            "ajax": {
-                "url": "<?= base_url() ?>/users/listData",
-                "type": "POST",
-            },
-            "colomnDefs": [{
-                "targets": [0, 6],
-                "orderable": false,
-            }, ],
-        });
-    }
-
-    $(document).ready(function() {
-        listDataUsers();
+function listDataUsers() {
+    var table = $('#dataUsers').dataTable({
+        destroy: true,
+        "processing": true,
+        "serverSide": true,
+        "order": [],
+        "ajax": {
+            "url": "<?= base_url() ?>/users/listData",
+            "type": "POST",
+        },
+        "colomnDefs": [{
+            "targets": [0, 6],
+            "orderable": false,
+        }, ],
     });
+}
+
+$(document).ready(function() {
+    listDataUsers();
+});
 
 
-    $(document).ready(function() {
+$(document).ready(function() {
 
-        $('#tambahUsers').click(function(e) {
-            e.preventDefault();
-            $.ajax({
-                type: "post",
-                url: "<?= base_url() ?>/users/formtambah",
-                dataType: "json",
-                success: function(response) {
-                    if (response.data) {
-                        $('.viewmodal').html(response.data).show();
-                        $('#modalTambah').modal('show');
-                    }
-                },
-                error: function(xhr, ajaxOptions, thrownError) {
-                    alert(xhr.status + '\n' + thrownError);
-                }
-            });
-        });
-
-    });
-
-    function edit(userid) {
+    $('#tambahUsers').click(function(e) {
+        e.preventDefault();
         $.ajax({
             type: "post",
-            url: "<?= base_url() ?>/users/formedit/" + userid,
+            url: "<?= base_url() ?>/users/formtambah",
             dataType: "json",
             success: function(response) {
                 if (response.data) {
                     $('.viewmodal').html(response.data).show();
-                    $('#modalEdit').modal('show');
+                    $('#modalTambah').modal('show');
                 }
             },
             error: function(xhr, ajaxOptions, thrownError) {
                 alert(xhr.status + '\n' + thrownError);
             }
         });
-    }
+    });
 
-    function hapus(userid) {
-        $.ajax({
-            url: "<?= base_url() ?>/users/hapus/" + userid,
-            dataType: "json",
-            success: function(response) {
-                if (response.sukses) {
-                    swal.fire(
-                        'Berhasil',
-                        response.sukses,
-                        'success'
-                    ).then((result) => {
-                        window.location.reload();
-                    })
-                }
-            },
-            error: function(xhr, ajaxOptions, thrownError) {
-                alert(xhr.status + '\n' + thrownError);
+});
+
+function edit(userid) {
+    $.ajax({
+        type: "post",
+        url: "<?= base_url() ?>/users/formedit/" + userid,
+        dataType: "json",
+        success: function(response) {
+            if (response.data) {
+                $('.viewmodal').html(response.data).show();
+                $('#modalEdit').modal('show');
             }
-        });
-    }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(xhr.status + '\n' + thrownError);
+        }
+    });
+}
+
+
+
+
+function hapus(userid) {
+    $.ajax({
+        url: "<?= base_url() ?>/users/hapus/" + userid,
+        dataType: "json",
+        success: function(response) {
+            if (response.sukses) {
+                swal.fire(
+                    'Berhasil',
+                    response.sukses,
+                    'success'
+                ).then((result) => {
+                    window.location.reload();
+                })
+            }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(xhr.status + '\n' + thrownError);
+        }
+    });
+}
 </script>
 
 <?= $this->endSection('isi') ?>

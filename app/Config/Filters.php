@@ -26,6 +26,7 @@ class Filters extends BaseConfig
         'filterAdmin'           => \App\Filters\FilterAdmin::class,
         'filterUser'            => \App\Filters\FilterUser::class,
         'filterUserPurchasing'  => \App\Filters\FilterUserPurchasing::class,
+        'filterUserGudangBB'    => \App\Filters\FilterUserGudangBB::class,
     ];
 
     /**
@@ -47,6 +48,9 @@ class Filters extends BaseConfig
             ],
             'filterUserPurchasing' => [
                 'except' => ['home/*', 'login/*', '/']
+            ],
+            'filterUserGudangBB' => [
+                'except' => ['home/*', 'login/*', '/']
             ]
         ],
         'after' => [
@@ -58,8 +62,11 @@ class Filters extends BaseConfig
             'filterUser' => [
                 'except' => ['/', 'home/*', 'main/*', 'profil/*', 'wilayah/*', 'lowongan/*',  'psikotest/*', 'perbaikan/index', 'perbaikan/listdata', 'perbaikan/formtambah', 'perbaikan/simpan',]
             ],
-            'filterUser' => [
+            'filterUserPurchasing' => [
                 'except' => ['/', 'home/*', 'main/*', 'profil/*', 'wilayah/*', 'lowongan/*',  'psikotest/*', 'perbaikan/index', 'perbaikan/listdata', 'perbaikan/formtambah', 'perbaikan/simpan', 'kategori/*', 'subkategori/*', 'satuan/*', 'barang/*', 'pembelian/*', 'penerimaan/*', 'pemakaian/*', 'suplier/*', 'biodataktp/*', 'pengembalian/*',]
+            ],
+            'filterUserGudangBB' => [
+                'except' => ['/', 'home/*', 'main/*', 'profil/*', 'wilayah/*', 'lowongan/*',  'psikotest/*', 'perbaikan/index', 'perbaikan/listdata', 'perbaikan/formtambah', 'perbaikan/simpan', 'barang/*', 'penerimaan/*', 'pemakaian/*', 'biodataktp/*', 'pengembalian/*',]
             ],
             'toolbar',
         ],

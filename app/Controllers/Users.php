@@ -16,11 +16,6 @@ use Config\Services;
 
 class Users extends BaseController
 {
-    public function __construct()
-    {
-        $this->levels   = new ModelLevels();
-        $this->users    = new ModelUsers();
-    }
 
 
     public function index()
@@ -47,6 +42,8 @@ class Users extends BaseController
                 $no++;
                 $row = [];
 
+
+
                 $tombolEdit = "<button type=\"button\" class=\"btn btn-sm btn-info\" onclick=\"edit('" . $list->userid . "')\" title=\"Edit\"><i class='fas fa-edit'></i></button>";
                 $tombolHapus = "<button type=\"button\" class=\"btn btn-sm btn-danger\" onclick=\"hapus('" . $list->userid . "')\" title=\"Hapus\"><i class='fas fa-trash-alt'></i></button>";
 
@@ -72,9 +69,9 @@ class Users extends BaseController
 
     public function formtambah()
     {
-
+        $modelLevel   = new ModelLevels();
         $data = [
-            'datalevel' => $this->levels->findAll()
+            'datalevel' => $modelLevel->findAll()
         ];
 
         $json = [
@@ -233,8 +230,8 @@ class Users extends BaseController
 
     public function formedit($userid)
     {
-
-        $cekData        = $this->users->find($userid);
+        $modelUser    = new ModelUsers();
+        $cekData        = $modelUser->find($userid);
         if ($cekData) {
 
             $modellevel = new ModelLevels();
@@ -334,7 +331,7 @@ class Users extends BaseController
                 $cekUser = $modelUser->find($userid);
 
 
-                if ($useridlama != $cekUser['userid'] and $cekUser > 0) {
+                if ($useridlama != $userid and $cekUser > 0) {
                     $json = [
                         'error' => [
                             'errUserID'         => 'ID User suda ada...',
@@ -346,7 +343,7 @@ class Users extends BaseController
 
                     $cekKtp = $modelUser->cariKtp($userktp)->getRowArray();
 
-                    if ($userktplama != $cekKtp['userktp'] and $cekKtp > 0) {
+                    if ($userktplama != $userktp and $cekKtp > 0) {
                         $json = [
                             'error' => [
                                 'errUserKtp'       => 'Nomor KTP sudah ada...',
@@ -358,7 +355,7 @@ class Users extends BaseController
                         $cekEmail = $modelUser->cariEmail($useremail)->getRowArray();
 
 
-                        if ($useremaillama != $cekEmail['useremail'] and $cekEmail > 0) {
+                        if ($useremaillama != $useremail and $cekEmail > 0) {
                             $json = [
                                 'error' => [
                                     'errUserEmail'      => 'Email sudah ada...',
@@ -422,7 +419,7 @@ class Users extends BaseController
 
         $modelBiodata = new ModelBiodataKtp();
 
-        $this->users->delete($userid);
+        $modelUser->delete($userid);
 
         $modelBiodata->delete($cekData['userktp']);
 

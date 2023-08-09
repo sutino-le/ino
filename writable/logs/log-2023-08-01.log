@@ -1,0 +1,434 @@
+ERROR - 2023-08-01 08:46:01 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 08:46:01 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 08:46:17 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 08:46:17 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 08:46:21 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 08:46:21 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 08:46:50 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 08:46:50 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 08:50:19 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 08:50:19 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 08:51:15 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 08:51:15 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(78): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 08:51:23 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 08:51:23 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 08:52:08 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 08:52:08 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 08:56:48 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 08:56:49 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 08:57:18 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 08:57:18 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('0108230001', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 09:01:08 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 09:01:08 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 09:01:26 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 09:01:26 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-08-01 09:02:43 --> Undefined variable $tbl_storage
+#0 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 74)
+#1 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+ERROR - 2023-08-01 09:04:39 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 09:04:39 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 09:04:50 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 09:04:50 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 09:05:00 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 09:05:00 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 09:05:40 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 09:05:40 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 09:05:48 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 09:05:48 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 09:06:01 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 09:06:01 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('0108230001', '2023-08-01', '2023-08-01')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 09:06:10 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 09:06:10 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 09:07:06 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 09:07:06 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 09:07:35 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 09:07:35 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 09:11:55 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 09:11:55 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 09:12:42 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 09:12:42 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 09:14:51 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 09:14:51 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 09:15:04 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 09:15:04 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(82): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 09:15:30 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 09:15:30 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-08-01 09:17:40 --> Undefined property: stdClass::$tombolCetak
+#0 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(75): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\xampp\\htdocs...', 75)
+#1 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2023-08-01 09:19:08 --> Call to a member function orderBy() on null
+#0 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(55): App\Models\ModelPenerimaanPagination->_get_datatables_query('', '', '')
+#1 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(62): App\Models\ModelPenerimaanPagination->get_datatables('', '', '')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2023-08-01 09:19:42 --> Call to a member function orderBy() on null
+#0 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(55): App\Models\ModelPenerimaanPagination->_get_datatables_query('', '', '')
+#1 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(62): App\Models\ModelPenerimaanPagination->get_datatables('', '', '')
+#2 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#3 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#4 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+ERROR - 2023-08-01 09:22:33 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 09:22:33 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 09:22:46 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 09:22:46 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(82): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 09:27:15 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 09:27:15 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 09:28:08 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 09:28:08 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-08-01 09:29:07 --> Duplicate column name 'created_at'
+CRITICAL - 2023-08-01 09:29:07 --> Duplicate column name 'created_at'
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ino\app\Models\ModelPenerimaanPagination.php(74): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ino\app\Controllers\Penerimaan.php(80): App\Models\ModelPenerimaanPagination->count_all('', '', '')
+#6 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Penerimaan->listData()
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerimaan))
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}

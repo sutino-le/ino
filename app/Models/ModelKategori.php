@@ -9,4 +9,7 @@ class ModelKategori extends Model
     protected $table            = 'kategori';
     protected $primaryKey       = 'katid';
     protected $allowedFields    = ['katnama'];
+
+    // Dates
+    // protected $useTimestamps = true;
 }

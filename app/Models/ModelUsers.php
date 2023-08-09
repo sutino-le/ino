@@ -12,6 +12,9 @@ class ModelUsers extends Model
         'userid', 'usernama', 'userktp', 'useremail', 'userpassword', 'userlevelid'
     ];
 
+    // Dates
+    // protected $useTimestamps = true;
+
     public function cariUser($idlevel)
     {
         return $this->table('users')->like('userlevelid', $idlevel);

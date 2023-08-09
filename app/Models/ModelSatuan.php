@@ -9,4 +9,7 @@ class ModelSatuan extends Model
     protected $table            = 'satuan';
     protected $primaryKey       = 'satid';
     protected $allowedFields    = ['satnama', 'satinisial'];
+
+    // Dates
+    // protected $useTimestamps = true;
 }

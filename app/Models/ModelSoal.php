@@ -11,4 +11,7 @@ class ModelSoal extends Model
     protected $allowedFields    = [
         'soalper', 'soalkat', 'soalpila', 'soalpilb', 'soalpilc', 'soalpild', 'soalpile', 'soaljaw', 'soalket'
     ];
+
+    // Dates
+    // protected $useTimestamps = true;
 }

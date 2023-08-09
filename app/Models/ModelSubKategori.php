@@ -9,4 +9,7 @@ class ModelSubKategori extends Model
     protected $table            = 'subkategori';
     protected $primaryKey       = 'subkatid';
     protected $allowedFields    = ['subkatnama'];
+
+    // Dates
+    // protected $useTimestamps = true;
 }

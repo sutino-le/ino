@@ -13,6 +13,9 @@ class ModelBarang extends Model
     ];
 
 
+    // Dates
+    // protected $useTimestamps = true;
+
     public function dataBarang()
     {
         return $this->table('barang')->join('kategori', 'katid=brgkatid')->groupby('barang.brgkatid')->get();

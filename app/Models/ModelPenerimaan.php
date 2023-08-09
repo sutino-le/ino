@@ -12,6 +12,9 @@ class ModelPenerimaan extends Model
         'ttbfaktur', 'ttbpembelianid', 'ttbtanggal', 'ttbbrgkode', 'ttbjml', 'ttbpenerima', 'ttbnomor'
     ];
 
+    // Dates
+    // protected $useTimestamps = true;
+
 
 
     public function noTtb($tanggalSekarang)

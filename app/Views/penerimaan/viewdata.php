@@ -86,7 +86,7 @@
                 }
             },
             "colomnDefs": [{
-                "targets": [0, 7],
+                "targets": [0, 2],
                 "orderable": false,
             }, ],
         });

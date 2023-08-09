@@ -12,6 +12,9 @@ class ModelTempPembelian extends Model
         'detfaktur', 'detbrgkode', 'dethargamasuk', 'dethargajual', 'detjml', 'detsubtotal', 'detketerangan'
     ];
 
+    // Dates
+    // protected $useTimestamps = true;
+
     public function tampilDataTemp($nofaktur)
     {
         return $this->table('temp_barangmasuk')->join('barang', 'detbrgkode=brgkode')->where('detfaktur', $nofaktur)->get();

@@ -12,6 +12,9 @@ class ModelLowongan extends Model
         'lowonganid', 'lowonganjob', 'lowongandeskripsi', 'lowonganpersyaratan', 'lowongantanggal', 'lowonganstatus'
     ];
 
+    // Dates
+    // protected $useTimestamps = true;
+
     public function cariData($status)
     {
         return $this->table('lowongan')->where('lowonganstatus', $status)->get();

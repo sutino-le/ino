@@ -12,6 +12,9 @@ class ModelSuplier extends Model
         'supnama', 'suptelp', 'supalamat', 'supnpwp', 'subrekening'
     ];
 
+    // Dates
+    // protected $useTimestamps = true;
+
     public function ambilDataTerakhir()
     {
         return $this->table('suplier')->limit(1)->orderBy('supid', 'Desc')->get();

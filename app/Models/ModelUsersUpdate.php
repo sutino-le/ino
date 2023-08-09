@@ -11,4 +11,7 @@ class ModelUsersUpdate extends Model
     protected $allowedFields    = [
         'userid', 'usernama', 'userktp', 'useremail', 'userpassword', 'userlevelid'
     ];
+
+    // Dates
+    // protected $useTimestamps = true;
 }

@@ -12,6 +12,9 @@ class ModelPengingatDet extends Model
         'pgtnomor', 'pgtbrgkode', 'pgtlocation', 'pgtawal', 'pgtakhir', 'pgtuser', 'pgtstatus', 'pgtketerangan'
     ];
 
+    // Dates
+    // protected $useTimestamps = true;
+
 
     public function tampilDataIngat($ingatnomor)
     {

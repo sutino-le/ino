@@ -11,4 +11,7 @@ class ModelBiodataKtp extends Model
     protected $allowedFields    = [
         'ktp_nomor', 'ktp_nama', 'ktp_tempat_lahir', 'ktp_tanggal_lahir', 'ktp_kelamin', 'ktp_alamat', 'ktp_rt', 'ktp_rw', 'ktp_alamatid', 'ktp_hp', 'ktp_foto'
     ];
+
+    // Dates
+    // protected $useTimestamps = true;
 }

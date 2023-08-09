@@ -11,4 +11,7 @@ class ModelLogin extends Model
     protected $allowedFields    = [
         'userid', 'usernama', 'userpassword', 'userlevelid'
     ];
+
+    // Dates
+    // protected $useTimestamps = true;
 }

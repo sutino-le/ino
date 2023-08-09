@@ -43,8 +43,7 @@
             </div>
         </div>
 
-        <table style="width: 100%;" id="pemakaian"
-            class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
+        <table style="width: 100%;" id="pemakaian" class="table table-sm table-bordered table-hover dataTable dtr-inline collapsed">
             <thead>
                 <tr>
                     <th>No</th>
@@ -63,78 +62,78 @@
     </div>
 </div>
 <script>
-function listData() {
-    var table = $('#pemakaian').dataTable({
-        destroy: true,
-        "processing": true,
-        "serverSide": true,
-        "order": [],
-        "ajax": {
-            "url": "<?= base_url() ?>/pemakaian/listData",
-            "type": "POST",
-            "data": {
-                tglawal: $('#tglawal').val(),
-                tglakhir: $('#tglakhir').val(),
-            }
-        },
-        "colomnDefs": [{
-            "targets": [0, 5],
-            "orderable": false,
-        }, ],
-    });
-}
-
-$(document).ready(function() {
-    listData();
-
-    $('#tombolTampil').click(function(e) {
-        e.preventDefault();
-        listData();
-    });
-});
-
-function cetak(nomor) {
-    let windowCetak = window.open('<?= base_url() ?>/pemakaian/cetakPemakaian/' + nomor, "Cetak Pemakaian",
-        "width=1300, height=800");
-
-    windowCetak.focus();
-}
-
-function hapus(nomor) {
-    Swal.fire({
-        title: 'Hapus Pemakaian?',
-        text: "Apakah ingin menghapus pemakaian !",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Ya, Hapus!'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            $.ajax({
-                type: "post",
-                url: "<?= base_url() ?>/pemakaian/hapusPemakaian",
-                data: {
-                    nomor: nomor
-                },
-                dataType: "json",
-                success: function(response) {
-                    if (response.sukses) {
-                        swal.fire('Berhasil', response.sukes, 'success');
-                        listData();
-                    }
-                },
-                error: function(xhr, ajaxOptions, thrownError) {
-                    alert(xhr.status + '\n' + thrownError);
+    function listData() {
+        var table = $('#pemakaian').dataTable({
+            destroy: true,
+            "processing": true,
+            "serverSide": true,
+            "order": [],
+            "ajax": {
+                "url": "<?= base_url() ?>/pemakaian/listData",
+                "type": "POST",
+                "data": {
+                    tglawal: $('#tglawal').val(),
+                    tglakhir: $('#tglakhir').val(),
                 }
-            });
-        }
-    })
-}
+            },
+            "colomnDefs": [{
+                "targets": [0, 5],
+                "orderable": false,
+            }, ],
+        });
+    }
 
-function edit(nomor) {
-    window.location.href = ('<?= base_url() ?>/pemakaian/edit/') + nomor;
-}
+    $(document).ready(function() {
+        listData();
+
+        $('#tombolTampil').click(function(e) {
+            e.preventDefault();
+            listData();
+        });
+    });
+
+    function cetak(nomor) {
+        let windowCetak = window.open('<?= base_url() ?>/pemakaian/cetakPemakaian/' + nomor, "Cetak Pemakaian",
+            "width=1300, height=800");
+
+        windowCetak.focus();
+    }
+
+    function hapus(nomor) {
+        Swal.fire({
+            title: 'Hapus Pemakaian?',
+            text: "Apakah ingin menghapus pemakaian !",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Hapus!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "post",
+                    url: "<?= base_url() ?>/pemakaian/hapusPemakaian",
+                    data: {
+                        nomor: nomor
+                    },
+                    dataType: "json",
+                    success: function(response) {
+                        if (response.sukses) {
+                            swal.fire('Berhasil', response.sukes, 'success');
+                            listData();
+                        }
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(xhr.status + '\n' + thrownError);
+                    }
+                });
+            }
+        })
+    }
+
+    function edit(nomor) {
+        window.location.href = ('<?= base_url() ?>/pemakaian/edit/') + nomor;
+    }
 </script>
 
 <?= $this->endSection('isi') ?>

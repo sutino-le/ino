@@ -12,6 +12,9 @@ class ModelPembelian extends Model
         'faktur', 'tglfaktur', 'jenis', 'idsup', 'totalharga', 'jumlahuang', 'sisauang'
     ];
 
+    // Dates
+    // protected $useTimestamps = true;
+
 
 
     public function noFaktur($tanggalSekarang)

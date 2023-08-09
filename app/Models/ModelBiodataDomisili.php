@@ -11,4 +11,7 @@ class ModelBiodataDomisili extends Model
     protected $allowedFields    = [
         'domisili_ktp', 'domisili_alamat', 'domisili_rt', 'domisili_rw', 'domisili_wilayah_id'
     ];
+
+    // Dates
+    // protected $useTimestamps = true;
 }

@@ -1,0 +1,14 @@
+ERROR - 2023-08-07 10:12:27 --> Table 'project.detail_pemakaian' doesn't exist
+CRITICAL - 2023-08-07 10:12:27 --> Table 'project.detail_pemakaian' doesn't exist
+#0 C:\xampp\htdocs\ino\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ino\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ino\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ino\system\Model.php(728): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ino\app\Models\ModelPemakaian.php(38): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\ino\app\Controllers\Profil.php(502): App\Models\ModelPemakaian->tampilDataPemakaian('180805120192000...')
+#7 C:\xampp\htdocs\ino\system\CodeIgniter.php(832): App\Controllers\Profil->tampilPemakaian()
+#8 C:\xampp\htdocs\ino\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profil))
+#9 C:\xampp\htdocs\ino\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ino\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}

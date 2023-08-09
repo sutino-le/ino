@@ -12,6 +12,9 @@ class ModelPengingatTemp extends Model
         'pgtnomor', 'pgtbrgkode', 'pgtlocation', 'pgtawal', 'pgtakhir', 'pgtuser', 'pgtstatus', 'pgtketerangan'
     ];
 
+    // Dates
+    // protected $useTimestamps = true;
+
 
 
 

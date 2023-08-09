@@ -12,6 +12,9 @@ class ModelPsikotest extends Model
         'testktp', 'testtanggal', 'testpertid', 'testkuncijawaban', 'testjawab', 'teststatus'
     ];
 
+    // Dates
+    // protected $useTimestamps = true;
+
     public function dataTest($nomorktp)
     {
         return $this->table('psikotest')->where('testktp', $nomorktp)->get();

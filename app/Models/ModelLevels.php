@@ -11,4 +11,7 @@ class ModelLevels extends Model
     protected $allowedFields    = [
         'levelid', 'levelnama'
     ];
+
+    // Dates
+    // protected $useTimestamps = true;
 }

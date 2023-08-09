@@ -12,6 +12,9 @@ class ModelLowonganApply extends Model
         'applyktp', 'applylowid', 'applytanggal', 'applystatus'
     ];
 
+    // Dates
+    // protected $useTimestamps = true;
+
     function cariData($userktp)
     {
         $query = $this->table('lowongan_apply')->getWhere([

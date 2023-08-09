@@ -12,6 +12,9 @@ class ModelDetailPembelian extends Model
         'detfaktur', 'detbrgkode', 'dethargamasuk', 'dethargajual', 'detjml', 'detsubtotal', 'detketerangan'
     ];
 
+    // Dates
+    // protected $useTimestamps = true;
+
     public function dataPembelian()
     {
         return $this->table('detail_barangmasuk')->join('barang', 'brgkode=detbrgkode', 'left')->groupby('detail_barangmasuk.detbrgkode')->get();
